@@ -90,6 +90,6 @@ for iN = 1:length(N)
         % Save
         filename = sprintf('%s/LinearPoisson1dFEP1_K%i_N%i_L%i_J%i.mat', ...
             root, K, N(iN), L(iL), J);
-        save(filename, 'x', 'mu_t', 'Y_t', 'UL', 'alpha_t', 'u_v', 'alpha_v', 'ur_v', 'err');
+        save(filename, 'x', 'mu_t', 'Y_t', 'UL', 'alpha_t', 'mu_v', 'u_v', 'alpha_v', 'ur_v', 'err');
     end
 end
