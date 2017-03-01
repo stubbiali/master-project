@@ -35,9 +35,12 @@ close all
 %           - 'FEP2': quadratic finite elements
 % reducer   method to compute the reduced basis
 %           - 'SVD': Single Value Decomposition
+% sampler   how the shapshot values for $\mu$ should be selected:
+%           - 'unif': uniformly distributed on $[\mu_1,\mu_2]$
+%           - 'rand': drawn from a uniform random distribution on $[\mu_1,\mu_2]$
 % N         number of snapshots
 % L         rank of reduced basis
-% J         number of verification values for $\mu$
+% Nte       number of testing values for $\mu$
 % root      path to folder where storing the output dataset
 
 a = -1;  b = 1;  
@@ -48,16 +51,17 @@ BCLt = 'D';  BCLv = 0;
 BCRt = 'D';  BCRv = 0;
 solver = 'FEP1';
 reducer = 'SVD';
+sampler = {'unif', 'rand'};
 N = [10 25 50 75 100]; 
-L = [3 5 8 10 15];  
-J = 50;
+L = 1:25;  
+Nte = 50;
 root = '../datasets';
 
 %
 % Run
 %
 
-% Set handle to solver function
+% Set handle to solver
 if strcmp(solver,'FEP1')
     solverFcn = @LinearPoisson1dFEP1;
 elseif strcmp(solver,'FEP2')
@@ -69,43 +73,56 @@ if strcmp(reducer,'SVD')
     reducerFcn = @getLinearPoisson1d1pSVDreducedBasis;
 end
 
-% Validation values for $\mu$ drawn from a random uniform distribution on 
+% Testing values for $\mu$ drawn from a random uniform distribution on 
 % $[\mu_1,\mu_2]$
-mu_v = mu1 + (mu2-mu1) * rand(J,1);
+mu_te = mu1 + (mu2-mu1) * rand(Nte,1);
 
-% Evaluate force field for validation values of $\mu$
-g_v = cell(J,1);
-for i = 1:J
-    g_v{i} = @(t) f(t,mu_v(i));
+% Evaluate force field for testing values of $\mu$
+g_te = cell(Nte,1);
+for i = 1:Nte
+    g_te{i} = @(t) f(t,mu_te(i));
 end
 
-for iN = 1:length(N)
-    for iL = 1:length(L)
-        % Compute snapshots and reduced basis
-        [x, mu_t, Y_t, UL] = reducerFcn(mu1, mu2, N(iN), L(iL), ...
+for s = 1:length(sampler)
+    for n = 1:length(N)
+        % Compute snapshots and reduced basis. Since the vectors of the l-rank
+        % basis are also the first l vectors of the (l+n)-rank basis, we get
+        % the basis for the maximum value of L
+        [x, mu_tr, u_tr, UL_xl] = reducerFcn(mu1, mu2, N(n), sampler{s}, max(L), ...
             solverFcn, a, b, K, f, BCLt, BCLv, BCRt, BCRv);
-        
-        % Compute the coefficients of the expansion of the snapshots in 
-        % terms of the reduced basis vectors
-        g_t = cell(N(iN),1);
-        for i = 1:N(iN)
-            g_t{i} = @(t) f(t,mu_t(i));
-        end
-        [x, alpha_t] = solverFcn(a, b, K, g_t, BCLt, BCLv, BCRt, BCRv, UL);
-        
-        % Compute solution through full and reduced solver
-        [x, u_v, alpha_v] = solverFcn(a, b, K, g_v, BCLt, BCLv, BCRt, BCRv, UL);
-        ur_v = UL * alpha_v;
-        
-        % Compute error between full and reduced solutions
-        err = zeros(J,1);
-        for i = 1:J
-            err(i) = norm(u_v(:,i) - ur_v(:,i));
+
+        % Evaluate force field for snapshot values of $\mu$
+        g_tr = cell(N(n),1);
+        for i = 1:N(n)
+            g_tr{i} = @(t) f(t,mu_tr(i));
         end
 
-        % Save
-        filename = sprintf('%s/LinearPoisson1d1p_%s_%s_a%2.2f_b%2.2f_%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_J%i.mat', ...
-            root, solver, reducer, a, b, BCLt, BCLv, BCRt, BCRv, mu1, mu2, K, N(iN), L(iL), J);
-        save(filename, 'x', 'mu_t', 'Y_t', 'UL', 'alpha_t', 'mu_v', 'u_v', 'alpha_v', 'ur_v', 'err');
+        % Compute full solution for testing values of the parameter
+        [x, u_te] = solverFcn(a, b, K, g_te, BCLt, BCLv, BCRt, BCRv);
+
+        for l = 1:length(L)
+            % Compute the coefficients of the expansion of the snapshots in 
+            % terms of the reduced basis vectors
+            [x, alpha_tr] = solverFcn(a, b, K, g_tr, BCLt, BCLv, BCRt, BCRv, UL_xl(:,1:L(l)));
+
+            % Compute reduced solution for testing values of $\mu$
+            [x, alpha_te] = solverFcn(a, b, K, g_te, BCLt, BCLv, BCRt, BCRv, UL_xl(:,1:L(l)));
+            ur_te = UL_xl(:,1:L(l)) * alpha_te;
+
+            % Compute error between full and reduced solutions for testing
+            % values of $\mu$
+            err_svd_abs = zeros(Nte,1);
+            err_svd_rel = zeros(Nte,1);
+            for i = 1:Nte
+                err_svd_abs(i) = norm(u_te(:,i) - ur_te(:,i));
+                err_svd_rel(i) = norm(u_te(:,i) - ur_te(:,i)) / norm(u_te(:,i));
+            end
+
+            % Save
+            filename = sprintf('%s/LinearPoisson1d1p_%s_%s%s_a%2.2f_b%2.2f_%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Nte%i.mat', ...
+                root, solver, reducer, sampler{s}, a, b, BCLt, BCLv, BCRt, BCRv, mu1, mu2, K, N(n), L(l), Nte);
+            UL = UL_xl(:,1:L(l));
+            save(filename, 'x', 'mu_tr', 'u_tr', 'UL', 'alpha_tr', 'mu_te', 'u_te', 'alpha_te', 'ur_te', 'err_svd_abs', 'err_svd_rel');
+        end
     end
 end
