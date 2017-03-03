@@ -7,7 +7,7 @@
 % given by the first L columns of U, i.e. the eigenvectors of $Y Y^T$
 % associated to the L largest eigenvalues.
 %
-% [x, mu, Y, UL] = getLinearPoisson1d1pSVDreducedBasis(mu1, mu2, N, L, solver, a, b, K, f, BCLt, BCLv, BCRt, BCRv)
+% [x, mu, Y, s, UL] = getLinearPoisson1d1pSVDreducedBasis(mu1, mu2, N, L, solver, a, b, K, f, BCLt, BCLv, BCRt, BCRv)
 % \param mu1        lower-bound for $\mu$
 % \param mu2        upper-bound for $\mu$
 % \param N          number of shapshots to compute
@@ -35,9 +35,11 @@
 % \out   x          computational grid
 % \out   mu         values of $\mu$ used to compute the snapshots
 % \out   Y          matrix storing the snaphsots in its columns
+% \out   s          the first L singular values
 % \out   UL         matrix whose columns store the vectors constituing the
 %                   reduced basis
-function [x, mu, Y, UL] = getLinearPoisson1d1pSVDreducedBasis(mu1, mu2, N, sampler, ...
+
+function [x, mu, Y, s, UL] = getLinearPoisson1d1pSVDreducedBasis(mu1, mu2, N, sampler, ...
     L, solver, a, b, K, f, BCLt, BCLv, BCRt, BCRv)
     % Values for the parameter $\mu$
     if strcmp(sampler,'unif')
@@ -58,13 +60,18 @@ function [x, mu, Y, UL] = getLinearPoisson1d1pSVDreducedBasis(mu1, mu2, N, sampl
     [x,Y] = solver(a, b, K, g, BCLt, BCLv, BCRt, BCRv);
         
     % Compute SVD decomposition of Y
-    [U, S, V] = svd(Y);
+    [U,S] = svd(Y);
     
+    % Get the first L singular values
+    s = diag(S);
+    if (N < L)
+        s = [s; zeros(L-N,1)];
+    end
+        
     % Get reduced basis of rank L by retaining only the first L columns of U
-    M = size(U);
-    if (L < M)
-        UL = U(:,1:L);
+    if (L < N)
+        UL = U(:,1:L); 
     else
-        UL = U;
+        UL = U; 
     end
 end

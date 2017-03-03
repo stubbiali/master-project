@@ -36,6 +36,7 @@ close all
 
 a = -1;  b = 1;  K = 100;
 mu1 = -1;  mu2 = 1;
+suffix = '_ter';
 BCLt = 'D';  BCLv = 0;
 BCRt = 'D';  BCRv = 0;
 solver = 'FEP1';
@@ -54,7 +55,7 @@ root = '../datasets';
 % Ntr_v  number of training patterns (row vector)
 % Nva_v  number of validation patterns (row vector, same length as Ntr_v)
 
-Ntr_v = 10:10:80;  Nva_v = ceil(0.25 * Ntr_v);
+Ntr_v = 10:10:80;  Nva_v = ceil(0.3 * Ntr_v);
 
 %
 % Run
@@ -62,9 +63,9 @@ Ntr_v = 10:10:80;  Nva_v = ceil(0.25 * Ntr_v);
 
 % Get training algorithms which has been tested
 filename = sprintf(['%s/LinearPoisson1d1p_%s_%s%s_NNunif_a%2.2f_b%2.2f_%s%2.2f_' ...
-    '%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i.mat'], ...
+    '%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
     root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, ...
-    mu1, mu2, K, N, L, Ntr_v(1), Nva_v(1), Nte);
+    mu1, mu2, K, N, L, Ntr_v(1), Nva_v(1), Nte, suffix);
 load(filename);
 
 % Get optimal number of hidden layers and minimum error for each number of 
@@ -77,18 +78,18 @@ err_opt_rand = zeros(length(Ntr_v),length(trainFcn));
 for i = 1:length(Ntr_v)
     % Uniform sampling
     filename = sprintf(['%s/LinearPoisson1d1p_%s_%s%s_NNunif_a%2.2f_b%2.2f_' ...
-        '%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i.mat'], ...
+        '%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
         root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, mu1, ...
-        mu2, K, N, L, Ntr_v(i), Nva_v(i), Nte);
+        mu2, K, N, L, Ntr_v(i), Nva_v(i), Nte, suffix);
     load(filename); 
     [err_opt_unif(i,:),I] = min(err_opt_local);
     H_opt_unif(i,:) = H(I);
     
     % Random sampling
     filename = sprintf(['%s/LinearPoisson1d1p_%s_%s%s_NNrand_a%2.2f_b%2.2f_' ...
-        '%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i.mat'], ...
+        '%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
         root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, mu1, ...
-        mu2, K, N, L, Ntr_v(i), Nva_v(i), Nte);
+        mu2, K, N, L, Ntr_v(i), Nva_v(i), Nte, suffix);
     load(filename); 
     [err_opt_rand(i,:),I] = min(err_opt_local);
     H_opt_rand(i,:) = H(I);
@@ -157,21 +158,21 @@ eval(str_leg)
 % Ntr   number of training patterns
 % Nva   number of validation patterns
 
-Ntr = 40;  Nva = ceil(0.25*Ntr);
+Ntr = 50;  Nva = ceil(0.3*Ntr);
 
 % Load data for uniform sampling
 filename = sprintf(['%s/LinearPoisson1d1p_%s_%s%s_NNunif_a%2.2f_b%2.2f_%s%2.2f_' ...
-    '%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i.mat'], ...
+    '%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
     root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, mu1, mu2, ...
-    K, N, L, Ntr, Nva, Nte);
+    K, N, L, Ntr, Nva, Nte, suffix);
 load(filename);
 err_opt_local_unif = err_opt_local;
 
 % Load data for random sampling
 filename = sprintf(['%s/LinearPoisson1d1p_%s_%s%s_NNrand_a%2.2f_b%2.2f_%s%2.2f_' ...
-    '%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i.mat'], ...
+    '%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
     root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, mu1, mu2, ...
-    K, N, L, Ntr, Nva, Nte);
+    K, N, L, Ntr, Nva, Nte, suffix);
 load(filename);
 err_opt_local_rand = err_opt_local;
 
@@ -213,13 +214,13 @@ eval(str_leg)
 %               - 'unif': uniformly distributed on $[\mu_1,\mu_2]$
 %               - 'rand': drawn from a uniform random distribution on $[\mu_1,\mu_2]$
 
-Ntr = 40;  Nva = ceil(0.25*Ntr);  sampler_tr = 'unif';
+Ntr = 50;  Nva = ceil(0.3*Ntr);  sampler_tr = 'unif';
 
 % Load data
 filename = sprintf(['%s/LinearPoisson1d1p_%s_%s%s_NN%s_a%2.2f_b%2.2f_%s%2.2f_' ...
-    '%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i.mat'], ...
+    '%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
     root, solver, reducer, sampler, sampler_tr, a, b, BCLt, BCLv, BCRt, BCRv, ...
-    mu1, mu2, K, N, L, Ntr, Nva, Nte);
+    mu1, mu2, K, N, L, Ntr, Nva, Nte, suffix);
 load(filename);
 % Open a new plot window
 figure(4);
@@ -251,13 +252,13 @@ legend('Train', 'Validation', 'Test', 'location', 'best')
 %               - 'unif': uniformly distributed on $[\mu_1,\mu_2]$
 %               - 'rand': drawn from a uniform random distribution on $[\mu_1,\mu_2]$
 
-Ntr = 40;  Nva = ceil(0.25*Ntr);  sampler_tr = 'unif';
+Ntr = 50;  Nva = ceil(0.3*Ntr);  sampler_tr = 'unif';
 
 % Load data
 filename = sprintf(['%s/LinearPoisson1d1p_%s_%s%s_NN%s_a%2.2f_b%2.2f_%s%2.2f_' ...
-    '%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i.mat'], ...
+    '%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
     root, solver, reducer, sampler, sampler_tr, a, b, BCLt, BCLv, BCRt, BCRv, ...
-    mu1, mu2, K, N, L, Ntr, Nva, Nte);
+    mu1, mu2, K, N, L, Ntr, Nva, Nte, suffix);
 load(filename);
 
 % Load training and testing data
@@ -293,7 +294,7 @@ end
 %               - 'unif': uniformly distributed on $[\mu_1,\mu_2]$
 %               - 'rand': drawn from a uniform random distribution on $[\mu_1,\mu_2]$
 
-Ntr = 40;  Nva = ceil(0.25*Ntr);  sampler_tr = 'unif';
+Ntr = 50;  Nva = ceil(0.3*Ntr);  sampler_tr = 'unif';
 
 %
 % Run
@@ -301,9 +302,9 @@ Ntr = 40;  Nva = ceil(0.25*Ntr);  sampler_tr = 'unif';
 
 % Load data
 filename = sprintf(['%s/LinearPoisson1d1p_%s_%s%s_NN%s_a%2.2f_b%2.2f_%s%2.2f_' ...
-    '%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i.mat'], ...
+    '%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
     root, solver, reducer, sampler, sampler_tr, a, b, BCLt, BCLv, BCRt, BCRv, ...
-    mu1, mu2, K, N, L, Ntr, Nva, Nte);
+    mu1, mu2, K, N, L, Ntr, Nva, Nte, suffix);
 load(filename);
 
 % Load training and testing data

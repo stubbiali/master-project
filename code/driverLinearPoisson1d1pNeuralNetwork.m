@@ -61,10 +61,9 @@ close all
 % showWindow    TRUE to open training window, FALSE otherwise
 % tosave        TRUE to store the results in a Matlab dataset, FALSE otherwise
 
-a = -1;  b = 1;  
-K = 100;
-f = @(t,mu) gaussian(t,mu,0.2);  
-mu1 = -1;  mu2 = 1;
+a = -1;  b = 1;  K = 100;
+%f = @(t,mu) gaussian(t,mu,0.2);  mu1 = -1;  mu2 = 1;  suffix = '';
+f = @(t,mu) -(t < mu) + 2*(t >= mu);  mu1 = -1;  mu2 = 1;  suffix = '_ter';
 BCLt = 'D';  BCLv = 0;
 BCRt = 'D';  BCRv = 0;
 solver = 'FEP1';
@@ -75,10 +74,10 @@ root = '../datasets';
 
 H = 1:25;  nruns = 10;
 sampler_tr_v = {'unif', 'rand'};
-Ntr_v = 10:10:80;  Nva_v = ceil(0.25 * Ntr_v);  Nte = 50;
+Ntr_v = 10:10:80;  Nva_v = ceil(0.3 * Ntr_v);  Nte = 50;
 transferFcn = 'tansig';
 trainFcn = {'trainlm', 'trainscg', 'trainbfg'};
-showWindow = false;
+showWindow = true;
 tosave = true;
 
 %
@@ -93,8 +92,10 @@ elseif strcmp(solver,'FEP2')
 end
 
 % Load data for training
-datafile = sprintf('%s/LinearPoisson1d1p_%s_%s%s_a%2.2f_b%2.2f_%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Nte%i.mat', ...
-    root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, mu1, mu2, K, N, L, Nte);
+datafile = sprintf(['%s/LinearPoisson1d1p_%s_%s%s_a%2.2f_b%2.2f_%s%2.2f_' ...
+    '%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Nte%i%s.mat'], ...
+    root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, mu1, mu2, ...
+    K, N, L, Nte, suffix);
 load(datafile);
 
 %
@@ -208,14 +209,18 @@ for s = 1:length(sampler_tr_v)
 
         % Save data
         if tosave
-            filename = sprintf('%s/LinearPoisson1d1p_%s_%s%s_NN%s_a%2.2f_b%2.2f_%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i.mat', ...
-                root, solver, reducer, sampler, sampler_tr, a, b, BCLt, BCLv, BCRt, BCRv, mu1, mu2, K, N, L, Ntr, Nva, Nte);
+            filename = sprintf(['%s/LinearPoisson1d1p_%s_%s%s_NN%s_a%2.2f_' ...
+                'b%2.2f_%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_' ...
+                'Nva%i_Nte%i%s.mat'], ...
+                root, solver, reducer, sampler, sampler_tr, a, b, BCLt, BCLv, ...
+                BCRt, BCRv, mu1, mu2, K, N, L, Ntr, Nva, Nte, suffix);
             save(filename, 'datafile', 'H', 'nruns', 'trainFcn', 'Ntr', 'Nva', 'Nte', ...
                 'err_opt_local', 'net_opt_local', 'tr_opt_local', 'row_opt', 'col_opt');
         end
 
         % Print information about optimal parameters
-        fprintf('Number of training patterns: %i\nOptimal training algorithm: %s\nOptimal number of hidden neurons: %i\nMinimum test error: %5E\n\n', ...
+        fprintf(['Number of training patterns: %i\nOptimal training algorithm: %s\n' ...
+            'Optimal number of hidden neurons: %i\nMinimum test error: %5E\n\n'], ...
             Ntr, trainFcn{col_opt}, H(row_opt), err_opt);
     end
 end

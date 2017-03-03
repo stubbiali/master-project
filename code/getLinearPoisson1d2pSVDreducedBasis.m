@@ -9,7 +9,7 @@
 % is given by the first L columns of U, i.e. the eigenvectors of $Y Y^T$
 % associated to the L largest eigenvalues.
 %
-% [x, mu, nu, Y, UL] = getLinearPoisson1d2pSVDreducedBasis(mu1, mu2, nu1, nu2, ...
+% [x, mu, nu, Y, s, UL] = getLinearPoisson1d2pSVDreducedBasis(mu1, mu2, nu1, nu2, ...
 %   Nmu, Nnu, L, solver, a, b, K, f, BCLt, BCLv, BCRt, BCRv)
 % \param mu1        lower-bound for $\mu$
 % \param mu2        upper-bound for $\mu$
@@ -44,15 +44,25 @@
 % \out   nu         vector (Nnu,1) storing the different values of $\nu$ 
 %                   used to compute the snapshots
 % \out   Y          matrix storing the snapshots in its columns
+% \out   s          the first L singular values
 % \out   UL         matrix whose columns store the vectors constituing the
 %                   reduced basis
 
-function [x, mu, nu, Y, UL] = getLinearPoisson1d2pSVDreducedBasis(mu1, mu2, ...
+function [x, mu, nu, Y, s, UL] = getLinearPoisson1d2pSVDreducedBasis(mu1, mu2, ...
     Nmu, nu1, nu2, Nnu, sampler, L, solver, a, b, K, f, BCLt, BCLv, BCRt)
     % Values for the parameters $\mu$ and $\nu$
     if strcmp(sampler,'unif')
-        mu = linspace(mu1, mu2, Nmu)';  
-        nu = linspace(nu1, nu2, Nnu)';  
+        if (Nmu == 1)
+            mu = 0.5 * (mu1 + mu2);
+        else
+            mu = linspace(mu1, mu2, Nmu)';
+        end
+        
+        if (Nnu == 1)
+            nu = 0.5 * (nu1 + nu2);
+        else
+            nu = linspace(nu1, nu2, Nnu)'; 
+        end
     elseif strcmp(sampler,'rand')
         mu = mu1 + (mu2-mu1) * rand(Nmu,1);
         nu = nu1 + (nu2-nu1) * rand(Nmu,1);
@@ -76,7 +86,7 @@ function [x, mu, nu, Y, UL] = getLinearPoisson1d2pSVDreducedBasis(mu1, mu2, ...
                     Y = zeros(size(y,1),Nmu*Nnu);
                     Y(:,1) = y;
                 else
-                    [x,Y(:,(i-1)*Nmu+j)] = ...
+                    [x,Y(:,(i-1)*Nnu+j)] = ...
                         solver(a, b, K, g{i}, BCLt, BCLv, BCRt, nu(j));
                 end
             end
@@ -94,13 +104,18 @@ function [x, mu, nu, Y, UL] = getLinearPoisson1d2pSVDreducedBasis(mu1, mu2, ...
     end
                         
     % Compute SVD decomposition of Y
-    [U, S, V] = svd(Y);
+    [U,S] = svd(Y);
     
+    % Get the first L singular values
+    s = diag(S);
+    if (size(Y,2) < L)
+        s = [s; zeros(L-size(Y,2),1)];
+    end
+        
     % Get reduced basis of rank L by retaining only the first L columns of U
-    M = size(U);
-    if (L < M)
-        UL = U(:,1:L);
+    if (L < size(Y,2))
+        UL = U(:,1:L); 
     else
-        UL = U;
+        UL = U; 
     end
 end

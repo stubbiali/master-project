@@ -11,13 +11,18 @@
 % \param f      RHS; this may be either an handle function or a cell array
 %               of handle functions; in the latter case, the solution is
 %               computed for each RHS
-% \param BCLt   kind of left boundary condition; 'D' = Dirichlet, 'N' =
-%               Neumann, 'P' = periodic
+% \param BCLt   kind of left boundary condition:
+%               - 'D': Dirichlet
+%               - 'N': Neumann
+%               - 'P': periodic
 % \param BCLv   value of left boundary condition
-% \param BCRt   kind of right boundary condition; 'D' = Dirichlet, 'N' =
-%               Neumann, 'P' = periodic
+% \param BCRt   kind of right boundary condition:
+%               - 'D': Dirichlet
+%               - 'N': Neumann
+%               - 'P': periodic
 % \param BCRv   value of right boundary condition
 % \out   rhs    right-hand side
+
 function rhs = getLinearPoisson1dFEP1rhs(a, b, K, f, BCLt, BCLv, BCRt, BCRv)
     % Build a uniform grid over the domain [a,b]
     h = (b-a) / (K-1);
@@ -47,9 +52,9 @@ function rhs = getLinearPoisson1dFEP1rhs(a, b, K, f, BCLt, BCLv, BCRt, BCRv)
     % Modify RHS applying right boundary conditions
     if strcmp(BCRt,'D')
         rhs(end) = BCRv/h;
-    elseif strcmp(BCRt,'N')
-        rhs(end) = rhs(end) + BCLv;
-    elseif strcmp(BCRt,'P') 
-        rhs(end) = 0;
+    elseif strcmp(BCRt,'N') || strcmp(BCRt,'R')
+        rhs(end) = rhs(end) + BCRv;
+    elseif strcmp(BCRt,'P')
+        rhs(end) = 0;    
     end
 end

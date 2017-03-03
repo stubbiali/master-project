@@ -45,14 +45,16 @@ close all
 
 a = -1;  b = 1;  
 K = 100;
-f = @(t,mu) gaussian(t,mu,0.2);  
-mu1 = -1;  mu2 = 1;
+%f = @(t,mu) gaussian(t,mu,0.2);  mu1 = -1;  mu2 = 1;  suffix = '';
+%f = @(t,mu) 50 * t .* cos(mu*pi*t);  mu1 = 1;  mu2 = 3;  suffix = 'bis';
+f = @(t,mu) -(t < mu) + 2*(t >= mu);  mu1 = -1;  mu2 = 1;  suffix = 'ter';
+
 BCLt = 'D';  BCLv = 0;
 BCRt = 'D';  BCRv = 0;
 solver = 'FEP1';
 reducer = 'SVD';
 sampler = {'unif', 'rand'};
-N = [10 25 50 75 100]; 
+N = [5 10 15 20 25 50 75 100]; 
 L = 1:25;  
 Nte = 50;
 root = '../datasets';
@@ -75,7 +77,8 @@ end
 
 % Testing values for $\mu$ drawn from a random uniform distribution on 
 % $[\mu_1,\mu_2]$
-mu_te = mu1 + (mu2-mu1) * rand(Nte,1);
+load(strcat(root,'/random_numbers.mat'));
+mu_te = mu1 + (mu2-mu1) * random_on_reference_interval_first(1:Nte);
 
 % Evaluate force field for testing values of $\mu$
 g_te = cell(Nte,1);
@@ -83,12 +86,12 @@ for i = 1:Nte
     g_te{i} = @(t) f(t,mu_te(i));
 end
 
-for s = 1:length(sampler)
+for k = 1:length(sampler)
     for n = 1:length(N)
         % Compute snapshots and reduced basis. Since the vectors of the l-rank
         % basis are also the first l vectors of the (l+n)-rank basis, we get
         % the basis for the maximum value of L
-        [x, mu_tr, u_tr, UL_xl] = reducerFcn(mu1, mu2, N(n), sampler{s}, max(L), ...
+        [x, mu_tr, u_tr, s_xl, UL_xl] = reducerFcn(mu1, mu2, N(n), sampler{k}, max(L), ...
             solverFcn, a, b, K, f, BCLt, BCLv, BCRt, BCRv);
 
         % Evaluate force field for snapshot values of $\mu$
@@ -119,10 +122,13 @@ for s = 1:length(sampler)
             end
 
             % Save
-            filename = sprintf('%s/LinearPoisson1d1p_%s_%s%s_a%2.2f_b%2.2f_%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Nte%i.mat', ...
-                root, solver, reducer, sampler{s}, a, b, BCLt, BCLv, BCRt, BCRv, mu1, mu2, K, N(n), L(l), Nte);
-            UL = UL_xl(:,1:L(l));
-            save(filename, 'x', 'mu_tr', 'u_tr', 'UL', 'alpha_tr', 'mu_te', 'u_te', 'alpha_te', 'ur_te', 'err_svd_abs', 'err_svd_rel');
+            filename = sprintf(['%s/LinearPoisson1d1p_%s_%s%s_a%2.2f_b%2.2f_' ...
+                '%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Nte%i_%s.mat'], ...
+                root, solver, reducer, sampler{k}, a, b, BCLt, BCLv, BCRt, ...
+                BCRv, mu1, mu2, K, N(n), L(l), Nte, suffix);
+            UL = UL_xl(:,1:L(l));   s = s_xl(1:L(l));
+            save(filename, 'x', 'mu_tr', 'u_tr', 's', 'UL', 'alpha_tr', ...
+                'mu_te', 'u_te', 'alpha_te', 'ur_te', 'err_svd_abs', 'err_svd_rel');
         end
     end
 end

@@ -11,11 +11,16 @@
 % \param f      RHS; this may be either an handle function or a cell array
 %               of handle functions; in the latter case, the solution is
 %               computed for each RHS
-% \param BCLt   kind of left boundary condition; 'D' = Dirichlet, 'N' =
-%               Neumann, 'P' = periodic
-% \param BCRt   kind of right boundary condition; 'D' = Dirichlet, 'N' =
-%               Neumann, 'P' = periodic
+% \param BCLt   kind of left boundary condition:
+%               - 'D': Dirichlet
+%               - 'N': Neumann
+%               - 'P': periodic
+% \param BCRt   kind of right boundary condition:
+%               - 'D': Dirichlet
+%               - 'N': Neumann
+%               - 'P': periodic
 % \out   A      stiffness matrix
+
 function A = getLinearPoisson1dFEP1stiffness(a, b, K, BCLt, BCRt)
     % Get uniform grid spacing
     h = (b-a) / (K-1);
@@ -26,7 +31,9 @@ function A = getLinearPoisson1dFEP1stiffness(a, b, K, BCLt, BCRt)
     
     % Modify stiffness matrix applying left boundary conditions
     if strcmp(BCLt,'D')
-        A(1,1) = 1/h;  A(1,2) = 0;  
+        A(1,1) = 1/h;  A(1,2) = 0;
+    elseif strcmp(BCLt,'N')
+        A(1,1) = 1/h;
     elseif strcmp(BCLt,'P')
         A(1,1) = 1/h;  A(1,2) = 0;  A(1,end) = -1/h;  
     end
@@ -34,7 +41,11 @@ function A = getLinearPoisson1dFEP1stiffness(a, b, K, BCLt, BCRt)
     % Modify stiffness matrix applying right boundary conditions
     if strcmp(BCRt,'D')
         A(end,end) = 1/h;  A(end,end-1) = 0;  
+    elseif strcmp(BCRt,'N')
+        A(end,end) = 1/h;
     elseif strcmp(BCRt,'P')
         A(end,1) = 1/h;  A(end,end-1) = 0;  A(end,end) = -1/h;  
+    elseif strcmp(BCRt,'R')
+        A(end,end) = A(end,end)+1;
     end
 end

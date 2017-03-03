@@ -19,17 +19,22 @@
 % \param f      RHS; this may be either an handle function or a cell array
 %               of handle functions; in the latter case, the solution is
 %               computed for each RHS
-% \param BCLt   kind of left boundary condition; 'D' = Dirichlet, 'N' =
-%               Neumann, 'P' = periodic
+% \param BCLt   kind of left boundary condition:
+%               - 'D': Dirichlet
+%               - 'N': Neumann
+%               - 'P': periodic
 % \param BCLv   value of left boundary condition
-% \param BCRt   kind of right boundary condition; 'D' = Dirichlet, 'N' =
-%               Neumann, 'P' = periodic
+% \param BCRt   kind of right boundary condition:
+%               - 'D': Dirichlet
+%               - 'N': Neumann
+%               - 'P': periodic
 % \param BCRv   value of right boundary condition
 % \param UL     matrix whose columns represent the vectors of the reduced basis
 % \out   x      grid
 % \out   u      numerical solution; in case of multiple provided RHSs, u is
 %               a matrix whose columns store the solutions
 % \out   alpha  reduced solution
+
 function [x, varargout] = LinearPoisson1dFEP1(a, b, K, f, BCLt, BCLv, BCRt, BCRv, varargin)
     % Check if the problem is well-posed
     if strcmp(BCLt,'P') && strcmp(BCRt,'P')

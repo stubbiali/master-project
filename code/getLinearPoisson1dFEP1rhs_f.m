@@ -12,12 +12,15 @@
 % \param f      RHS; this may be either an handle function or a cell array
 %               of handle functions; in the latter case, the solution is
 %               computed for each RHS
-% \param BCLt   kind of left boundary condition; 'D' = Dirichlet, 'N' =
-%               Neumann, 'P' = periodic
+% \param BCLt   kind of left boundary condition:
+%               - 'D': Dirichlet
+%               - 'N': Neumann
+%               - 'P': periodic
 % \param BCLv   value of left boundary condition
-% \param BCRt   kind of right boundary condition; 'D' = Dirichlet, 'N' =
-%               Neumann, 'P' = periodic
-% \param BCRv   value of right boundary condition
+% \param BCRt   kind of right boundary condition:
+%               - 'D': Dirichlet
+%               - 'N': Neumann
+%               - 'P': periodic
 % \out   rhs    right-hand side
 
 function rhs = getLinearPoisson1dFEP1rhs_f(a, b, K, f, BCLt, BCLv, BCRt, BCRv)
@@ -79,11 +82,11 @@ function rhs = getLinearPoisson1dFEP1rhs_f(a, b, K, f, BCLt, BCLv, BCRt, BCRv)
     if strcmp(BCRt,'D')
         prhs(end) = BCRv/ph;
     elseif strcmp(BCRt,'N')
-    		if todo
-        		prhs(end) = prhs(end) + BCLv;
-        	else
-        		prhs(end) = prhs(end) - pBCRv + BCLv;
-        	end
+        if todo
+            prhs(end) = prhs(end) + BCRv;
+        else
+            prhs(end) = prhs(end) - pBCRv + BCRv;
+        end
     elseif strcmp(BCRt,'P') 
         prhs(end) = 0;
     end

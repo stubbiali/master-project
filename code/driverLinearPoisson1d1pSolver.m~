@@ -5,7 +5,7 @@
 clc
 clear variables
 clear variables -global
-close all
+%close all
 
 %
 % User-defined settings
@@ -13,24 +13,32 @@ close all
 
 a = -1;  b = 1;
 K = 100;
-mu = [-0.8 0.1];  
-f1 = @(t) 1/sqrt(2*pi) * exp(-(t-mu(1)).^2);
-f2 = @(t) 1/sqrt(2*pi) * exp(-(t-mu(2)).^2);
+%mu = -0.8;  sigma = 0.2;  f = @(t) gaussian(t,mu,sigma);
+%mu = 0.1;  f = @(t) mu * t .* ((-mu <= t) & (t <= mu));
+%mu = 4;  f = @(t) (t-1).^mu;
+%f = @(t) 50 * t .* cos(2*pi*t);
+%mu = 0.25;  f = @(t) 2 * atan(mu * t/2);
+mu = -0.8699;  nu = 0;  f = @(t) 2*(t > mu) - nu*(t < mu);
+alpha = 1;
+beta = 0;
+fex = @(t) t.*cos(t) - 2*sin(t) + alpha*t + beta;
 BCLt = 'D';  BCLv = 0;
-BCRt = 'D';  BCRv = 1;
+BCRt = 'D';  BCRv = 0;
 
 %
 % Run
 %
 
 % Solve
-[x,u] = LinearPoisson1dFEP1(a, b, K, f1, BCLt, BCLv, BCRt, BCRv);
-%[x,u] = LinearPoisson1dFEP2(a, b, K, f, BCLt, BCLv, BCRt, BCRv);
+[x,u] = LinearPoisson1dFEP1(a, b, K, f, BCLt, BCLv, BCRt, BCRv);
 
 % Plot
-figure;
+%figure;
+hold on;
 plot(x,u);
 title('Solution to Poisson equation')
 xlabel('$x$')
 ylabel('$u(x)$')
 grid on
+%axis equal
+xlim([a b])
