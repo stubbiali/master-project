@@ -8,9 +8,7 @@
 % \param a      left boundary of the domain
 % \param b      right boundary of the domain
 % \param K      number of elements
-% \param f      RHS; this may be either an handle function or a cell array
-%               of handle functions; in the latter case, the solution is
-%               computed for each RHS
+% \param f      right-hand side (handle function)
 % \param BCLt   kind of left boundary condition:
 %               - 'D': Dirichlet
 %               - 'N': Neumann

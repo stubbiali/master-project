@@ -10,7 +10,7 @@
 % associated to the L largest eigenvalues.
 %
 % [x, mu, nu, Y, s, UL] = getLinearPoisson1d2pSVDreducedBasis(mu1, mu2, nu1, nu2, ...
-%   Nmu, Nnu, L, solver, a, b, K, f, BCLt, BCLv, BCRt, BCRv)
+%   Nmu, Nnu, L, solver, a, b, K, f, BCLt, BCLv, BCRt)
 % \param mu1        lower-bound for $\mu$
 % \param mu2        upper-bound for $\mu$
 % \param Nmu        number of shapshot values for $\mu$

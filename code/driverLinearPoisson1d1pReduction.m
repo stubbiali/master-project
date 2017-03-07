@@ -46,8 +46,8 @@ close all
 a = -1;  b = 1;  
 K = 100;
 %f = @(t,mu) gaussian(t,mu,0.2);  mu1 = -1;  mu2 = 1;  suffix = '';
-%f = @(t,mu) 50 * t .* cos(mu*pi*t);  mu1 = 1;  mu2 = 3;  suffix = 'bis';
-f = @(t,mu) -(t < mu) + 2*(t >= mu);  mu1 = -1;  mu2 = 1;  suffix = 'ter';
+%f = @(t,mu) 50 * t .* cos(mu*pi*t);  mu1 = 1;  mu2 = 3;  suffix = '_bis';
+f = @(t,mu) -(t < mu) + 2*(t >= mu);  mu1 = -1;  mu2 = 1;  suffix = '_ter';
 
 BCLt = 'D';  BCLv = 0;
 BCRt = 'D';  BCRv = 0;
@@ -122,8 +122,9 @@ for k = 1:length(sampler)
             end
 
             % Save
-            filename = sprintf(['%s/LinearPoisson1d1p_%s_%s%s_a%2.2f_b%2.2f_' ...
-                '%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Nte%i_%s.mat'], ...
+            filename = sprintf(['%s/LinearPoisson1d1pSVD/' ...
+                'LinearPoisson1d1p_%s_%s%s_a%2.2f_b%2.2f_' ...
+                '%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Nte%i%s.mat'], ...
                 root, solver, reducer, sampler{k}, a, b, BCLt, BCLv, BCRt, ...
                 BCRv, mu1, mu2, K, N(n), L(l), Nte, suffix);
             UL = UL_xl(:,1:L(l));   s = s_xl(1:L(l));

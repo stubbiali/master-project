@@ -83,14 +83,14 @@ sampler = 'unif';
 Nmu = 50;  Nnu = 10;  N = Nmu*Nnu;  L = 10; 
 root = '../datasets';
 
-H = 1:20;  nruns = 10;
+H = 19;  nruns = 8;
 sampler_tr_v = {'unif'};
-Nmu_tr_v = 50;  Nnu_tr_v = 50;  
+Nmu_tr_v = [10 20 30 40 50];  Nnu_tr_v = [1 2 5 10 20 30 40 50];  
 valPercentage = 0.3;  Nte = 50;
-transferFcn = 'logsig';
-trainFcn = {'trainlm'};
-showWindow = true;
-tosave = false;
+transferFcn = 'tansig';
+trainFcn = {'trainlm', 'trainscg', 'trainbfg'};
+showWindow = false;
+tosave = true;
 
 %
 % Run
@@ -112,7 +112,8 @@ for i = 1:length(Nmu_tr_v)
 end
 
 % Load data for training
-datafile = sprintf(['%s/LinearPoisson1d2p_%s_%s%s_a%2.2f_b%2.2f_%s%2.2f_' ...
+datafile = sprintf(['%s/LinearPoisson1d2pSVD/' ...
+    'LinearPoisson1d2p_%s_%s%s_a%2.2f_b%2.2f_%s%2.2f_' ...
     '%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_K%i_Nmu%i_Nnu%i_N%i_L%i_Nte%i%s.mat'], ...
     root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, mu1, mu2, ...
     nu1, nu2, K, Nmu, Nnu, N, L, Nte, suffix);
@@ -151,7 +152,7 @@ Nte_opt = 200;
 
 if (Nte < Nte_opt)
     % Load random data
-    load('../datasets/random_numbers.mat');
+    load(strcat(root,'/random_numbers.mat'));
     
     % Determine values for $\mu$ and $\nu$
     mu_te = mu1 + (mu2-mu1) * random_on_reference_interval_first(1:Nte_opt);
@@ -212,26 +213,20 @@ for s = 1:length(sampler_tr_v)
             end
 
             % Evaluate force field for training patterns
-            g_tr = cell(Nmu_tr,1);
-            for ii = 1:Nmu_tr
+            g_tr = cell(Ntr,1);
+            for ii = 1:Ntr
                 g_tr{ii} = @(t) f(t,mu_tr(ii));
             end
 
             % Get teaching input
             alpha_tr = zeros(L,Ntr);
-            if (strcmp(sampler_tr,'unif'))
-                for ii = 1:Nmu_tr
-                    for jj = 1:Nnu_tr
-                    [x,alpha_tr(:,(ii-1)*Nnu_tr+jj)] = ...
-                        solverFcn(a, b, K, g_tr{ii}, BCLt, BCLv, BCRt, nu_tr(jj), UL);
-                    end
-                end
-            elseif (strcmp(sampler_tr,'rand'))
-                for ii = 1:Ntr
-                    [x,alpha_tr(:,ii)] = ...
-                        solverFcn(a, b, K, g_tr{ii}, BCLt, BCLv, BCRt, nu_tr(ii), UL);
-                end
+            for ii = 1:Ntr
+                [x,alpha_tr(:,ii)] = ...
+                    solverFcn(a, b, K, g_tr{ii}, BCLt, BCLv, BCRt, nu_tr(ii), UL);
             end
+                        
+            % Add noise to training data to (attempt to) avoid overfitting
+            %alpha_tr = alpha_tr + 0.1*randn(size(alpha_tr));
 
             %
             % Train
@@ -269,9 +264,11 @@ for s = 1:length(sampler_tr_v)
                     % Set maximum number of consecutive fails
                     net.trainParam.max_fail = 6;
                     
-                    net.trainParam.mu = 1;
-                    net.trainParam.mu_dec = 0.8;
-                    net.trainParam.mu_inc = 1.5;
+                    %net.trainParam.mu = 1;
+                    %net.trainParam.mu_dec = 0.8;
+                    %net.trainParam.mu_inc = 1.5;
+                    
+                    %net.performParam.regularization = 0.5;
 
                     % Set options for training window
                     net.trainParam.showWindow = showWindow;
@@ -303,12 +300,13 @@ for s = 1:length(sampler_tr_v)
 
             % Save data
             if tosave
-                filename = sprintf(['%s/LinearPoisson1d1p_%s_%s%s_NN%s_' ...
-                    'a%2.2f_b%2.2f_%s%2.2f_%s_mu1%2.2f_mu2%2.2f_mu1%2.2f_mu2%2.2f_' ...
-                    'K%i_Nmu%i_Nnu%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Nva%i_Nte%i%s.mat'], ...
+                filename = sprintf(['%s/LinearPoisson1d2pNN/' ...
+                    'LinearPoisson1d2p_%s_%s%s_NN%s_' ...
+                    'a%2.2f_b%2.2f_%s%2.2f_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
+                    'K%i_Nmu%i_Nnu%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
                     root, solver, reducer, sampler, sampler_tr, a, b, BCLt, ...
                     BCLv, BCRt, mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, ...
-                    Nmu_tr, Nnu_tr, Nva, Nte, suffix);
+                    Nmu_tr, Nnu_tr, Ntr, Nva, Nte, suffix);
                 save(filename, 'datafile', 'H', 'nruns', 'trainFcn', 'Ntr', 'Nva', 'Nte', ...
                     'err_opt_local', 'net_opt_local', 'tr_opt_local', 'row_opt', 'col_opt');
             end

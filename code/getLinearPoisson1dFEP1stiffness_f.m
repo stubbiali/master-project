@@ -5,13 +5,10 @@
 % conditions. The "f" in the function name stands for "fast". Indeed, 
 % persistent variables are used so to perform computations only when needed.
 % 
-% A = getLinearPoisson1dFEP1stiffness_f(a, b, K, f, BCLt, BCRt)
+% A = getLinearPoisson1dFEP1stiffness_f(a, b, K, BCLt, BCRt)
 % \param a      left boundary of the domain
 % \param b      right boundary of the domain
 % \param K      number of elements
-% \param f      RHS; this may be either an handle function or a cell array
-%               of handle functions; in the latter case, the solution is
-%               computed for each RHS
 % \param BCLt   kind of left boundary condition:
 %               - 'D': Dirichlet
 %               - 'N': Neumann

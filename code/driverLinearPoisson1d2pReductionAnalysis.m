@@ -63,7 +63,7 @@ root = '../datasets';
 % L         rank of reduced basis
 % Nte       number of testing samples
 
-K = 100;  Nmu = 50;  Nnu = 1;  L = 3;  Nte = 50;
+K = 100;  Nmu = 50;  Nnu = 1;  L = 5;  Nte = 50;
 
 %
 % Run
@@ -80,11 +80,10 @@ end
 N = Nmu*Nnu;
 
 % Select three values for $\mu$ and $\nu$
-%mu = mu1 + (mu2 - mu1) * rand(3,1);
-%nu = nu1 + (nu2 - nu1) * rand(3,1);
-mu = [-0.455759 -0.455759 -0.455759];
-nu = [0.03478 0.5 0.953269];
-
+mu = mu1 + (mu2 - mu1) * rand(3,1);
+%mu = [-0.455759 -0.455759 -0.455759];  
+nu = nu1 + (nu2 - nu1) * rand(3,1);
+%nu = [0.03478 0.5 0.953269];  
 
 % Evaluate forcing term for the just set values for $\mu$
 g = cell(3,1);
@@ -93,7 +92,8 @@ for i = 1:3
 end
 
 % Load data and get full and reduced solutions for uniform sampling
-filename = sprintf(['%s/LinearPoisson1d2p_%s_%sunif_a%2.2f_b%2.2f_%s%2.2f_%s_' ...
+filename = sprintf(['%s/LinearPoisson1d2pSVD/' ...
+    'LinearPoisson1d2p_%s_%sunif_a%2.2f_b%2.2f_%s%2.2f_%s_' ...
     'mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_K%i_Nmu%i_Nnu%i_N%i_L%i_Nte%i%s.mat'], ...
     root, solver, reducer, a, b, BCLt, BCLv, BCRt, mu1, mu2, nu1, nu2, K, ...
     Nmu, Nnu, N, L, Nte, suffix);
@@ -107,7 +107,8 @@ ur3_unif = UL * alpha3_unif;
 
 %{
 % Load data and get reduced solutions for random sampling
-filename = sprintf(['%s/LinearPoisson1d2p_%s_%srand_a%2.2f_b%2.2f_%s%2.2f_%s_' ...
+filename = sprintf(['%s/LinearPoisson1d2pSVD/' ...
+    'LinearPoisson1d2p_%s_%srand_a%2.2f_b%2.2f_%s%2.2f_%s_' ...
     'mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_K%i_Nmu%i_Nnu%i_N%i_L%i_Nte%i.mat'], ...
     root, solver, reducer, a, b, BCLt, BCLv, BCRt, mu1, mu2, nu1, nu2, K, ...
     N, N, N, L, Nte);
@@ -177,8 +178,9 @@ plot(x(1:1:end), ur3_unif(1:1:end), 'g--', 'Linewidth', 2)
 %plot(x(1:1:end), ur3_rand(1:1:end), 'g:', 'Linewidth', 2)
 
 % Define plot settings
-str_leg = sprintf('Full and reduced solution to Poisson equation ($k = %i$, $n = %i$, $l = %i$)', ...
-    K, N, L);
+str_leg = sprintf(['Full and reduced solution to Poisson equation ($k = %i$, ' ...
+    '$n_{\\mu} = %i$, $n_{\\nu} = %i$, $l = %i$)'], ...
+    K, Nmu, Nnu, L);
 title(str_leg)
 xlabel('$x$')
 ylabel('$u$')
@@ -223,7 +225,8 @@ for k = 1:length(Nnu)
     err_avg_unif = zeros(length(L),length(Nmu));
     for i = 1:length(L)
         for j = 1:length(Nmu)
-            filename = sprintf(['%s/LinearPoisson1d2p_%s_%sunif_a%2.2f_b%2.2f_' ...
+            filename = sprintf(['%s/LinearPoisson1d2pSVD/' ...
+                'LinearPoisson1d2p_%s_%sunif_a%2.2f_b%2.2f_' ...
                 '%s%2.2f_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_K%i_' ...
                 'Nmu%i_Nnu%i_N%i_L%i_Nte%i%s.mat'], ...
                 root, solver, reducer, a, b, BCLt, BCLv, BCRt, mu1, mu2, ...
@@ -347,7 +350,8 @@ for k = 1:length(Nmu)
     err_avg_unif = zeros(length(L),length(Nnu));
     for i = 1:length(L)
         for j = 1:length(Nnu)
-            filename = sprintf(['%s/LinearPoisson1d2p_%s_%sunif_a%2.2f_b%2.2f_' ...
+            filename = sprintf(['%s/LinearPoisson1d2pSVD/' ...
+                'LinearPoisson1d2p_%s_%sunif_a%2.2f_b%2.2f_' ...
                 '%s%2.2f_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_K%i_' ...
                 'Nmu%i_Nnu%i_N%i_L%i_Nte%i%s.mat'], ...
                 root, solver, reducer, a, b, BCLt, BCLv, BCRt, mu1, mu2, ...
@@ -442,289 +446,69 @@ for k = 1:length(Nmu)
     xlim([min(L)-1 max(L)+1])
 end
 
-%% Plot maximum and average error versus number of sampled values for $\mu$
-% Fix both the number of samples for $\nu$ and the the rank of the basis
+%% Fix the number of samples for both $\mu$ and $\nu$ and the rank of the basis
+% (the optimal values should have been determined within the previous
+% sections), then plot pointwise error
 
 %
 % User defined settings:
 % K         number of grid points
-% Nmu       number of sampled values for $\mu$ (row vector)
-% L         rank of reduced basis (row vector, no more than four values)
-% Nte       number of testing samples
-
-K = 100;  N = [10 25 50 75 100];  L = [1 3 6 8];  Nte = 50;
-
-%
-% Run
-%
-
-% Get accumulated error for any combination of N and L
-err_unif = zeros(length(L),length(N));
-err_rand = zeros(length(L),length(N));
-for i = 1:length(L)
-    for j = 1:length(N)
-        % Uniform sampling
-        filename = sprintf('%s/LinearPoisson1d1p_%s_%sunif_a%2.2f_b%2.2f_%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Nte%i.mat', ...
-            root, solver, reducer, a, b, BCLt, BCLv, BCRt, BCRv, mu1, mu2, K, N(j), L(i), Nte);
-        load(filename);
-        err_unif(i,j) = sum(err_svd_abs);
-        
-        % Random sampling
-        filename = sprintf('%s/LinearPoisson1d1p_%s_%srand_a%2.2f_b%2.2f_%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Nte%i.mat', ...
-            root, solver, reducer, a, b, BCLt, BCLv, BCRt, BCRv, mu1, mu2, K, N(j), L(i), Nte);
-        load(filename);
-        err_rand(i,j) = sum(err_svd_abs);
-    end
-end
-
-% Open a new window
-figure(3);
-hold off
-
-% Plot and dynamically update the legend
-marker_unif = {'bo-', 'rs-', 'g^-', 'mv-'};
-marker_rand = {'bo--', 'rs--', 'g^--', 'mv--'};
-str_leg = sprintf('legend(''location'', ''best''');
-for i = 1:length(L)
-    semilogy(N, err_unif(i,:), marker_unif{i});
-    hold on
-    semilogy(N, err_rand(i,:), marker_rand{i});
-    str_unif = sprintf('''L = %i, uniform''', L(i));
-    str_rand = sprintf('''L = %i, random''', L(i));
-    str_leg = strcat(str_leg, ', ', str_unif, ', ', str_rand);
-end
-str_leg = strcat(str_leg, ')');
-
-% Define plot settings
-str = sprintf('Accumulated error $\\epsilon$ ($k = %i$, $n_{te} = %i$)', ...
-    K, Nte);
-title(str)
-xlabel('$n$')
-ylabel('$\epsilon$')
-grid on
-eval(str_leg);
-
-
-
-%% Fix the sampling method and plot full and reduced solution for three 
-% testing values of $\mu$ (This is actually really similar to the first
-% setcion, yet here only one sampling method is considered)
-
-%
-% User defined settings:
-% K         number of grid points
-% N         number of shapshots
+% Nmu       number of sampled values for $\mu$ 
+% Nnu       number of sampled values for $\nu$
 % L         rank of reduced basis
+% sampler   how the values for $\mu$ and $\nu$ should have been sampled for
+%           computing the snapshots:
+%           - 'unif': samples form a Cartesian grid
+%           - 'rand': drawn from random uniform distribution
 % Nte       number of testing samples
-% sampler   how the shapshot values for $\mu$ should be sampled:
-%           - 'unif': uniformly distributed on $[\mu_1,\mu_2]$
-%           - 'rand': drawn from a uniform random distribution on $[\mu_1,\mu_2]$
 
-K = 100;  N = 10;  L = 2;  Nte = 50;
-sampler = 'rand';
+K = 100;  Nmu = 50;  Nnu = 5;  L = 15;  sampler = 'unif';  Nte = 50;
 
 %
 % Run
 %
+
+% Determine total number of training patterns
+if strcmp(sampler,'unif')
+    N = Nmu*Nnu;
+elseif strcmp(sampler,'rand')
+    N = Nmu*Nnu;  Nmu = N;  Nnu = N;
+end
 
 % Load data
-filename = sprintf('%s/LinearPoisson1d1p_%s_%s%s_a%2.2f_b%2.2f_%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Nte%i.mat', ...
-            root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, mu1, mu2, K, N, L, Nte);
+filename = sprintf(['%s/LinearPoisson1d2pSVD/' ...
+    'LinearPoisson1d2p_%s_%sunif_a%2.2f_b%2.2f_' ...
+    '%s%2.2f_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_K%i_' ...
+    'Nmu%i_Nnu%i_N%i_L%i_Nte%i%s.mat'], ...
+    root, solver, reducer, a, b, BCLt, BCLv, BCRt, mu1, mu2, ...
+    nu1, nu2, K, Nmu, Nnu, N, L, Nte, suffix);
 load(filename);
 
-% Select the three solutions to plot
-idx = randi(Nte,3,1);
+% Generate structured data out of scatter data (test samples randomly picked)
+mu_g = linspace(mu1,mu2,1000);  nu_g = linspace(nu1,nu2,1000);
+[MU,NU] = meshgrid(mu_g,nu_g);
+Ea = griddata(mu_te, nu_te, err_svd_abs, MU, NU);
+Er = griddata(mu_te, nu_te, err_svd_rel, MU, NU);
 
-% Open a new window
-figure(5);
-hold off
-
-% Plot and set the legend
-plot(x(1:1:end), u_te(1:1:end,idx(1)), 'b')
-hold on
-plot(x(1:1:end), ur_te(1:1:end,idx(1)), 'b:', 'Linewidth', 2)
-plot(x(1:1:end), u_te(1:1:end,idx(2)), 'r')
-plot(x(1:1:end), ur_te(1:1:end,idx(2)), 'r:', 'Linewidth', 2)
-plot(x(1:1:end), u_te(1:1:end,idx(3)), 'g')
-plot(x(1:1:end), ur_te(1:1:end,idx(3)), 'g:', 'Linewidth', 2)
-
-% Define plot settings
-str_leg = sprintf('Full and reduced solution to Poisson equation ($k = %i$, $n = %i$, $l = %i$)', ...
-    K, N, L);
-title(str_leg)
-xlabel('$x$')
-ylabel('$u$')
-legend(sprintf('$\\mu = %f$, full', mu_te(idx(1))), sprintf('$\\mu = %f$, reduced', mu_te(idx(1))), ...
-    sprintf('$\\mu = %f$, full', mu_te(idx(2))), sprintf('$\\mu = %f$, reduced', mu_te(idx(2))), ...
-    sprintf('$\\mu = %f$, full', mu_te(idx(3))), sprintf('$\\mu = %f$, reduced', mu_te(idx(3))), ...
-    'location', 'best')
-grid on
-
-%% Fix the sampling method and the number of snapshots and perform a sensitivity 
-% analysis on the pointwise error as the rank of the reduced basis varies
-
-%
-% User defined settings:
-% K         number of grid points
-% N         number of shapshots
-% L         rank of reduced basis
-% sampler   how the shapshot values for $\mu$ should be selected:
-%           - 'unif': uniformly distributed on $[\mu_1,\mu_2]$
-%           - 'rand': drawn from a uniform random distribution on $[\mu_1,\mu_2]$
-
-K = 100;  N = 10;  L = [3 5 8 10];  Nte = 50;
-sampler = 'unif';
-
-%
-% Plot a specific solution
-%
-
-% Select the solution to plot
-idx = randi(Nte,1);
-
-% Open a new plot window
-figure(6);
-hold off
-
-% Load data, plot and update legend
-str_leg = 'legend(''location'', ''best''';
-for i = 1:length(L)
-    filename = sprintf('%s/LinearPoisson1d1p_%s_%s%s_a%2.2f_b%2.2f_%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Nte%i.mat', ...
-            root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, mu1, mu2, K, N, L(i), Nte);
-    load(filename);
-    plot(x(1:1:end), ur_te(1:1:end,idx));
-    hold on
-    stri = sprintf('''$l = %i$''', L(i));
-    str_leg = sprintf('%s, %s', str_leg, stri);
-end
-plot(x(1:1:end), u_te(1:1:end,idx));
-str_leg = sprintf('%s, ''Full'')', str_leg);
-eval(str_leg)
-
-% Define plot settings
-str_leg = sprintf('Full and reduced solution to Poisson equation ($k = %i$, $n = %i$, $\\mu = %f$)', ...
-    K, N, mu_te(idx));
-title(str_leg)
-xlabel('$x$')
-ylabel('$u$')
-grid on
-
-
-%
-% Plot error versus $\mu$
-%
-
-% Open a new plot window
-figure(7);
-hold off
-
-% Load data, plot and update legend
-marker = {'o-', 's-', '^-', 'x-'};
-str_leg = 'legend(''location'', ''best''';
-for i = 1:3 %i = 1:length(L)
-    filename = sprintf('%s/LinearPoisson1d1p_%s_%s%s_a%2.2f_b%2.2f_%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Nte%i.mat', ...
-            root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, mu1, mu2, K, N, L(i), Nte);
-    load(filename);
-    [mu_te,I] = sort(mu_te);
-    err_svd_rel = err_svd_rel(I);
-    plot(mu_te, err_svd_rel, marker{mod(i,4)+1});
-    hold on
-    stri = sprintf('''$l = %i$''', L(i));
-    str_leg = sprintf('%s, %s', str_leg, stri);
-end
-str_leg = sprintf('%s)', str_leg);
-eval(str_leg)
-
-% Define plot settings
-str_leg = sprintf('Relative error between full and reduced solution to Poisson equation ($k = %i$, $n = %i$)', ...
-    K, N);
-title(str_leg)
+% Plot absolute value
+figure(15);
+contourf(MU,NU,Ea, 'LineStyle','none')
+colorbar
+str = sprintf('Absolute error ($k = %i$, $n_{\\mu} = %i$, $n_{\\nu} = %i$, $l = %i$)', ...
+    K, Nmu, Nnu, L);
+title(str);
 xlabel('$\mu$')
-ylabel('$\left\Vert u - u^l \right\Vert / \left\Vert u \right\Vert$')
-grid on
+ylabel('$\nu$')
 
-%% Fix the sampling method and the rank of the reduced basis and perform a 
-% sensitivity analysis on the pointwise error as the number of snapshots varies
-
-%
-% User defined settings:
-% K         number of grid points
-% N         number of shapshots
-% L         rank of reduced basis
-% Nte       number of testing samples
-% sampler   how the shapshot values for $\mu$ should be selected:
-%           - 'unif': uniformly distributed on $[\mu_1,\mu_2]$
-%           - 'rand': drawn from a uniform random distribution on $[\mu_1,\mu_2]$
-
-K = 100;  N = [10 25 50 100];  L = 8;  Nte = 50;
-sampler = 'rand';
-
-%
-% Plot a specific solution
-%
-
-% Select the solution to plot
-idx = randi(J,1);
-
-% Open a new plot window
-figure(8);
-hold off
-
-% Load data, plot and update legend
-str_leg = 'legend(''location'', ''best''';
-for i = 1:length(N)
-    filename = sprintf('%s/LinearPoisson1d1p_%s_%s%s_a%2.2f_b%2.2f_%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Nte%i.mat', ...
-            root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, mu1, mu2, K, N(i), L, Nte);
-    load(filename);
-    plot(x(1:1:end), ur_te(1:1:end,idx));
-    hold on
-    stri = sprintf('''$n = %i$''', N(i));
-    str_leg = sprintf('%s, %s', str_leg, stri);
-end
-plot(x(1:1:end), u_te(1:1:end,idx));
-str_leg = sprintf('%s, ''Full'')', str_leg);
-eval(str_leg)
-
-% Define plot settings
-str_leg = sprintf('Full and reduced solution to Poisson equation ($k = %i$, $l = %i$, $\\mu = %f$)', ...
-    K, L, mu_te(idx));
-title(str_leg)
-xlabel('$x$')
-ylabel('$u$')
-grid on
-
-%
-% Plot error versus $\mu$
-%
-
-% Open a new plot window
-figure(9);
-hold off
-
-% Load data, plot and update legend
-marker = {'o-', 's-', '^-', 'x-'};
-str_leg = 'legend(''location'', ''best''';
-for i = 1:length(N)
-    filename = sprintf('%s/LinearPoisson1d1p_%s_%s%s_a%2.2f_b%2.2f_%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Nte%i.mat', ...
-            root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, mu1, mu2, K, N(i), L, Nte);
-    load(filename);
-    [mu_te,I] = sort(mu_te);
-    err_svd_rel = err_svd_rel(I);
-    plot(mu_te, err_svd_rel, marker{mod(i,4)+1});
-    hold on
-    stri = sprintf('''$n = %i$''', N(i));
-    str_leg = sprintf('%s, %s', str_leg, stri);
-end
-str_leg = sprintf('%s)', str_leg);
-eval(str_leg)
-
-% Define plot settings
-str_leg = sprintf('Relative error between full and reduced solution to Poisson equation ($k = %i$, $l = %i$)', ...
-    K, L);
-title(str_leg)
+% Plot absolute value
+figure(16);
+contourf(MU,NU,Er, 'LineStyle','none')
+colorbar
+str = sprintf('Relative error ($k = %i$, $n_{\\mu} = %i$, $n_{\\nu} = %i$, $l = %i$)', ...
+    K, Nmu, Nnu, L);
+title(str);
 xlabel('$\mu$')
-ylabel('$\left\Vert u - u^l \right\Vert / \left\Vert u \right\Vert$')
-grid on
+ylabel('$\nu$')
 
 %% Plot basis functions
 
@@ -735,12 +519,13 @@ grid on
 % Nnu       number of sampled values for $\nu$
 % L         rank of reduced basis
 % Nte       number of testing samples
-% sampler   how the shapshot values for $\mu$ should be selected:
-%           - 'unif': uniformly distributed on $[\mu_1,\mu_2]$
-%           - 'rand': drawn from a uniform random distribution on $[\mu_1,\mu_2]$
+% sampler   how the values for $\mu$ and $\nu$ should have been sampled for
+%           computing the snapshots:
+%           - 'unif': samples form a Cartesian grid
+%           - 'rand': drawn from random uniform distribution
+% Nte       number of testing samples
 
-K = 100;  Nmu = 20;  Nnu = 10;  L = 5;  Nte = 50;
-sampler = 'unif';
+K = 100;  Nmu = 20;  Nnu = 10;  L = 5;  sampler = 'unif';  Nte = 50;
 
 %
 % Run
@@ -748,7 +533,8 @@ sampler = 'unif';
 
 % Load data
 N = Nmu*Nnu;
-filename = sprintf(['%s/LinearPoisson1d2p_%s_%s%s_a%2.2f_b%2.2f_%s%2.2f_' ...
+filename = sprintf(['%s/LinearPoisson1d2pSVD/' ...
+    'LinearPoisson1d2p_%s_%s%s_a%2.2f_b%2.2f_%s%2.2f_' ...
     '%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_K%i_Nmu%i_Nnu%i_N%i_L%i_Nte%i%s.mat'], ...
     root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, mu1, mu2, ...
     nu1, nu2, K, Nmu, Nnu, N, L, Nte, suffix);
@@ -756,12 +542,11 @@ load(filename);
 
 % Plot basis functions
 for l = 1:L
-    figure(9+l);
+    figure(16+l);
     plot(x,UL(:,l),'b')
-    title('Basis function')
+    title(sprintf('Basis function $\\psi^{%i}$',l))
     xlabel('$x$')
-    str = sprintf('$\\psi^%i$', l);
-    ylabel(str);
+    ylabel(sprintf('$\\psi^{%i}$',l));
     grid on
 end
 

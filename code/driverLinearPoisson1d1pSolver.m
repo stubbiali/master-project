@@ -12,30 +12,40 @@ clear variables -global
 %
 
 a = -1;  b = 1;
-K = 100;
+K = 200;
+
 %mu = -0.8;  sigma = 0.2;  f = @(t) gaussian(t,mu,sigma);
 %mu = 0.1;  f = @(t) mu * t .* ((-mu <= t) & (t <= mu));
 %mu = 4;  f = @(t) (t-1).^mu;
 %f = @(t) 50 * t .* cos(2*pi*t);
 %mu = 0.25;  f = @(t) 2 * atan(mu * t/2);
-mu = 0.5897;  nu = 0.8068;  f = @(t) 2*(t >= mu) - 1*(t < mu);
-alpha = 1;
-beta = 0;
-fex = @(t) t.*cos(t) - 2*sin(t) + alpha*t + beta;
+%v = @(t) 1 + 0*t;
+%mu = 0.5;  f = @(t) 2*(t >= mu) - 1*(t < mu);
+
+mu = -1;  nu = 3;
+%v = @(t) nu*(t < 0) + (nu + nu*t).*(t >= 0);
+%v = @(t) 1*(t < nu) + 4*(t >= nu);
+%v = @(t) gaussian(t,0,nu);
+v = @(t) 1*(t < -0.5) + nu*(-0.5 <= t & t <= 0.3) + 0.25*(t > 0.3);
+%f = @(t) - mu*(t < 0) + 2*mu*(t >= 0);
+%f = @(t) -gaussian(t,-mu,0.8) + gaussian(t,mu,0.8);
+%f = @(t) 2*(t >= mu) - 1*(t < mu);
+f = @(t) gaussian(t,mu,0.1);
+
 BCLt = 'D';  BCLv = 0;
-BCRt = 'D';  BCRv = nu;
+BCRt = 'D';  BCRv = 0;
 
 %
 % Run
 %
 
 % Solve
-[x,u] = LinearPoisson1dFEP1(a, b, K, f, BCLt, BCLv, BCRt, BCRv);
+[x,u1] = HeterogeneousViscosityLinearPoisson1dFEP1_f(a, b, K, v, f, BCLt, BCLv, BCRt, BCRv);
 
 % Plot
 %figure;
 hold on;
-plot(x,u);
+plot(x,u1);
 title('Solution to Poisson equation')
 xlabel('$x$')
 ylabel('$u(x)$')
