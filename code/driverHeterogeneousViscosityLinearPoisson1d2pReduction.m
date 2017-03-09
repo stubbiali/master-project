@@ -50,19 +50,22 @@ close all
 % root      path to folder where storing the output dataset
 
 a = -1;  b = 1;  K = 100;
-v = @(t,nu) 1*(t < -0.5) + nu*(-0.5 <= t & t <= 0.3) + 0.25*(t > 0.3);  nu1 = 1;  nu2 = 3;
-f = @(t,mu) gaussian(t,mu,0.1);  mu1 = -1;  mu2 = 1;
+%v = @(t,nu) 1*(t < -0.5) + nu*(-0.5 <= t & t <= 0.3) + 0.25*(t > 0.3);  nu1 = 1;  nu2 = 3;
+%v = @(t,nu) 1 + (t+1).^nu;  nu1 = 1;  nu2 = 3;
+v = @(t,nu) 2 + sin(nu*pi*t);  nu1 = 1;  nu2 = 3;
+%f = @(t,mu) gaussian(t,mu,0.1);  mu1 = -1;  mu2 = 1;
+f = @(t,mu) - 1*(t < mu) + 2*(t >= mu);  mu1 = -1;  mu2 = 1;
 BCLt = 'D';  BCLv = 0;
 BCRt = 'D';  BCRv = 0;
 solver = 'FEP1';
 reducer = 'SVD';
 sampler = {'unif'};
-Nmu_v = 5; 
-Nnu_v = 5;
-L = [1 10 25];  
+Nmu_v = [5 10 15 20 25 50]; 
+Nnu_v = [5 10 15 20 25 50]; 
+L = 1:25;  
 Nte = 50;
 root = '../datasets';
-suffix = '';
+suffix = '_ter';
 
 %
 % Run
@@ -72,7 +75,7 @@ suffix = '';
 if strcmp(solver,'FEP1')
     solverFcn = @HeterogeneousViscosityLinearPoisson1dFEP1_f;
 elseif strcmp(solver,'FEP2')
-    solverFcn = @LinearPoisson1dFEP2_f;
+    solverFcn = @HeterogeneousViscosityLinearPoisson1dFEP2_f;
 end
 
 % Set handle to reducer
@@ -106,7 +109,7 @@ for i = 1:Nte
         u_te(:,1) = y_te;
     else
         [x,u_te(:,i)] = solverFcn(a, b, K, vis_te{i}, g_te{i}, BCLt, BCLv, ...
-            BCRt, nu_te(i));
+            BCRt, BCRv);
     end
 end
 
@@ -182,16 +185,16 @@ for k = 1:length(sampler)
                 if strcmp(sampler{k},'unif')
                     filename = sprintf(['%s/HeterogeneousViscosityLinearPoisson1d2pSVD/' ...
                         'HeterogeneousViscosityLinearPoisson1d2p_%s_%s%s_a%2.2f_' ...
-                        'b%2.2f_%s%2.2f_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_' ...
+                        'b%2.2f_%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_nu1%2.2f_' ...
                         'nu2%2.2f_K%i_Nmu%i_Nnu%i_N%i_L%i_Nte%i%s.mat'], ...
-                        root, solver, reducer, sampler{k}, a, b, BCLt, BCLv, BCRt, ...
+                        root, solver, reducer, sampler{k}, a, b, BCLt, BCLv, BCRt, BCRv, ...
                         mu1, mu2, nu1, nu2, K, Nmu, Nnu, Nmu*Nnu, L(l), Nte, suffix);
                 elseif strcmp(sampler{k},'rand')
                     filename = sprintf(['%s/HeterogeneousViscosityLinearPoisson1d2pSVD/' ...
                         'HeterogeneousViscosityLinearPoisson1d2p_%s_%s%s_a%2.2f_' ...
-                        'b%2.2f_%s%2.2f_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_' ...
+                        'b%2.2f_%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_nu1%2.2f_' ...
                         'nu2%2.2f_K%i_Nmu%i_Nnu%i_N%i_L%i_Nte%i%s.mat'], ...
-                        root, solver, reducer, sampler{k}, a, b, BCLt, BCLv, BCRt, ...
+                        root, solver, reducer, sampler{k}, a, b, BCLt, BCLv, BCRt, BCRv, ...
                         mu1, mu2, nu1, nu2, K, Nmu, Nmu, Nmu, L(l), Nte, suffix);
                 end
                 UL = UL_xl(:,1:L(l));  s = s_xl(1:L(l));

@@ -34,9 +34,9 @@ close all
 % root      path to folder where storing the output dataset
 
 a = -1;  b = 1;  
-f = @(t,mu) gaussian(t,mu,0.2);  mu1 = -1;  mu2 = 1;  suffix = '';
+%f = @(t,mu) gaussian(t,mu,0.2);  mu1 = -1;  mu2 = 1;  suffix = '';
 %f = @(t,mu) 50*t.*cos(mu*pi*t);  mu1 = 1;  mu2 = 3;  suffix = '_bis';
-%f = @(t,mu) -(t < mu) + 2*(t >= mu);  mu1 = -1;  mu2 = 1;  suffix = '_ter';
+f = @(t,mu) -(t < mu) + 2*(t >= mu);  mu1 = -1;  mu2 = 1;  suffix = '_ter';
 BCLt = 'D';  BCLv = 0;
 BCRt = 'D';  BCRv = 0;
 solver = 'FEP1';
@@ -55,7 +55,7 @@ root = '../datasets';
 % L         rank of reduced basis
 % Nte       number of testing samples
 
-K = 100;  N = 20;  L = 5;  Nte = 50;
+K = 100;  N = 50;  L = 10;  Nte = 50;
 
 %
 % Run
@@ -69,7 +69,7 @@ elseif strcmp(solver,'FEP2')
 end
 
 % Select three values for $\mu$
-mu = mu1 + (mu2 - mu1) * rand(3,1);
+%mu = mu1 + (mu2 - mu1) * rand(3,1);
 
 % Evaluate forcing term for the just set values for $\mu$
 g = cell(3,1);
@@ -166,7 +166,7 @@ grid on
 % L         rank of reduced basis (row vector, no more than four values)
 % Nte       number of testing samples
 
-K = 100;  N = [5 10 15 20 25 50 75 100];  L = [5 10 15];  Nte = 50;
+K = 100;  N = [10 25 50 75 100];  L = [5 10 15];  Nte = 50;
 
 %
 % Run

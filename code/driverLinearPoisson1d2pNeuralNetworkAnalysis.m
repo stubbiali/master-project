@@ -45,7 +45,7 @@ close all
 %           - 'unif': sampled values form a Cartesian grid
 %           - 'rand': sampled values drawn from a uniform random distribution
 % L         rank of reduced basis
-% Nte       number of testing samples stored in the dataset for reduction       
+% Nte_r     number of testing samples stored in the dataset for reduction       
 % root      path to folder where storing the output dataset
 
 a = -1;  b = 1;  K = 100;
@@ -58,7 +58,7 @@ BCRt = 'D';
 solver = 'FEP1';
 reducer = 'SVD';
 sampler = 'unif';
-L = 10;  Nte = 50;
+L = 10;  Nte_r = 50;
 root = '../datasets';
 
 % Total number of sampled points for computing the reduced basis
@@ -76,7 +76,7 @@ N = Nmu*Nnu;
 %               $\mu$ and $\nu$
 % Nte_nn        number of testing samples for Neural Network
 
-Nmu_tr = 50;  Nnu_tr = 10;  valPercentage = 0.3;  Nte_nn = 200;
+Nmu_tr = 50;  Nnu_tr = 50;  valPercentage = 0.3;  Nte_nn = 200;
 
 %
 % Run
@@ -90,12 +90,12 @@ elseif strcmp(solver,'FEP2')
 end
 
 % Get total number of training and validating patterns
-Ntr = Nmu*Nnu;  Nva = ceil(valPercentage*Ntr);
+Ntr = Nmu_tr*Nnu_tr;  Nva = ceil(valPercentage*Ntr);
 
 % Select three values for $\mu$ and $\nu$
-mu = mu1 + (mu2 - mu1) * rand(3,1);
+%mu = mu1 + (mu2 - mu1) * rand(3,1);
 %mu = [-0.455759 -0.455759 -0.455759]; 
-nu = nu1 + (nu2 - nu1) * rand(3,1);
+%nu = nu1 + (nu2 - nu1) * rand(3,1);
 %nu = [0.03478 0.5 0.953269];  
 
 % Evaluate forcing term for the just set values for $\mu$
@@ -105,7 +105,7 @@ for i = 1:3
 end
 
 % Load data for uniform sampling
-filename = sprintf(['%s/LinearPoisson1d2p/LinearPoisson1d2pNN/' ...
+filename = sprintf(['%s/LinearPoisson1d2pNN/' ...
     'LinearPoisson1d2p_%s_%s%s_NNunif_' ...
     'a%2.2f_b%2.2f_%s%2.2f_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
     'K%i_Nmu%i_Nnu%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
@@ -115,6 +115,12 @@ filename = sprintf(['%s/LinearPoisson1d2p/LinearPoisson1d2pNN/' ...
 load(filename);
 
 % Load dataset storing reduced basis
+datafile = sprintf(['%s/LinearPoisson1d2pSVD/' ...
+    'LinearPoisson1d2p_%s_%s%s_' ...
+    'a%2.2f_b%2.2f_%s%2.2f_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
+    'K%i_Nmu%i_Nnu%i_N%i_L%i_Nte%i%s.mat'], ...
+    root, solver, reducer, sampler, a, b, BCLt, ...
+    BCLv, BCRt, mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, Nte_r, suffix);
 load(datafile);
 
 % Compute reduced solution to direct method
@@ -210,13 +216,13 @@ title(str)
 xlabel('$x$')
 ylabel('$u$')
 legend(sprintf('$\\mu = %f$, $\\nu = %f$, reduced', mu(1), nu(1)), ...
-    sprintf('$\\mu = %f$, $\\nu = %f$, NN (uniform)', mu(1), nu(1)), ...
+    sprintf('$\\mu = %f$, $\\nu = %f$, NN', mu(1), nu(1)), ...
     ... %sprintf('$\\mu = %f$, $\\nu = %f$, NN (random)', mu(1), nu(1)), ...
     sprintf('$\\mu = %f$, $\\nu = %f$, reduced', mu(2), nu(2)), ...
-    sprintf('$\\mu = %f$, $\\nu = %f$, NN (uniform)', mu(2), nu(2)), ...
+    sprintf('$\\mu = %f$, $\\nu = %f$, NN', mu(2), nu(2)), ...
     ... %sprintf('$\\mu = %f$, $\\nu = %f$, NN (random)', mu(2), nu(2)), ...
     sprintf('$\\mu = %f$, $\\nu = %f$, reduced', mu(3), nu(3)), ...
-    sprintf('$\\mu = %f$, $\\nu = %f$, NN (uniform)', mu(3), nu(3)), ...
+    sprintf('$\\mu = %f$, $\\nu = %f$, NN', mu(3), nu(3)), ...
     ... %sprintf('$\\mu = %f$, $\\nu = %f$, NN (random)', mu(3), nu(3)), ...
     'location', 'best')
 grid on
@@ -249,7 +255,7 @@ for i = 1:length(Nmu_tr)
         Ntr = Nmu_tr(i)*Nnu_tr(j);  Nva = ceil(valPercentage*Ntr);
         
         % Load data for uniform sampling
-        filename = sprintf(['%s/LinearPoisson1d2p/LinearPoisson1d2pNN/' ...
+        filename = sprintf(['%s/LinearPoisson1d2pNN/' ...
             'LinearPoisson1d2p_%s_%s%s_NNunif_' ...
             'a%2.2f_b%2.2f_%s%2.2f_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
             'K%i_Nmu%i_Nnu%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
@@ -279,8 +285,8 @@ figure(3);
 hold off;
 
 % Plot and dynamically update the legend
-marker_u = {'b', 'r', 'g', 'm'};
-%marker_r = {'b--', 'r--', 'g--', 'm--'};
+marker_u = {'bo-', 'rs-', 'g^-', 'mv-'};
+%marker_r = {'bo--', 'r--', 'g--', 'm--'};
 str_leg = 'legend(''location'',''best''';
 for i = 1:length(Nmu_tr)
     semilogy(Nnu_tr, err_u(i,:), marker_u{i});
@@ -329,7 +335,7 @@ for i = 1:length(Nnu_tr)
         Ntr = Nmu_tr(j)*Nnu_tr(i);  Nva = ceil(valPercentage*Ntr);
         
         % Load data for uniform sampling
-        filename = sprintf(['%s/LinearPoisson1d2p/LinearPoisson1d2pNN/' ...
+        filename = sprintf(['%s/LinearPoisson1d2pNN/' ...
             'LinearPoisson1d2p_%s_%s%s_NNunif_' ...
             'a%2.2f_b%2.2f_%s%2.2f_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
             'K%i_Nmu%i_Nnu%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
@@ -381,6 +387,117 @@ ylabel('$\epsilon$')
 grid on
 eval(str_leg)
 
+%% For the optimal network, plot error on training, validation and test data 
+% set versus epochs
+
+%
+% User defined settings:
+% Nmu_tr        number of training values for $\mu$ (row vector)
+% Nnu_tr        number of training values for $\nu$ (no more than four values)
+% valPercentage ratio between number of validation and training values for 
+%               $\mu$ and $\nu$
+% Nte_nn        number of testing samples for Neural Network
+
+Nmu_tr = 50;  Nnu_tr = 50;  
+valPercentage = 0.3;  Nte_nn = 200;
+
+% 
+% Run
+%
+
+% Determine number of training and validating patterns
+Ntr = Nmu_tr*Nnu_tr;  Nva = ceil(valPercentage*Ntr);
+
+% Load data
+filename = sprintf(['%s/LinearPoisson1d2pNN/' ...
+    'LinearPoisson1d2p_%s_%s%s_NNunif_' ...
+    'a%2.2f_b%2.2f_%s%2.2f_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
+    'K%i_Nmu%i_Nnu%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
+    root, solver, reducer, sampler, a, b, BCLt, ...
+    BCLv, BCRt, mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, ...
+    Nmu_tr, Nnu_tr, Ntr, Nva, Nte_nn, suffix);
+load(filename);
+
+% Open a new plot window
+figure(5);
+hold off
+
+% Extract optimal network
+tr_opt = tr_opt_local{row_opt,col_opt};
+
+% Plot and define settings
+semilogy(tr_opt.epoch,tr_opt.perf,'b', tr_opt.epoch,tr_opt.vperf,'r', ...
+    tr_opt.epoch,tr_opt.tperf,'g')
+
+str = sprintf('Learning curves ($h = %i$, $n_{\\mu,tr} = %i$, $n_{\\nu,tr} = %i$ $n_{va} = %i$, $n_{te} = %i$)', ...
+    H(row_opt), Nmu_tr, Nnu_tr, Nva, Nte);
+title(str)
+xlabel('$t$')
+ylabel('$\epsilon$')
+grid on
+legend('Train', 'Validation', 'Test', 'location', 'best')
+
+%% For test data, compute regression line of current output versus associated
+% teaching input for all output neurons
+
+%
+% User defined settings:
+% Nmu_tr        number of training values for $\mu$ (row vector)
+% Nnu_tr        number of training values for $\nu$ (no more than four values)
+% valPercentage ratio between number of validation and training values for 
+%               $\mu$ and $\nu$
+% Nte_nn        number of testing samples for Neural Network
+
+Nmu_tr = 50;  Nnu_tr = 50;  valPercentage = 0.3;  Nte_nn = 200;
+
+%
+% Run
+%
+
+% Get total number of training and validating samples
+Ntr = Nmu_tr*Nnu_tr;  Nva = ceil(valPercentage*Ntr);
+
+% Load data
+filename = sprintf(['%s/LinearPoisson1d2pNN/' ...
+    'LinearPoisson1d2p_%s_%s%s_NNunif_' ...
+    'a%2.2f_b%2.2f_%s%2.2f_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
+    'K%i_Nmu%i_Nnu%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
+    root, solver, reducer, sampler, a, b, BCLt, ...
+    BCLv, BCRt, mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, ...
+    Nmu_tr, Nnu_tr, Ntr, Nva, Nte_nn, suffix);
+load(filename);
+
+% Load dataset storing reduced basis
+datafile = sprintf(['%s/LinearPoisson1d2pSVD/' ...
+    'LinearPoisson1d2p_%s_%s%s_' ...
+    'a%2.2f_b%2.2f_%s%2.2f_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
+    'K%i_Nmu%i_Nnu%i_N%i_L%i_Nte%i%s.mat'], ...
+    root, solver, reducer, sampler, a, b, BCLt, ...
+    BCLv, BCRt, mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, Nte_r, suffix);
+load(datafile);
+
+% Extract optimal network and compute outputs
+net_opt = net_opt_local{row_opt,col_opt};
+y = net_opt([mu_te'; nu_te']);
+
+% Compute regression for each component of the output, then plot
+for i = 1:size(y,1)
+    [r,m,q] = regression(alpha_te(i,:),y(i,:));
+    figure(5+i);
+    hold off
+    plot(alpha_te(i,:),y(i,:),'bo', alpha_te(i,:),alpha_te(i,:),'r', ...
+        [min(alpha_te(i,:)) max(alpha_te(i,:))],m*[min(alpha_te(i,:)) max(alpha_te(i,:))]+q,'r--');
+    str = sprintf('Current output versus exact output for output neuron $\\Omega = %i$ ($n_{tr} = %i$, $h = %i$)', ...
+        i, Ntr, H(row_opt));
+    title(str)
+    xlabel('$t_{\Omega}$')
+    ylabel('$y_{\Omega}$')
+    grid on
+    legend('Output', 'Perfect fitting', 'Regression line', 'location', 'best')
+    yl = get(gca,'xlim');
+    ylim(yl);
+end
+
 %% Plot pointwise error
 
 %
@@ -417,13 +534,21 @@ elseif strcmp(sampler,'rand')
 end
 
 % Load data
-filename = sprintf(['%s/LinearPoisson1d2p/LinearPoisson1d2pNN/' ...
+filename = sprintf(['%s/LinearPoisson1d2pNN/' ...
     'LinearPoisson1d2p_%s_%s%s_NN%s_a%2.2f_b%2.2f_' ...
     '%s%2.2f_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_K%i_' ...
     'Nmu%i_Nnu%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
     root, solver, reducer, sampler, sampler_tr, a, b, BCLt, BCLv, BCRt, ...
     mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, Nmu_tr, Nnu_tr, Ntr, Nva, Nte_nn, suffix);
 load(filename);
+
+% Load dataset storing reduced basis
+datafile = sprintf(['%s/LinearPoisson1d2pSVD/' ...
+    'LinearPoisson1d2p_%s_%s%s_' ...
+    'a%2.2f_b%2.2f_%s%2.2f_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
+    'K%i_Nmu%i_Nnu%i_N%i_L%i_Nte%i%s.mat'], ...
+    root, solver, reducer, sampler, a, b, BCLt, ...
+    BCLv, BCRt, mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, Nte_r, suffix);
 load(datafile);
 
 % Extract optimal network

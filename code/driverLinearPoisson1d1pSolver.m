@@ -22,15 +22,16 @@ K = 200;
 %v = @(t) 1 + 0*t;
 %mu = 0.5;  f = @(t) 2*(t >= mu) - 1*(t < mu);
 
-mu = -1;  nu = 3;
+mu = 0.9;  nu = 3;
 %v = @(t) nu*(t < 0) + (nu + nu*t).*(t >= 0);
 %v = @(t) 1*(t < nu) + 4*(t >= nu);
 %v = @(t) gaussian(t,0,nu);
-v = @(t) 1*(t < -0.5) + nu*(-0.5 <= t & t <= 0.3) + 0.25*(t > 0.3);
+%v = @(t) 1 + (t+1).^nu;
+v = @(t) 2 + sin(nu*pi*t);
 %f = @(t) - mu*(t < 0) + 2*mu*(t >= 0);
 %f = @(t) -gaussian(t,-mu,0.8) + gaussian(t,mu,0.8);
-%f = @(t) 2*(t >= mu) - 1*(t < mu);
-f = @(t) gaussian(t,mu,0.1);
+f = @(t) 2*(t >= mu) - 1*(t < mu);
+%f = @(t) gaussian(t,mu,0.1);
 
 BCLt = 'D';  BCLv = 0;
 BCRt = 'D';  BCRv = 0;
