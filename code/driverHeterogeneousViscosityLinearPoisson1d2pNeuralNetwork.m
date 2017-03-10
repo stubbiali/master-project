@@ -80,20 +80,22 @@ close all
 % tosave        TRUE to store the results in a Matlab dataset, FALSE otherwise
 
 a = -1;  b = 1;  K = 100;
-v = @(t,nu) 2 + sin(nu*pi*t);  nu1 = 1;  nu2 = 3;
-f = @(t,mu) -(t < mu) + 2*(t >= mu);  mu1 = -1;  mu2 = 1;
-suffix = '_ter';
+%v = @(t,nu) 2 + sin(nu*pi*t);  nu1 = 1;  nu2 = 3;
+%f = @(t,mu) -(t < mu) + 2*(t >= mu);  mu1 = -1;  mu2 = 1;
+v = @(t,nu) 1*(t < -0.5) + nu*(-0.5 <= t & t <= 0.5) + 1*(t > 0.5);  nu1 = 1; nu2 = 5;
+f = @(t,mu) sin(mu*pi*(t+1));  mu1 = 1;  mu2 = 3;
+suffix = '_quat';
 BCLt = 'D';  BCLv = 0;
 BCRt = 'D';  BCRv = 0;
 solver = 'FEP1';
 reducer = 'SVD';
 sampler = 'unif';
-Nmu = 50;  Nnu = 10;  N = Nmu*Nnu;  L = 10; 
+Nmu = 50;  Nnu = 25;  N = Nmu*Nnu;  L = 12; 
 root = '../datasets';
 
-H = 10:20;  nruns = 10;
+H = 19;  nruns = 10;
 sampler_tr_v = {'unif'};
-Nmu_tr_v = [5 10 15 20 30 40 50];  Nnu_tr_v = [5 10 15 20 30 40 50]; 
+Nmu_tr_v = [5 10 15 20 30 40 50 75 100];  Nnu_tr_v = [5 10 15 20 30 40 50 75 100]; 
 valPercentage = 0.3;  Nte = 50;
 transferFcn = 'tansig';
 trainFcn = {'trainlm'};
@@ -296,6 +298,9 @@ for s = 1:length(sampler_tr_v)
                     %net.trainParam.mu_inc = 1.5;
                     
                     %net.performParam.regularization = 0.5;
+                    
+                    % Set maximum number of iterations
+                    net.trainParam.epochs = 2000;
 
                     % Set options for training window
                     net.trainParam.showWindow = showWindow;

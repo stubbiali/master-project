@@ -303,12 +303,13 @@ for k = 1:length(Nnu)
         semilogy(L', err_avg_unif(:,j), marker_unif{j});
         hold on
         %semilogy(L', err_rand(:,j), marker_rand{j});
-        str_unif = sprintf('''$n_{\\mu} = %i$, uniform''', Nmu(j));
+        str_unif = sprintf('''$n_{\\mu} = %i$''', Nmu(j));
         %str_rand = sprintf('''$n_{\\mu} = %i$, random''', Nmu(j));
         str_leg = strcat(str_leg, ', ', str_unif);
         %str_leg = sprintf('%s, %s, %s', str_leg, str_unif, str_rand);
     end
-    str_leg = sprintf('%s)', str_leg);
+    semilogy(L,s,'ko--')
+    str_leg = sprintf('%s, ''Singular values'')', str_leg);
     eval(str_leg)
 
     % Define plot settings
@@ -395,12 +396,13 @@ for k = 1:length(Nmu)
         semilogy(L', err_max_unif(:,j), marker_unif{j});
         hold on
         %semilogy(L', err_rand(:,j), marker_rand{j});
-        str_unif = sprintf('''$n_{\\nu} = %i$, uniform''', Nnu(j));
+        str_unif = sprintf('''$n_{\\nu} = %i$''', Nnu(j));
         %str_rand = sprintf('''$n_{\\nu} = %i$, random''', Nnu(j));
         str_leg = strcat(str_leg, ', ', str_unif);
         %str_leg = sprintf('%s, %s, %s', str_leg, str_unif, str_rand);
     end
-    str_leg = sprintf('%s)', str_leg);
+    semilogy(L,s,'ko--')
+    str_leg = sprintf('%s, ''Singular values'')', str_leg);
     eval(str_leg)
 
     % Define plot settings
@@ -433,7 +435,8 @@ for k = 1:length(Nmu)
         str_leg = strcat(str_leg, ', ', str_unif);
         %str_leg = sprintf('%s, %s, %s', str_leg, str_unif, str_rand);
     end
-    str_leg = sprintf('%s)', str_leg);
+    semilogy(L,s,'ko--')
+    str_leg = sprintf('%s, ''Singular values'')', str_leg);
     eval(str_leg)
 
     % Define plot settings

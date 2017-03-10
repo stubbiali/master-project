@@ -52,20 +52,22 @@ close all
 a = -1;  b = 1;  K = 100;
 %v = @(t,nu) 1*(t < -0.5) + nu*(-0.5 <= t & t <= 0.3) + 0.25*(t > 0.3);  nu1 = 1;  nu2 = 3;
 %v = @(t,nu) 1 + (t+1).^nu;  nu1 = 1;  nu2 = 3;
-v = @(t,nu) 2 + sin(nu*pi*t);  nu1 = 1;  nu2 = 3;
+%v = @(t,nu) 2 + sin(nu*pi*t);  nu1 = 1;  nu2 = 3;
 %f = @(t,mu) gaussian(t,mu,0.1);  mu1 = -1;  mu2 = 1;
-f = @(t,mu) - 1*(t < mu) + 2*(t >= mu);  mu1 = -1;  mu2 = 1;
+%f = @(t,mu) - 1*(t < mu) + 2*(t >= mu);  mu1 = -1;  mu2 = 1;
+v = @(t,nu) 1*(t < -0.5) + nu*(-0.5 <= t & t <= 0.5) + 1*(t > 0.5);  nu1 = 1; nu2 = 5;
+f = @(t,mu) sin(mu*pi*(t+1));  mu1 = 1;  mu2 = 3;
 BCLt = 'D';  BCLv = 0;
 BCRt = 'D';  BCRv = 0;
 solver = 'FEP1';
 reducer = 'SVD';
 sampler = {'unif'};
-Nmu_v = [5 10 15 20 25 50]; 
-Nnu_v = [5 10 15 20 25 50]; 
+Nmu_v = [5 10 15 20 25 50 75 100]; 
+Nnu_v = [5 10 15 20 25 50 75 100]; 
 L = 1:25;  
 Nte = 50;
 root = '../datasets';
-suffix = '_ter';
+suffix = '_quat';
 
 %
 % Run
