@@ -50,14 +50,16 @@ a = -1;  b = 1;
 %v = @(t,nu) 1*(t < -0.5) + nu*(-0.5 <= t & t <= 0.3) + 0.25*(t > 0.3);  nu1 = 1;  nu2 = 3;
 %f = @(t,mu) gaussian(t,mu,0.1);  mu1 = -1;  mu2 = 1;
 %v = @(t,nu) 1 + (t+1).^nu;  nu1 = 1;  nu2 = 3;
-v = @(t,nu) 2 + sin(nu*pi*t);  nu1 = 1;  nu2 = 3;
-f = @(t,mu) - 1*(t < mu) + 2*(t >= mu);  mu1 = -1;  mu2 = 1;
+%v = @(t,nu) 2 + sin(nu*pi*t);  nu1 = 1;  nu2 = 3;
+%f = @(t,mu) - 1*(t < mu) + 2*(t >= mu);  mu1 = -1;  mu2 = 1;
+v = @(t,nu) 1*(t < -0.5) + nu*(-0.5 <= t & t <= 0.5) + 1*(t > 0.5);  nu1 = 1; nu2 = 5;
+f = @(t,mu) sin(mu*pi*(t+1));  mu1 = 1;  mu2 = 3;
 BCLt = 'D';  BCLv = 0;
 BCRt = 'D';  BCRv = 0;
 solver = 'FEP1';
 reducer = 'SVD';
 root = '../datasets';
-suffix = '_ter';
+suffix = '_quat';
 
 %% Plot full and reduced solution for three values of $\mu$ and $\nu$. 
 % This is useful to have some insights into the dependency of
@@ -72,7 +74,7 @@ suffix = '_ter';
 % L         rank of reduced basis
 % Nte       number of testing samples
 
-K = 100;  Nmu = 5;  Nnu = 5;  L = 10;  Nte = 50;
+K = 100;  Nmu = 10;  Nnu = 50;  L = 10;  Nte = 50;
 
 %
 % Run
@@ -89,9 +91,9 @@ end
 N = Nmu*Nnu;
 
 % Select three values for $\mu$ and $\nu$
-%mu = mu1 + (mu2 - mu1) * rand(3,1);
+mu = mu1 + (mu2 - mu1) * rand(3,1);
 %mu = [-0.455759 -0.455759 -0.455759];  
-%nu = nu1 + (nu2 - nu1) * rand(3,1);
+nu = nu1 + (nu2 - nu1) * rand(3,1);
 %nu = [0.03478 0.5 0.953269];  
 
 % Evaluate viscosity for the just set values for $\nu$
@@ -224,7 +226,7 @@ grid on
 % Nnu   number of sampled values for $\nu$
 % L     rank of reduced basis
 
-K = 100;  Nmu = [5 15 25 50];  Nnu = [5 15 25 50];  L = 1:25;  Nte = 50;
+K = 100;  Nmu = [5 15 25 50];  Nnu = [5 15 25 50 75];  L = 1:25;  Nte = 50;
 
 %
 % Run
@@ -291,7 +293,8 @@ for k = 1:length(Nnu)
         str_leg = strcat(str_leg, ', ', str_unif);
         %str_leg = sprintf('%s, %s, %s', str_leg, str_unif, str_rand);
     end
-    str_leg = sprintf('%s)', str_leg);
+    semilogy(L,s,'ko--')
+    str_leg = sprintf('%s, ''Singular values'')', str_leg);
     eval(str_leg)
 
     % Define plot settings
@@ -324,9 +327,10 @@ for k = 1:length(Nnu)
         str_leg = strcat(str_leg, ', ', str_unif);
         %str_leg = sprintf('%s, %s, %s', str_leg, str_unif, str_rand);
     end
-    str_leg = sprintf('%s)', str_leg);
+    semilogy(L,s,'ko--')
+    str_leg = sprintf('%s, ''Singular values'')', str_leg);
     eval(str_leg)
-
+    
     % Define plot settings
     str_leg = sprintf('Average error $\\epsilon_{avg}$ ($k = %i$, $n_{\\nu} = %i$, $n_{te} = %i$)', ...
         K, Nnu(k), Nte);
@@ -350,7 +354,7 @@ end
 % Nnu   number of sampled values for $\nu$ (no more than four values)
 % L     rank of reduced basis
 
-K = 100;  Nmu = [5 15 25 50];  Nnu = [5 15 25 50];  L = 1:25;  Nte = 50;
+K = 100;  Nmu = [5 15 25 50 75];  Nnu = [5 15 25 50];  L = 1:25;  Nte = 50;
 
 %
 % Run
@@ -417,7 +421,8 @@ for k = 1:length(Nmu)
         str_leg = strcat(str_leg, ', ', str_unif);
         %str_leg = sprintf('%s, %s, %s', str_leg, str_unif, str_rand);
     end
-    str_leg = sprintf('%s)', str_leg);
+    semilogy(L,s,'ko--')
+    str_leg = sprintf('%s, ''Singular values'')', str_leg);
     eval(str_leg)
 
     % Define plot settings
@@ -450,7 +455,8 @@ for k = 1:length(Nmu)
         str_leg = strcat(str_leg, ', ', str_unif);
         %str_leg = sprintf('%s, %s, %s', str_leg, str_unif, str_rand);
     end
-    str_leg = sprintf('%s)', str_leg);
+    semilogy(L,s,'ko--')
+    str_leg = sprintf('%s, ''Singular values'')', str_leg);
     eval(str_leg)
 
     % Define plot settings
@@ -479,7 +485,7 @@ end
 %           - 'rand': drawn from random uniform distribution
 % Nte       number of testing samples
 
-K = 100;  Nmu = 50;  Nnu = 15;  L = 15;  sampler = 'unif';  Nte = 50;
+K = 100;  Nmu = 50;  Nnu = 25;  L = 13;  sampler = 'unif';  Nte = 50;
 
 %
 % Run
@@ -542,7 +548,7 @@ ylabel('$\nu$')
 %           - 'rand': drawn from random uniform distribution
 % Nte       number of testing samples
 
-K = 100;  Nmu = 20;  Nnu = 10;  L = 5;  sampler = 'unif';  Nte = 50;
+K = 100;  Nmu = 50;  Nnu = 25;  L = 13;  sampler = 'unif';  Nte = 50;
 
 %
 % Run
