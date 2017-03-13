@@ -67,7 +67,7 @@ function rhs = getLinearPoisson1dFEP1rhs_f(a, b, K, f, BCLt, BCLv, BCRt, BCRv)
 	if strcmp(BCLt,'D') 
 	    prhs(1) = BCLv/ph;
 	elseif strcmp(BCLt,'N')
-		if todo
+        if todo
             prhs(1) = prhs(1) - BCLv;
         else
             prhs(1) = prhs(1) + pBCLv - BCLv;
