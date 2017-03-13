@@ -52,17 +52,19 @@ close all
 % root      path to folder where storing the output dataset
 
 a = -1;  b = 1;  K = 100;
-v = @(t,nu) 2 + sin(nu*pi*t);
-f = @(t,mu) -(t < mu) + 2*(t >= mu);  
-suffix = '_ter';
-mu1 = -1;  mu2 = 1;  Nmu = 50;
-nu1 = 1;   nu2 = 3;  Nnu = 10;
+%v = @(t,nu) 2 + sin(nu*pi*t);
+%f = @(t,mu) -(t < mu) + 2*(t >= mu);  
+v = @(t,nu) 1*(t < -0.5) + nu*(-0.5 <= t & t <= 0.5) + 1*(t > 0.5); 
+f = @(t,mu) sin(mu*pi*(t+1));
+suffix = '_quat';
+mu1 = 1;  mu2 = 3;  Nmu = 50;
+nu1 = 1;   nu2 = 5;  Nnu = 25;
 BCLt = 'D';  BCLv = 0;
 BCRt = 'D';  BCRv = 0;
 solver = 'FEP1';
 reducer = 'SVD';
 sampler = 'unif';
-L = 10;  Nte_r = 50;
+L = 12;  Nte_r = 50;
 root = '../datasets';
 
 % Total number of sampled points for computing the reduced basis
@@ -80,7 +82,7 @@ N = Nmu*Nnu;
 %               $\mu$ and $\nu$
 % Nte_nn        number of testing samples for Neural Network
 
-Nmu_tr = 50;  Nnu_tr = 50;  valPercentage = 0.3;  Nte_nn = 200;
+Nmu_tr = 20;  Nnu_tr = 20;  valPercentage = 0.3;  Nte_nn = 200;
 
 %
 % Run
@@ -244,7 +246,7 @@ grid on
 %               $\mu$ and $\nu$
 % Nte_nn        number of testing samples for Neural Network
 
-Nmu_tr = [5 10 15 20 30 40 50];  Nnu_tr = [5 10 15 20 30 40 50];
+Nmu_tr = [5 10 15 20 30 40 50 75 100];  Nnu_tr = [5 10 15 20 30 40 50 75 100];
 valPercentage = 0.3;  Nte_nn = 200; 
 
 %
@@ -314,7 +316,7 @@ ylabel('$n_{\nu,tr}$')
 %               - 'trainbr' : Bayesian regularization
 % h_opt         number of hidden neurons
 
-Nmu_tr = [10 20 30 50];  Nnu_tr = [5 10 15 20 30 40 50];
+Nmu_tr = [10 20 30 50];  Nnu_tr = [5 10 15 20 30 40 50 75 100];
 valPercentage = 0.3;  Nte_nn = 200;  train_opt = 'trainlm';  h_opt = 19;
 
 %
@@ -413,7 +415,7 @@ eval(str_leg)
 %               - 'trainbr' : Bayesian regularization   
 % h_opt         number of hidden neurons
 
-Nmu_tr = [5 10 15 20 30 40 50];  Nnu_tr = [10 20 30 50];
+Nmu_tr = [5 10 15 20 30 40 50 75 100];  Nnu_tr = [10 20 30 50];
 valPercentage = 0.3;  Nte_nn = 200;  train_opt = 'trainlm';  h_opt = 19;
 
 %
@@ -512,7 +514,7 @@ eval(str_leg)
 %               - 'trainbr' : Bayesian regularization   
 % h_opt         number of hidden neurons
 
-Nmu_tr = 50;  Nnu_tr = 50;  valPercentage = 0.3;  Nte_nn = 200;
+Nmu_tr = 50;  Nnu_tr = 20;  valPercentage = 0.3;  Nte_nn = 200;
 train_opt = 'trainlm';  h_opt = 19;
 
 % 
@@ -581,7 +583,7 @@ legend('Train', 'Validation', 'Test', 'location', 'best')
 %               - 'trainbr' : Bayesian regularization   
 % h_opt         number of hidden neurons
 
-Nmu_tr = 50;  Nnu_tr = 50;  valPercentage = 0.3;  Nte_nn = 200;
+Nmu_tr = 50;  Nnu_tr = 20;  valPercentage = 0.3;  Nte_nn = 200;
 train_opt = 'trainlm';  h_opt = 19;
 
 %
