@@ -50,15 +50,15 @@ close all
 a = -1;  b = 1;  
 K = 100;
 v = @(u) 1./(u.^2);  dv = @(u) - 2./(u.^3);
-f = @(t,mu) gaussian(t,mu,0.2);  mu1 = -1;  mu2 = 1;  suffix = '';
+f = @(t,mu) gaussian(t,mu,0.2);  mu1 = -1;  mu2 = 1;  suffix = '_bis';
 BCLt = 'D';  BCLv = 1;
 BCRt = 'D';  BCRv = 1;
 solver = 'FEP1Newton';
 reducer = 'SVD';
 sampler = {'unif'};
-N = 25; 
+N = [5 10 15 20 25 75 100]; 
 L = 1:25;  
-Nte = 100;
+Nte = 50;
 root = '../datasets';
 
 %
@@ -128,7 +128,7 @@ for k = 1:length(sampler)
                 [x,alpha_te(:,i)] = rsolverFcn(a, b, K, v, dv, g_te{i}, ...
                     BCLt, BCLv, BCRt, BCRv, VL);
             end
-            ur_te = V_xl(:,1:L(l)) * alpha_te;
+            ur_te = VL * alpha_te;
 
             % Compute error between full and reduced solutions for testing
             % values of $\mu$

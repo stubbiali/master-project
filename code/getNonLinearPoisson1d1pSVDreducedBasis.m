@@ -71,6 +71,9 @@ function [x, mu, Y, s, V] = getNonLinearPoisson1d1pSVDreducedBasis(mu1, mu2, ...
     end
         
     % Compute SVD decomposition of Y
+    %h = x(2)-x(1);  m = size(Y,1);  W = sqrt(diag([h/2; h*ones(m-2,1); h/2]));  
+    %[U,S] = svd(W*Y);
+    %U = W \ U;
     [U,S] = svd(Y);
     
     % Get the first L singular values

@@ -77,7 +77,7 @@ root = '../datasets';
 
 H = 1:30;  nruns = 15;
 sampler_tr_v = {'unif'};
-Ntr_v = [5 10 15 20 25 50 75 100];  Nva_v = ceil(0.3 * Ntr_v);  Nte_nn = 100;
+Ntr_v = [75 100];  Nva_v = ceil(0.3 * Ntr_v);  Nte_nn = 100;
 transferFcn = 'tansig';
 trainFcn = {'trainlm', 'trainscg', 'trainbfg'};
 showWindow = false;
