@@ -44,7 +44,7 @@ function [x, u] = NonLinearPoisson1dFEP1Newton(a, b, K, v, dv, f, BCLt, BCLv, ..
     
     % Set parameters for Newton's method
     iter = 1000;
-    tol = 1e-7;
+    tol = 1e-8;
     for i = 1:2:length(varargin)
         if strcmp(varargin{i},'iter')
             iter = varargin{i+1};
@@ -52,6 +52,9 @@ function [x, u] = NonLinearPoisson1dFEP1Newton(a, b, K, v, dv, f, BCLt, BCLv, ..
             tol = varargin{i+1};
         end
     end
+    
+    tol1 = tol;
+    tol2 = 1e-6;
     
     % Build a uniform grid over the interval $[a,b]$
     x = linspace(a,b,K)';  h = (b-a) / (K-1);
@@ -85,8 +88,8 @@ function [x, u] = NonLinearPoisson1dFEP1Newton(a, b, K, v, dv, f, BCLt, BCLv, ..
     F = zeros(K,1);  J = zeros(K,K);
     
     % Run Newton's solver
-    err = 1+tol;  n = 0;
-    while (err > tol) && (n < iter)
+    err1 = 1+tol1;  err2 = 1+tol2;  n = 0;
+    while ((err1 > tol1) || (err2 > tol2)) && (n < iter)
        % Shortcuts
        ul = u(1:end-2);  uc = u(2:end-1);  ur = u(3:end);
        ulc = 0.5*(ul+uc);  ucr = 0.5*(uc+ur);
@@ -168,6 +171,8 @@ function [x, u] = NonLinearPoisson1dFEP1Newton(a, b, K, v, dv, f, BCLt, BCLv, ..
        
        % Compute error, i.e. difference between consecutive iterations, and
        % update counter
-       err = norm(u - uold);  n = n + 1;
+       err1 = norm(u - uold);  err2 = norm(F);  n = n + 1;
     end
+    
+    %fprintf('Full solver: number of iterations %i, |F| = %5.5E\n', n, norm(F));
 end

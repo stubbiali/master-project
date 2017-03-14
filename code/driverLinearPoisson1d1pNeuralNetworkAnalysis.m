@@ -160,6 +160,164 @@ ylabel('$\epsilon$')
 grid on
 eval(str_leg)    
 
+%% Fix the number of hidden neurons, than for each sampling method and each 
+% training algorithm plot the accumulated error on test dataset as function
+% of the number of training samples
+
+% 
+% User-defined settings:
+% Ntr_v  number of training patterns (row vector)
+% Nva_v  number of validation patterns (row vector, same length as Ntr_v)
+% h_opt  number of hidden neurons
+
+Ntr_v = 10:10:80;  Nva_v = ceil(0.3 * Ntr_v);  h_opt = 10;
+
+%
+% Run
+%
+
+% Get training algorithms which has been tested
+filename = sprintf(['%s/LinearPoisson1d1pNN/' ...
+    'LinearPoisson1d1p_%s_%s%s_NNunif_a%2.2f_b%2.2f_%s%2.2f_' ...
+    '%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
+    root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, ...
+    mu1, mu2, K, N, L, Ntr_v(1), Nva_v(1), Nte, suffix);
+load(filename);
+
+% Get for each number of training patterns, each training algorithm and 
+% each sampling method
+err_unif = zeros(length(Ntr_v),length(trainFcn));
+err_rand = zeros(length(Ntr_v),length(trainFcn));
+
+for i = 1:length(Ntr_v)
+    % Uniform sampling
+    filename = sprintf(['%s/LinearPoisson1d1pNN/' ...
+        'LinearPoisson1d1p_%s_%s%s_NNunif_a%2.2f_b%2.2f_' ...
+        '%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
+        root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, mu1, ...
+        mu2, K, N, L, Ntr_v(i), Nva_v(i), Nte, suffix);
+    load(filename); 
+    idx = find(H == h_opt);  err_unif(i,:) = err_opt_local(idx,:);
+        
+    % Random sampling
+    filename = sprintf(['%s/LinearPoisson1d1pNN/' ...
+        'LinearPoisson1d1p_%s_%s%s_NNrand_a%2.2f_b%2.2f_' ...
+        '%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
+        root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, mu1, ...
+        mu2, K, N, L, Ntr_v(i), Nva_v(i), Nte, suffix);
+    load(filename); 
+    idx = find(H == h_opt);  err_rand(i,:) = err_opt_local(idx,:);
+end
+
+%
+% Plot number of hidden neurons versus number of training patterns
+%
+
+% Open a new window
+figure(3);
+hold off
+
+% Load data, plot and dynamically update legend
+marker_unif = {'bo-', 'rs-', 'g^-', 'mv-'};
+marker_rand = {'bo--', 'rs--', 'g^--', 'mv--'};
+str_leg = 'legend(''location'', ''best''';
+for i = 1:length(trainFcn)
+    semilogy(Ntr_v', err_unif(:,i), marker_unif{i});
+    hold on
+    semilogy(Ntr_v', err_rand(:,i), marker_rand{i});
+    str_unif = sprintf('''%s, uniform''', trainFcn{i});
+    str_rand = sprintf('''%s, random''', trainFcn{i});
+    str_leg = strcat(str_leg, ', ', str_unif, ', ', str_rand);
+end
+str_leg = strcat(str_leg,')');
+
+% Define plot settings
+str = sprintf('Accumulated error $\\epsilon$ on test data set ($h = %i$, $n_{te} = %i$)', ...
+    h_opt, Nte);
+title(str)
+xlabel('$n_{tr}$')
+ylabel('$\epsilon$')
+grid on
+eval(str_leg)
+
+%% For different number of hidden neurons, fix sampling method and 
+% training algorithm plot the accumulated error on test dataset as function
+% of the number of training samples
+
+% 
+% User-defined settings:
+% Ntr_v         number of training patterns (row vector)
+% Nva_v         number of validation patterns (row vector, same length as Ntr_v)
+% h             number of hidden neurons (row vector, no more than four values)
+% sampler_tr    how the training values for $\mu$ should be selected:
+%               - 'unif': uniformly distributed on $[\mu_1,\mu_2]$
+%               - 'rand': drawn from a uniform random distribution on 
+%                         $[\mu_1,\mu_2]$
+% train         training algorithm
+%               - 'trainlm' : Levenberg-Marquardt
+%               - 'trainscg': scaled conjugate gradient
+%               - 'trainbfg': quasi-Newton method
+
+Ntr_v = 10:10:80;  Nva_v = ceil(0.3 * Ntr_v);  h = [5 10 15 20];
+sampler_tr = 'unif';  train = 'trainlm';
+
+%
+% Run
+%
+
+err = zeros(length(Ntr_v),length(h));
+for i = 1:length(Ntr_v)
+    % Load data
+    filename = sprintf(['%s/LinearPoisson1d1pNN/' ...
+        'LinearPoisson1d1p_%s_%s%s_NN%s_a%2.2f_b%2.2f_' ...
+        '%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
+        root, solver, reducer, sampler, sampler_tr, a, b, BCLt, BCLv, ...
+        BCRt, BCRv, mu1, mu2, K, N, L, Ntr_v(i), Nva_v(i), Nte, suffix);
+    load(filename);
+    
+    % Extract column index associated with the specified training algorithm
+    jopt = 0;
+    for j = 1:length(trainFcn)
+        if strcmp(trainFcn{j},train)
+            jopt = j;
+        end
+    end
+    
+    for j = 1:length(h)
+        % Find row index associated with the specified number of neurons
+        iopt = find(H == h(j));
+        
+        % Get the error
+        err(i,j) = err_opt_local(iopt,jopt);
+    end
+end
+
+%
+% Plot
+%
+
+% Open a new window
+figure(4);
+hold off
+
+% Load data, plot and dynamically update legend
+marker = {'bo-', 'rs-', 'g^-', 'mv-'};
+str_leg = 'legend(''location'', ''best''';
+for i = 1:length(h)
+    semilogy(Ntr_v', err(:,i), marker_unif{i});
+    hold on
+    str = sprintf('''h = %i''', h(i));
+    str_leg = strcat(str_leg, ', ', str);
+end
+str_leg = strcat(str_leg,')');
+
+% Define plot settings
+title('Accumulated error $\epsilon$ on test data set')
+xlabel('$n_{tr}$')
+ylabel('$\epsilon$')
+grid on
+eval(str_leg)
+
 %% Fixed the number of training patterns, for each training algorithm and 
 % way of sampling, plot the error versus the number of hidden neurons
 

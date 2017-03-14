@@ -393,7 +393,7 @@ str_leg = strcat(str_leg,')');
 
 % Define plot settings
 title('Accumulated error $\epsilon$ on testing dataset')
-xlabel('$N_{\nu}$')
+xlabel('$N_{\nu,tr}$')
 ylabel('$\epsilon$')
 grid on
 eval(str_leg)
@@ -492,7 +492,7 @@ str_leg = strcat(str_leg,')');
 
 % Define plot settings
 title('Accumulated error $\epsilon$ on testing dataset')
-xlabel('$N_{\mu}$')
+xlabel('$N_{\mu,tr}$')
 ylabel('$\epsilon$')
 grid on
 eval(str_leg)
@@ -514,7 +514,7 @@ eval(str_leg)
 %               - 'trainbr' : Bayesian regularization   
 % h_opt         number of hidden neurons
 
-Nmu_tr = 50;  Nnu_tr = 20;  valPercentage = 0.3;  Nte_nn = 200;
+Nmu_tr = 40;  Nnu_tr = 40;  valPercentage = 0.3;  Nte_nn = 200;
 train_opt = 'trainlm';  h_opt = 19;
 
 % 
@@ -558,7 +558,7 @@ tr_opt = tr_opt_local{row,col};
 semilogy(tr_opt.epoch,tr_opt.perf,'b', tr_opt.epoch,tr_opt.vperf,'r', ...
     tr_opt.epoch,tr_opt.tperf,'g')
 
-str = sprintf('Learning curves ($h = %i$, $n_{\\mu,tr} = %i$, $n_{\\nu,tr} = %i$ $n_{va} = %i$, $n_{te} = %i$)', ...
+str = sprintf('Learning curves ($h = %i$, $n_{\\mu,tr} = %i$, $n_{\\nu,tr} = %i$, $n_{va} = %i$, $n_{te} = %i$)', ...
     H(row_opt), Nmu_tr, Nnu_tr, Nva, Nte_r);
 title(str)
 xlabel('$t$')
@@ -583,7 +583,7 @@ legend('Train', 'Validation', 'Test', 'location', 'best')
 %               - 'trainbr' : Bayesian regularization   
 % h_opt         number of hidden neurons
 
-Nmu_tr = 50;  Nnu_tr = 20;  valPercentage = 0.3;  Nte_nn = 200;
+Nmu_tr = 40;  Nnu_tr = 40;  valPercentage = 0.3;  Nte_nn = 200;
 train_opt = 'trainlm';  h_opt = 19;
 
 %
@@ -637,7 +637,7 @@ for i = 1:size(y,1)
     plot(alpha_te(i,:),y(i,:),'bo', alpha_te(i,:),alpha_te(i,:),'r', ...
         [min(alpha_te(i,:)) max(alpha_te(i,:))],m*[min(alpha_te(i,:)) max(alpha_te(i,:))]+q,'r--');
     str = sprintf('Current output versus exact output for output neuron $\\Omega = %i$ ($n_{tr} = %i$, $h = %i$)', ...
-        i, Ntr, H(row_opt));
+        i, Ntr, h_opt);
     title(str)
     xlabel('$t_{\Omega}$')
     ylabel('$y_{\Omega}$')
@@ -667,7 +667,7 @@ end
 %               - 'trainbr' : Bayesian regularization   
 % h_opt         number of hidden neurons
 
-Nmu_tr = 50;  Nnu_tr = 50;  sampler_tr = 'unif';
+Nmu_tr = 40;  Nnu_tr = 40;  sampler_tr = 'unif';
 valPercentage = 0.3;  Nte_nn = 200;  train_opt = 'trainlm';  h_opt = 19;
 
 %

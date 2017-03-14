@@ -37,7 +37,7 @@ close all
 
 a = -1;  b = 1;  
 v = @(t) 1 ./ (t.^2);  dv = @(t) - 2 ./ (t.^3);
-f = @(t,mu) gaussian(t,mu,0.2);  mu1 = -1;  mu2 = 1;  suffix = '';
+f = @(t,mu) gaussian(t,mu,0.2);  mu1 = -1;  mu2 = 1;  suffix = '_bis';
 BCLt = 'D';  BCLv = 1;
 BCRt = 'D';  BCRv = 1;
 solver = 'FEP1Newton';
@@ -174,6 +174,7 @@ grid on
 
 %% To determine which is best between uniform and random sampling,
 % plot the maximum and average error versus the number of training samples
+% for different values of L
 
 %
 % User defined settings:
@@ -182,7 +183,7 @@ grid on
 % L         rank of reduced basis (row vector, no more than four values)
 % Nte       number of testing samples
 
-K = 100;  N = [5 10 15 20 25 50 75 100];  L = [2 5 10 15];  Nte = 100;
+K = 100;  N = [5 10 15 20 25 50 75 100];  L = [10 15 18 20];  Nte = 100;
 
 %
 % Run
@@ -202,8 +203,8 @@ for i = 1:length(L)
             root, solver, reducer, a, b, BCLt, BCLv, BCRt, BCRv, mu1, mu2, ...
             K, N(j), L(i), Nte, suffix);
         load(filename);
-        err_max_unif(i,j) = max(err_svd_abs);
-        err_avg_unif(i,j) = sum(err_svd_abs)/Nte;
+        err_max_unif(i,j) = max(err_svd_rel);
+        err_avg_unif(i,j) = sum(err_svd_rel)/Nte;
         
         %{
         % Random sampling
@@ -235,7 +236,7 @@ for i = 1:length(L)
     semilogy(N, err_max_unif(i,:), marker_unif{i});
     hold on
     %semilogy(N, err_max_rand(i,:), marker_rand{i});
-    str_unif = sprintf('''L = %i, uniform''', L(i));
+    str_unif = sprintf('''L = %i''', L(i));
     %str_rand = sprintf('''L = %i, random''', L(i));
     str_leg = strcat(str_leg, ', ', str_unif);
     %str_leg = strcat(str_leg, ', ', str_unif, ', ', str_rand);
@@ -243,7 +244,7 @@ end
 str_leg = strcat(str_leg, ')');
 
 % Define plot settings
-str = sprintf('Maximum error $\\epsilon_{max}$ ($k = %i$, $n_{te} = %i$)', ...
+str = sprintf('Maximum relative error $\\epsilon_{max}$ ($k = %i$, $n_{te} = %i$)', ...
     K, Nte);
 title(str)
 xlabel('$n$')
@@ -267,7 +268,7 @@ for i = 1:length(L)
     semilogy(N, err_avg_unif(i,:), marker_unif{i});
     hold on
     %semilogy(N, err_avg_rand(i,:), marker_rand{i});
-    str_unif = sprintf('''L = %i, uniform''', L(i));
+    str_unif = sprintf('''L = %i''', L(i));
     %str_rand = sprintf('''L = %i, random''', L(i));
     str_leg = strcat(str_leg, ', ', str_unif);
     %str_leg = strcat(str_leg, ', ', str_unif, ', ', str_rand);
@@ -275,7 +276,7 @@ end
 str_leg = strcat(str_leg, ')');
 
 % Define plot settings
-str = sprintf('Average error $\\epsilon_{avg}$ ($k = %i$, $n_{te} = %i$)', ...
+str = sprintf('Average relative error $\\epsilon_{avg}$ ($k = %i$, $n_{te} = %i$)', ...
     K, Nte);
 title(str)
 xlabel('$n$')
@@ -293,7 +294,7 @@ eval(str_leg);
 % N     number of shapshots (no more than four values)
 % L     rank of reduced basis
 
-K = 100;  N = [10 25 50 100];  L = 1:25;  Nte = 100;
+K = 100;  N = 50;  L = 1:25;  Nte = 50;
 
 %
 % Run
@@ -361,7 +362,7 @@ str_leg = sprintf('%s, ''Singular values'')', str_leg);
 eval(str_leg)
 
 % Define plot settings
-str_leg = sprintf('Maximum error $\\epsilon_{max}$ ($k = %i$, $n_{te} = %i$)', ...
+str_leg = sprintf('Maximum relative error $\\epsilon_{max}$ ($k = %i$, $n_{te} = %i$)', ...
     K, Nte);
 title(str_leg)
 xlabel('$l$')
@@ -395,13 +396,72 @@ str_leg = sprintf('%s, ''Singular values'')', str_leg);
 eval(str_leg)
 
 % Define plot settings
-str_leg = sprintf('Average error $\\epsilon_{avg}$ ($k = %i$, $n_{te} = %i$)', ...
+str_leg = sprintf('Average relative error $\\epsilon_{avg}$ ($k = %i$, $n_{te} = %i$)', ...
     K, Nte);
 title(str_leg)
 xlabel('$l$')
 ylabel('$\epsilon_{avg}$')
 grid on    
 xlim([min(L)-1 max(L)+1])
+
+%% Fix the number of snapshots (for simplicity) and plot the error
+% $|| U - V^l A^l||^2$, where the $i$-th column of $A^l$ is $\boldsymbol{\alpha}_i$.
+% The error should behave as $\sum_{i = 1}^l \sigma_i^2$, $\sigma_i$
+% being the $i$-th singular value. Compare $A^l$ as computed through SVD
+% and through reduced solver.
+
+%
+% User defined settings:
+% K     number of grid points
+% N     number of shapshots
+% L     rank of reduced basis
+% Nte   number of testing samples
+
+K = 100;  N = 50;  L = 1:25;  Nte = 50;
+
+%
+% Run
+% 
+
+% Get error accumulated error for all values of L
+ref = zeros(length(L),1);
+err_svd = zeros(length(L),1);
+err_ls = zeros(length(L),1);
+err_newton = zeros(length(L),1);
+for i = 1:length(L)
+    % Load data
+    filename = sprintf(['%s/NonLinearPoisson1d1pSVD/' ...
+        'NonLinearPoisson1d1p_%s_%sunif_a%2.2f_b%2.2f_' ...
+        '%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Nte%i%s.mat'], ...
+        root, solver, reducer, a, b, BCLt, BCLv, BCRt, BCRv, mu1, mu2, ...
+        K, N, L(i), Nte, suffix);
+    load(filename);
+        
+    % Compute singular values and get reference value for the error
+    [V,S,W] = svd(u_tr);  s = diag(S);  ref(i) = sum(s(L(i)+1:end).^2);
+    
+    % Compute error for SVD
+    B = S*W';  err_svd(i) = norm(u_tr - VL*B(1:L(i),:),'fro')^2;
+    
+    % Compute error for least-squares
+    alpha_ls = VL \ u_tr;  err_ls(i) = norm(u_tr - VL*alpha_ls,'fro')^2;
+    
+    % Compute error for Newton
+    err_newton(i) = norm(u_tr - VL*alpha_tr,'fro')^2;
+end
+
+%
+% Plot
+%
+
+figure(7);
+semilogy(L',ref,'ko--', L',err_svd,'bo-', L',err_ls,'ro-', L',err_newton,'g^-')
+title('Error on training dataset')
+xlabel('$l$')
+ylabel('$|| U - U^l ||^2$')
+grid on    
+xlim([min(L)-1 max(L)+1])
+legend('Residuals', 'SVD', 'Least-squares', 'Newton', 'location', 'best')
 
 %% Fix the sampling method and plot full and reduced solution for three 
 % testing values of $\mu$ (This is actually really similar to the first
@@ -436,7 +496,7 @@ load(filename);
 idx = randi(Nte,3,1);
 
 % Open a new window
-figure(7);
+figure(8);
 hold off
 
 % Plot and set the legend
@@ -472,7 +532,7 @@ grid on
 %           - 'unif': uniformly distributed on $[\mu_1,\mu_2]$
 %           - 'rand': drawn from a uniform random distribution on $[\mu_1,\mu_2]$
 
-K = 100;  N = 50;  L = [3 5 10];  Nte = 100;
+K = 100;  N = 50;  L = [5 10];  Nte = 100;
 sampler = 'unif';
 
 %
@@ -483,7 +543,7 @@ sampler = 'unif';
 idx = randi(Nte,1);
 
 % Open a new plot window
-figure(6);
+figure(9);
 hold off
 
 % Load data, plot and update legend
@@ -519,13 +579,13 @@ grid on
 %
 
 % Open a new plot window
-figure(7);
+figure(10);
 hold off
 
 % Load data, plot and update legend
 marker = {'bo-', 'rs-', 'g^-', 'mv-'};
 str_leg = 'legend(''location'', ''best''';
-for i = 1:3 %i = 1:length(L)
+for i = 1:length(L)
     filename = sprintf(['%s/NonLinearPoisson1d1pSVD/' ...
         'NonLinearPoisson1d1p_%s_%s%s_a%2.2f_b%2.2f_%s%2.2f_' ...
         '%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Nte%i%s.mat'], ...
@@ -574,7 +634,7 @@ sampler = 'unif';
 idx = randi(3,1);
 
 % Open a new plot window
-figure(8);
+figure(11);
 hold off
 
 % Load data, plot and update legend
@@ -609,7 +669,7 @@ grid on
 %
 
 % Open a new plot window
-figure(9);
+figure(12);
 hold off
 
 % Load data, plot and update legend
@@ -669,7 +729,7 @@ load(filename);
 
 % Plot basis functions
 for l = 1:L
-    figure(9+l);
+    figure(12+l);
     plot(x,VL(:,l),'b')
     title('Basis function')
     xlabel('$x$')

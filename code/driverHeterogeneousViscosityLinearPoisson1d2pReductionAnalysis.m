@@ -485,7 +485,7 @@ end
 %           - 'rand': drawn from random uniform distribution
 % Nte       number of testing samples
 
-K = 100;  Nmu = 50;  Nnu = 25;  L = 13;  sampler = 'unif';  Nte = 50;
+K = 100;  Nmu = 50;  Nnu = 15;  L = 12;  sampler = 'unif';  Nte = 50;
 
 %
 % Run
@@ -548,7 +548,7 @@ ylabel('$\nu$')
 %           - 'rand': drawn from random uniform distribution
 % Nte       number of testing samples
 
-K = 100;  Nmu = 50;  Nnu = 25;  L = 13;  sampler = 'unif';  Nte = 50;
+K = 100;  Nmu = 50;  Nnu = 15;  L = 12;  sampler = 'unif';  Nte = 50;
 
 %
 % Run
