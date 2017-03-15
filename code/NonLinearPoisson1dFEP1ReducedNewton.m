@@ -56,7 +56,7 @@ function [x,alpha] = NonLinearPoisson1dFEP1ReducedNewton(a, b, K, v, dv, f, ...
     
     % Set parameters for Newton's method
     iter = 1000;
-    tol = 1e-8;
+    tol = 1e-7;
     for i = 1:2:length(varargin)
         if strcmp(varargin{i},'iter')
             iter = varargin{i+1};
