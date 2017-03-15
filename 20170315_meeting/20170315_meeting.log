@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.28)  9 MAR 2017 14:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.28)  14 MAR 2017 17:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**20170309_meeting.tex
-(./20170309_meeting.tex
+**20170315_meeting.tex
+(./20170315_meeting.tex
 LaTeX2e <2016/02/01>
 Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
@@ -491,6 +491,14 @@ Package: amsthm 2015/03/04 v2.20.2
 (/usr/share/texlive/texmf-dist/tex/latex/anyfontsize/anyfontsize.sty
 Package: anyfontsize 2007/11/22 anyfontsize.sty by pts
 )
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2011/09/28 v3.5.2 Customized lists
+\labelindent=\skip49
+\enit@outerparindent=\dimen116
+\enit@toks=\toks29
+\enit@inbox=\box30
+\enitdp@description=\count107
+)
 (/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty
 Package: pdfpages 2015/09/18 v0.5d Insert pages of external PDF documents (AM)
 
@@ -499,16 +507,16 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count107
-\calc@Bcount=\count108
-\calc@Adimen=\dimen116
-\calc@Bdimen=\dimen117
-\calc@Askip=\skip49
-\calc@Bskip=\skip50
+\calc@Acount=\count108
+\calc@Bcount=\count109
+\calc@Adimen=\dimen117
+\calc@Bdimen=\dimen118
+\calc@Askip=\skip50
+\calc@Bskip=\skip51
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count109
-\calc@Cskip=\skip51
+\calc@Ccount=\count110
+\calc@Cskip=\skip52
 )
 (/usr/share/texlive/texmf-dist/tex/latex/eso-pic/eso-pic.sty
 Package: eso-pic 2015/07/21 v2.0g eso-pic (RN)
@@ -536,7 +544,7 @@ Package xcolor Info: Driver file: pdftex.def on input line 225.
 
 (/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
-\Gread@gobject=\count110
+\Gread@gobject=\count111
 )
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
@@ -562,19 +570,19 @@ File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: pdftex.def on input line 95.
 )
-\Gin@req@height=\dimen118
-\Gin@req@width=\dimen119
+\Gin@req@height=\dimen119
+\Gin@req@width=\dimen120
 )
-\AM@pagewidth=\dimen120
-\AM@pageheight=\dimen121
+\AM@pagewidth=\dimen121
+\AM@pageheight=\dimen122
 
 (/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pppdftex.def
 File: pppdftex.def 2015/09/18 v0.5d Pdfpages driver for pdfTeX (AM)
 )
-\AM@pagebox=\box30
-\AM@toc@title=\toks29
-\c@AM@survey=\count111
-\AM@templatesizebox=\box31
+\AM@pagebox=\box31
+\AM@toc@title=\toks30
+\c@AM@survey=\count112
+\AM@templatesizebox=\box32
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty
 Package: bm 2014/10/28 v1.1c Bold Symbol Support (DPC/FMi)
@@ -633,15 +641,15 @@ e
 )))
 (/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.sty
 Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
-\c@lips@count=\count112
+\c@lips@count=\count113
 )
 (/usr/share/texlive/texmf-dist/tex/latex/preprint/authblk.sty
 Package: authblk 2001/02/27 1.3 (PWD)
-\affilsep=\skip52
-\@affilsep=\skip53
-\c@Maxaffil=\count113
-\c@authors=\count114
-\c@affil=\count115
+\affilsep=\skip53
+\@affilsep=\skip54
+\c@Maxaffil=\count114
+\c@authors=\count115
+\c@affil=\count116
 )
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
@@ -653,18 +661,18 @@ Package ifvtex Info: VTeX not detected.
 (/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count116
-\Gm@cntv=\count117
-\c@Gm@tempcnt=\count118
-\Gm@bindingoffset=\dimen122
-\Gm@wd@mp=\dimen123
-\Gm@odd@mp=\dimen124
-\Gm@even@mp=\dimen125
-\Gm@layoutwidth=\dimen126
-\Gm@layoutheight=\dimen127
-\Gm@layouthoffset=\dimen128
-\Gm@layoutvoffset=\dimen129
-\Gm@dimlist=\toks30
+\Gm@cnth=\count117
+\Gm@cntv=\count118
+\c@Gm@tempcnt=\count119
+\Gm@bindingoffset=\dimen123
+\Gm@wd@mp=\dimen124
+\Gm@odd@mp=\dimen125
+\Gm@even@mp=\dimen126
+\Gm@layoutwidth=\dimen127
+\Gm@layoutheight=\dimen128
+\Gm@layouthoffset=\dimen129
+\Gm@layoutvoffset=\dimen130
+\Gm@dimlist=\toks31
 
 
 Package geometry Warning: Over-specification in `h'-direction.
@@ -675,31 +683,31 @@ Package geometry Warning: Over-specification in `v'-direction.
     `height' (633.78513pt) is ignored.
 
 ) (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-\fancy@headwidth=\skip54
-\f@ncyO@elh=\skip55
-\f@ncyO@erh=\skip56
-\f@ncyO@olh=\skip57
-\f@ncyO@orh=\skip58
-\f@ncyO@elf=\skip59
-\f@ncyO@erf=\skip60
-\f@ncyO@olf=\skip61
-\f@ncyO@orf=\skip62
+\fancy@headwidth=\skip55
+\f@ncyO@elh=\skip56
+\f@ncyO@erh=\skip57
+\f@ncyO@olh=\skip58
+\f@ncyO@orh=\skip59
+\f@ncyO@elf=\skip60
+\f@ncyO@erf=\skip61
+\f@ncyO@olf=\skip62
+\f@ncyO@orf=\skip63
 )
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
 Package: microtype 2013/05/23 v2.5a Micro-typographical refinements (RS)
-\MT@toks=\toks31
-\MT@count=\count119
+\MT@toks=\toks32
+\MT@count=\count120
 LaTeX Info: Redefining \textls on input line 766.
-\MT@outer@kern=\dimen130
+\MT@outer@kern=\dimen131
 LaTeX Info: Redefining \textmicrotypecontext on input line 1285.
-\MT@listname@count=\count120
+\MT@listname@count=\count121
 
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def
 File: microtype-pdftex.def 2013/05/23 v2.5a Definitions specific to pdftex (RS)
 
 LaTeX Info: Redefining \lsstyle on input line 915.
 LaTeX Info: Redefining \lslig on input line 915.
-\MT@outer@space=\skip63
+\MT@outer@space=\skip64
 )
 Package microtype Info: Loading configuration file microtype.cfg.
 
@@ -867,27 +875,27 @@ Package: gensymb 2003/07/02 v1.0 (WaS)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2005/04/14 v1.61803 publication quality tables
-\heavyrulewidth=\dimen131
-\lightrulewidth=\dimen132
-\cmidrulewidth=\dimen133
-\belowrulesep=\dimen134
-\belowbottomsep=\dimen135
-\aboverulesep=\dimen136
-\abovetopsep=\dimen137
-\cmidrulesep=\dimen138
-\cmidrulekern=\dimen139
-\defaultaddspace=\dimen140
-\@cmidla=\count121
-\@cmidlb=\count122
-\@aboverulesep=\dimen141
-\@belowrulesep=\dimen142
-\@thisruleclass=\count123
-\@lastruleclass=\count124
-\@thisrulewidth=\dimen143
+\heavyrulewidth=\dimen132
+\lightrulewidth=\dimen133
+\cmidrulewidth=\dimen134
+\belowrulesep=\dimen135
+\belowbottomsep=\dimen136
+\aboverulesep=\dimen137
+\abovetopsep=\dimen138
+\cmidrulesep=\dimen139
+\cmidrulekern=\dimen140
+\defaultaddspace=\dimen141
+\@cmidla=\count122
+\@cmidlb=\count123
+\@aboverulesep=\dimen142
+\@belowrulesep=\dimen143
+\@thisruleclass=\count124
+\@lastruleclass=\count125
+\@thisrulewidth=\dimen144
 )
 (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count125
+\etb@tempcnta=\count126
 )
 (/usr/share/texlive/texmf-dist/tex/latex/mathtools/mathtools.sty
 Package: mathtools 2015/11/12 v1.18 mathematical typesetting tools
@@ -899,35 +907,31 @@ LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
-\g_MT_multlinerow_int=\count126
-\l_MT_multwidth_dim=\dimen144
-\origjot=\skip64
-\l_MT_shortvdotswithinadjustabove_dim=\dimen145
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen146
-\l_MT_above_intertext_sep=\dimen147
-\l_MT_below_intertext_sep=\dimen148
-\l_MT_above_shortintertext_sep=\dimen149
-\l_MT_below_shortintertext_sep=\dimen150
+\g_MT_multlinerow_int=\count127
+\l_MT_multwidth_dim=\dimen145
+\origjot=\skip65
+\l_MT_shortvdotswithinadjustabove_dim=\dimen146
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen147
+\l_MT_above_intertext_sep=\dimen148
+\l_MT_below_intertext_sep=\dimen149
+\l_MT_above_shortintertext_sep=\dimen150
+\l_MT_below_shortintertext_sep=\dimen151
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
-\col@sep=\dimen151
-\extrarowheight=\dimen152
-\NC@list=\toks32
-\extratabsurround=\skip65
-\backup@length=\skip66
-)
-(/usr/share/texlive/texmf-dist/tex/latex/tools/enumerate.sty
-Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
-\@enLab=\toks33
+\col@sep=\dimen152
+\extrarowheight=\dimen153
+\NC@list=\toks33
+\extratabsurround=\skip66
+\backup@length=\skip67
 )
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count127
+\c@float@type=\count128
 \float@exts=\toks34
-\float@box=\box32
+\float@box=\box33
 \@float@everytoks=\toks35
-\@floatcapt=\box33
+\@floatcapt=\box34
 )
 (/usr/share/texlive/texmf-dist/tex/latex/subfig/subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
@@ -938,40 +942,40 @@ Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 67.
-\captionmargin=\dimen153
-\captionmargin@=\dimen154
-\captionwidth=\dimen155
-\caption@tempdima=\dimen156
-\caption@indent=\dimen157
-\caption@parindent=\dimen158
-\caption@hangindent=\dimen159
+\captionmargin=\dimen154
+\captionmargin@=\dimen155
+\captionwidth=\dimen156
+\caption@tempdima=\dimen157
+\caption@indent=\dimen158
+\caption@parindent=\dimen159
+\caption@hangindent=\dimen160
 )
-\c@ContinuedFloat=\count128
+\c@ContinuedFloat=\count129
 Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
 )
-\c@KVtest=\count129
-\sf@farskip=\skip67
-\sf@captopadj=\dimen160
-\sf@capskip=\skip68
-\sf@nearskip=\skip69
-\c@subfigure=\count130
-\c@subfigure@save=\count131
-\c@lofdepth=\count132
-\c@subtable=\count133
-\c@subtable@save=\count134
-\c@lotdepth=\count135
-\sf@top=\skip70
-\sf@bottom=\skip71
+\c@KVtest=\count130
+\sf@farskip=\skip68
+\sf@captopadj=\dimen161
+\sf@capskip=\skip69
+\sf@nearskip=\skip70
+\c@subfigure=\count131
+\c@subfigure@save=\count132
+\c@lofdepth=\count133
+\c@subtable=\count134
+\c@subtable@save=\count135
+\c@lotdepth=\count136
+\sf@top=\skip71
+\sf@bottom=\skip72
 )
 (/usr/share/texlive/texmf-dist/tex/latex/newunicodechar/newunicodechar.sty
 Package: newunicodechar 2012/11/12 v1.1 Defining Unicode characters
 )
 (/usr/share/texlive/texmf-dist/tex/latex/units/nicefrac.sty
 Package: nicefrac 1998/08/04 v0.9b Nice fractions
-\L@UnitsRaiseDisplaystyle=\skip72
-\L@UnitsRaiseTextstyle=\skip73
-\L@UnitsRaiseScriptstyle=\skip74
+\L@UnitsRaiseDisplaystyle=\skip73
+\L@UnitsRaiseTextstyle=\skip74
+\L@UnitsRaiseScriptstyle=\skip75
 )
 (/usr/share/texlive/texmf-dist/tex/latex/bbm-macros/bbm.sty
 Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
@@ -982,46 +986,45 @@ LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
-\LTleft=\skip75
-\LTright=\skip76
-\LTpre=\skip77
-\LTpost=\skip78
-\LTchunksize=\count136
-\LTcapwidth=\dimen161
-\LT@head=\box34
-\LT@firsthead=\box35
-\LT@foot=\box36
-\LT@lastfoot=\box37
-\LT@cols=\count137
-\LT@rows=\count138
-\c@LT@tables=\count139
-\c@LT@chunks=\count140
+\LTleft=\skip76
+\LTright=\skip77
+\LTpre=\skip78
+\LTpost=\skip79
+\LTchunksize=\count137
+\LTcapwidth=\dimen162
+\LT@head=\box35
+\LT@firsthead=\box36
+\LT@foot=\box37
+\LT@lastfoot=\box38
+\LT@cols=\count138
+\LT@rows=\count139
+\c@LT@tables=\count140
+\c@LT@chunks=\count141
 \LT@p@ftn=\toks36
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2015/08/19 v1.8n multicolumn formatting (FMi)
-\c@tracingmulticols=\count141
-\mult@box=\box38
-\multicol@leftmargin=\dimen162
-\c@unbalance=\count142
-\c@collectmore=\count143
-\doublecol@number=\count144
-\multicoltolerance=\count145
-\multicolpretolerance=\count146
-\full@width=\dimen163
-\page@free=\dimen164
-\premulticols=\dimen165
-\postmulticols=\dimen166
-\multicolsep=\skip79
-\multicolbaselineskip=\skip80
-\partial@page=\box39
-\last@line=\box40
-\maxbalancingoverflow=\dimen167
-\mult@rightbox=\box41
-\mult@grightbox=\box42
-\mult@gfirstbox=\box43
-\mult@firstbox=\box44
-\@tempa=\box45
+\c@tracingmulticols=\count142
+\mult@box=\box39
+\multicol@leftmargin=\dimen163
+\c@unbalance=\count143
+\c@collectmore=\count144
+\doublecol@number=\count145
+\multicoltolerance=\count146
+\multicolpretolerance=\count147
+\full@width=\dimen164
+\page@free=\dimen165
+\premulticols=\dimen166
+\postmulticols=\dimen167
+\multicolsep=\skip80
+\multicolbaselineskip=\skip81
+\partial@page=\box40
+\last@line=\box41
+\maxbalancingoverflow=\dimen168
+\mult@rightbox=\box42
+\mult@grightbox=\box43
+\mult@gfirstbox=\box44
+\mult@firstbox=\box45
 \@tempa=\box46
 \@tempa=\box47
 \@tempa=\box48
@@ -1038,17 +1041,18 @@ Package: multicol 2015/08/19 v1.8n multicolumn formatting (FMi)
 \@tempa=\box59
 \@tempa=\box60
 \@tempa=\box61
-\c@columnbadness=\count147
-\c@finalcolumnbadness=\count148
-\last@try=\dimen168
-\multicolovershoot=\dimen169
-\multicolundershoot=\dimen170
-\mult@nat@firstbox=\box62
-\colbreak@box=\box63
-\mc@col@check@num=\count149
+\@tempa=\box62
+\c@columnbadness=\count148
+\c@finalcolumnbadness=\count149
+\last@try=\dimen169
+\multicolovershoot=\dimen170
+\multicolundershoot=\dimen171
+\mult@nat@firstbox=\box63
+\colbreak@box=\box64
+\mc@col@check@num=\count150
 )
 (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
-\bigstrutjot=\dimen171
+\bigstrutjot=\dimen172
 )
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
@@ -1088,16 +1092,16 @@ Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
 Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 )
-\@linkdim=\dimen172
-\Hy@linkcounter=\count150
-\Hy@pagecounter=\count151
+\@linkdim=\dimen173
+\Hy@linkcounter=\count151
+\Hy@pagecounter=\count152
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-\Hy@SavedSpaceFactor=\count152
+\Hy@SavedSpaceFactor=\count153
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -1109,12 +1113,12 @@ Package hyperref Info: Plain pages OFF on input line 4458.
 Package hyperref Info: Backreferencing OFF on input line 4463.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4688.
-\c@Hy@tempcnt=\count153
+\c@Hy@tempcnt=\count154
 LaTeX Info: Redefining \url on input line 5041.
-\XeTeXLinkMargin=\dimen173
-\Fld@menulength=\count154
-\Field@Width=\dimen174
-\Fld@charsize=\dimen175
+\XeTeXLinkMargin=\dimen174
+\Fld@menulength=\count155
+\Field@Width=\dimen175
+\Fld@charsize=\dimen176
 Package hyperref Info: Hyper figures OFF on input line 6295.
 Package hyperref Info: Link nesting OFF on input line 6300.
 Package hyperref Info: Hyper index ON on input line 6303.
@@ -1124,24 +1128,24 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6320.
 Package hyperref Info: PDF/A mode OFF on input line 6325.
 LaTeX Info: Redefining \ref on input line 6365.
 LaTeX Info: Redefining \pageref on input line 6369.
-\Hy@abspage=\count155
-\c@Item=\count156
-\c@Hfootnote=\count157
+\Hy@abspage=\count156
+\c@Item=\count157
+\c@Hfootnote=\count158
 )
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
-\Fld@listcount=\count158
-\c@bookmark@seq@number=\count159
+\Fld@listcount=\count159
+\c@bookmark@seq@number=\count160
 
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
-\Hy@SectionHShift=\skip81
+\Hy@SectionHShift=\skip82
 )
 (/usr/share/texlive/texmf-dist/tex/latex/breakurl/breakurl.sty
 Package: breakurl 2013/04/10 v1.40 Breakable hyperref URLs
@@ -1154,7 +1158,7 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 \XKV@toks=\toks37
 \XKV@tempa@toks=\toks38
 )
-\XKV@depth=\count160
+\XKV@depth=\count161
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 
@@ -1166,13 +1170,13 @@ Package breakurl Warning: You are using breakurl while processing via pdflatex.
 ) (/usr/share/texlive/texmf-dist/tex/latex/footmisc/footmisc.sty
 Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
 \FN@temptoken=\toks39
-\footnotemargin=\dimen176
+\footnotemargin=\dimen177
 
 
 LaTeX Warning: Command \@makecol  has changed.
                Check if current package is valid.
 
-\c@pp@next@reset=\count161
+\c@pp@next@reset=\count162
 Package footmisc Info: Declaring symbol style bringhurst on input line 855.
 Package footmisc Info: Declaring symbol style chicago on input line 863.
 Package footmisc Info: Declaring symbol style wiley on input line 872.
@@ -1182,23 +1186,23 @@ Package footmisc Info: Declaring symbol style lamport* on input line 903.
 Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
 .
 )
-\c@defn=\count162
+\c@defn=\count163
 
 
 Package amsthm Warning: Unknown theoremstyle `theorem' on input line 73.
 
-\c@thm=\count163
+\c@thm=\count164
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
 \pgfutil@everybye=\toks40
-\pgfutil@tempdima=\dimen177
-\pgfutil@tempdimb=\dimen178
+\pgfutil@tempdima=\dimen178
+\pgfutil@tempdimb=\dimen179
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.t
 ex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box64
+\pgfutil@abb=\box65
 (/usr/share/texlive/texmf-dist/tex/latex/ms/everyshi.sty
 Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
 ))
@@ -1220,20 +1224,20 @@ Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 ex
 \pgfkeys@tmptoks=\toks43
 ))
-\pgf@x=\dimen179
-\pgf@y=\dimen180
-\pgf@xa=\dimen181
-\pgf@ya=\dimen182
-\pgf@xb=\dimen183
-\pgf@yb=\dimen184
-\pgf@xc=\dimen185
-\pgf@yc=\dimen186
+\pgf@x=\dimen180
+\pgf@y=\dimen181
+\pgf@xa=\dimen182
+\pgf@ya=\dimen183
+\pgf@xb=\dimen184
+\pgf@yb=\dimen185
+\pgf@xc=\dimen186
+\pgf@yc=\dimen187
 \w@pgf@writea=\write3
 \r@pgf@reada=\read1
-\c@pgf@counta=\count164
-\c@pgf@countb=\count165
-\c@pgf@countc=\count166
-\c@pgf@countd=\count167
+\c@pgf@counta=\count165
+\c@pgf@countb=\count166
+\c@pgf@countc=\count167
+\c@pgf@countd=\count168
 \t@pgf@toka=\toks44
 \t@pgf@tokb=\toks45
 \t@pgf@tokc=\toks46
@@ -1252,8 +1256,8 @@ File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
 tex
 File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
-\pgfsyssoftpath@smallbuffer@items=\count168
-\pgfsyssoftpath@bigbuffer@items=\count169
+\pgfsyssoftpath@smallbuffer@items=\count169
+\pgfsyssoftpath@bigbuffer@items=\count170
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
 tex
@@ -1266,9 +1270,9 @@ Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen187
-\pgfmath@count=\count170
-\pgfmath@box=\box65
+\pgfmath@dimen=\dimen188
+\pgfmath@count=\count171
+\pgfmath@box=\box66
 \pgfmath@toks=\toks47
 \pgfmath@stack@operand=\toks48
 \pgfmath@stack@operation=\toks49
@@ -1291,57 +1295,57 @@ tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
 thmetics.code.tex)))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count171
+\c@pgfmathroundto@lastzeros=\count172
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
 x
 File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
-\pgf@picminx=\dimen188
-\pgf@picmaxx=\dimen189
-\pgf@picminy=\dimen190
-\pgf@picmaxy=\dimen191
-\pgf@pathminx=\dimen192
-\pgf@pathmaxx=\dimen193
-\pgf@pathminy=\dimen194
-\pgf@pathmaxy=\dimen195
-\pgf@xx=\dimen196
-\pgf@xy=\dimen197
-\pgf@yx=\dimen198
-\pgf@yy=\dimen199
-\pgf@zx=\dimen256
-\pgf@zy=\dimen257
+\pgf@picminx=\dimen189
+\pgf@picmaxx=\dimen190
+\pgf@picminy=\dimen191
+\pgf@picmaxy=\dimen192
+\pgf@pathminx=\dimen193
+\pgf@pathmaxx=\dimen194
+\pgf@pathminy=\dimen195
+\pgf@pathmaxy=\dimen196
+\pgf@xx=\dimen197
+\pgf@xy=\dimen198
+\pgf@yx=\dimen199
+\pgf@yy=\dimen256
+\pgf@zx=\dimen257
+\pgf@zy=\dimen258
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
 code.tex
 File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
-\pgf@path@lastx=\dimen258
-\pgf@path@lasty=\dimen259
+\pgf@path@lastx=\dimen259
+\pgf@path@lasty=\dimen260
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
 .tex
 File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
-\pgf@shorten@end@additional=\dimen260
-\pgf@shorten@start@additional=\dimen261
+\pgf@shorten@end@additional=\dimen261
+\pgf@shorten@start@additional=\dimen262
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
 x
 File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
-\pgfpic=\box66
-\pgf@hbox=\box67
-\pgf@layerbox@main=\box68
-\pgf@picture@serial@count=\count172
+\pgfpic=\box67
+\pgf@hbox=\box68
+\pgf@layerbox@main=\box69
+\pgf@picture@serial@count=\count173
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
 ode.tex
 File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
-\pgflinewidth=\dimen262
+\pgflinewidth=\dimen263
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
 s.code.tex
 File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
-\pgf@pt@x=\dimen263
-\pgf@pt@y=\dimen264
-\pgf@pt@temp=\dimen265
+\pgf@pt@x=\dimen264
+\pgf@pt@y=\dimen265
+\pgf@pt@temp=\dimen266
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
@@ -1357,12 +1361,12 @@ File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
 x
 File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
-\pgfarrowsep=\dimen266
+\pgfarrowsep=\dimen267
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
-\pgf@max=\dimen267
-\pgf@sys@shading@range@num=\count173
+\pgf@max=\dimen268
+\pgf@sys@shading@range@num=\count174
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
@@ -1370,7 +1374,7 @@ File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
 tex
 File: pgfcoreexternal.code.tex 2014/07/09  (rcs-revision 1.21)
-\pgfexternal@startupbox=\box69
+\pgfexternal@startupbox=\box70
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
 x
@@ -1386,15 +1390,15 @@ File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
 )))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2014/03/21  (rcs-revision 1.35)
-\pgfnodeparttextbox=\box70
+\pgfnodeparttextbox=\box71
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
 .sty
 Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
-\pgf@nodesepstart=\dimen268
-\pgf@nodesepend=\dimen269
+\pgf@nodesepstart=\dimen269
+\pgf@nodesepend=\dimen270
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
 .sty
@@ -1408,8 +1412,8 @@ Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
 Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
-\pgffor@iter=\dimen270
-\pgffor@skip=\dimen271
+\pgffor@iter=\dimen271
+\pgffor@skip=\dimen272
 \pgffor@stack=\toks50
 \pgffor@toks=\toks51
 ))
@@ -1419,31 +1423,31 @@ Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
 .code.tex
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
-\pgf@plot@mark@count=\count174
-\pgfplotmarksize=\dimen272
+\pgf@plot@mark@count=\count175
+\pgfplotmarksize=\dimen273
 )
-\tikz@lastx=\dimen273
-\tikz@lasty=\dimen274
-\tikz@lastxsaved=\dimen275
-\tikz@lastysaved=\dimen276
-\tikzleveldistance=\dimen277
-\tikzsiblingdistance=\dimen278
-\tikz@figbox=\box71
-\tikz@figbox@bg=\box72
-\tikz@tempbox=\box73
-\tikz@tempbox@bg=\box74
-\tikztreelevel=\count175
-\tikznumberofchildren=\count176
-\tikznumberofcurrentchild=\count177
-\tikz@fig@count=\count178
+\tikz@lastx=\dimen274
+\tikz@lasty=\dimen275
+\tikz@lastxsaved=\dimen276
+\tikz@lastysaved=\dimen277
+\tikzleveldistance=\dimen278
+\tikzsiblingdistance=\dimen279
+\tikz@figbox=\box72
+\tikz@figbox@bg=\box73
+\tikz@tempbox=\box74
+\tikz@tempbox@bg=\box75
+\tikztreelevel=\count176
+\tikznumberofchildren=\count177
+\tikznumberofcurrentchild=\count178
+\tikz@fig@count=\count179
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
-\pgfmatrixcurrentrow=\count179
-\pgfmatrixcurrentcolumn=\count180
-\pgf@matrix@numberofcolumns=\count181
+\pgfmatrixcurrentrow=\count180
+\pgfmatrixcurrentcolumn=\count181
+\pgf@matrix@numberofcolumns=\count182
 )
-\tikz@expandcount=\count182
+\tikz@expandcount=\count183
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarytopaths.code.tex
@@ -1459,58 +1463,84 @@ Package: fancyvrb 2008/02/07
 
 Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
 <2008/02/07> (tvz)
-\FV@CodeLineNo=\count183
+\FV@CodeLineNo=\count184
 \FV@InFile=\read2
-\FV@TabBox=\box75
-\c@FancyVerbLine=\count184
-\FV@StepNumber=\count185
+\FV@TabBox=\box76
+\c@FancyVerbLine=\count185
+\FV@StepNumber=\count186
 \FV@OutFile=\write4
-) (./20170309_meeting.aux)
-\openout1 = `20170309_meeting.aux'.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+\@float@every@algorithm=\toks52
+\c@algorithm=\count187
+)
+(/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+Package: algpseudocode 
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 171.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 171.
+(/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count188
+\c@ALG@rem=\count189
+\c@ALG@nested=\count190
+\ALG@tlm=\skip83
+\ALG@thistlm=\skip84
+\c@ALG@Lnr=\count191
+\c@ALG@blocknr=\count192
+\c@ALG@storecount=\count193
+\c@ALG@tmpcounter=\count194
+\ALG@tmplength=\skip85
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (./20170315_meeting.aux)
+\openout1 = `20170315_meeting.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 175.
+LaTeX Font Info:    ... okay on input line 175.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 175.
+LaTeX Font Info:    ... okay on input line 175.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 175.
+LaTeX Font Info:    ... okay on input line 175.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 175.
+LaTeX Font Info:    ... okay on input line 175.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 175.
+LaTeX Font Info:    ... okay on input line 175.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 175.
+LaTeX Font Info:    ... okay on input line 175.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 175.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 175.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 171.
+LaTeX Font Info:    ... okay on input line 175.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 175.
+LaTeX Font Info:    ... okay on input line 175.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 175.
 
 (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-\c@lstlisting=\count186
-\AtBeginShipoutBox=\box76
+\c@lstlisting=\count195
+\AtBeginShipoutBox=\box77
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count187
-\scratchdimen=\dimen279
-\scratchbox=\box77
-\nofMPsegments=\count188
-\nofMParguments=\count189
-\everyMPshowfont=\toks52
-\MPscratchCnt=\count190
-\MPscratchDim=\dimen280
-\MPnumerator=\count191
-\makeMPintoPDFobject=\count192
-\everyMPtoPDFconversion=\toks53
+\scratchcounter=\count196
+\scratchdimen=\dimen280
+\scratchbox=\box78
+\nofMPsegments=\count197
+\nofMParguments=\count198
+\everyMPshowfont=\toks53
+\MPscratchCnt=\count199
+\MPscratchDim=\dimen281
+\MPnumerator=\count266
+\makeMPintoPDFobject=\count267
+\everyMPtoPDFconversion=\toks54
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/pdflscape.sty
 Package: pdflscape 2008/08/11 v0.10 Display of landscape pages in PDF (HO)
 
@@ -1553,7 +1583,7 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \microtypecontext on input line 171.
+LaTeX Info: Redefining \microtypecontext on input line 175.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1569,15 +1599,15 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 )
 \symgns@font=\mathgroup9
 LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
-(Font)                  TS1/lmr/m/n --> TS1/lmr/bx/n on input line 171.
-Package gensymb Info: Math companion symbols declared on input line 171.
-LaTeX Info: Redefining \degree on input line 171.
-LaTeX Info: Redefining \celsius on input line 171.
+(Font)                  TS1/lmr/m/n --> TS1/lmr/bx/n on input line 175.
+Package gensymb Info: Math companion symbols declared on input line 175.
+LaTeX Info: Redefining \degree on input line 175.
+LaTeX Info: Redefining \celsius on input line 175.
 Package gensymb Info: Using text companion symbols for \degree, \celsius and \p
-erthousand on input line 171.
-LaTeX Info: Redefining \ohm on input line 171.
-Package gensymb Info: Using \textohm for \ohm on input line 171.
-Package gensymb Info: Using \textmu for \micro on input line 171.
+erthousand on input line 175.
+LaTeX Info: Redefining \ohm on input line 175.
+Package gensymb Info: Using \textohm for \ohm on input line 175.
+Package gensymb Info: Using \textmu for \micro on input line 175.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: hyperref package is loaded.
@@ -1587,7 +1617,7 @@ Package caption Info: longtable package is loaded.
 Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 171.
+Package hyperref Info: Link coloring OFF on input line 175.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1595,881 +1625,747 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count193
+\c@section@level=\count268
 )
-LaTeX Info: Redefining \ref on input line 171.
-LaTeX Info: Redefining \pageref on input line 171.
-LaTeX Info: Redefining \nameref on input line 171.
+LaTeX Info: Redefining \ref on input line 175.
+LaTeX Info: Redefining \pageref on input line 175.
+LaTeX Info: Redefining \nameref on input line 175.
 
-(./20170309_meeting.out) (./20170309_meeting.out)
+(./20170315_meeting.out) (./20170315_meeting.out)
 \@outlinefile=\write5
-\openout5 = `20170309_meeting.out'.
+\openout5 = `20170315_meeting.out'.
 
 
 ABD: EveryShipout initializing macros
-Package epstopdf Info: Source file: <./20170309_meeting/fig1.eps>
-(epstopdf)                    date: 2017-03-09 14:59:54
-(epstopdf)                    size: 204030 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig1-eps-converted-to.p
-df>
-(epstopdf)                    date: 2017-03-09 14:02:15
-(epstopdf)                    size: 13337 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig1-ep
-s-converted-to.pdf ./20170309_meeting/fig1.eps>
-(epstopdf)             \includegraphics on input line 175.
-runsystem(repstopdf --outfile=./20170309_meeting/fig1-eps-converted-to.pdf ./20
-170309_meeting/fig1.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <./20170309_meeting/fig1-eps-converted-to.p
-df>
-(epstopdf)                    date: 2017-03-09 14:22:30
-(epstopdf)                    size: 13337 bytes.
-
-<./20170309_meeting/fig1-eps-converted-to.pdf, id=7, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig1-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./20170309_meeting/fig1-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig1-eps-converted-to.pdf used on i
-nput line 175.
-(pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig2.eps>
-(epstopdf)                    date: 2017-03-09 15:00:34
-(epstopdf)                    size: 195077 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig2-eps-converted-to.p
-df>
-(epstopdf)                    date: 2017-03-09 14:02:15
-(epstopdf)                    size: 12686 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig2-ep
-s-converted-to.pdf ./20170309_meeting/fig2.eps>
-(epstopdf)             \includegraphics on input line 181.
-runsystem(repstopdf --outfile=./20170309_meeting/fig2-eps-converted-to.pdf ./20
-170309_meeting/fig2.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <./20170309_meeting/fig2-eps-converted-to.p
-df>
-(epstopdf)                    date: 2017-03-09 14:22:31
-(epstopdf)                    size: 12686 bytes.
-
-<./20170309_meeting/fig2-eps-converted-to.pdf, id=8, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig2-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./20170309_meeting/fig2-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig2-eps-converted-to.pdf used on i
-nput line 181.
-(pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig3.eps>
-(epstopdf)                    date: 2017-03-09 10:28:00
-(epstopdf)                    size: 216167 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig3-eps-converted-to.p
-df>
-(epstopdf)                    date: 2017-03-09 13:54:14
-(epstopdf)                    size: 15612 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig3-ep
-s-converted-to.pdf ./20170309_meeting/fig3.eps>
-(epstopdf)             \includegraphics on input line 187.
+Package epstopdf Info: Source file: <./img/fig1.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 191371 bytes
+(epstopdf)             Output file: <./img/fig1-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:41:25
+(epstopdf)                    size: 12477 bytes
+(epstopdf)             Command: <repstopdf --outfile=./img/fig1-eps-converted-t
+o.pdf ./img/fig1.eps>
+(epstopdf)             \includegraphics on input line 179.
 Package epstopdf Info: Output file is already uptodate.
 
-<./20170309_meeting/fig3-eps-converted-to.pdf, id=9, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig3-eps-converted-to.pdf Graphic file (type pdf)
+<./img/fig1-eps-converted-to.pdf, id=7, 843.15pt x 632.3625pt>
+File: ./img/fig1-eps-converted-to.pdf Graphic file (type pdf)
 
-<use ./20170309_meeting/fig3-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig3-eps-converted-to.pdf used on i
-nput line 187.
+<use ./img/fig1-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig1-eps-converted-to.pdf used on input line 179
+.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig4.eps>
-(epstopdf)                    date: 2017-03-06 17:56:40
-(epstopdf)                    size: 222018 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig4-eps-converted-to.p
-df>
-(epstopdf)                    date: 2017-03-09 13:54:14
-(epstopdf)                    size: 16237 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig4-ep
-s-converted-to.pdf ./20170309_meeting/fig4.eps>
-(epstopdf)             \includegraphics on input line 193.
+Package epstopdf Info: Source file: <./img/fig2.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 191350 bytes
+(epstopdf)             Output file: <./img/fig2-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:42:45
+(epstopdf)                    size: 12463 bytes
+(epstopdf)             Command: <repstopdf --outfile=./img/fig2-eps-converted-t
+o.pdf ./img/fig2.eps>
+(epstopdf)             \includegraphics on input line 185.
 Package epstopdf Info: Output file is already uptodate.
 
-<./20170309_meeting/fig4-eps-converted-to.pdf, id=10, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig4-eps-converted-to.pdf Graphic file (type pdf)
+<./img/fig2-eps-converted-to.pdf, id=8, 843.15pt x 632.3625pt>
+File: ./img/fig2-eps-converted-to.pdf Graphic file (type pdf)
 
-<use ./20170309_meeting/fig4-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig4-eps-converted-to.pdf used on i
-nput line 193.
+<use ./img/fig2-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig2-eps-converted-to.pdf used on input line 185
+.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig5.eps>
-(epstopdf)                    date: 2017-03-09 10:31:44
-(epstopdf)                    size: 331048 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig5-eps-converted-to.p
-df>
-(epstopdf)                    date: 2017-03-09 13:54:15
-(epstopdf)                    size: 17102 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig5-ep
-s-converted-to.pdf ./20170309_meeting/fig5.eps>
-(epstopdf)             \includegraphics on input line 199.
-Package epstopdf Info: Output file is already uptodate.
+Package epstopdf Info: Source file: <./img/fig3.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 253576 bytes
+(epstopdf)             Output file: <./img/fig3-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig3-eps-converted-t
+o.pdf ./img/fig3.eps>
+(epstopdf)             \includegraphics on input line 191.
+runsystem(repstopdf --outfile=./img/fig3-eps-converted-to.pdf ./img/fig3.eps)..
+.executed safely (allowed).
 
-<./20170309_meeting/fig5-eps-converted-to.pdf, id=11, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig5-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <./img/fig3-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:16
+(epstopdf)                    size: 32888 bytes.
 
-<use ./20170309_meeting/fig5-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig5-eps-converted-to.pdf used on i
-nput line 199.
+<./img/fig3-eps-converted-to.pdf, id=9, 843.15pt x 632.3625pt>
+File: ./img/fig3-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig3-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig3-eps-converted-to.pdf used on input line 191
+.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig6.eps>
-(epstopdf)                    date: 2017-03-06 17:59:10
-(epstopdf)                    size: 330822 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig6-eps-converted-to.p
-df>
-(epstopdf)                    date: 2017-03-09 13:54:15
-(epstopdf)                    size: 17537 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig6-ep
-s-converted-to.pdf ./20170309_meeting/fig6.eps>
-(epstopdf)             \includegraphics on input line 205.
-Package epstopdf Info: Output file is already uptodate.
+ [1
 
-<./20170309_meeting/fig6-eps-converted-to.pdf, id=12, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig6-eps-converted-to.pdf Graphic file (type pdf)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./img/fig1-eps-converted-t
+o.pdf> <./img/fig2-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <./img/fig4.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 196408 bytes
+(epstopdf)             Output file: <./img/fig4-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig4-eps-converted-t
+o.pdf ./img/fig4.eps>
+(epstopdf)             \includegraphics on input line 197.
+runsystem(repstopdf --outfile=./img/fig4-eps-converted-to.pdf ./img/fig4.eps)..
+.executed safely (allowed).
 
-<use ./20170309_meeting/fig6-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig6-eps-converted-to.pdf used on i
-nput line 205.
+Package epstopdf Info: Result file: <./img/fig4-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:16
+(epstopdf)                    size: 14023 bytes.
+ <./img/fig4-eps-converted-to.pdf, id=53, 843.15pt x 632.3625pt>
+File: ./img/fig4-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig4-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig4-eps-converted-to.pdf used on input line 197
+.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig7.eps>
-(epstopdf)                    date: 2017-03-06 18:03:46
-(epstopdf)                    size: 180557 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig7-eps-converted-to.p
-df>
-(epstopdf)                    date: 2017-03-09 13:54:16
-(epstopdf)                    size: 9786 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig7-ep
-s-converted-to.pdf ./20170309_meeting/fig7.eps>
-(epstopdf)             \includegraphics on input line 211.
-Package epstopdf Info: Output file is already uptodate.
+Package epstopdf Info: Source file: <./img/fig5.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 194594 bytes
+(epstopdf)             Output file: <./img/fig5-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig5-eps-converted-t
+o.pdf ./img/fig5.eps>
+(epstopdf)             \includegraphics on input line 203.
+runsystem(repstopdf --outfile=./img/fig5-eps-converted-to.pdf ./img/fig5.eps)..
+.executed safely (allowed).
 
-<./20170309_meeting/fig7-eps-converted-to.pdf, id=13, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig7-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <./img/fig5-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:16
+(epstopdf)                    size: 13629 bytes.
 
-<use ./20170309_meeting/fig7-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig7-eps-converted-to.pdf used on i
-nput line 211.
+<./img/fig5-eps-converted-to.pdf, id=54, 843.15pt x 632.3625pt>
+File: ./img/fig5-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig5-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig5-eps-converted-to.pdf used on input line 203
+.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig8.eps>
-(epstopdf)                    date: 2017-03-06 18:03:00
-(epstopdf)                    size: 179529 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig8-eps-converted-to.p
-df>
-(epstopdf)                    date: 2017-03-09 13:54:16
-(epstopdf)                    size: 9896 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig8-ep
-s-converted-to.pdf ./20170309_meeting/fig8.eps>
-(epstopdf)             \includegraphics on input line 217.
-Package epstopdf Info: Output file is already uptodate.
+ [2 <./img/fig3-eps-converted-to.pdf> <./img/fig4-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <./img/fig6.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 37415670 bytes
+(epstopdf)             Output file: <./img/fig6-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig6-eps-converted-t
+o.pdf ./img/fig6.eps>
+(epstopdf)             \includegraphics on input line 209.
+runsystem(repstopdf --outfile=./img/fig6-eps-converted-to.pdf ./img/fig6.eps)..
+.executed safely (allowed).
 
-<./20170309_meeting/fig8-eps-converted-to.pdf, id=14, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig8-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <./img/fig6-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:26
+(epstopdf)                    size: 413448 bytes.
 
-<use ./20170309_meeting/fig8-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig8-eps-converted-to.pdf used on i
-nput line 217.
+<./img/fig6-eps-converted-to.pdf, id=93, 843.15pt x 632.3625pt>
+File: ./img/fig6-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig6-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig6-eps-converted-to.pdf used on input line 209
+.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig9.eps>
-(epstopdf)                    date: 2017-03-09 10:39:40
-(epstopdf)                    size: 219238 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig9-eps-converted-to.p
-df>
-(epstopdf)                    date: 2017-03-09 13:54:16
-(epstopdf)                    size: 14554 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig9-ep
-s-converted-to.pdf ./20170309_meeting/fig9.eps>
-(epstopdf)             \includegraphics on input line 223.
-Package epstopdf Info: Output file is already uptodate.
+Package epstopdf Info: Source file: <./img/fig7.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 201169 bytes
+(epstopdf)             Output file: <./img/fig7-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig7-eps-converted-t
+o.pdf ./img/fig7.eps>
+(epstopdf)             \includegraphics on input line 215.
+runsystem(repstopdf --outfile=./img/fig7-eps-converted-to.pdf ./img/fig7.eps)..
+.executed safely (allowed).
 
-<./20170309_meeting/fig9-eps-converted-to.pdf, id=15, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig9-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <./img/fig7-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:26
+(epstopdf)                    size: 15439 bytes.
 
-<use ./20170309_meeting/fig9-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig9-eps-converted-to.pdf used on i
-nput line 223.
+<./img/fig7-eps-converted-to.pdf, id=94, 843.15pt x 632.3625pt>
+File: ./img/fig7-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig7-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig7-eps-converted-to.pdf used on input line 215
+.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig10.eps>
-(epstopdf)                    date: 2017-03-09 10:39:56
-(epstopdf)                    size: 198330 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig10-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:54:17
-(epstopdf)                    size: 12093 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig10-e
-ps-converted-to.pdf ./20170309_meeting/fig10.eps>
-(epstopdf)             \includegraphics on input line 229.
-Package epstopdf Info: Output file is already uptodate.
+ [3 <./img/fig5-eps-converted-to.pdf> <./img/fig6-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <./img/fig8.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 201164 bytes
+(epstopdf)             Output file: <./img/fig8-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig8-eps-converted-t
+o.pdf ./img/fig8.eps>
+(epstopdf)             \includegraphics on input line 221.
+runsystem(repstopdf --outfile=./img/fig8-eps-converted-to.pdf ./img/fig8.eps)..
+.executed safely (allowed).
 
-<./20170309_meeting/fig10-eps-converted-to.pdf, id=16, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig10-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <./img/fig8-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:27
+(epstopdf)                    size: 15563 bytes.
 
-<use ./20170309_meeting/fig10-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig10-eps-converted-to.pdf used on 
-input line 229.
+<./img/fig8-eps-converted-to.pdf, id=133, 843.15pt x 632.3625pt>
+File: ./img/fig8-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig8-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig8-eps-converted-to.pdf used on input line 221
+.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig11.eps>
-(epstopdf)                    date: 2017-03-09 10:44:08
-(epstopdf)                    size: 231077 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig11-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:54:17
-(epstopdf)                    size: 16925 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig11-e
-ps-converted-to.pdf ./20170309_meeting/fig11.eps>
-(epstopdf)             \includegraphics on input line 235.
-Package epstopdf Info: Output file is already uptodate.
+Package epstopdf Info: Source file: <./img/fig9.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 32998610 bytes
+(epstopdf)             Output file: <./img/fig9-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig9-eps-converted-t
+o.pdf ./img/fig9.eps>
+(epstopdf)             \includegraphics on input line 227.
+runsystem(repstopdf --outfile=./img/fig9-eps-converted-to.pdf ./img/fig9.eps)..
+.executed safely (allowed).
 
-<./20170309_meeting/fig11-eps-converted-to.pdf, id=17, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig11-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <./img/fig9-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:35
+(epstopdf)                    size: 282869 bytes.
 
-<use ./20170309_meeting/fig11-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig11-eps-converted-to.pdf used on 
-input line 235.
+<./img/fig9-eps-converted-to.pdf, id=134, 843.15pt x 632.3625pt>
+File: ./img/fig9-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig9-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig9-eps-converted-to.pdf used on input line 227
+.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig12.eps>
-(epstopdf)                    date: 2017-03-09 10:52:00
-(epstopdf)                    size: 212953 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig12-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:54:18
-(epstopdf)                    size: 22523 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig12-e
-ps-converted-to.pdf ./20170309_meeting/fig12.eps>
-(epstopdf)             \includegraphics on input line 241.
-Package epstopdf Info: Output file is already uptodate.
+ [4 <./img/fig7-eps-converted-to.pdf> <./img/fig8-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <./img/fig10.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 194745 bytes
+(epstopdf)             Output file: <./img/fig10-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig10-eps-converted-
+to.pdf ./img/fig10.eps>
+(epstopdf)             \includegraphics on input line 233.
+runsystem(repstopdf --outfile=./img/fig10-eps-converted-to.pdf ./img/fig10.eps)
+...executed safely (allowed).
 
-<./20170309_meeting/fig12-eps-converted-to.pdf, id=18, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig12-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <./img/fig10-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:36
+(epstopdf)                    size: 13253 bytes.
 
-<use ./20170309_meeting/fig12-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig12-eps-converted-to.pdf used on 
-input line 241.
+<./img/fig10-eps-converted-to.pdf, id=174, 843.15pt x 632.3625pt>
+File: ./img/fig10-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig10-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig10-eps-converted-to.pdf used on input line 23
+3.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig13.eps>
-(epstopdf)                    date: 2017-03-09 10:56:08
-(epstopdf)                    size: 285279 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig13-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:54:18
-(epstopdf)                    size: 18567 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig13-e
-ps-converted-to.pdf ./20170309_meeting/fig13.eps>
-(epstopdf)             \includegraphics on input line 247.
-Package epstopdf Info: Output file is already uptodate.
+Package epstopdf Info: Source file: <./img/fig11.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 199226 bytes
+(epstopdf)             Output file: <./img/fig11-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig11-eps-converted-
+to.pdf ./img/fig11.eps>
+(epstopdf)             \includegraphics on input line 239.
+runsystem(repstopdf --outfile=./img/fig11-eps-converted-to.pdf ./img/fig11.eps)
+...executed safely (allowed).
 
-<./20170309_meeting/fig13-eps-converted-to.pdf, id=19, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig13-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <./img/fig11-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:36
+(epstopdf)                    size: 13564 bytes.
 
-<use ./20170309_meeting/fig13-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig13-eps-converted-to.pdf used on 
-input line 247.
+<./img/fig11-eps-converted-to.pdf, id=175, 843.15pt x 632.3625pt>
+File: ./img/fig11-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig11-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig11-eps-converted-to.pdf used on input line 23
+9.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig14.eps>
-(epstopdf)                    date: 2017-03-09 10:56:28
-(epstopdf)                    size: 285279 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig14-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:54:18
-(epstopdf)                    size: 18310 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig14-e
-ps-converted-to.pdf ./20170309_meeting/fig14.eps>
-(epstopdf)             \includegraphics on input line 253.
-Package epstopdf Info: Output file is already uptodate.
+ [5 <./img/fig9-eps-converted-to.pdf> <./img/fig10-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <./img/fig12.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 315290 bytes
+(epstopdf)             Output file: <./img/fig12-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig12-eps-converted-
+to.pdf ./img/fig12.eps>
+(epstopdf)             \includegraphics on input line 245.
+runsystem(repstopdf --outfile=./img/fig12-eps-converted-to.pdf ./img/fig12.eps)
+...executed safely (allowed).
 
-<./20170309_meeting/fig14-eps-converted-to.pdf, id=20, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig14-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <./img/fig12-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:36
+(epstopdf)                    size: 56681 bytes.
 
-<use ./20170309_meeting/fig14-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig14-eps-converted-to.pdf used on 
-input line 253.
+<./img/fig12-eps-converted-to.pdf, id=219, 843.15pt x 632.3625pt>
+File: ./img/fig12-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig12-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig12-eps-converted-to.pdf used on input line 24
+5.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig15.eps>
-(epstopdf)                    date: 2017-03-09 10:56:42
-(epstopdf)                    size: 285409 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig15-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:54:19
-(epstopdf)                    size: 18104 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig15-e
-ps-converted-to.pdf ./20170309_meeting/fig15.eps>
-(epstopdf)             \includegraphics on input line 259.
-Package epstopdf Info: Output file is already uptodate.
+Package epstopdf Info: Source file: <./img/fig13.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 197169 bytes
+(epstopdf)             Output file: <./img/fig13-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig13-eps-converted-
+to.pdf ./img/fig13.eps>
+(epstopdf)             \includegraphics on input line 251.
+runsystem(repstopdf --outfile=./img/fig13-eps-converted-to.pdf ./img/fig13.eps)
+...executed safely (allowed).
 
-<./20170309_meeting/fig15-eps-converted-to.pdf, id=21, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig15-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <./img/fig13-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:37
+(epstopdf)                    size: 14191 bytes.
 
-<use ./20170309_meeting/fig15-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig15-eps-converted-to.pdf used on 
-input line 259.
+<./img/fig13-eps-converted-to.pdf, id=220, 843.15pt x 632.3625pt>
+File: ./img/fig13-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig13-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig13-eps-converted-to.pdf used on input line 25
+1.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig16.eps>
-(epstopdf)                    date: 2017-03-09 11:06:26
-(epstopdf)                    size: 194703 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig16-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:54:19
-(epstopdf)                    size: 13890 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig16-e
-ps-converted-to.pdf ./20170309_meeting/fig16.eps>
-(epstopdf)             \includegraphics on input line 265.
-Package epstopdf Info: Output file is already uptodate.
+ [6 <./img/fig11-eps-converted-to.pdf> <./img/fig12-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <./img/fig14.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 258535 bytes
+(epstopdf)             Output file: <./img/fig14-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig14-eps-converted-
+to.pdf ./img/fig14.eps>
+(epstopdf)             \includegraphics on input line 257.
+runsystem(repstopdf --outfile=./img/fig14-eps-converted-to.pdf ./img/fig14.eps)
+...executed safely (allowed).
 
-<./20170309_meeting/fig16-eps-converted-to.pdf, id=22, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig16-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <./img/fig14-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:37
+(epstopdf)                    size: 14943 bytes.
 
-<use ./20170309_meeting/fig16-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig16-eps-converted-to.pdf used on 
-input line 265.
+<./img/fig14-eps-converted-to.pdf, id=261, 843.15pt x 632.3625pt>
+File: ./img/fig14-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig14-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig14-eps-converted-to.pdf used on input line 25
+7.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig17.eps>
-(epstopdf)                    date: 2017-03-09 11:09:06
-(epstopdf)                    size: 274402 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig17-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:54:20
-(epstopdf)                    size: 16429 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig17-e
-ps-converted-to.pdf ./20170309_meeting/fig17.eps>
-(epstopdf)             \includegraphics on input line 271.
-Package epstopdf Info: Output file is already uptodate.
+Package epstopdf Info: Source file: <./img/fig15.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 36648298 bytes
+(epstopdf)             Output file: <./img/fig15-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig15-eps-converted-
+to.pdf ./img/fig15.eps>
+(epstopdf)             \includegraphics on input line 263.
+runsystem(repstopdf --outfile=./img/fig15-eps-converted-to.pdf ./img/fig15.eps)
+...executed safely (allowed).
 
-<./20170309_meeting/fig17-eps-converted-to.pdf, id=23, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig17-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <./img/fig15-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:47
+(epstopdf)                    size: 288547 bytes.
 
-<use ./20170309_meeting/fig17-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig17-eps-converted-to.pdf used on 
-input line 271.
+<./img/fig15-eps-converted-to.pdf, id=262, 843.15pt x 632.3625pt>
+File: ./img/fig15-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig15-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig15-eps-converted-to.pdf used on input line 26
+3.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig18.eps>
-(epstopdf)                    date: 2017-03-09 11:18:26
-(epstopdf)                    size: 206947 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig18-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:54:20
-(epstopdf)                    size: 14629 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig18-e
-ps-converted-to.pdf ./20170309_meeting/fig18.eps>
-(epstopdf)             \includegraphics on input line 277.
-Package epstopdf Info: Output file is already uptodate.
+ [7 <./img/fig13-eps-converted-to.pdf> <./img/fig14-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <./img/fig16.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 196393 bytes
+(epstopdf)             Output file: <./img/fig16-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig16-eps-converted-
+to.pdf ./img/fig16.eps>
+(epstopdf)             \includegraphics on input line 269.
+runsystem(repstopdf --outfile=./img/fig16-eps-converted-to.pdf ./img/fig16.eps)
+...executed safely (allowed).
 
-<./20170309_meeting/fig18-eps-converted-to.pdf, id=24, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig18-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <./img/fig16-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:47
+(epstopdf)                    size: 12971 bytes.
 
-<use ./20170309_meeting/fig18-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig18-eps-converted-to.pdf used on 
-input line 277.
+<./img/fig16-eps-converted-to.pdf, id=305, 843.15pt x 632.3625pt>
+File: ./img/fig16-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig16-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig16-eps-converted-to.pdf used on input line 26
+9.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig19.eps>
-(epstopdf)                    date: 2017-03-09 15:17:48
-(epstopdf)                    size: 213728 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig19-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:54:21
-(epstopdf)                    size: 14568 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig19-e
-ps-converted-to.pdf ./20170309_meeting/fig19.eps>
-(epstopdf)             \includegraphics on input line 283.
-runsystem(repstopdf --outfile=./20170309_meeting/fig19-eps-converted-to.pdf ./2
-0170309_meeting/fig19.eps)...executed safely (allowed).
+Package epstopdf Info: Source file: <./img/fig17.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 220468 bytes
+(epstopdf)             Output file: <./img/fig17-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig17-eps-converted-
+to.pdf ./img/fig17.eps>
+(epstopdf)             \includegraphics on input line 275.
+runsystem(repstopdf --outfile=./img/fig17-eps-converted-to.pdf ./img/fig17.eps)
+...executed safely (allowed).
 
-Package epstopdf Info: Result file: <./20170309_meeting/fig19-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 14:22:31
-(epstopdf)                    size: 16158 bytes.
+Package epstopdf Info: Result file: <./img/fig17-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:47
+(epstopdf)                    size: 16526 bytes.
 
-<./20170309_meeting/fig19-eps-converted-to.pdf, id=25, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig19-eps-converted-to.pdf Graphic file (type pdf)
+<./img/fig17-eps-converted-to.pdf, id=306, 843.15pt x 632.3625pt>
+File: ./img/fig17-eps-converted-to.pdf Graphic file (type pdf)
 
-<use ./20170309_meeting/fig19-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig19-eps-converted-to.pdf used on 
-input line 283.
+<use ./img/fig17-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig17-eps-converted-to.pdf used on input line 27
+5.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig20.eps>
-(epstopdf)                    date: 2017-03-09 15:17:20
-(epstopdf)                    size: 213359 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig20-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:54:21
-(epstopdf)                    size: 14250 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig20-e
-ps-converted-to.pdf ./20170309_meeting/fig20.eps>
-(epstopdf)             \includegraphics on input line 289.
-runsystem(repstopdf --outfile=./20170309_meeting/fig20-eps-converted-to.pdf ./2
-0170309_meeting/fig20.eps)...executed safely (allowed).
+ [8 <./img/fig15-eps-converted-to.pdf> <./img/fig16-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <./img/fig18.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 261681 bytes
+(epstopdf)             Output file: <./img/fig18-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig18-eps-converted-
+to.pdf ./img/fig18.eps>
+(epstopdf)             \includegraphics on input line 281.
+runsystem(repstopdf --outfile=./img/fig18-eps-converted-to.pdf ./img/fig18.eps)
+...executed safely (allowed).
 
-Package epstopdf Info: Result file: <./20170309_meeting/fig20-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 14:22:32
-(epstopdf)                    size: 16006 bytes.
+Package epstopdf Info: Result file: <./img/fig18-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:48
+(epstopdf)                    size: 13491 bytes.
 
-<./20170309_meeting/fig20-eps-converted-to.pdf, id=26, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig20-eps-converted-to.pdf Graphic file (type pdf)
+<./img/fig18-eps-converted-to.pdf, id=346, 843.15pt x 632.3625pt>
+File: ./img/fig18-eps-converted-to.pdf Graphic file (type pdf)
 
-<use ./20170309_meeting/fig20-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig20-eps-converted-to.pdf used on 
-input line 289.
+<use ./img/fig18-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig18-eps-converted-to.pdf used on input line 28
+1.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig21.eps>
-(epstopdf)                    date: 2017-03-06 18:20:34
-(epstopdf)                    size: 33035820 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig21-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:54:29
-(epstopdf)                    size: 276605 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig21-e
-ps-converted-to.pdf ./20170309_meeting/fig21.eps>
-(epstopdf)             \includegraphics on input line 295.
-Package epstopdf Info: Output file is already uptodate.
+Package epstopdf Info: Source file: <./img/fig19.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 261986 bytes
+(epstopdf)             Output file: <./img/fig19-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig19-eps-converted-
+to.pdf ./img/fig19.eps>
+(epstopdf)             \includegraphics on input line 287.
+runsystem(repstopdf --outfile=./img/fig19-eps-converted-to.pdf ./img/fig19.eps)
+...executed safely (allowed).
 
-<./20170309_meeting/fig21-eps-converted-to.pdf, id=27, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig21-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <./img/fig19-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:48
+(epstopdf)                    size: 13483 bytes.
 
-<use ./20170309_meeting/fig21-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig21-eps-converted-to.pdf used on 
-input line 295.
+<./img/fig19-eps-converted-to.pdf, id=347, 843.15pt x 632.3625pt>
+File: ./img/fig19-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig19-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig19-eps-converted-to.pdf used on input line 28
+7.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig22.eps>
-(epstopdf)                    date: 2017-03-06 18:20:14
-(epstopdf)                    size: 33775914 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig22-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:54:38
-(epstopdf)                    size: 387524 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig22-e
-ps-converted-to.pdf ./20170309_meeting/fig22.eps>
-(epstopdf)             \includegraphics on input line 301.
-Package epstopdf Info: Output file is already uptodate.
+ [9 <./img/fig17-eps-converted-to.pdf> <./img/fig18-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <./img/fig20.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 210697 bytes
+(epstopdf)             Output file: <./img/fig20-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig20-eps-converted-
+to.pdf ./img/fig20.eps>
+(epstopdf)             \includegraphics on input line 293.
+runsystem(repstopdf --outfile=./img/fig20-eps-converted-to.pdf ./img/fig20.eps)
+...executed safely (allowed).
 
-<./20170309_meeting/fig22-eps-converted-to.pdf, id=28, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig22-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <./img/fig20-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:49
+(epstopdf)                    size: 15223 bytes.
 
-<use ./20170309_meeting/fig22-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig22-eps-converted-to.pdf used on 
-input line 301.
+<./img/fig20-eps-converted-to.pdf, id=389, 843.15pt x 632.3625pt>
+File: ./img/fig20-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig20-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig20-eps-converted-to.pdf used on input line 29
+3.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig23.eps>
-(epstopdf)                    date: 2017-03-06 18:21:50
-(epstopdf)                    size: 180358 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig23-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:54:38
-(epstopdf)                    size: 9734 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig23-e
-ps-converted-to.pdf ./20170309_meeting/fig23.eps>
-(epstopdf)             \includegraphics on input line 307.
-Package epstopdf Info: Output file is already uptodate.
+Package epstopdf Info: Source file: <./img/fig21.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 268125 bytes
+(epstopdf)             Output file: <./img/fig21-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig21-eps-converted-
+to.pdf ./img/fig21.eps>
+(epstopdf)             \includegraphics on input line 299.
+runsystem(repstopdf --outfile=./img/fig21-eps-converted-to.pdf ./img/fig21.eps)
+...executed safely (allowed).
 
-<./20170309_meeting/fig23-eps-converted-to.pdf, id=29, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig23-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <./img/fig21-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:49
+(epstopdf)                    size: 16468 bytes.
 
-<use ./20170309_meeting/fig23-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig23-eps-converted-to.pdf used on 
-input line 307.
+<./img/fig21-eps-converted-to.pdf, id=390, 843.15pt x 632.3625pt>
+File: ./img/fig21-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig21-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig21-eps-converted-to.pdf used on input line 29
+9.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig24.eps>
-(epstopdf)                    date: 2017-03-06 18:21:02
-(epstopdf)                    size: 180378 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig24-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:54:39
-(epstopdf)                    size: 9936 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig24-e
-ps-converted-to.pdf ./20170309_meeting/fig24.eps>
-(epstopdf)             \includegraphics on input line 313.
-Package epstopdf Info: Output file is already uptodate.
+ [10 <./img/fig19-eps-converted-to.pdf> <./img/fig20-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <./img/fig22.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 340300 bytes
+(epstopdf)             Output file: <./img/fig22-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig22-eps-converted-
+to.pdf ./img/fig22.eps>
+(epstopdf)             \includegraphics on input line 305.
+runsystem(repstopdf --outfile=./img/fig22-eps-converted-to.pdf ./img/fig22.eps)
+...executed safely (allowed).
 
-<./20170309_meeting/fig24-eps-converted-to.pdf, id=30, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig24-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <./img/fig22-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:50
+(epstopdf)                    size: 19398 bytes.
 
-<use ./20170309_meeting/fig24-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig24-eps-converted-to.pdf used on 
-input line 313.
+<./img/fig22-eps-converted-to.pdf, id=432, 843.15pt x 632.3625pt>
+File: ./img/fig22-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig22-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig22-eps-converted-to.pdf used on input line 30
+5.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig25.eps>
-(epstopdf)                    date: 2017-03-09 11:51:04
-(epstopdf)                    size: 207283 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig25-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:54:39
-(epstopdf)                    size: 13549 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig25-e
-ps-converted-to.pdf ./20170309_meeting/fig25.eps>
-(epstopdf)             \includegraphics on input line 319.
-Package epstopdf Info: Output file is already uptodate.
+Package epstopdf Info: Source file: <./img/fig23.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 362215 bytes
+(epstopdf)             Output file: <./img/fig23-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig23-eps-converted-
+to.pdf ./img/fig23.eps>
+(epstopdf)             \includegraphics on input line 311.
+runsystem(repstopdf --outfile=./img/fig23-eps-converted-to.pdf ./img/fig23.eps)
+...executed safely (allowed).
 
-<./20170309_meeting/fig25-eps-converted-to.pdf, id=31, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig25-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <./img/fig23-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:50
+(epstopdf)                    size: 24492 bytes.
 
-<use ./20170309_meeting/fig25-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig25-eps-converted-to.pdf used on 
-input line 319.
+<./img/fig23-eps-converted-to.pdf, id=433, 843.15pt x 632.3625pt>
+File: ./img/fig23-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig23-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig23-eps-converted-to.pdf used on input line 31
+1.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig26.eps>
-(epstopdf)                    date: 2017-03-09 11:52:56
-(epstopdf)                    size: 196124 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig26-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:54:40
-(epstopdf)                    size: 12114 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig26-e
-ps-converted-to.pdf ./20170309_meeting/fig26.eps>
-(epstopdf)             \includegraphics on input line 325.
-Package epstopdf Info: Output file is already uptodate.
+ [11 <./img/fig21-eps-converted-to.pdf> <./img/fig22-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <./img/fig24.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 189131 bytes
+(epstopdf)             Output file: <./img/fig24-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig24-eps-converted-
+to.pdf ./img/fig24.eps>
+(epstopdf)             \includegraphics on input line 317.
+runsystem(repstopdf --outfile=./img/fig24-eps-converted-to.pdf ./img/fig24.eps)
+...executed safely (allowed).
 
-<./20170309_meeting/fig26-eps-converted-to.pdf, id=32, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig26-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <./img/fig24-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:51
+(epstopdf)                    size: 12333 bytes.
 
-<use ./20170309_meeting/fig26-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig26-eps-converted-to.pdf used on 
-input line 325.
+<./img/fig24-eps-converted-to.pdf, id=489, 843.15pt x 632.3625pt>
+File: ./img/fig24-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig24-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig24-eps-converted-to.pdf used on input line 31
+7.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig27.eps>
-(epstopdf)                    date: 2017-03-09 12:07:34
-(epstopdf)                    size: 242778 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig27-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:54:40
-(epstopdf)                    size: 32328 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig27-e
-ps-converted-to.pdf ./20170309_meeting/fig27.eps>
-(epstopdf)             \includegraphics on input line 331.
-Package epstopdf Info: Output file is already uptodate.
+Package epstopdf Info: Source file: <./img/fig25.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 188426 bytes
+(epstopdf)             Output file: <./img/fig25-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig25-eps-converted-
+to.pdf ./img/fig25.eps>
+(epstopdf)             \includegraphics on input line 323.
+runsystem(repstopdf --outfile=./img/fig25-eps-converted-to.pdf ./img/fig25.eps)
+...executed safely (allowed).
 
-<./20170309_meeting/fig27-eps-converted-to.pdf, id=33, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig27-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <./img/fig25-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:51
+(epstopdf)                    size: 11667 bytes.
 
-<use ./20170309_meeting/fig27-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig27-eps-converted-to.pdf used on 
-input line 331.
+<./img/fig25-eps-converted-to.pdf, id=490, 843.15pt x 632.3625pt>
+File: ./img/fig25-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig25-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig25-eps-converted-to.pdf used on input line 32
+3.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig28.eps>
-(epstopdf)                    date: 2017-03-06 17:46:10
-(epstopdf)                    size: 38269762 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig28-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:54:50
-(epstopdf)                    size: 468185 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig28-e
-ps-converted-to.pdf ./20170309_meeting/fig28.eps>
-(epstopdf)             \includegraphics on input line 337.
-Package epstopdf Info: Output file is already uptodate.
+ [12 <./img/fig23-eps-converted-to.pdf> <./img/fig24-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <./img/fig26.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 201509 bytes
+(epstopdf)             Output file: <./img/fig26-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig26-eps-converted-
+to.pdf ./img/fig26.eps>
+(epstopdf)             \includegraphics on input line 329.
+runsystem(repstopdf --outfile=./img/fig26-eps-converted-to.pdf ./img/fig26.eps)
+...executed safely (allowed).
 
-<./20170309_meeting/fig28-eps-converted-to.pdf, id=34, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig28-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <./img/fig26-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:52
+(epstopdf)                    size: 13164 bytes.
 
-<use ./20170309_meeting/fig28-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig28-eps-converted-to.pdf used on 
-input line 337.
+<./img/fig26-eps-converted-to.pdf, id=541, 843.15pt x 632.3625pt>
+File: ./img/fig26-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig26-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig26-eps-converted-to.pdf used on input line 32
+9.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig29.eps>
-(epstopdf)                    date: 2017-03-06 17:45:54
-(epstopdf)                    size: 36931377 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig29-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:55:00
-(epstopdf)                    size: 264416 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig29-e
-ps-converted-to.pdf ./20170309_meeting/fig29.eps>
-(epstopdf)             \includegraphics on input line 343.
-Package epstopdf Info: Output file is already uptodate.
+Package epstopdf Info: Source file: <./img/fig27.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 187194 bytes
+(epstopdf)             Output file: <./img/fig27-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig27-eps-converted-
+to.pdf ./img/fig27.eps>
+(epstopdf)             \includegraphics on input line 335.
+runsystem(repstopdf --outfile=./img/fig27-eps-converted-to.pdf ./img/fig27.eps)
+...executed safely (allowed).
 
-<./20170309_meeting/fig29-eps-converted-to.pdf, id=35, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig29-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <./img/fig27-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:52
+(epstopdf)                    size: 11444 bytes.
 
-<use ./20170309_meeting/fig29-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig29-eps-converted-to.pdf used on 
-input line 343.
+<./img/fig27-eps-converted-to.pdf, id=542, 843.15pt x 632.3625pt>
+File: ./img/fig27-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig27-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig27-eps-converted-to.pdf used on input line 33
+5.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig30.eps>
-(epstopdf)                    date: 2017-03-09 12:39:02
-(epstopdf)                    size: 196425 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig30-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:55:00
-(epstopdf)                    size: 14308 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig30-e
-ps-converted-to.pdf ./20170309_meeting/fig30.eps>
-(epstopdf)             \includegraphics on input line 349.
-Package epstopdf Info: Output file is already uptodate.
+ [13 <./img/fig25-eps-converted-to.pdf> <./img/fig26-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <./img/fig28.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 195838 bytes
+(epstopdf)             Output file: <./img/fig28-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig28-eps-converted-
+to.pdf ./img/fig28.eps>
+(epstopdf)             \includegraphics on input line 341.
+runsystem(repstopdf --outfile=./img/fig28-eps-converted-to.pdf ./img/fig28.eps)
+...executed safely (allowed).
 
-<./20170309_meeting/fig30-eps-converted-to.pdf, id=36, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig30-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <./img/fig28-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:53
+(epstopdf)                    size: 13755 bytes.
 
-<use ./20170309_meeting/fig30-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig30-eps-converted-to.pdf used on 
-input line 349.
+<./img/fig28-eps-converted-to.pdf, id=577, 843.15pt x 632.3625pt>
+File: ./img/fig28-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig28-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig28-eps-converted-to.pdf used on input line 34
+1.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig31.eps>
-(epstopdf)                    date: 2017-03-09 12:43:02
-(epstopdf)                    size: 274396 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig31-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:55:00
-(epstopdf)                    size: 17056 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig31-e
-ps-converted-to.pdf ./20170309_meeting/fig31.eps>
-(epstopdf)             \includegraphics on input line 355.
-Package epstopdf Info: Output file is already uptodate.
+Package epstopdf Info: Source file: <./img/fig29.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 233751 bytes
+(epstopdf)             Output file: <./img/fig29-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig29-eps-converted-
+to.pdf ./img/fig29.eps>
+(epstopdf)             \includegraphics on input line 347.
+runsystem(repstopdf --outfile=./img/fig29-eps-converted-to.pdf ./img/fig29.eps)
+...executed safely (allowed).
 
-<./20170309_meeting/fig31-eps-converted-to.pdf, id=37, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig31-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <./img/fig29-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:53
+(epstopdf)                    size: 24024 bytes.
 
-<use ./20170309_meeting/fig31-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig31-eps-converted-to.pdf used on 
-input line 355.
+<./img/fig29-eps-converted-to.pdf, id=578, 843.15pt x 632.3625pt>
+File: ./img/fig29-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig29-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig29-eps-converted-to.pdf used on input line 34
+7.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig32.eps>
-(epstopdf)                    date: 2017-03-09 12:43:32
-(epstopdf)                    size: 274530 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig32-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:55:01
-(epstopdf)                    size: 16647 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig32-e
-ps-converted-to.pdf ./20170309_meeting/fig32.eps>
-(epstopdf)             \includegraphics on input line 361.
-Package epstopdf Info: Output file is already uptodate.
+ [14 <./img/fig27-eps-converted-to.pdf> <./img/fig28-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <./img/fig30.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 206247 bytes
+(epstopdf)             Output file: <./img/fig30-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig30-eps-converted-
+to.pdf ./img/fig30.eps>
+(epstopdf)             \includegraphics on input line 353.
+runsystem(repstopdf --outfile=./img/fig30-eps-converted-to.pdf ./img/fig30.eps)
+...executed safely (allowed).
 
-<./20170309_meeting/fig32-eps-converted-to.pdf, id=38, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig32-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <./img/fig30-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:54
+(epstopdf)                    size: 15996 bytes.
 
-<use ./20170309_meeting/fig32-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig32-eps-converted-to.pdf used on 
-input line 361.
+<./img/fig30-eps-converted-to.pdf, id=618, 843.15pt x 632.3625pt>
+File: ./img/fig30-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig30-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig30-eps-converted-to.pdf used on input line 35
+3.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig33.eps>
-(epstopdf)                    date: 2017-03-09 15:19:26
-(epstopdf)                    size: 213733 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig33-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:55:01
-(epstopdf)                    size: 14212 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig33-e
-ps-converted-to.pdf ./20170309_meeting/fig33.eps>
-(epstopdf)             \includegraphics on input line 367.
-runsystem(repstopdf --outfile=./20170309_meeting/fig33-eps-converted-to.pdf ./2
-0170309_meeting/fig33.eps)...executed safely (allowed).
+Package epstopdf Info: Source file: <./img/fig31.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 266966 bytes
+(epstopdf)             Output file: <./img/fig31-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig31-eps-converted-
+to.pdf ./img/fig31.eps>
+(epstopdf)             \includegraphics on input line 359.
+runsystem(repstopdf --outfile=./img/fig31-eps-converted-to.pdf ./img/fig31.eps)
+...executed safely (allowed).
 
-Package epstopdf Info: Result file: <./20170309_meeting/fig33-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 14:22:32
-(epstopdf)                    size: 16428 bytes.
+Package epstopdf Info: Result file: <./img/fig31-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:54
+(epstopdf)                    size: 16663 bytes.
 
-<./20170309_meeting/fig33-eps-converted-to.pdf, id=39, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig33-eps-converted-to.pdf Graphic file (type pdf)
+<./img/fig31-eps-converted-to.pdf, id=619, 843.15pt x 632.3625pt>
+File: ./img/fig31-eps-converted-to.pdf Graphic file (type pdf)
 
-<use ./20170309_meeting/fig33-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig33-eps-converted-to.pdf used on 
-input line 367.
+<use ./img/fig31-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig31-eps-converted-to.pdf used on input line 35
+9.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig34.eps>
-(epstopdf)                    date: 2017-03-09 15:19:58
-(epstopdf)                    size: 213725 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig34-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:55:02
-(epstopdf)                    size: 14213 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig34-e
-ps-converted-to.pdf ./20170309_meeting/fig34.eps>
-(epstopdf)             \includegraphics on input line 373.
-runsystem(repstopdf --outfile=./20170309_meeting/fig34-eps-converted-to.pdf ./2
-0170309_meeting/fig34.eps)...executed safely (allowed).
+ [15 <./img/fig29-eps-converted-to.pdf> <./img/fig30-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <./img/fig32.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 266782 bytes
+(epstopdf)             Output file: <./img/fig32-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig32-eps-converted-
+to.pdf ./img/fig32.eps>
+(epstopdf)             \includegraphics on input line 365.
+runsystem(repstopdf --outfile=./img/fig32-eps-converted-to.pdf ./img/fig32.eps)
+...executed safely (allowed).
 
-Package epstopdf Info: Result file: <./20170309_meeting/fig34-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 14:22:32
-(epstopdf)                    size: 16450 bytes.
+Package epstopdf Info: Result file: <./img/fig32-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:55
+(epstopdf)                    size: 16257 bytes.
 
-<./20170309_meeting/fig34-eps-converted-to.pdf, id=40, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig34-eps-converted-to.pdf Graphic file (type pdf)
+<./img/fig32-eps-converted-to.pdf, id=657, 843.15pt x 632.3625pt>
+File: ./img/fig32-eps-converted-to.pdf Graphic file (type pdf)
 
-<use ./20170309_meeting/fig34-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig34-eps-converted-to.pdf used on 
-input line 373.
+<use ./img/fig32-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig32-eps-converted-to.pdf used on input line 36
+5.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig35.eps>
-(epstopdf)                    date: 2017-03-09 13:16:04
-(epstopdf)                    size: 203381 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig35-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:55:02
-(epstopdf)                    size: 14607 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig35-e
-ps-converted-to.pdf ./20170309_meeting/fig35.eps>
-(epstopdf)             \includegraphics on input line 379.
-Package epstopdf Info: Output file is already uptodate.
+Package epstopdf Info: Source file: <./img/fig33.eps>
+(epstopdf)                    date: 2017-03-14 17:36:38
+(epstopdf)                    size: 275030 bytes
+(epstopdf)             Output file: <./img/fig33-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=./img/fig33-eps-converted-
+to.pdf ./img/fig33.eps>
+(epstopdf)             \includegraphics on input line 371.
+runsystem(repstopdf --outfile=./img/fig33-eps-converted-to.pdf ./img/fig33.eps)
+...executed safely (allowed).
 
-<./20170309_meeting/fig35-eps-converted-to.pdf, id=41, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig35-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <./img/fig33-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-14 17:47:55
+(epstopdf)                    size: 17904 bytes.
 
-<use ./20170309_meeting/fig35-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig35-eps-converted-to.pdf used on 
-input line 379.
+<./img/fig33-eps-converted-to.pdf, id=658, 843.15pt x 632.3625pt>
+File: ./img/fig33-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/fig33-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/fig33-eps-converted-to.pdf used on input line 37
+1.
 (pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig36.eps>
-(epstopdf)                    date: 2017-03-09 13:18:36
-(epstopdf)                    size: 35623231 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig36-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:55:11
-(epstopdf)                    size: 711840 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig36-e
-ps-converted-to.pdf ./20170309_meeting/fig36.eps>
-(epstopdf)             \includegraphics on input line 385.
-Package epstopdf Info: Output file is already uptodate.
+ [16 <./img/fig31-eps-converted-to.pdf> <./img/fig32-eps-converted-to.pdf>] [17
+ <./img/fig33-eps-converted-to.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 375.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 375.
 
-<./20170309_meeting/fig36-eps-converted-to.pdf, id=42, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig36-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./20170309_meeting/fig36-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig36-eps-converted-to.pdf used on 
-input line 385.
-(pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig37.eps>
-(epstopdf)                    date: 2017-03-09 13:18:50
-(epstopdf)                    size: 33484205 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig37-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:55:20
-(epstopdf)                    size: 339392 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig37-e
-ps-converted-to.pdf ./20170309_meeting/fig37.eps>
-(epstopdf)             \includegraphics on input line 391.
-Package epstopdf Info: Output file is already uptodate.
-
-<./20170309_meeting/fig37-eps-converted-to.pdf, id=43, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig37-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./20170309_meeting/fig37-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig37-eps-converted-to.pdf used on 
-input line 391.
-(pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig38.eps>
-(epstopdf)                    date: 2017-03-09 14:19:10
-(epstopdf)                    size: 178763 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig38-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:55:20
-(epstopdf)                    size: 9742 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig38-e
-ps-converted-to.pdf ./20170309_meeting/fig38.eps>
-(epstopdf)             \includegraphics on input line 397.
-runsystem(repstopdf --outfile=./20170309_meeting/fig38-eps-converted-to.pdf ./2
-0170309_meeting/fig38.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <./20170309_meeting/fig38-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 14:22:33
-(epstopdf)                    size: 9742 bytes.
-
-<./20170309_meeting/fig38-eps-converted-to.pdf, id=44, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig38-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./20170309_meeting/fig38-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig38-eps-converted-to.pdf used on 
-input line 397.
-(pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig39.eps>
-(epstopdf)                    date: 2017-03-09 14:18:58
-(epstopdf)                    size: 181005 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig39-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:56:09
-(epstopdf)                    size: 9970 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig39-e
-ps-converted-to.pdf ./20170309_meeting/fig39.eps>
-(epstopdf)             \includegraphics on input line 403.
-runsystem(repstopdf --outfile=./20170309_meeting/fig39-eps-converted-to.pdf ./2
-0170309_meeting/fig39.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <./20170309_meeting/fig39-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 14:22:33
-(epstopdf)                    size: 9970 bytes.
-
-<./20170309_meeting/fig39-eps-converted-to.pdf, id=45, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig39-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./20170309_meeting/fig39-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig39-eps-converted-to.pdf used on 
-input line 403.
-(pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package epstopdf Info: Source file: <./20170309_meeting/fig40.eps>
-(epstopdf)                    date: 2017-03-09 14:22:50
-(epstopdf)                    size: 277523 bytes
-(epstopdf)             Output file: <./20170309_meeting/fig40-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 13:56:09
-(epstopdf)                    size: 17063 bytes
-(epstopdf)             Command: <repstopdf --outfile=./20170309_meeting/fig40-e
-ps-converted-to.pdf ./20170309_meeting/fig40.eps>
-(epstopdf)             \includegraphics on input line 409.
-runsystem(repstopdf --outfile=./20170309_meeting/fig40-eps-converted-to.pdf ./2
-0170309_meeting/fig40.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <./20170309_meeting/fig40-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-03-09 14:22:34
-(epstopdf)                    size: 17063 bytes.
-
-<./20170309_meeting/fig40-eps-converted-to.pdf, id=46, 843.15pt x 632.3625pt>
-File: ./20170309_meeting/fig40-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./20170309_meeting/fig40-eps-converted-to.pdf>
-Package pdftex.def Info: ./20170309_meeting/fig40-eps-converted-to.pdf used on 
-input line 409.
-(pdftex.def)             Requested size: 421.57396pt x 316.18048pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 413.
- [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./20170309_meeting/fig1
--eps-converted-to.pdf> <./20170309_meeting/fig2-eps-converted-to.pdf>] [2 <./20
-170309_meeting/fig3-eps-converted-to.pdf> <./20170309_meeting/fig4-eps-converte
-d-to.pdf>] [3 <./20170309_meeting/fig5-eps-converted-to.pdf> <./20170309_meetin
-g/fig6-eps-converted-to.pdf>] [4 <./20170309_meeting/fig7-eps-converted-to.pdf>
- <./20170309_meeting/fig8-eps-converted-to.pdf>] [5 <./20170309_meeting/fig9-ep
-s-converted-to.pdf> <./20170309_meeting/fig10-eps-converted-to.pdf>] [6 <./2017
-0309_meeting/fig11-eps-converted-to.pdf> <./20170309_meeting/fig12-eps-converte
-d-to.pdf>] [7 <./20170309_meeting/fig13-eps-converted-to.pdf> <./20170309_meeti
-ng/fig14-eps-converted-to.pdf>] [8 <./20170309_meeting/fig15-eps-converted-to.p
-df> <./20170309_meeting/fig16-eps-converted-to.pdf>] [9 <./20170309_meeting/fig
-17-eps-converted-to.pdf> <./20170309_meeting/fig18-eps-converted-to.pdf>] [10 <
-./20170309_meeting/fig19-eps-converted-to.pdf> <./20170309_meeting/fig20-eps-co
-nverted-to.pdf>] [11 <./20170309_meeting/fig21-eps-converted-to.pdf> <./2017030
-9_meeting/fig22-eps-converted-to.pdf>] [12 <./20170309_meeting/fig23-eps-conver
-ted-to.pdf> <./20170309_meeting/fig24-eps-converted-to.pdf>] [13 <./20170309_me
-eting/fig25-eps-converted-to.pdf> <./20170309_meeting/fig26-eps-converted-to.pd
-f>] [14 <./20170309_meeting/fig27-eps-converted-to.pdf> <./20170309_meeting/fig
-28-eps-converted-to.pdf>]
-[15 <./20170309_meeting/fig29-eps-converted-to.pdf> <./20170309_meeting/fig30-e
-ps-converted-to.pdf>] [16 <./20170309_meeting/fig31-eps-converted-to.pdf> <./20
-170309_meeting/fig32-eps-converted-to.pdf>] [17 <./20170309_meeting/fig33-eps-c
-onverted-to.pdf> <./20170309_meeting/fig34-eps-converted-to.pdf>] [18 <./201703
-09_meeting/fig35-eps-converted-to.pdf> <./20170309_meeting/fig36-eps-converted-
-to.pdf>] [19 <./20170309_meeting/fig37-eps-converted-to.pdf> <./20170309_meetin
-g/fig38-eps-converted-to.pdf>] [20 <./20170309_meeting/fig39-eps-converted-to.p
-df> <./20170309_meeting/fig40-eps-converted-to.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 413.
- (./20170309_meeting.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 413.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 413.
-Package rerunfilecheck Info: File `20170309_meeting.out' has not changed.
+(./20170315_meeting.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 375.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 375.
+Package rerunfilecheck Info: File `20170315_meeting.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 24587 strings out of 493029
- 436727 string characters out of 6136233
- 659091 words of memory out of 5000000
- 27540 multiletter control sequences out of 15000+600000
+ 25296 strings out of 493029
+ 445089 string characters out of 6136233
+ 657752 words of memory out of 5000000
+ 28252 multiletter control sequences out of 15000+600000
  11517 words of font info for 22 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,7n,77p,803b,437s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,7n,77p,803b,436s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/
 public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb>
-Output written on 20170309_meeting.pdf (20 pages, 2843741 bytes).
+Output written on 20170315_meeting.pdf (17 pages, 1405888 bytes).
 PDF statistics:
- 908 PDF objects out of 1000 (max. 8388607)
- 637 compressed objects within 7 object streams
- 60 named destinations out of 1000 (max. 500000)
- 2773 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 752 PDF objects out of 1000 (max. 8388607)
+ 528 compressed objects within 6 object streams
+ 51 named destinations out of 1000 (max. 500000)
+ 2738 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -13,7 +13,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{anyfontsize}
-%\usepackage{enumitem}
+\usepackage{enumitem}
 \usepackage{pdfpages}
 %\usepackage{fourier}	% Style
 \usepackage{bm}
@@ -30,7 +30,7 @@
 \usepackage{mathtools}
 \usepackage{array}
 \usepackage{anyfontsize}
-\usepackage{enumerate}
+%\usepackage{enumerate}
 \usepackage{graphicx}
 \usepackage{epstopdf}
 \usepackage{float}
@@ -74,11 +74,11 @@
 \newtheorem{thm}{Theorem}[section]
 
 % To enumerate the equations and the figures according to the section they are in
-%\numberwithin{equation}{section}
+\numberwithin{equation}{section}
 %\numberwithin{figure}{section}
 
 % Path to images folder
-\graphicspath{{./20170309_meeting/}}
+\graphicspath{{./img/}}
 
 % To modify the space between figure and caption
 %\setlength{\abovecaptionskip}{-4pt}
@@ -137,11 +137,11 @@
 	language=C++,
 	basicstyle=\ttm,
 	otherkeywords={},             % Add keywords here
-	keywordstyle=\ttb\color{deepblue},
-	emph={MyClass,__init__},          % Custom highlighting
-	emphstyle=\ttb\color{deepred},    % Custom highlighting style
-	stringstyle=\color{deepgreen},
-	commentstyle=\color{deepgreen}\ttfamily,
+	keywordstyle=\ttb\color{deepred},
+	emph={int,double,bool,const,void,auto},          % Custom highlighting
+	emphstyle=\ttb\color{deepgreen},    % Custom highlighting style
+	stringstyle=\color{purple},
+	commentstyle=\color{blue}\ttfamily,
 	frame=tb,                         % Any extra options here
 	showstringspaces=false            % 
 }}
@@ -168,248 +168,209 @@
 % To insert verbatim within a command
 \usepackage{fancyvrb}
 
+% For pseudocode
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
 \begin{document}
 
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig1}
+		\includegraphics[scale = 0.5]{fig1}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig2}
+		\includegraphics[scale = 0.5]{fig2}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig3}
+		\includegraphics[scale = 0.5]{fig3}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig4}
+		\includegraphics[scale = 0.5]{fig4}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig5}
+		\includegraphics[scale = 0.5]{fig5}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig6}
+		\includegraphics[scale = 0.5]{fig6}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig7}
+		\includegraphics[scale = 0.5]{fig7}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig8}
+		\includegraphics[scale = 0.5]{fig8}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig9}
+		\includegraphics[scale = 0.5]{fig9}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig10}
+		\includegraphics[scale = 0.5]{fig10}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig11}
+		\includegraphics[scale = 0.5]{fig11}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig12}
+		\includegraphics[scale = 0.5]{fig12}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig13}
+		\includegraphics[scale = 0.5]{fig13}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig14}
+		\includegraphics[scale = 0.5]{fig14}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig15}
+		\includegraphics[scale = 0.5]{fig15}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig16}
+		\includegraphics[scale = 0.5]{fig16}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig17}
+		\includegraphics[scale = 0.5]{fig17}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig18}
+		\includegraphics[scale = 0.5]{fig18}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig19}
+		\includegraphics[scale = 0.5]{fig19}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig20}
+		\includegraphics[scale = 0.5]{fig20}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig21}
+		\includegraphics[scale = 0.5]{fig21}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig22}
+		\includegraphics[scale = 0.5]{fig22}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig23}
+		\includegraphics[scale = 0.5]{fig23}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig24}
+		\includegraphics[scale = 0.5]{fig24}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig25}
+		\includegraphics[scale = 0.5]{fig25}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig26}
+		\includegraphics[scale = 0.5]{fig26}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig27}
+		\includegraphics[scale = 0.5]{fig27}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig28}
+		\includegraphics[scale = 0.5]{fig28}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig29}
+		\includegraphics[scale = 0.5]{fig29}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig30}
+		\includegraphics[scale = 0.5]{fig30}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig31}
+		\includegraphics[scale = 0.5]{fig31}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig32}
+		\includegraphics[scale = 0.5]{fig32}
 		\caption{}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\center
-		\includegraphics[scale=0.5]{fig33}
+		\includegraphics[scale = 0.5]{fig33}
 		\caption{}
 	\end{figure}
-	
-	\begin{figure}
-		\center
-		\includegraphics[scale=0.5]{fig34}
-		\caption{}
-	\end{figure}
-	
-	\begin{figure}
-		\center
-		\includegraphics[scale=0.5]{fig35}
-		\caption{}
-	\end{figure}
-	
-	\begin{figure}
-		\center
-		\includegraphics[scale=0.5]{fig36}
-		\caption{}
-	\end{figure}
-	
-	\begin{figure}
-		\center
-		\includegraphics[scale=0.5]{fig37}
-		\caption{}
-	\end{figure}
-	
-	\begin{figure}
-		\center
-		\includegraphics[scale=0.5]{fig38}
-		\caption{}
-	\end{figure}
-	
-	\begin{figure}
-		\center
-		\includegraphics[scale=0.5]{fig39}
-		\caption{}
-	\end{figure}
-	
-	\begin{figure}
-		\center
-		\includegraphics[scale=0.5]{fig40}
-		\caption{}
-	\end{figure}
-	
-\end{document}
 
+\end{document}
 
