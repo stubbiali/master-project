@@ -167,7 +167,7 @@ function [x, u] = NonLinearPoisson1dFEP1Newton(a, b, K, v, dv, f, BCLt, BCLv, ..
        end
        
        % Compute increment and update solution
-       y = - J\F;  u = uold + y;
+       y = - J\F;  u = uold + 0.9*y;
        
        % Compute error, i.e. difference between consecutive iterations, and
        % update counter
