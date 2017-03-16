@@ -5,7 +5,7 @@
 clc
 clear variables
 clear variables -global
-%close all
+close all
 
 %
 % User-defined settings
@@ -49,17 +49,22 @@ clear variables -global
 %BCLt = 'D';  BCLv = exp(-1);
 %BCRt = 'P';  BCRv = 0;
 
-a = 0;  b = pi;  K = 100;
-v = @(u) exp(u);  dv = @(u) exp(u);
+load(['../datasets/NonLinearPoisson1d2pSVD/NonLinearPoisson1d2p_FEP1Newton_' ...
+    'SVDunif_a-3.14_b3.14_D_D_mu11.00_mu23.00_nu11.00_nu23.00_K100_Nmu50_Nnu50_N2500_L25_Nte50.mat']);
+
+a = -pi;  b = pi;  K = 100;
+%v = @(u) exp(u);  dv = @(u) exp(u);
+v = @(u) u.^2;  dv = @(u) 2*u;
 %mu = 0.5;  nu = 1;  f = @(t) -gaussian(t,mu,0.1) + nu*gaussian(t,-mu,0.1);
 %mu = 2;  f = @(t) 1;
 %mu = 1;  nu = 1;  f = @(t) mu*mu*(1 + cos(mu*t).^2 + 2*sin(mu*t)) ./ (nu*(2+sin(mu*t)).^3);
-mu = 1.8147;  nu = 2.2624;  f = @(t) nu*mu*mu*exp(nu*(2+sin(mu*t))).*(sin(mu*t) - nu*cos(mu*t).^2);
+idx = 15;  mu = mu_te(idx);  nu = nu_te(idx);  
+%f = @(t) nu*mu*mu*exp(nu*(2+sin(mu*t))).*(sin(mu*t) - nu*cos(mu*t).^2);
+f = @(t,mu,nu) nu.*nu.*mu.*mu.*(2+sin(mu.*t)).*(-2*nu.*cos(mu.*t).^2 + ...
+    2*nu.*sin(mu.*t) + nu.*sin(mu.*t).^2);
+g = @(t) f(t,mu,nu);
 BCLt = 'D';  bclv = @(mu,nu) nu.*(2+sin(mu*a));  BCLv = bclv(mu,nu);
 BCRt = 'D';  bcrv = @(mu,nu) nu.*(2+sin(mu*b));  BCRv = bcrv(mu,nu);
-
-%load(['../datasets/NonLinearPoisson1d1pSVD/NonLinearPoisson1d1p_FEP1Newton_' ...
-%    'SVDunif_a-1.00_b1.00_D1.00_D1.00_mu1-1.00_mu21.00_K100_N50_L25_Nte100.mat']);
 
 %
 % Run
@@ -67,16 +72,20 @@ BCRt = 'D';  bcrv = @(mu,nu) nu.*(2+sin(mu*b));  BCRv = bcrv(mu,nu);
 
 % Solve
 %[x,u1] = LinearPoisson1dFEP1(a, b, K, f, BCLt, BCLv, BCRt, BCRv);
-[x,u] = NonLinearPoisson1dFEP1Newton(a, b, K, v, dv, f, BCLt, BCLv, BCRt, BCRv);
-%[x,alpha] = NonLinearPoisson1dFEP1ReducedNewton(a, b, K, v, dv, f, BCLt, BCLv, ...
-%    BCRt, BCRv, VL);
-%ur = VL*alpha;
+[x,u] = NonLinearPoisson1dFEP1Newton(a, b, K, v, dv, g, BCLt, BCLv, BCRt, BCRv);
+[x,u_fs] = NonLinearPoisson1dFEP1(a, b, K, v, dv, g, BCLt, BCLv, BCRt, BCRv);
+[x,alpha] = NonLinearPoisson1dFEP1ReducedNewton(a, b, K, v, dv, g, BCLt, BCLv, ...
+    BCRt, BCRv, VL);
+[x,alpha_fs] = NonLinearPoisson1dFEP1Reduced(a, b, K, v, dv, g, BCLt, BCLv, ...
+    BCRt, BCRv, VL);
+alpha_ls = VL \ u;
 
 % Plot
-%figure;
+%{
+figure;
 hold on;
 plot(x,u);
-%plot(x,ur);
+plot(x,ur);
 title('Solution to Poisson equation')
 xlabel('$x$')
 ylabel('$u(x)$')
@@ -84,3 +93,4 @@ grid on
 %axis equal
 xlim([a b])
 %legend('Full','Reduced')
+%}

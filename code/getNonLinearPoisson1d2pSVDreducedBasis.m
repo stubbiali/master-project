@@ -23,7 +23,7 @@
 % \param Nnu        number of samples for $\nu$
 % \param L          rank of the basis
 % \param solver     handle to solver function (see, e.g.,
-%                   NonLinearPoisson1dFEP1Newton)
+%                   NonLinearPoisson1dFEP1)
 % \param a          left boundary of domain
 % \param b          right boundary of domain
 % \param K          number of grid points
@@ -48,7 +48,7 @@
 %                   reduced basis
 
 function [x, mu, nu, Y, s, V] = getNonLinearPoisson1d2pSVDreducedBasis ...
-    (mu1, mu2, nu1, nu2, sampler, Nmu, Nnu, L, solver, a, b, K, v, dv, f, ...
+    (mu1, mu2, nu1, nu2, sampler, Nmu, Nnu, L, solver, a, b, K, v, f, ...
     BCLt, BCLv, BCRt, BCRv)
     % Total number of snapshots
     if strcmp(sampler,'unif')
@@ -83,11 +83,11 @@ function [x, mu, nu, Y, s, V] = getNonLinearPoisson1d2pSVDreducedBasis ...
     
     % Get the snapshots, i.e. the solution for different values of $\mu$
     % and $\nu$
-    [x,y] = solver(a, b, K, v, dv, g{1}, BCLt, BCLv(mu(1),nu(1)), ...
+    [x,y] = solver(a, b, K, v, g{1}, BCLt, BCLv(mu(1),nu(1)), ...
         BCRt, BCRv(mu(1),nu(1)));
     Y = zeros(size(y,1),N);  Y(:,1) = y;
     for i = 2:N
-        [x,Y(:,i)] = solver(a, b, K, v, dv, g{i}, BCLt, BCLv(mu(i),nu(i)), ...
+        [x,Y(:,i)] = solver(a, b, K, v, g{i}, BCLt, BCLv(mu(i),nu(i)), ...
             BCRt, BCRv(mu(i),nu(i)));
     end
         

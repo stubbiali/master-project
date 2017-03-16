@@ -40,8 +40,10 @@ close all
 %           - 'P': periodic
 % BCRv      right boundary condition as handle function in mu and nu
 % solver    solver
-%           - 'FEP1Newton': linear finite elements coupled with Newton's
-%           method to solve the nonlinear system
+%           - 'FEP1': linear finite elements; the resulting nonlinear
+%                     system is solved via the Matlab built-in fucntion fsolve
+%           - 'FEP1Newton': linear finite elements; the resulting
+%                           nonlinear system is solved via Newton's method
 % reducer   method to compute the reduced basis
 %           - 'SVD': Single Value Decomposition
 % sampler   how the shapshot values for $\mu$ should be selected:
@@ -64,13 +66,13 @@ f = @(t,mu,nu) nu.*nu.*mu.*mu.*(2+sin(mu.*t)).*(-2*nu.*cos(mu.*t).^2 + ...
 mu1 = 1;  mu2 = 3;  nu1 = 1;  nu2 = 3;  suffix = '';
 BCLt = 'D';  BCLv = @(mu,nu) nu.*(2+sin(mu*a));
 BCRt = 'D';  BCRv = @(mu,nu) nu.*(2+sin(mu*b));
-solver = 'FEP1Newton';
+solver = 'FEP1';
 reducer = 'SVD';
 sampler = {'unif'};
 Nmu = [5 10 15 20 25 50];
 Nnu = [5 10 15 20 25 50];
 L = 1:25;  
-Nte = 50;
+Nte = 100;
 root = '../datasets';
 
 %
@@ -78,7 +80,10 @@ root = '../datasets';
 %
 
 % Set handle to solver
-if strcmp(solver,'FEP1Newton')
+if strcmp(solver,'FEP1')
+    solverFcn = @NonLinearPoisson1dFEP1;
+    rsolverFcn = @NonLinearPoisson1dFEP1Reduced;
+elseif strcmp(solver,'FEP1Newton')
     solverFcn = @NonLinearPoisson1dFEP1Newton;
     rsolverFcn = @NonLinearPoisson1dFEP1ReducedNewton;
 end
@@ -102,12 +107,12 @@ end
 
 % Compute full solution for testing values of the parameter
 fprintf('i = 1\n');
-[x,y] = solverFcn(a, b, K, v, dv, g_te{1}, BCLt, BCLv(mu_te(1),nu_te(1)), ...
+[x,y] = solverFcn(a, b, K, v, g_te{1}, BCLt, BCLv(mu_te(1),nu_te(1)), ...
     BCRt, BCRv(mu_te(1),nu_te(1)));
 u_te = zeros(size(y,1),Nte);  u_te(:,1) = y;
 parfor i = 2:Nte
     fprintf('i = %i\n',i);
-    [x,u_te(:,i)] = solverFcn(a, b, K, v, dv, g_te{i}, BCLt, BCLv(mu_te(i),nu_te(i)), ...
+    [x,u_te(:,i)] = solverFcn(a, b, K, v, g_te{i}, BCLt, BCLv(mu_te(i),nu_te(i)), ...
         BCRt, BCRv(mu_te(i),nu_te(i)));
 end
 
@@ -126,7 +131,7 @@ for k = 1:length(sampler)
         % the basis for the maximum value of L
         [x, mu_tr, nu_tr, u_tr, s_xl, V_xl] = reducerFcn(mu1, mu2, nu1, nu2, ...
             sampler{k}, Nmu(n), Nnu(n), max(L), ...
-            solverFcn, a, b, K, v, dv, f, BCLt, BCLv, BCRt, BCRv);
+            solverFcn, a, b, K, v, f, BCLt, BCLv, BCRt, BCRv);
 
         % Evaluate force field for samples of $\mu$ and $\nu$
         g_tr = cell(N(n),1);
@@ -142,7 +147,7 @@ for k = 1:length(sampler)
             % employed for the computation of the snapshots
             alpha_tr = zeros(L(l),N(n));
             parfor i = 1:N(n)
-                [x,alpha_tr(:,i)] = rsolverFcn(a, b, K, v, dv, g_tr{i}, ...
+                [x,alpha_tr(:,i)] = rsolverFcn(a, b, K, v, g_tr{i}, ...
                     BCLt, BCLv(mu_tr(i),nu_tr(i)), ...
                     BCRt, BCRv(mu_tr(i),nu_tr(i)), VL);
             end
@@ -150,7 +155,7 @@ for k = 1:length(sampler)
             % Compute reduced solution for testing values of $\mu$
             alpha_te = zeros(L(l),Nte);
             parfor i = 1:Nte
-                [x,alpha_te(:,i)] = rsolverFcn(a, b, K, v, dv, g_te{i}, ...
+                [x,alpha_te(:,i)] = rsolverFcn(a, b, K, v, g_te{i}, ...
                     BCLt, BCLv(mu_te(i),nu_te(i)), ...
                     BCRt, BCRv(mu_te(i),nu_te(i)), VL);
             end

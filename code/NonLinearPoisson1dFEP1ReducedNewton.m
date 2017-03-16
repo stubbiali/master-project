@@ -46,7 +46,7 @@
 % \out   x      grid
 % \out   u      numerical solution
 
-function [x,alpha] = NonLinearPoisson1dFEP1ReducedNewton(a, b, K, v, dv, f, ...
+function [x,alpha,z] = NonLinearPoisson1dFEP1ReducedNewton(a, b, K, v, dv, f, ...
     BCLt, BCLv, BCRt, BCRv, V, varargin)
     % Check if the problem is well-posed
     if ~(strcmp(BCLt,'D') || strcmp(BCRt,'D'))
@@ -94,9 +94,9 @@ function [x,alpha] = NonLinearPoisson1dFEP1ReducedNewton(a, b, K, v, dv, f, ...
             u = BCRv * ones(K,1);
         end
     end
-    
+       
     % Compute initial coefficients of reduced solution by least square
-    alpha = V \ u;
+    alpha = V \ u;  
     
     % Allocate memory for evaluations of the nonlinear function and its
     % Jacobian with respect to the coefficients $\boldsymbol{\alpha}$
@@ -123,7 +123,7 @@ function [x,alpha] = NonLinearPoisson1dFEP1ReducedNewton(a, b, K, v, dv, f, ...
            F(1) = (1/h) * V(1,:)*alpha - rhs(1);
        elseif strcmp(BCLt,'N')
            F(1) = (1/(6*h)) * ((v(V(1,:)*alpha) + 4*v(0.5*(V(1,:)+V(2,:))*alpha) ...
-               + v(V(2,:)*alpha)) * (V(1,:) - V(2,:))*alpha) - rhs(1);
+                + v(V(2,:)*alpha)) * (V(1,:) - V(2,:))*alpha) - rhs(1);
        elseif strcmp(BCLt,'P')
            F(1) = (1/h) * (V(1,:) - V(end,:))*alpha;
        end
@@ -194,12 +194,19 @@ function [x,alpha] = NonLinearPoisson1dFEP1ReducedNewton(a, b, K, v, dv, f, ...
        Jr = V'*J;
        
        % Compute increment and update solution
-       y = - Jr \ (V'*F);  alpha = alphaold + y;
+       y = - Jr \ (V'*F);  
+       if (n == 20)
+           alpha = alphaold + 1e10*y;
+       else
+           alpha = alphaold + y;
+       end
        
        % Compute error, i.e. difference between consecutive iterations, and
        % update counter
-       err1 = norm(alpha - alphaold);  err2 = norm(F);  n = n + 1;
+       err1 = norm(alpha - alphaold);  err2 = norm(V'*F);  n = n + 1;
+       fprintf('Reduced solver: iteration %i, |dx| = %5.5E, |F| = %5.5E\n', ...
+           n, norm(alpha - alphaold), norm(V'*F));
     end
     
-    %fprintf('Reduced solver: number of iterations %i, |F| = %5.5E\n', n, norm(F));
+    fprintf('Reduced solver: number of iterations %i, |F| = %5.5E\n', n, norm(F));
 end
