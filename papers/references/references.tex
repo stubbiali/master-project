@@ -1,0 +1,129 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{anyfontsize}
+\usepackage{enumerate}
+\usepackage{pdfpages}
+\usepackage{fourier}	% Style
+\usepackage{bm}
+\usepackage{epstopdf}
+\usepackage{lipsum}
+\usepackage{authblk}
+\usepackage[top=2cm, bottom=3cm, left=2cm, right=2cm, scale=0.75]{geometry}	% Set the margins
+\usepackage{fancyhdr}
+\usepackage[letterspace=150]{microtype}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage{booktabs}
+\usepackage{amsmath,etoolbox}
+\usepackage{mathtools}
+\usepackage{array}
+\usepackage{anyfontsize}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{float}
+\usepackage[position = top]{subfig}
+\usepackage[labelfont=bf,labelsep=period]{caption}
+\usepackage{booktabs}
+\usepackage{newunicodechar}
+\usepackage{booktabs}
+\usepackage{nicefrac}	% For diagonal fractions
+\usepackage{bbm}
+\usepackage{hyperref}	% For hyperlinks
+
+% Packages needed for tables
+\usepackage{longtable}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{array}
+%\usepackage[framed]{mcode}
+
+% To put footnotes at the bottom of the page
+\usepackage[bottom]{footmisc}
+
+% No indent
+\setlength\parindent{0pt}
+
+% To enumerate subequations with arabic numbers (e.g. 1.1, 1.2, ecc)
+\patchcmd{\subequations}{\def\theequation{\theparentequation\alph{equation}}}{\def\theequation{\theparentequation.\arabic{equation}}}{}{}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+
+% Definition of definition environment
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+
+% Definition of theorem environment
+\theoremstyle{theorem}
+\newtheorem{thm}{Theorem}[section]
+
+% To enumerate the equations and the figures according to the section they are in
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+% Path to images folder
+\graphicspath{{./img/}}
+
+% To modify the space between figure and caption
+%\setlength{\abovecaptionskip}{-2pt}
+%\setlength{\belowcaptionskip}{3pt}
+
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\topfraction}{0.9}
+
+\renewcommand{\abstractname}{\large Abstract}
+
+\begin{document}
+
+	This document lists different citations and related references which may be useful for the master project.
+	
+	\section*{Citations}
+	
+	\begin{itemize}
+		\item Multilayer perceptron as an universal function approximator \cite{Cyb89, Fun89} (found in \cite{Tho08})
+		\item Optimal brain surgeon: algorithm for network pruning \cite{Has93} (found in \cite{Tho08})
+		\item Nguyen-Widrow algorithm: for initialization of weights and biases \cite{Ngu90} (found in \cite{Tho08})
+		\item Levenberg-Marquard algorithm: learing algorithm \cite{Tho96} (found in \cite{Tho08})
+		\item Error measurement and exemplary problems \cite{Pre94} (found in \cite{Kri07})
+	\end{itemize}
+	
+	\begin{thebibliography}{50}
+	
+		\bibitem{Cyb89}
+		Cybenko G. \emph{Approximation by superposition of a sigmoïdal function}. Mathematics of Control Signals and Systems, 2(4):303-314, 1989.
+		
+		\bibitem{Fun89}
+		Funahashi K. \emph{On the approximate realisation of continuous mapping by neural networks}. Neural Networks, 2:183-192, 1989.
+		
+		\bibitem{Has93}
+		Hassibi B., Stork D. G. \emph{Second order derivatives for network pruning: optimal brain surgeon}. Advances in Neural Information Processing Systems, 5:164-171, 1993.
+		
+		\bibitem{Kri07}
+		Kriesel D. \emph{A brief introduction to neural networks}. Available at \url{http://www.dkriesel.com}, 2007.
+		
+		\bibitem{Ngu90}
+		Nguyen D., Widrow B. \emph{Improving the learning speed of 2-layer neural networks by choosing initial values of the adaptative weights}. Proceedings of the International Joint Conference on Neural Networks IJCNN'90, San Diego, USA, 3:21-26, 1990.
+		
+		\bibitem{Pre94}
+		Prechelt L. \emph{A set of neural network benchmark problems and benchmarking rules}. Technical Report, University of Karlsruhe, Germany, 21:94, 1994.
+		
+		\bibitem{Tho96}
+		Thomas P., Bloch G. \emph{From batch to recursive outlier-robust identification of non-linear dynamic systems with neural networks}. Proceedings of the IEEE International Conference on Neural Networks ICNN'96, Washington D. C., USA, 1:178-183, 1996.
+		
+		\bibitem{Tho08}
+		Thomas P., Choffel D., Thomas A. \emph{Simulation reduction models approach using neural network}. $10^{\text{th}}$ Internal Conference on Computer Modelling and Simulation EUROSIM'08, Cambridge, United Kingdom, 679-684, 2008.
+	
+	\end{thebibliography}
+\end{document}
