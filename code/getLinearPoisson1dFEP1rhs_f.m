@@ -31,8 +31,8 @@ function rhs = getLinearPoisson1dFEP1rhs_f(a, b, K, f, BCLt, BCLv, BCRt, BCRv)
 	% to last call
 	if isempty(pa)
 		todo = 1;
-	elseif (pa ~= a) || (pb ~= b) || (pK ~= K) || (pBCLt ~= BCLt) ...
-		|| (pBCRt ~= BCRt)
+	elseif (pa ~= a) | (pb ~= b) | (pK ~= K) | (pBCLt ~= BCLt) ...
+		| (pBCRt ~= BCRt)
 		todo = 1;
 	else
 		funinfo(1) = functions(pf);

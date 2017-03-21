@@ -706,7 +706,7 @@ datafile = sprintf(['%s/HeterogeneousViscosityLinearPoisson1d2pSVD/' ...
     mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, Nte_r, suffix);
 load(datafile);
 
-% Find position in error metrix associated with the desired
+% Find position in error matrix associated with the desired
 % network topology and training algorithm
 row = find(H == h_opt);
 col = 0;

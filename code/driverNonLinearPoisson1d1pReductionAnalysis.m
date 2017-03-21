@@ -183,7 +183,7 @@ grid on
 % L         rank of reduced basis (row vector, no more than four values)
 % Nte       number of testing samples
 
-K = 100;  N = [5 10 15 20 25 50 75 100];  L = [10 15 18 20];  Nte = 100;
+K = 100;  N = [5 10 15 20 25 50 75 100];  L = [10 15 18 20];  Nte = 50;
 
 %
 % Run
@@ -312,8 +312,8 @@ for i = 1:length(L)
             root, solver, reducer, a, b, BCLt, BCLv, BCRt, BCRv, mu1, mu2, ...
             K, N(j), L(i), Nte, suffix);
         load(filename);
-        err_max_unif(i,j) = max(err_svd_rel);
-        err_avg_unif(i,j) = sum(err_svd_rel)/Nte;
+        err_max_unif(i,j) = max(err_svd_abs);
+        err_avg_unif(i,j) = sum(err_svd_abs)/Nte;
     end
 end
 

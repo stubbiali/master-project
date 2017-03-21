@@ -1,4 +1,4 @@
-function perf = myperf(net,varargin)
+function perf = rbe(net,varargin)
     global gh gV;
     if nargin >= 3
         targets = varargin{1};
