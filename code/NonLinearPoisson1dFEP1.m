@@ -26,7 +26,7 @@
 % \out   x      grid
 % \out   u      numerical solution
 
-function [x,u] = NonLinearPoisson1dFEP1(a, b, K, v, f, BCLt, BCLv, ...
+function [x,u] = NonLinearPoisson1dFEP1(a, b, K, v, dv, f, BCLt, BCLv, ...
     BCRt, BCRv)
     % Check if the problem is well-posed
     if ~(strcmp(BCLt,'D') || strcmp(BCRt,'D'))
@@ -61,9 +61,11 @@ function [x,u] = NonLinearPoisson1dFEP1(a, b, K, v, f, BCLt, BCLv, ...
     end
     
     % Set the nonlinear system yielded by the Galerkin-FE method
-    F = @(x) evalNonLinearPoisson1dFEP1System(x, h, v, rhs, BCLt, BCRt);
+    global gh gv gdv grhs gBCLt gBCRt
+    gh = h;  gv = v;  gdv = dv;  grhs = rhs;  gBCLt = BCLt;  gBCRt = BCRt;
+    fun = @(t) evalNonLinearPoisson1dFEP1System(t);
     
     % Solve the system
-    options = optimset('Display','off');
-    u = fsolve(F, u, options);
+    options = optimoptions('fsolve','Display','off','Jacobian','on');
+    u = fsolve(fun, u, options);
 end

@@ -215,6 +215,9 @@ K = 100;  Nmu = [5 10 20 50];  Nnu = [5 10 50];  L = 1:25;  Nte = 50;
 % Run
 % 
 
+% Grid spacing
+dx = (b-a) / (K-1);
+
 for k = 1:length(Nnu)
     % Get total number of samples
     N = Nmu * Nnu(k);
@@ -232,8 +235,8 @@ for k = 1:length(Nnu)
                 root, solver, reducer, a, b, BCLt, BCLv, BCRt, mu1, mu2, ...
                 nu1, nu2, K, Nmu(j), Nnu(k), N(j), L(i), Nte, suffix);
             load(filename);
-            err_max_unif(i,j) = max(err_svd_abs);
-            err_avg_unif(i,j) = sum(err_svd_abs)/Nte;
+            err_max_unif(i,j) = sqrt(dx)*max(err_svd_abs);
+            err_avg_unif(i,j) = sqrt(dx)*sum(err_svd_abs)/Nte;
         end
     end
     
@@ -279,11 +282,11 @@ for k = 1:length(Nnu)
     eval(str_leg)
 
     % Define plot settings
-    str_leg = sprintf('Maximum error $\\epsilon_{max}$ ($k = %i$, $n_{\\nu} = %i$, $n_{te} = %i$)', ...
+    str_leg = sprintf('Maximum error in $L^2_h$-norm on test data set ($k = %i$, $n_{\\nu} = %i$, $n_{te} = %i$)', ...
         K, Nnu(k), Nte);
     title(str_leg)
     xlabel('$l$')
-    ylabel('$\epsilon_{max}$')
+    ylabel('$||u - u^l||_{L^2_h}$')
     grid on    
     xlim([min(L)-1 max(L)+1])
     
@@ -313,11 +316,11 @@ for k = 1:length(Nnu)
     eval(str_leg)
 
     % Define plot settings
-    str_leg = sprintf('Average error $\\epsilon_{avg}$ ($k = %i$, $n_{\\nu} = %i$, $n_{te} = %i$)', ...
+    str_leg = sprintf('Average error in $L^2_h$-norm on test data set ($k = %i$, $n_{\\nu} = %i$, $n_{te} = %i$)', ...
         K, Nnu(k), Nte);
     title(str_leg)
     xlabel('$l$')
-    ylabel('$\epsilon_{avg}$')
+    ylabel('$||u - u^l||_{L^2_h}$')
     grid on    
     xlim([min(L)-1 max(L)+1])
 end

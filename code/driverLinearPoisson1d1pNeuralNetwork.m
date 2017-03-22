@@ -62,14 +62,14 @@ close all
 % tosave        TRUE to store the results in a Matlab dataset, FALSE otherwise
 
 a = -1;  b = 1;  K = 100;
-%f = @(t,mu) gaussian(t,mu,0.2);  mu1 = -1;  mu2 = 1;  suffix = '';
-f = @(t,mu) -(t < mu) + 2*(t >= mu);  mu1 = -1;  mu2 = 1;  suffix = '_ter';
+f = @(t,mu) gaussian(t,mu,0.2);  mu1 = -1;  mu2 = 1;  suffix = '';
+%f = @(t,mu) -(t < mu) + 2*(t >= mu);  mu1 = -1;  mu2 = 1;  suffix = '_ter';
 BCLt = 'D';  BCLv = 0;
 BCRt = 'D';  BCRv = 0;
 solver = 'FEP1';
 reducer = 'SVD';
 sampler = 'unif';
-N = 50;  L = 10; 
+N = 50;  L = 10;  
 root = '../datasets';
 
 H = 1:25;  nruns = 10;
@@ -78,7 +78,7 @@ Ntr_v = 10:10:80;  Nva_v = ceil(0.3 * Ntr_v);  Nte = 50;
 transferFcn = 'tansig';
 trainFcn = {'trainlm', 'trainscg', 'trainbfg'};
 showWindow = true;
-tosave = false;
+tosave = true;
 
 %
 % Run
@@ -191,9 +191,16 @@ for s = 1:length(sampler_tr_v)
 
                     % Train the network and test the results on test set
                     [net, tr] = train(net, [mu_tr' mu_va' mu_te'], [alpha_tr alpha_va alpha_te]);
+                    
+                    % Compute average relative error for each test data set
+                    e = 0;
+                    for r = 1:Nte
+                       alpha_nn = net(mu_te(r));
+                       e = e + norm(u_te(:,r) - UL*alpha_nn); 
+                    end
+                    e = e/Nte;
 
                     % Get the test error and keep it if it is the minimum so far
-                    e = tr.best_tperf;
                     if (e < err_opt_local(h,i))  % Local checks
                         err_opt_local(h,i) = e;
                         net_opt_local{h,i} = net;
@@ -210,7 +217,7 @@ for s = 1:length(sampler_tr_v)
 
         % Save data
         if tosave
-            filename = sprintf(['%s/LinearPoisson1d1p/LinearPoisson1d1pNN/' ...
+            filename = sprintf(['%s/LinearPoisson1d1pNN/' ...
                 'LinearPoisson1d1p_%s_%s%s_NN%s_a%2.2f_' ...
                 'b%2.2f_%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_' ...
                 'Nva%i_Nte%i%s.mat'], ...

@@ -34,9 +34,9 @@ close all
 % root      path to folder where storing the output dataset
 
 a = -1;  b = 1;  
-%f = @(t,mu) gaussian(t,mu,0.2);  mu1 = -1;  mu2 = 1;  suffix = '';
+f = @(t,mu) gaussian(t,mu,0.2);  mu1 = -1;  mu2 = 1;  suffix = '';
 %f = @(t,mu) 50*t.*cos(mu*pi*t);  mu1 = 1;  mu2 = 3;  suffix = '_bis';
-f = @(t,mu) -(t < mu) + 2*(t >= mu);  mu1 = -1;  mu2 = 1;  suffix = '_ter';
+%f = @(t,mu) -(t < mu) + 2*(t >= mu);  mu1 = -1;  mu2 = 1;  suffix = '_ter';
 BCLt = 'D';  BCLv = 0;
 BCRt = 'D';  BCRv = 0;
 solver = 'FEP1';
@@ -274,6 +274,7 @@ eval(str_leg);
 % L     rank of reduced basis
 
 K = 100;  N = [10 25 50 100];  L = 1:25;  Nte = 50;
+h = (b-a) / (K-1);
 
 %
 % Run
@@ -291,8 +292,8 @@ for i = 1:length(L)
             root, solver, reducer, a, b, BCLt, BCLv, BCRt, BCRv, mu1, mu2, ...
             K, N(j), L(i), Nte, suffix);
         load(filename);
-        err_max_unif(i,j) = max(err_svd_rel);
-        err_avg_unif(i,j) = sum(err_svd_rel)/Nte;
+        err_max_unif(i,j) = max(sqrt(h)*err_svd_abs);
+        err_avg_unif(i,j) = sum(sqrt(h)*err_svd_abs)/Nte;
     end
 end
 
@@ -308,8 +309,8 @@ for i = 1:length(L)
             root, solver, reducer, a, b, BCLt, BCLv, BCRt, BCRv, mu1, mu2, ...
             K, N(j), L(i), Nte, suffix);
         load(filename);
-        err_max_rand(i,j) = max(err_svd_rel);
-        err_avg_rand(i,j) = sum(err_svd_rel)/Nte;
+        err_max_rand(i,j) = max(sqrt(h)*err_svd_abs);
+        err_avg_rand(i,j) = sum(sqrt(h)*err_svd_abs)/Nte;
     end
 end
 

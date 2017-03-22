@@ -2,10 +2,10 @@
 % Poisson equation $-u''(x) = f(x,\mu)$ on $[a,b]$ depending on the real
 % parameter $\mu$. Linear or quadratic finite elements can be used.
 
-clc
-clear variables
-clear variables -global
-%close all
+%clc
+%clear variables
+%clear variables -global
+close all
 
 %
 % User-defined settings
@@ -52,7 +52,7 @@ clear variables -global
 %load(['../datasets/NonLinearPoisson1d2pSVD/NonLinearPoisson1d2p_FEP1Newton_' ...
 %    'SVDunif_a-3.14_b3.14_D_D_mu11.00_mu23.00_nu11.00_nu23.00_K100_Nmu50_Nnu50_N2500_L25_Nte50.mat']);
 
-a = -pi/2;  b = pi/2;  K = 300;
+a = -pi/2;  b = pi/2;  K = 500;
 v = @(u) exp(u);  dv = @(u) exp(u);
 %v = @(u) u.^2;  dv = @(u) 2*u;
 %mu = 0.5;  nu = 1;  f = @(t) -gaussian(t,mu,0.1) + nu*gaussian(t,-mu,0.1);
@@ -63,7 +63,7 @@ v = @(u) exp(u);  dv = @(u) exp(u);
 %f = @(t,mu,nu) nu.*nu.*mu.*mu.*(2+sin(mu.*t)).*(-2*nu.*cos(mu.*t).^2 + ...
 %    2*nu.*sin(mu.*t) + nu.*sin(mu.*t).^2);
 
-mu = 3;  nu = 2;  k = -0.5;
+mu = mu_tr(8);  nu = nu_tr(8);  k = xi_tr(8);
 u = @(x) nu*exp(k*x).*(2+sin(mu*x));
 du = @(x) nu*exp(k*x).*(k*(2+sin(mu*x)) + mu*cos(mu*x));
 ddu = @(x) nu*exp(k*x).*(k*k*(2+sin(mu*x)) + k*mu*cos(mu*x) + ...
@@ -80,7 +80,7 @@ BCRt = 'D';  bcrv = @(mu,nu,k) nu.*exp(k*b).*(2+sin(mu*b));  BCRv = bcrv(mu,nu,k
 % Solve
 %[x,u1] = LinearPoisson1dFEP1(a, b, K, f, BCLt, BCLv, BCRt, BCRv);
 %[x,u] = NonLinearPoisson1dFEP1Newton(a, b, K, v, dv, g, BCLt, BCLv, BCRt, BCRv);
-[x,u_fs] = NonLinearPoisson1dFEP1(a, b, K, v, f, BCLt, BCLv, BCRt, BCRv);
+[x,u_fs] = NonLinearPoisson1dFEP1(a, b, K, v, dv, f, BCLt, BCLv, BCRt, BCRv);
 %[x,alpha] = NonLinearPoisson1dFEP1ReducedNewton(a, b, K, v, dv, g, BCLt, BCLv, ...
 %    BCRt, BCRv, VL);
 %[x,alpha_fs] = NonLinearPoisson1dFEP1Reduced(a, b, K, v, dv, g, BCLt, BCLv, ...

@@ -42,8 +42,8 @@ close all
 % root          path to folder where storing the output dataset
 
 a = -1;  b = 1;  K = 100;
-%mu1 = -1;  mu2 = 1;  suffix = '';
-mu1 = -1;  mu2 = 1;  suffix = '_ter';
+mu1 = -1;  mu2 = 1;  suffix = '';
+%mu1 = -1;  mu2 = 1;  suffix = '_ter';
 BCLt = 'D';  BCLv = 0;
 BCRt = 'D';  BCRv = 0;
 solver = 'FEP1';
@@ -68,6 +68,9 @@ Ntr_v = 10:10:80;  Nva_v = ceil(0.3 * Ntr_v);
 % Run
 %
 
+% Grid spacing
+dx = (b-a) / (K-1);
+
 % Get training algorithms which has been tested
 filename = sprintf(['%s/LinearPoisson1d1pNN/' ...
     'LinearPoisson1d1p_%s_%s%s_NNunif_a%2.2f_b%2.2f_%s%2.2f_' ...
@@ -91,7 +94,7 @@ for i = 1:length(Ntr_v)
         root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, mu1, ...
         mu2, K, N, L, Ntr_v(i), Nva_v(i), Nte, suffix);
     load(filename); 
-    [err_opt_unif(i,:),I] = min(err_opt_local);
+    [err_opt_unif(i,:),I] = min(sqrt(dx)*err_opt_local);
     H_opt_unif(i,:) = H(I);
     
     % Random sampling
@@ -101,7 +104,7 @@ for i = 1:length(Ntr_v)
         root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, mu1, ...
         mu2, K, N, L, Ntr_v(i), Nva_v(i), Nte, suffix);
     load(filename); 
-    [err_opt_rand(i,:),I] = min(err_opt_local);
+    [err_opt_rand(i,:),I] = min(sqrt(dx)*err_opt_local);
     H_opt_rand(i,:) = H(I);
 end
 
@@ -132,7 +135,7 @@ str = sprintf('Optimal number of hidden layers ($k = %i$, $n = %i$, $n_{te} = %i
     K, N, Nte);
 title(str)
 xlabel('$n_{tr}$')
-ylabel('$h_{opt}$')
+ylabel('$H_{opt}$')
 grid on
 eval(str_leg)
 
@@ -152,16 +155,16 @@ for i = 1:length(trainFcn)
 end
 
 % Define plot settings
-str = sprintf('Accumulated error $\\epsilon$ on test data set ($k = %i$, $n = %i$, $n_{te} = %i$)', ...
+str = sprintf('Average error in $L^2_h$-norm on test data set ($k = %i$, $n = %i$, $n_{te} = %i$)', ...
     K, N, Nte);
 title(str)
 xlabel('$n_{tr}$')
-ylabel('$\epsilon$')
+ylabel('$||u - u^l||_{L^2_h}$')
 grid on
 eval(str_leg)    
 
 %% Fix the number of hidden neurons, than for each sampling method and each 
-% training algorithm plot the accumulated error on test dataset as function
+% training algorithm plot the average error on test dataset as function
 % of the number of training samples
 
 % 
@@ -175,6 +178,9 @@ Ntr_v = 10:10:80;  Nva_v = ceil(0.3 * Ntr_v);  h_opt = 10;
 %
 % Run
 %
+
+% Grid spacing
+dx = (b-a)/(K-1);
 
 % Get training algorithms which has been tested
 filename = sprintf(['%s/LinearPoisson1d1pNN/' ...
@@ -197,7 +203,7 @@ for i = 1:length(Ntr_v)
         root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, mu1, ...
         mu2, K, N, L, Ntr_v(i), Nva_v(i), Nte, suffix);
     load(filename); 
-    idx = find(H == h_opt);  err_unif(i,:) = err_opt_local(idx,:);
+    idx = find(H == h_opt);  err_unif(i,:) = sqrt(dx)*err_opt_local(idx,:);
         
     % Random sampling
     filename = sprintf(['%s/LinearPoisson1d1pNN/' ...
@@ -206,7 +212,7 @@ for i = 1:length(Ntr_v)
         root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, mu1, ...
         mu2, K, N, L, Ntr_v(i), Nva_v(i), Nte, suffix);
     load(filename); 
-    idx = find(H == h_opt);  err_rand(i,:) = err_opt_local(idx,:);
+    idx = find(H == h_opt);  err_rand(i,:) = sqrt(dx)*err_opt_local(idx,:);
 end
 
 %
@@ -232,11 +238,11 @@ end
 str_leg = strcat(str_leg,')');
 
 % Define plot settings
-str = sprintf('Accumulated error $\\epsilon$ on test data set ($h = %i$, $n_{te} = %i$)', ...
+str = sprintf('Average error in $L^2_h$-norm on test data set ($h = %i$, $n_{te} = %i$)', ...
     h_opt, Nte);
 title(str)
 xlabel('$n_{tr}$')
-ylabel('$\epsilon$')
+ylabel('$||u - u^l||_{L^2_h}$')
 grid on
 eval(str_leg)
 
@@ -265,6 +271,18 @@ sampler_tr = 'unif';  train = 'trainlm';
 % Run
 %
 
+% Grid size
+dx = (b-a)/(K-1);
+
+% Extract reference value for the error, i.e. the error got with SVD
+datafile = sprintf(['%s/LinearPoisson1d1pSVD/' ...
+    'LinearPoisson1d1p_%s_%s%s_a%2.2f_b%2.2f_' ...
+    '%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Nte%i%s.mat'], ...
+    root, solver, reducer, sampler, a, b, BCLt, BCLv, ...
+    BCRt, BCRv, mu1, mu2, K, N, L, Nte, suffix);
+load(datafile);
+err_ref = mean(sqrt(dx)*err_svd_abs);
+    
 err = zeros(length(Ntr_v),length(h));
 for i = 1:length(Ntr_v)
     % Load data
@@ -288,7 +306,7 @@ for i = 1:length(Ntr_v)
         iopt = find(H == h(j));
         
         % Get the error
-        err(i,j) = err_opt_local(iopt,jopt);
+        err(i,j) = sqrt(dx)*err_opt_local(iopt,jopt);
     end
 end
 
@@ -304,17 +322,18 @@ hold off
 marker = {'bo-', 'rs-', 'g^-', 'mv-'};
 str_leg = 'legend(''location'', ''best''';
 for i = 1:length(h)
-    semilogy(Ntr_v', err(:,i), marker_unif{i});
+    semilogy(Ntr_v', err(:,i), marker{i}, 'Linewidth', 1.2);
     hold on
-    str = sprintf('''h = %i''', h(i));
+    str = sprintf('''$H = %i$''', h(i));
     str_leg = strcat(str_leg, ', ', str);
 end
-str_leg = strcat(str_leg,')');
+semilogy(Ntr_v([1 end]), [err_ref err_ref], 'k--')
+str_leg = strcat(str_leg,', ''SVD'')');
 
 % Define plot settings
-title('Accumulated error $\epsilon$ on test data set')
+title('Average error in $L^2_h$-norm on test data set')
 xlabel('$n_{tr}$')
-ylabel('$\epsilon$')
+ylabel('$||u - u^l||_{L^2_h}$')
 grid on
 eval(str_leg)
 
@@ -326,7 +345,14 @@ eval(str_leg)
 % Ntr   number of training patterns
 % Nva   number of validation patterns
 
-Ntr = 50;  Nva = ceil(0.3*Ntr);
+Ntr = 30;  Nva = ceil(0.3*Ntr);
+
+%
+% Run
+%
+
+% Grid spacing
+dx = (b-a) / (K-1);
 
 % Load data for uniform sampling
 filename = sprintf(['%s/LinearPoisson1d1pNN/' ...
@@ -335,7 +361,7 @@ filename = sprintf(['%s/LinearPoisson1d1pNN/' ...
     root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, mu1, mu2, ...
     K, N, L, Ntr, Nva, Nte, suffix);
 load(filename);
-err_opt_local_unif = err_opt_local;
+err_opt_local_unif = sqrt(dx)*err_opt_local;
 
 % Load data for random sampling
 filename = sprintf(['%s/LinearPoisson1d1pNN/' ...
@@ -344,7 +370,7 @@ filename = sprintf(['%s/LinearPoisson1d1pNN/' ...
     root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, mu1, mu2, ...
     K, N, L, Ntr, Nva, Nte, suffix);
 load(filename);
-err_opt_local_rand = err_opt_local;
+err_opt_local_rand = sqrt(dx)*err_opt_local;
 
 % Open a new plot window
 figure(3);
@@ -365,11 +391,11 @@ end
 str_leg = strcat(str_leg,')');
 
 % Define plot settings
-str = sprintf('Accumulated error $\\epsilon$ on test data set ($n_{tr} = %i$, $n_{te} = %i$)', ...
+str = sprintf('Average error in $L^2_h$-norm on test data set ($n_{tr} = %i$, $n_{te} = %i$)', ...
     Ntr, Nte);
 title(str)
 xlabel('$h$')
-ylabel('$\epsilon$')
+ylabel('$||u - u^l||_{L^2_h}$')
 grid on
 eval(str_leg)
 
@@ -384,7 +410,7 @@ eval(str_leg)
 %               - 'unif': uniformly distributed on $[\mu_1,\mu_2]$
 %               - 'rand': drawn from a uniform random distribution on $[\mu_1,\mu_2]$
 
-Ntr = 50;  Nva = ceil(0.3*Ntr);  sampler_tr = 'unif';
+Ntr = 30;  Nva = ceil(0.3*Ntr);  sampler_tr = 'unif';
 
 % Load data
 filename = sprintf(['%s/LinearPoisson1d1pNN/' ...

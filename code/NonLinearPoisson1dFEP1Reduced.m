@@ -74,7 +74,7 @@ function [x,alpha] = NonLinearPoisson1dFEP1Reduced(a, b, K, v, f, ...
     end
     
     % Compute initial coefficients of reduced solution by least square
-    alpha = V \ u;  
+    alpha = V' * u;  
         
     % Set the reduced nonlinear system yielded the Galerkin-FE method
     F = @(x) evalNonLinearPoisson1dFEP1ReducedSystem(x, h, v, rhs, V, BCLt, BCRt);

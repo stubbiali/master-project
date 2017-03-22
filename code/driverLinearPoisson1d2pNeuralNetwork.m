@@ -76,19 +76,19 @@ a = -1;  b = 1;  K = 100;
 %f = @(t,mu) gaussian(t,mu,0.2);  mu1 = -1;  mu2 = 1;  nu1 = 0; nu2 = 0.5; suffix = '';
 f = @(t,mu) -(t < mu) + 2*(t >= mu);  mu1 = -1;  mu2 = 1;  nu1 = 0;  nu2 = 1;  suffix = '_ter';
 BCLt = 'D';  BCLv = 0;
-BCRt = 'D';  BCRv = 0;
+BCRt = 'D';  
 solver = 'FEP1';
 reducer = 'SVD';
 sampler = 'unif';
 Nmu = 50;  Nnu = 10;  N = Nmu*Nnu;  L = 10; 
 root = '../datasets';
 
-H = 19;  nruns = 8;
+H = 1:25;  nruns = 10;
 sampler_tr_v = {'unif'};
-Nmu_tr_v = [10 20 30 40 50];  Nnu_tr_v = [1 2 5 10 20 30 40 50];  
+Nmu_tr_v = [5 10 15 20 25 50];  Nnu_tr_v = [5 10 15 20 25 50];  
 valPercentage = 0.3;  Nte = 50;
 transferFcn = 'tansig';
-trainFcn = {'trainlm', 'trainscg', 'trainbfg'};
+trainFcn = {'trainlm'};
 showWindow = false;
 tosave = true;
 
@@ -167,8 +167,14 @@ if (Nte < Nte_opt)
     % Compute reduced solution
     alpha_te = zeros(L,Nte_opt);
     for i = 1:Nte_opt
-        [x,alpha_te(:,i)] = solverFcn(a, b, K, g_te{i}, BCLt, ...
-            BCLv, BCRt, nu_te(i), UL);
+        if i == 1
+            [x,u,alpha_te(:,i)] = solverFcn(a, b, K, g_te{i}, BCLt, ...
+                BCLv, BCRt, nu_te(i), UL);
+            u_te = zeros(size(u,1),Nte_opt);  u_te(:,1) = u;
+        else
+            [x,u_te(:,i),alpha_te(:,i)] = solverFcn(a, b, K, g_te{i}, BCLt, ...
+                BCLv, BCRt, nu_te(i), UL);
+        end
     end
     
     % Set Nte
@@ -281,9 +287,16 @@ for s = 1:length(sampler_tr_v)
                         [net, tr] = train(net, ...
                             [mu_tr' mu_va(1:Nva)' mu_te'; nu_tr' nu_va(1:Nva)' nu_te'], ...
                             [alpha_tr alpha_va(:,1:Nva) alpha_te]);
+                        
+                        % Compute average error on test data set
+                        e = 0;
+                        for r = 1:Nte
+                            alpha_nn = net([mu_te(r) nu_te(r)]');
+                            e = e + norm(u_te(:,r) - UL*alpha_nn);
+                        end
+                        e = e/Nte;
 
                         % Get the test error and keep it if it is the minimum so far
-                        e = tr.best_tperf;
                         if (e < err_opt_local(h,t))  % Local checks
                             err_opt_local(h,t) = e;
                             net_opt_local{h,t} = net;
