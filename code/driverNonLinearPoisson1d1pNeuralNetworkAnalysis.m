@@ -16,8 +16,12 @@ close all
 % a             left boundary of the domain
 % b             right boundary of the domain
 % K             number of grid points
+% v             viscosity $v = v(u)$ as handle function
+% dv            derivative of the viscosity as handle function
+% f             force field $f = f(t,\mu)$ as handle function
 % mu1           lower bound for $\mu$
 % mu2           upper bound for $\mu$
+% suffix        suffix for data file name
 % BCLt          kind of left boundary condition
 %               - 'D': Dirichlet, 
 %               - 'N': Neumann, 
@@ -43,13 +47,17 @@ close all
 % root          path to folder where storing the output dataset
 
 a = -1;  b = 1;  K = 100;
-mu1 = -1;  mu2 = 1;  suffix = '';
+
+% Suffix '_bis'
+v = @(t) 1 ./ (t.^2);  dv = @(t) - 2 ./ (t.^3);
+f = @(t,mu) gaussian(t,mu,0.2);  mu1 = -1;  mu2 = 1;  suffix = '_bis';
+
 BCLt = 'D';  BCLv = 1;
 BCRt = 'D';  BCRv = 1;
-solver = 'FEP1Newton';
+solver = 'FEP1';
 reducer = 'SVD';
 sampler = 'unif';
-N = 50;  L = 15;  Nte = 100;
+N = 50;  L = 12;  Nte = 50;
 root = '../datasets';
 
 %% For each training algorithm and for each sampling method for the training
@@ -61,8 +69,9 @@ root = '../datasets';
 % User-defined settings:
 % Ntr_v  number of training patterns (row vector)
 % Nva_v  number of validation patterns (row vector, same length as Ntr_v)
+% Nte_nn number of testing patterns for neural network
 
-Ntr_v = [5 10 15 20 25 50 75 100];  Nva_v = ceil(0.3 * Ntr_v);
+Ntr_v = [5 10 15 20 25 50 75 100];  Nva_v = ceil(0.3 * Ntr_v);  Nte_nn = 100;
 
 %
 % Run
@@ -73,7 +82,7 @@ filename = sprintf(['%s/NonLinearPoisson1d1pNN/' ...
     'NonLinearPoisson1d1p_%s_%s%s_NNunif_a%2.2f_b%2.2f_%s%2.2f_' ...
     '%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
     root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, ...
-    mu1, mu2, K, N, L, Ntr_v(1), Nva_v(1), Nte, suffix);
+    mu1, mu2, K, N, L, Ntr_v(1), Nva_v(1), Nte_nn, suffix);
 load(filename);
 
 % Get optimal number of hidden layers and minimum error for each number of 
@@ -89,7 +98,7 @@ for i = 1:length(Ntr_v)
         'NonLinearPoisson1d1p_%s_%s%s_NNunif_a%2.2f_b%2.2f_' ...
         '%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
         root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, mu1, ...
-        mu2, K, N, L, Ntr_v(i), Nva_v(i), Nte, suffix);
+        mu2, K, N, L, Ntr_v(i), Nva_v(i), Nte_nn, suffix);
     load(filename); 
     [err_opt_unif(i,:),I] = min(err_opt_local);
     H_opt_unif(i,:) = H(I);
@@ -100,7 +109,7 @@ for i = 1:length(Ntr_v)
         'NonLinearPoisson1d1p_%s_%s%s_NNrand_a%2.2f_b%2.2f_' ...
         '%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
         root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, mu1, ...
-        mu2, K, N, L, Ntr_v(i), Nva_v(i), Nte, suffix);
+        mu2, K, N, L, Ntr_v(i), Nva_v(i), Nte_nn, suffix);
     load(filename); 
     [err_opt_rand(i,:),I] = min(err_opt_local);
     H_opt_rand(i,:) = H(I);
@@ -255,6 +264,7 @@ eval(str_leg)
 % User-defined settings:
 % Ntr_v         number of training patterns (row vector)
 % Nva_v         number of validation patterns (row vector, same length as Ntr_v)
+% Nte_nn        number of testing patterns for neural network
 % h             number of hidden neurons (row vector, no more than four values)
 % sampler_tr    how the training values for $\mu$ should be selected:
 %               - 'unif': uniformly distributed on $[\mu_1,\mu_2]$
@@ -265,12 +275,24 @@ eval(str_leg)
 %               - 'trainscg': scaled conjugate gradient
 %               - 'trainbfg': quasi-Newton method
 
-Ntr_v = [5 10 15 20 25 50 75 100];  Nva_v = ceil(0.3 * Ntr_v);  h = [5 10 15 20];
-sampler_tr = 'unif';  train = 'trainlm';
+Ntr_v = [5 10 15 20 25 50 75];  Nva_v = ceil(0.3 * Ntr_v);  Nte_nn = 100;
+h = [5 10 15 20];  sampler_tr = 'unif';  train = 'trainlm';  
 
 %
 % Run
 %
+
+% Grid spacing
+dx = (b-a) / (K-1);
+
+% Get reference error, i.e. error yielded by direct resolution of reduced system
+datafile = sprintf(['%s/NonLinearPoisson1d1pSVD/' ...
+    'NonLinearPoisson1d1p_%s_%s%s_a%2.2f_b%2.2f_' ...
+    '%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Nte%i%s.mat'], ...
+    root, solver, reducer, sampler, a, b, BCLt, BCLv, ...
+    BCRt, BCRv, mu1, mu2, K, N, L, Nte, suffix);
+load(datafile);
+err_ref = mean(err_svd_abs);
 
 err = zeros(length(Ntr_v),length(h));
 for i = 1:length(Ntr_v)
@@ -279,7 +301,7 @@ for i = 1:length(Ntr_v)
         'NonLinearPoisson1d1p_%s_%s%s_NN%s_a%2.2f_b%2.2f_' ...
         '%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
         root, solver, reducer, sampler, sampler_tr, a, b, BCLt, BCLv, ...
-        BCRt, BCRv, mu1, mu2, K, N, L, Ntr_v(i), Nva_v(i), Nte, suffix);
+        BCRt, BCRv, mu1, mu2, K, N, L, Ntr_v(i), Nva_v(i), Nte_nn, suffix);
     load(filename);
     
     % Extract column index associated with the specified training algorithm
@@ -295,7 +317,7 @@ for i = 1:length(Ntr_v)
         iopt = find(H == h(j));
         
         % Get the error
-        err(i,j) = err_opt_local(iopt,jopt);
+        err(i,j) = sqrt(dx)*err_opt_local(iopt,jopt);
     end
 end
 
@@ -311,17 +333,18 @@ hold off
 marker = {'bo-', 'rs-', 'g^-', 'mv-'};
 str_leg = 'legend(''location'', ''best''';
 for i = 1:length(h)
-    semilogy(Ntr_v', err(:,i), marker_unif{i});
+    semilogy(Ntr_v', err(:,i), marker{i}, 'linewidth', 1.2);
     hold on
-    str = sprintf('''h = %i''', h(i));
+    str = sprintf('''$H = %i$''', h(i));
     str_leg = strcat(str_leg, ', ', str);
 end
-str_leg = strcat(str_leg,')');
+semilogy(Ntr_v([1 end]), [err_ref err_ref], 'k--')
+str_leg = strcat(str_leg,', ''SVD'')');
 
 % Define plot settings
-title('Accumulated error $\epsilon$ on test data set')
+title('Average error in $L^2_h$-norm on test data set')
 xlabel('$n_{tr}$')
-ylabel('$\epsilon$')
+ylabel('$||u - u^l||_{L^2_h}$')
 grid on
 eval(str_leg)
 

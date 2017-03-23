@@ -2,9 +2,9 @@
 % Poisson equation $-u''(x) = f(x,\mu)$ on $[a,b]$ depending on the real
 % parameter $\mu$. Linear or quadratic finite elements can be used.
 
-%clc
-%clear variables
-%clear variables -global
+clc
+clear variables
+clear variables -global
 close all
 
 %
@@ -49,8 +49,9 @@ close all
 %BCLt = 'D';  BCLv = exp(-1);
 %BCRt = 'P';  BCRv = 0;
 
-%load(['../datasets/NonLinearPoisson1d2pSVD/NonLinearPoisson1d2p_FEP1Newton_' ...
-%    'SVDunif_a-3.14_b3.14_D_D_mu11.00_mu23.00_nu11.00_nu23.00_K100_Nmu50_Nnu50_N2500_L25_Nte50.mat']);
+load(['../datasets/NonLinearPoisson1d3pSVD/NonLinearPoisson1d3p_FEP1_' ...
+    'SVDunif_a-1.57_b1.57_D_D_mu11.00_mu23.00_nu11.00_nu23.00_xi1-0.50_xi20.50_' ...
+    'K500_Nmu10_Nnu10_Nxi10_N1000_L25_Nte50.mat']);
 
 a = -pi/2;  b = pi/2;  K = 500;
 v = @(u) exp(u);  dv = @(u) exp(u);
@@ -63,7 +64,8 @@ v = @(u) exp(u);  dv = @(u) exp(u);
 %f = @(t,mu,nu) nu.*nu.*mu.*mu.*(2+sin(mu.*t)).*(-2*nu.*cos(mu.*t).^2 + ...
 %    2*nu.*sin(mu.*t) + nu.*sin(mu.*t).^2);
 
-mu = mu_tr(8);  nu = nu_tr(8);  k = xi_tr(8);
+idx = 46;
+mu = mu_te(idx);  nu = nu_te(idx);  k = xi_te(idx);
 u = @(x) nu*exp(k*x).*(2+sin(mu*x));
 du = @(x) nu*exp(k*x).*(k*(2+sin(mu*x)) + mu*cos(mu*x));
 ddu = @(x) nu*exp(k*x).*(k*k*(2+sin(mu*x)) + k*mu*cos(mu*x) + ...
@@ -83,21 +85,25 @@ BCRt = 'D';  bcrv = @(mu,nu,k) nu.*exp(k*b).*(2+sin(mu*b));  BCRv = bcrv(mu,nu,k
 [x,u_fs] = NonLinearPoisson1dFEP1(a, b, K, v, dv, f, BCLt, BCLv, BCRt, BCRv);
 %[x,alpha] = NonLinearPoisson1dFEP1ReducedNewton(a, b, K, v, dv, g, BCLt, BCLv, ...
 %    BCRt, BCRv, VL);
-%[x,alpha_fs] = NonLinearPoisson1dFEP1Reduced(a, b, K, v, dv, g, BCLt, BCLv, ...
-%    BCRt, BCRv, VL);
+%[x,alpha_off,rhs_off] = NonLinearPoisson1dFEP1Reduced(a, b, K, v, dv, f, BCLt, BCLv, ...
+%    BCRt, BCRv, VL, 'off');
+[x,alpha_on,rhs_on] = NonLinearPoisson1dFEP1Reduced(a, b, K, v, dv, f, BCLt, BCLv, ...
+    BCRt, BCRv, VL, 'on');
 %alpha_ls = VL \ u;
 
 % Plot
 %figure;
 hold on;
-plot(x,u_fs);
+%plot(x,u_fs);
 plot(x,u(x));
+%plot(x,VL*alpha_off)
+plot(x,VL*alpha_on)
 title('Solution to Poisson equation')
 xlabel('$x$')
 ylabel('$u(x)$')
 grid on
 %axis equal
 xlim([a b])
-%legend('Full','Reduced')
+%legend('Full','Reduced', 'Reduced (Jacobian)','location','best')
 
 

@@ -80,22 +80,35 @@ close all
 % tosave        TRUE to store the results in a Matlab dataset, FALSE otherwise
 
 a = -1;  b = 1;  K = 100;
-%v = @(t,nu) 2 + sin(nu*pi*t);  nu1 = 1;  nu2 = 3;
-%f = @(t,mu) -(t < mu) + 2*(t >= mu);  mu1 = -1;  mu2 = 1;
-v = @(t,nu) 1*(t < -0.5) + nu*(-0.5 <= t & t <= 0.5) + 1*(t > 0.5);  nu1 = 1; nu2 = 5;
-f = @(t,mu) sin(mu*pi*(t+1));  mu1 = 1;  mu2 = 3;
-suffix = '_quat';
+
+% Suffix ''
+%v = @(t,nu) 1*(t < -0.5) + nu*(-0.5 <= t & t <= 0.3) + 0.25*(t > 0.3);  
+%f = @(t,mu) gaussian(t,mu,0.1); 
+%mu1 = -1;  mu2 = 1;  nu1 = 1;  nu2 = 3;  suffix = '';
+% Suffix '_bis'
+%v = @(t,nu) 1 + (t+1).^nu;  
+%f = @(t,mu) - 1*(t < mu) + 2*(t >= mu);  
+%mu1 = -1;  mu2 = 1;  nu1 = 1;  nu2 = 3;  suffix = '_bis';
+% Suffix '_ter'
+v = @(t,nu) 2 + sin(nu*pi*t);
+f = @(t,mu) - 1*(t < mu) + 2*(t >= mu);  
+mu1 = -1;  mu2 = 1;  nu1 = 1;  nu2 = 3;  suffix = '_ter';
+% Suffix '_quat'
+%v = @(t,nu) 1*(t < -0.5) + nu*(-0.5 <= t & t <= 0.5) + 1*(t > 0.5);  
+%f = @(t,mu) sin(mu*pi*(t+1));  
+%mu1 = 1;  mu2 = 3;  nu1 = 1; nu2 = 5;  suffix = '_quat';
+
 BCLt = 'D';  BCLv = 0;
 BCRt = 'D';  BCRv = 0;
 solver = 'FEP1';
 reducer = 'SVD';
 sampler = 'unif';
-Nmu = 50;  Nnu = 25;  N = Nmu*Nnu;  L = 12; 
+Nmu = 50;  Nnu = 10;  N = Nmu*Nnu;  L = 20;
 root = '../datasets';
 
-H = 19;  nruns = 10;
+H = 15;  nruns = 10;
 sampler_tr_v = {'unif'};
-Nmu_tr_v = [5 10 15 20 30 40 50 75 100];  Nnu_tr_v = [5 10 15 20 30 40 50 75 100]; 
+Nmu_tr_v = [5 10 15 20 25 50 75];  Nnu_tr_v = [5 10 15 20 25 50 75]; 
 valPercentage = 0.3;  Nte = 50;
 transferFcn = 'tansig';
 trainFcn = {'trainlm'};
@@ -186,11 +199,17 @@ if (Nte < Nte_opt)
         g_te{i} = @(t) f(t,mu_te(i));
     end
 
-    % Compute reduced solution
+    % Compute full and reduced solution
     alpha_te = zeros(L,Nte_opt);
     for i = 1:Nte_opt
-        [x,alpha_te(:,i)] = solverFcn(a, b, K, vis_te{i}, g_te{i}, BCLt, ...
-            BCLv, BCRt, BCRv, UL);
+        if i == 1
+            [x,u,alpha_te(:,1)] = solverFcn(a, b, K, vis_te{1}, g_te{1}, BCLt, ...
+                BCLv, BCRt, BCRv, UL);
+            u_te = zeros(size(u,1),Nte_opt);  u_te(:,1) = u;
+        else
+            [x,u_te(:,i),alpha_te(:,1)] = solverFcn(a, b, K, vis_te{i}, g_te{i}, BCLt, ...
+                BCLv, BCRt, BCRv, UL);
+        end
     end
     
     % Set Nte
@@ -313,9 +332,16 @@ for s = 1:length(sampler_tr_v)
                         [net, tr] = train(net, ...
                             [mu_tr' mu_va(1:Nva)' mu_te'; nu_tr' nu_va(1:Nva)' nu_te'], ...
                             [alpha_tr alpha_va(:,1:Nva) alpha_te]);
+                        
+                        % Get average error on test data set
+                        e = 0;
+                        for r = 1:Nte
+                            alpha = net([mu_te(r) nu_te(r)]');
+                            e = e + norm(u_te(:,r) - UL*alpha);
+                        end
+                        e = e/Nte;
 
                         % Get the test error and keep it if it is the minimum so far
-                        e = tr.best_tperf;
                         if (e < err_opt_local(h,t))  % Local checks
                             err_opt_local(h,t) = e;
                             net_opt_local{h,t} = net;

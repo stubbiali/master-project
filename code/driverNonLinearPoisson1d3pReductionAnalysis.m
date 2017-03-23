@@ -10,7 +10,7 @@
 clc
 clear variables
 clear variables -global
-close all
+%close all
 
 %
 % User-defined settings:
@@ -274,13 +274,13 @@ for i = 1:length(L)
             nu1, nu2, xi1, xi2, K, round(N(j)^(1/3)), round(N(j)^(1/3)), round(N(j)^(1/3)), N(j), ...
             L(i), Nte, suffix);
         load(filename);
-        %{
+        
         err_svd_abs = deleteoutliers(err_svd_abs, 0.01);
         fprintf('Number of outliers: %i\n', Nte-length(err_svd_abs))
         err_max_unif(i,j) = max(err_svd_abs);
         err_avg_unif(i,j) = sum(err_svd_abs)/Nte;
-        %}
         
+        %{
         e = zeros(Nte,1);  dx = (b-a)/(K-1);  x = linspace(a,b,K)';
         for r = 1:Nte
             alpha = VL'*u_te(:,r);
@@ -288,6 +288,7 @@ for i = 1:length(L)
         end
         err_max_unif(i,j) = max(e);
         err_avg_unif(i,j) = sum(e)/Nte;
+        %}
     end
 end
     

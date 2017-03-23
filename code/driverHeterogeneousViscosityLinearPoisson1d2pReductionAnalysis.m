@@ -47,19 +47,29 @@ close all
 % suffix    suffix for file names (if any)
 
 a = -1;  b = 1; 
-%v = @(t,nu) 1*(t < -0.5) + nu*(-0.5 <= t & t <= 0.3) + 0.25*(t > 0.3);  nu1 = 1;  nu2 = 3;
-%f = @(t,mu) gaussian(t,mu,0.1);  mu1 = -1;  mu2 = 1;
-%v = @(t,nu) 1 + (t+1).^nu;  nu1 = 1;  nu2 = 3;
-%v = @(t,nu) 2 + sin(nu*pi*t);  nu1 = 1;  nu2 = 3;
-%f = @(t,mu) - 1*(t < mu) + 2*(t >= mu);  mu1 = -1;  mu2 = 1;
-v = @(t,nu) 1*(t < -0.5) + nu*(-0.5 <= t & t <= 0.5) + 1*(t > 0.5);  nu1 = 1; nu2 = 5;
-f = @(t,mu) sin(mu*pi*(t+1));  mu1 = 1;  mu2 = 3;
+
+% Suffix ''
+%v = @(t,nu) 1*(t < -0.5) + nu*(-0.5 <= t & t <= 0.3) + 0.25*(t > 0.3);  
+%f = @(t,mu) gaussian(t,mu,0.1); 
+%mu1 = -1;  mu2 = 1;  nu1 = 1;  nu2 = 3;  suffix = '';
+% Suffix '_bis'
+%v = @(t,nu) 1 + (t+1).^nu;  
+%f = @(t,mu) - 1*(t < mu) + 2*(t >= mu);  
+%mu1 = -1;  mu2 = 1;  nu1 = 1;  nu2 = 3;  suffix = '_bis';
+% Suffix '_ter'
+v = @(t,nu) 2 + sin(nu*pi*t);
+f = @(t,mu) - 1*(t < mu) + 2*(t >= mu);  
+mu1 = -1;  mu2 = 1;  nu1 = 1;  nu2 = 3;  suffix = '_ter';
+% Suffix '_quat'
+%v = @(t,nu) 1*(t < -0.5) + nu*(-0.5 <= t & t <= 0.5) + 1*(t > 0.5);  
+%f = @(t,mu) sin(mu*pi*(t+1));  
+%mu1 = 1;  mu2 = 3;  nu1 = 1; nu2 = 5;  suffix = '_quat';
+
 BCLt = 'D';  BCLv = 0;
 BCRt = 'D';  BCRv = 0;
 solver = 'FEP1';
 reducer = 'SVD';
 root = '../datasets';
-suffix = '_quat';
 
 %% Plot full and reduced solution for three values of $\mu$ and $\nu$. 
 % This is useful to have some insights into the dependency of
@@ -226,11 +236,14 @@ grid on
 % Nnu   number of sampled values for $\nu$
 % L     rank of reduced basis
 
-K = 100;  Nmu = [5 15 25 50];  Nnu = [5 15 25 50 75];  L = 1:25;  Nte = 50;
+K = 100;  Nmu = [5 15 25 50];  Nnu = [5 15 25 50];  L = 1:25;  Nte = 50;
 
 %
 % Run
 % 
+
+% Grid spacing
+dx = (b-a) / (K-1);
 
 for k = 1:length(Nnu)
     % Get total number of samples
@@ -249,8 +262,8 @@ for k = 1:length(Nnu)
                 root, solver, reducer, a, b, BCLt, BCLv, BCRt, BCRv, mu1, mu2, ...
                 nu1, nu2, K, Nmu(j), Nnu(k), N(j), L(i), Nte, suffix);
             load(filename);
-            err_max_unif(i,j) = max(err_svd_abs);
-            err_avg_unif(i,j) = sum(err_svd_abs)/Nte;
+            err_max_unif(i,j) = sqrt(dx)*max(err_svd_abs);
+            err_avg_unif(i,j) = sqrt(dx)*sum(err_svd_abs)/Nte;
         end
     end
     
@@ -298,11 +311,11 @@ for k = 1:length(Nnu)
     eval(str_leg)
 
     % Define plot settings
-    str_leg = sprintf('Maximum error $\\epsilon_{max}$ ($k = %i$, $n_{\\nu} = %i$, $n_{te} = %i$)', ...
+    str_leg = sprintf('Maximum error in $L^2_h$-norm on test data set ($k = %i$, $n_{\\nu} = %i$, $n_{te} = %i$)', ...
         K, Nnu(k), Nte);
     title(str_leg)
     xlabel('$l$')
-    ylabel('$\epsilon_{max}$')
+    ylabel('$||u + u^l||_{L^2_h}$')
     grid on    
     xlim([min(L)-1 max(L)+1])
     
@@ -332,11 +345,11 @@ for k = 1:length(Nnu)
     eval(str_leg)
     
     % Define plot settings
-    str_leg = sprintf('Average error $\\epsilon_{avg}$ ($k = %i$, $n_{\\nu} = %i$, $n_{te} = %i$)', ...
+    str_leg = sprintf('Average error in $L^2_h$-norm on test data set ($k = %i$, $n_{\\nu} = %i$, $n_{te} = %i$)', ...
         K, Nnu(k), Nte);
     title(str_leg)
     xlabel('$l$')
-    ylabel('$\epsilon_{avg}$')
+    ylabel('$||u + u^l||_{L^2_h}$')
     grid on    
     xlim([min(L)-1 max(L)+1])
 end
@@ -354,7 +367,7 @@ end
 % Nnu   number of sampled values for $\nu$ (no more than four values)
 % L     rank of reduced basis
 
-K = 100;  Nmu = [5 15 25 50 75];  Nnu = [5 15 25 50];  L = 1:25;  Nte = 50;
+K = 100;  Nmu = [5 15 25 50];  Nnu = [5 10 15 25];  L = 1:25;  Nte = 50;
 
 %
 % Run

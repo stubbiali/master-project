@@ -24,6 +24,7 @@ close all
 % f         force field $f = f(t,\mu)$ as handle function
 % mu1       lower bound for $\mu$
 % mu2       upper bound for $\mu$
+% suffix    suffix for data file name
 % BCLt      kind of left boundary condition
 %           - 'D': Dirichlet, 
 %           - 'N': Neumann, 
@@ -47,16 +48,18 @@ close all
 % Nte       number of testing values for $\mu$
 % root      path to folder where storing the output dataset
 
-a = -1;  b = 1;  
-K = 100;
+a = -1;  b = 1;  K = 100;
+
+% Suffix '_bis'
 v = @(u) 1./(u.^2);  dv = @(u) - 2./(u.^3);
 f = @(t,mu) gaussian(t,mu,0.2);  mu1 = -1;  mu2 = 1;  suffix = '_bis';
+
 BCLt = 'D';  BCLv = 1;
 BCRt = 'D';  BCRv = 1;
-solver = 'FEP1Newton';
+solver = 'FEP1';
 reducer = 'SVD';
 sampler = {'unif'};
-N = [5 10 15 20 25 75 100]; 
+N = [50]; 
 L = 1:25;  
 Nte = 50;
 root = '../datasets';
@@ -66,7 +69,10 @@ root = '../datasets';
 %
 
 % Set handle to solver
-if strcmp(solver,'FEP1Newton')
+if strcmp(solver,'FEP1')
+    solverFcn = @NonLinearPoisson1dFEP1;
+    rsolverFcn = @NonLinearPoisson1dFEP1Reduced;
+elseif strcmp(solver,'FEP1Newton')
     solverFcn = @NonLinearPoisson1dFEP1Newton;
     rsolverFcn = @NonLinearPoisson1dFEP1ReducedNewton;
 end

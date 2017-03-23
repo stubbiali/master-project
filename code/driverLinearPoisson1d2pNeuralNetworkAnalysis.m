@@ -19,10 +19,11 @@ close all
 % f         force field $f = f(t,\mu)$ as handle function
 % mu1       lower bound for $\mu$
 % mu2       upper bound for $\mu$
-% Nmu       number of different samples for $\mu$ used for computing the
-%           snapshots
 % nu1       lower bound for $\nu$
 % nu2       upper bound for $\nu$
+% suffix    suffix for data file name
+% Nmu       number of different samples for $\mu$ used for computing the
+%           snapshots
 % Nnu       number of different samples for $\nu$ used for computing the
 %           snapshots
 % BCLt      kind of left boundary condition
@@ -49,10 +50,15 @@ close all
 % root      path to folder where storing the output dataset
 
 a = -1;  b = 1;  K = 100;
-%f = @(t,mu) gaussian(t,mu,0.2);  mu1 = -1;  mu2 = 1;  nu1 = 0;  nu2 = 1;  suffix = '';
-f = @(t,mu) -(t < mu) + 2*(t >= mu);  suffix = '_ter';
-mu1 = -1;  mu2 = 1;  Nmu = 50;
-nu1 = 0;   nu2 = 1;  Nnu = 10;
+
+% Suffix ''
+%f = @(t,mu) gaussian(t,mu,0.2);  
+%mu1 = -1;  mu2 = 1;  nu1 = 0;  nu2 = 0.5;  suffix = '';
+% Suffix '_ter'
+f = @(t,mu) -(t < mu) + 2*(t >= mu);  
+mu1 = -1;  mu2 = 1;  nu1 = 0;  nu2 = 1;  suffix = '_ter';
+
+Nmu = 50;  Nnu = 10;
 BCLt = 'D';  BCLv = 0;
 BCRt = 'D';
 solver = 'FEP1';
@@ -93,9 +99,9 @@ end
 Ntr = Nmu_tr*Nnu_tr;  Nva = ceil(valPercentage*Ntr);
 
 % Select three values for $\mu$ and $\nu$
-%mu = mu1 + (mu2 - mu1) * rand(3,1);
+mu = mu1 + (mu2 - mu1) * rand(3,1);
 %mu = [-0.455759 -0.455759 -0.455759]; 
-%nu = nu1 + (nu2 - nu1) * rand(3,1);
+nu = nu1 + (nu2 - nu1) * rand(3,1);
 %nu = [0.03478 0.5 0.953269];  
 
 % Evaluate forcing term for the just set values for $\mu$
@@ -227,6 +233,115 @@ legend(sprintf('$\\mu = %f$, $\\nu = %f$, reduced', mu(1), nu(1)), ...
     'location', 'best')
 grid on
 
+%% Sensitivity analysis on the number of hidden neurons: fix the number of 
+% samples for $\nu$, then plot average error versus number of samples for
+% $\mu$ for different number of hidden neurons
+
+%
+% User defined settings:
+% Nmu_tr        number of training values for $\mu$ (no more than four values)
+% Nnu_tr        number of training values for $\nu$ (row vector)
+% hv            number of hidden neurons (no more than four values)
+% valPercentage ratio between number of validation and training values for 
+%               $\mu$ and $\nu$
+% Nte_nn        number of testing samples for Neural Network
+
+Nmu_tr = [5 10 15 20 25 50];  Nnu_tr = [5 15 25];  hv = [5 10 15 20];
+valPercentage = 0.3;  Nte_nn = 200;
+
+%
+% Run
+% 
+
+% Grid spacing
+dx = (b-a) / (K-1);
+
+% Get reference error, i.e. error yielded by SVD
+datafile = sprintf(['%s/LinearPoisson1d2pSVD/' ...
+    'LinearPoisson1d2p_%s_%s%s_' ...
+    'a%2.2f_b%2.2f_%s%2.2f_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
+    'K%i_Nmu%i_Nnu%i_N%i_L%i_Nte%i%s.mat'], ...
+    root, solver, reducer, sampler, a, b, BCLt, ...
+    BCLv, BCRt, mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, ...
+    Nte_r, suffix);
+load(datafile);
+err_ref = sqrt(dx)*mean(err_svd_abs);
+
+for n = 1:length(Nnu_tr)
+    % Allocate space for error
+    err_u = zeros(length(Nmu_tr),length(hv));
+    %err_r = zeros(length(Nmu_tr),length(Nnu_tr));
+
+    for i = 1:length(Nmu_tr)
+        % Total number of training and validating samples
+        Ntr = Nmu_tr(i)*Nnu_tr(n);  Nva = ceil(valPercentage*Ntr);
+
+        % Load data for uniform sampling
+        filename = sprintf(['%s/LinearPoisson1d2pNN/' ...
+            'LinearPoisson1d2p_%s_%s%s_NNunif_' ...
+            'a%2.2f_b%2.2f_%s%2.2f_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
+            'K%i_Nmu%i_Nnu%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
+            root, solver, reducer, sampler, a, b, BCLt, ...
+            BCLv, BCRt, mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, ...
+            Nmu_tr(i), Nnu_tr(n), Ntr, Nva, Nte_nn, suffix);
+        load(filename);
+        
+        for j = 1:length(hv)
+            % Find index for hv(j) and extract error
+            idx = find(H == hv(j));
+            err_u(i,j) = sqrt(dx)*err_opt_local(idx,col_opt);
+        end
+        
+        %{
+        % Load data for random sampling
+        filename = sprintf(['%s/LinearPoisson1d2pNN/' ...
+            'LinearPoisson1d2p_%s_%s%s_NNrand_' ...
+            'a%2.2f_b%2.2f_%s%2.2f_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
+            'K%i_Nmu%i_Nnu%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
+            root, solver, reducer, sampler, a, b, BCLt, ...
+            BCLv, BCRt, mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, ...
+            Nmu_tr(i), Nnu_tr(j), Ntr, Nva, Nte_nn, suffix);
+        load(filename);
+        
+        for j = 1:length(hv)
+            % Find index for hv(j) and extract error
+            idx = find(H == hv(j));
+            err_r(i,j) = sqrt(dx)*err_opt_local(idx,col_opt);
+        end
+        %}
+    end
+            
+    % Open new window
+    figure(2+n);
+    hold off;
+
+    % Plot and dynamically update the legend
+    marker_u = {'bo-', 'rs-', 'g^-', 'mv-'};
+    %marker_r = {'bo--', 'r--', 'g--', 'm--'};
+    str_leg = 'legend(''location'',''best''';
+    for j = 1:length(hv)
+        semilogy(Nmu_tr, err_u(:,j), marker_u{j}, 'linewidth', 1.2);
+        hold on
+        %semilogy(Nnu_tr, err_r(i,:), marker_r{i});
+
+        str_u = sprintf('''$H = %i$''', hv(j));
+        %str_r = sprintf('''$H = %i$, random''', hv(j));
+        str_leg = strcat(str_leg,', ',str_u);
+        %str_leg = strcat(str_leg,', ',str_u,', ',str_r);
+    end
+    semilogy(Nmu_tr([1 end]), [err_ref err_ref], 'k--')
+    str_leg = strcat(str_leg,', ''SVD'')');
+
+    % Define plot settings
+    str = sprintf('Average error in $L^2_h$-norm on test data set ($n_{\\nu,tr} = %i$)', ...
+        Nnu_tr(n));
+    title(str)
+    xlabel('$n_{\mu,tr}$')
+    ylabel('$||u - u^l||_{L^2_h}$')
+    grid on
+    eval(str_leg)
+end
+
 %% Given the optimal network, plot the accumulated error on testing dataset
 % as a function of the number of training samples for $\nu$
 
@@ -238,7 +353,7 @@ grid on
 %               $\mu$ and $\nu$
 % Nte_nn        number of testing samples for Neural Network
 
-Nmu_tr = [10 20 30 50];  Nnu_tr = [1 2 5 10 20 30 40 50];
+Nmu_tr = [5 15 25 50];  Nnu_tr = [5 10 15 20 25 50];
 valPercentage = 0.3;  Nte_nn = 200;
 
 %
@@ -249,6 +364,7 @@ valPercentage = 0.3;  Nte_nn = 200;
 err_u = zeros(length(Nmu_tr),length(Nnu_tr));
 %err_r = zeros(length(Nmu_tr),length(Nnu_tr));
 
+dx = (b-a) / (K-1);
 for i = 1:length(Nmu_tr)
     for j = 1:length(Nnu_tr)
         % Total number of training and validating samples
@@ -263,7 +379,7 @@ for i = 1:length(Nmu_tr)
             BCLv, BCRt, mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, ...
             Nmu_tr(i), Nnu_tr(j), Ntr, Nva, Nte_nn, suffix);
         load(filename);
-        err_u(i,j) = err_opt_local(row_opt,col_opt);
+        err_u(i,j) = sqrt(dx)*err_opt_local(row_opt,col_opt);
         
         %{
         % Load data for random sampling

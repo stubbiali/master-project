@@ -19,6 +19,7 @@ close all
 % f         force field $f = f(t,\mu)$ as handle function
 % mu1       lower bound for $\mu$
 % mu2       upper bound for $\mu$
+% suffix    suffix for data file name
 % BCLt      kind of left boundary condition
 %           - 'D': Dirichlet, 
 %           - 'N': Neumann, 
@@ -36,11 +37,14 @@ close all
 % root      path to folder where storing the output dataset
 
 a = -1;  b = 1;  
+
+% Suffix '_bis'
 v = @(t) 1 ./ (t.^2);  dv = @(t) - 2 ./ (t.^3);
 f = @(t,mu) gaussian(t,mu,0.2);  mu1 = -1;  mu2 = 1;  suffix = '_bis';
+
 BCLt = 'D';  BCLv = 1;
 BCRt = 'D';  BCRv = 1;
-solver = 'FEP1Newton';
+solver = 'FEP1';
 reducer = 'SVD';
 root = '../datasets';
 
@@ -56,14 +60,17 @@ root = '../datasets';
 % L         rank of reduced basis
 % Nte       number of testing samples
 
-K = 100;  N = 20;  L = 6;  Nte = 100;
+K = 100;  N = 20;  L = 10;  Nte = 50;
 
 %
 % Run
 %
 
 % Set handle to solver
-if strcmp(solver,'FEP1Newton')
+if strcmp(solver,'FEP1')
+    solverFcn = @NonLinearPoisson1dFEP1;
+    rsolverFcn = @NonLinearPoisson1dFEP1Reduced;
+elseif strcmp(solver,'FEP1Newton')
     solverFcn = @NonLinearPoisson1dFEP1Newton;
     rsolverFcn = @NonLinearPoisson1dFEP1ReducedNewton;
 end
@@ -183,7 +190,7 @@ grid on
 % L         rank of reduced basis (row vector, no more than four values)
 % Nte       number of testing samples
 
-K = 100;  N = [5 10 15 20 25 50 75 100];  L = [10 15 18 20];  Nte = 50;
+K = 100;  N = [5 10 15 20 25 50 75 100];  L = [5 10 15 20];  Nte = 50;
 
 %
 % Run
@@ -203,8 +210,8 @@ for i = 1:length(L)
             root, solver, reducer, a, b, BCLt, BCLv, BCRt, BCRv, mu1, mu2, ...
             K, N(j), L(i), Nte, suffix);
         load(filename);
-        err_max_unif(i,j) = max(err_svd_rel);
-        err_avg_unif(i,j) = sum(err_svd_rel)/Nte;
+        err_max_unif(i,j) = max(err_svd_abs);
+        err_avg_unif(i,j) = sum(err_svd_abs)/Nte;
         
         %{
         % Random sampling
@@ -294,7 +301,7 @@ eval(str_leg);
 % N     number of shapshots (no more than four values)
 % L     rank of reduced basis
 
-K = 100;  N = 50;  L = 1:25;  Nte = 50;
+K = 100;  N = [5 15 25 50];  L = 1:25;  Nte = 50;
 
 %
 % Run

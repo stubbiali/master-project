@@ -233,6 +233,109 @@ legend(sprintf('$\\mu = %f$, $\\nu = %f$, reduced', mu(1), nu(1)), ...
     'location', 'best')
 grid on
 
+%% Sensitivity analysis on the number of samples: plot average error versus 
+% number of samples of $\mu$ for different numbers of samples of $\nu$. The
+% number of hidden neurons is fixed.
+
+%
+% User defined settings:
+% Nmu_tr        number of training values for $\mu$ (row vector)
+% Nnu_tr        number of training values for $\nu$ (row vector, 
+%               no more than four values)
+% valPercentage ratio between number of validation and training values for 
+%               $\mu$ and $\nu$
+% Nte_nn        number of testing samples for Neural Network
+% h             number of hidden neurons
+
+Nmu_tr = [5 10 15 25 50 75 100];  Nnu_tr = [5 15 25 50];  
+valPercentage = 0.3;  Nte_nn = 200;
+
+%
+% Run
+%
+
+% Grid spacing
+dx = (b-a) / (K-1);
+
+% Get reference error, i.e. error yielded by direct resolution of reduced system
+datafile = sprintf(['%s/HeterogeneousViscosityLinearPoisson1d2pSVD/' ...
+    'HeterogeneousViscosityLinearPoisson1d2p_%s_%s%s_' ...
+    'a%2.2f_b%2.2f_%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
+    'K%i_Nmu%i_Nnu%i_N%i_L%i_Nte%i%s.mat'], ...
+    root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, ...
+    mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, Nte_r, suffix);
+load(datafile);
+err_ref = sqrt(dx)*mean(err_svd_abs);
+
+% Allocate memory for error
+err_u = zeros(length(Nmu_tr),length(Nnu_tr));
+%err_r = zeros(length(Nmu_tr),length(Nnu_tr));
+
+for i = 1:length(Nmu_tr)
+    for j = 1:length(Nnu_tr)
+        % Compute total number of training and validation samples
+        Ntr = Nmu_tr(i)*Nnu_tr(j);  Nva = ceil(valPercentage * Ntr);
+        
+        % Load data for uniform distribution of samples
+        filename = sprintf(['%s/HeterogeneousViscosityLinearPoisson1d2pNN/' ...
+            'HeterogeneousViscosityLinearPoisson1d2p_%s_%s%s_NNunif_' ...
+            'a%2.2f_b%2.2f_%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
+            'K%i_Nmu%i_Nnu%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
+            root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, ...
+            mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, ...
+            Nmu_tr(i), Nnu_tr(j), Ntr, Nva, Nte_nn, suffix);
+        load(filename);
+        
+        % Get error
+        idx = find(H == h);
+        err_u(i,j) = sqrt(dx)*err_opt_local(idx,col_opt);
+        
+        %{
+        % Load data for uniform random distribution of samples
+        filename = sprintf(['%s/HeterogeneousViscosityLinearPoisson1d2pNN/' ...
+            'HeterogeneousViscosityLinearPoisson1d2p_%s_%s%s_NNrand_' ...
+            'a%2.2f_b%2.2f_%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
+            'K%i_Nmu%i_Nnu%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
+            root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, ...
+            mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, ...
+            Nmu_tr(i), Nnu_tr(j), Ntr, Nva, Nte_nn, suffix);
+        load(filename);
+        
+        % Get error
+        idx = find(H == h);
+        err_r(i,j) = sqrt(dx)*err_opt_local(idx,col_opt);
+        %}
+    end
+end
+
+% Open a new window
+figure(3)
+hold off
+
+% Plot and dynamically update legend
+marker_u = {'bo-', 'rs-', 'g^-', 'mv-'};
+%marker_r = {'bo--', 'rs--', 'g^--', 'mv--'};
+str_leg = 'legend(''location'', ''best''';
+for j = 1:length(Nnu_tr)
+   semilogy(Nmu_tr', err_u(:,j), marker_u{j}, 'linewidth', 1.2)
+   hold on
+   %semilogy(Nmu_tr', err_r(:,j), marker_r{j}, 'linewidth', 1.2)
+   str_u = sprintf('''$N_{\\nu,tr} = %i$''', Nnu_tr(j));
+   %str_r = sprintf('''$N_{\\nu,tr} = %i$, random''', Nnu_tr(j));
+   str_leg = strcat(str_leg,', ',str_u);
+   %str_leg = strcat(str_leg,', ',str_u,', ',str_r);
+end
+semilogy(Nmu_tr([1 end]), [err_ref err_ref], 'k--')
+str_leg = strcat(str_leg,', ''SVD'')');
+
+% Define plot settings
+str = sprintf('Average error in $L^2_h$-norm on test data set ($h = %i$)', h);
+title(str)
+xlabel('$n_{\mu,tr}$')
+ylabel('||u - u^l||_{L^2_h}')
+grid on
+eval(str_leg)
+
 %% Senisitivity analysis on the number of hidden neurons: plot both number of 
 % hidden layers and accumulated error on test data set versus the number of
 % samples for $\mu$ and $\nu$. pcolor plots are used. For ease of

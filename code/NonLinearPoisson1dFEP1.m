@@ -61,11 +61,11 @@ function [x,u] = NonLinearPoisson1dFEP1(a, b, K, v, dv, f, BCLt, BCLv, ...
     end
     
     % Set the nonlinear system yielded by the Galerkin-FE method
-    global gh gv gdv grhs gBCLt gBCRt
-    gh = h;  gv = v;  gdv = dv;  grhs = rhs;  gBCLt = BCLt;  gBCRt = BCRt;
-    fun = @(t) evalNonLinearPoisson1dFEP1System(t);
+    fun = @(t) evalNonLinearPoisson1dFEP1System(t, h, v, dv, rhs, BCLt, BCRt);
     
     % Solve the system
-    options = optimoptions('fsolve','Display','off','Jacobian','on');
+    options = optimoptions('fsolve', 'Display','off', 'Jacobian','on', ...
+        'Algorithm','trust-region-dogleg', 'MaxFunEvals',2500*K, ...
+        'MaxIter',2500, 'TolFun',1e-15);
     u = fsolve(fun, u, options);
 end

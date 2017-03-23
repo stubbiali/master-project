@@ -25,6 +25,7 @@ close all
 % mu2       upper bound for $\mu$
 % nu1       lower bound for $\nu$
 % nu2       upper bound for $\nu$
+% suffix    suffix for data file name
 % BCLt      kind of left boundary condition
 %           - 'D': Dirichlet, 
 %           - 'N': Neumann, 
@@ -48,10 +49,15 @@ close all
 % Nte       number of testing samples
 % root      path to folder where storing the output dataset
 
-a = -1;  b = 1;  
-K = 100;
-%f = @(t,mu) gaussian(t,mu,0.2);  mu1 = -1;  mu2 = 1;  nu1 = 0;  nu2 = 0.5;  suffix = '';
-f = @(t,mu) -(t < mu) + 2*(t >= mu);  mu1 = -1;  mu2 = 1;  nu1 = 0;  nu2 = 1;  suffix = '_ter';
+a = -1;  b = 1;  K = 100;
+
+% Suffix ''
+%f = @(t,mu) gaussian(t,mu,0.2);  
+%mu1 = -1;  mu2 = 1;  nu1 = 0;  nu2 = 0.5;  suffix = '';
+% Suffix '_ter'
+f = @(t,mu) -(t < mu) + 2*(t >= mu);  
+mu1 = -1;  mu2 = 1;  nu1 = 0;  nu2 = 1;  suffix = '_ter';
+
 BCLt = 'D';  BCLv = 0;
 BCRt = 'D';
 solver = 'FEP1';

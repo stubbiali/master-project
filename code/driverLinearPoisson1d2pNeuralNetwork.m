@@ -23,11 +23,7 @@ close all
 % mu2           upper bound for $\mu$
 % nu1           lower bound for $\nu$
 % nu2           upper bound for $\nu$
-% suffix        suffix used for data file name:
-%               - '': f(x,mu) = @(x) gaussian(x,mu,0.2) with 
-%               mu1 = -1, mu2 = 1, nu1 = 0, nu2 = 0.5
-%               - '_ter': f(x,mu) = @(x) -(x < mu) + 2*(x > mu) with
-%               mu1 = -1, mu2 = 1, nu1 = 0, nu2 = 1
+% suffix        suffix for data file name
 % BCLt          kind of left boundary condition
 %               - 'D': Dirichlet, 
 %               - 'N': Neumann, 
@@ -73,8 +69,14 @@ close all
 % tosave        TRUE to store the results in a Matlab dataset, FALSE otherwise
 
 a = -1;  b = 1;  K = 100;
-%f = @(t,mu) gaussian(t,mu,0.2);  mu1 = -1;  mu2 = 1;  nu1 = 0; nu2 = 0.5; suffix = '';
-f = @(t,mu) -(t < mu) + 2*(t >= mu);  mu1 = -1;  mu2 = 1;  nu1 = 0;  nu2 = 1;  suffix = '_ter';
+
+% Suffix ''
+%f = @(t,mu) gaussian(t,mu,0.2);  
+%mu1 = -1;  mu2 = 1;  nu1 = 0;  nu2 = 0.5;  suffix = '';
+% Suffix '_ter'
+f = @(t,mu) -(t < mu) + 2*(t >= mu);  
+mu1 = -1;  mu2 = 1;  nu1 = 0;  nu2 = 1;  suffix = '_ter';
+
 BCLt = 'D';  BCLv = 0;
 BCRt = 'D';  
 solver = 'FEP1';

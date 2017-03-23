@@ -38,7 +38,7 @@
 % \out   x      grid
 % \out   u      numerical solution
 
-function [x,alpha] = NonLinearPoisson1dFEP1Reduced(a, b, K, v, f, ...
+function [x,alpha] = NonLinearPoisson1dFEP1Reduced(a, b, K, v, dv, f, ...
     BCLt, BCLv, BCRt, BCRv, V)
     % Check if the problem is well-posed
     if ~(strcmp(BCLt,'D') || strcmp(BCRt,'D'))
@@ -73,13 +73,16 @@ function [x,alpha] = NonLinearPoisson1dFEP1Reduced(a, b, K, v, f, ...
         end
     end
     
-    % Compute initial coefficients of reduced solution by least square
-    alpha = V' * u;  
-        
+    % Compute initial coefficients of reduced solution by least square  
+    %[x,u] = NonLinearPoisson1dFEP1(a, b, K, v, dv, f, BCLt, BCLv, BCRt, BCRv);
+    alpha = V' * u;
+    
     % Set the reduced nonlinear system yielded the Galerkin-FE method
-    F = @(x) evalNonLinearPoisson1dFEP1ReducedSystem(x, h, v, rhs, V, BCLt, BCRt);
+    fun = @(t) evalNonLinearPoisson1dFEP1ReducedSystem(t, h, v, dv, rhs, V, BCLt, BCRt);
     
     % Solve the system
-    options = optimset('Display','off');
-    alpha = fsolve(F, alpha, options);
+    options = optimoptions('fsolve', 'Display','off', 'Jacobian','on', ...
+        'Algorithm','trust-region-dogleg', 'MaxFunEvals',2500*size(V,2), ...
+        'MaxIter',2500, 'TolFun',1e-15);
+    alpha = fsolve(fun, alpha, options);
 end

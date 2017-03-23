@@ -22,6 +22,7 @@ close all
 % f             force field $f = f(t,\mu)$ as handle function
 % mu1           lower bound for $\mu$
 % mu2           upper bound for $\mu$
+% suffix        suffix for data file name
 % BCLt          kind of left boundary condition
 %               - 'D': Dirichlet, 
 %               - 'N': Neumann, 
@@ -65,21 +66,24 @@ close all
 % tosave        TRUE to store the results in a Matlab dataset, FALSE otherwise
 
 a = -1;  b = 1;  K = 100;
+
+% Suffix '_bis'
 v = @(t) 1 ./ (t.^2);  dv = @(t) - 2 ./ (t.^3);
-f = @(t,mu) gaussian(t,mu,0.2);  mu1 = -1;  mu2 = 1;  suffix = '';
+f = @(t,mu) gaussian(t,mu,0.2);  mu1 = -1;  mu2 = 1;  suffix = '_bis';
+
 BCLt = 'D';  BCLv = 1;
 BCRt = 'D';  BCRv = 1;
-solver = 'FEP1Newton';
+solver = 'FEP1';
 reducer = 'SVD';
 sampler = 'unif';
-N = 50;  L = 15;  Nte = 100;
+N = 50;  L = 12;  Nte = 50;
 root = '../datasets';
 
-H = 1:30;  nruns = 15;
+H = 1:25;  nruns = 10;
 sampler_tr_v = {'unif'};
-Ntr_v = [75 100];  Nva_v = ceil(0.3 * Ntr_v);  Nte_nn = 100;
+Ntr_v = [75];  Nva_v = ceil(0.3 * Ntr_v);  Nte_nn = 100;
 transferFcn = 'tansig';
-trainFcn = {'trainlm', 'trainscg', 'trainbfg'};
+trainFcn = {'trainlm'};
 showWindow = false;
 tosave = true;
 
@@ -88,7 +92,10 @@ tosave = true;
 %
 
 % Set handle to solver function
-if strcmp(solver,'FEP1Newton')
+if strcmp(solver,'FEP1')
+    solverFcn = @NonLinearPoisson1dFEP1;
+    rsolverFcn = @NonLinearPoisson1dFEP1Reduced;
+elseif strcmp(solver,'FEP1Newton')
     solverFcn = @NonLinearPoisson1dFEP1Newton;
     rsolverFcn = @NonLinearPoisson1dFEP1ReducedNewton;
 end
@@ -123,6 +130,33 @@ parfor i = 1:max(Nva_v)
 end
 
 %
+% Create test data set; its isze is usually independent of the number
+% of training patterns
+%
+
+load(strcat(root,'/random_numbers.mat'));
+
+% Determine testing values for $\mu$
+mu_te = mu1 + (mu2-mu1) * random_on_reference_interval_first(1:Nte_nn);
+
+% Evaluate force field at the testing values
+g_te = cell(Nte_nn,1);
+parfor i = 1:Nte_nn
+    g_te{i} = @(t) f(t,mu_te(i));
+end
+
+% Compute reduced solution
+[x,u] = solverFcn(a, b, K, v, dv, g_te{1}, BCLt, BCLv, BCRt, BCRv);
+u_te = zeros(size(u,1),Nte_nn);  u_te(:,1) = u;
+alpha_te = zeros(L,Nte_nn);
+parfor i = 2:Nte_nn
+    [x,u_te(:,i)] = solverFcn(a, b, K, v, dv, g_te{i}, BCLt, BCLv, ...
+        BCRt, BCRv);
+    [x,alpha_te(:,i)] = rsolverFcn(a, b, K, v, dv, g_te{i}, BCLt, BCLv, ...
+        BCRt, BCRv, VL);
+end
+
+%
 % Train the neural network
 %
 
@@ -132,8 +166,8 @@ for s = 1:length(sampler_tr_v)
         Ntr = Ntr_v(n);   Nva = Nva_v(n);  sampler_tr = sampler_tr_v{s};
 
         % Define ratio for training, validation and test data sets
-        trainRatio = Ntr / (Ntr + Nva + Nte);  
-        valRatio = Nva / (Ntr + Nva + Nte);
+        trainRatio = Ntr / (Ntr + Nva + Nte_nn);  
+        valRatio = Nva / (Ntr + Nva + Nte_nn);
         testRatio = 1 - trainRatio - valRatio;
         
         %
@@ -196,9 +230,16 @@ for s = 1:length(sampler_tr_v)
 
                     % Train the network and test the results on test set
                     [net, tr] = train(net, [mu_tr' mu_va' mu_te'], [alpha_tr alpha_va alpha_te]);
+                    
+                    % Get average error on test data set
+                    e = 0;
+                    for r = 1:Nte_nn
+                        alpha = net(mu_te(r));
+                        e = e + norm(u_te(:,r) - VL*alpha);
+                    end
+                    e = e/Nte;
 
                     % Get the test error and keep it if it is the minimum so far
-                    e = tr.best_tperf;
                     if (e < err_opt_local(h,i))  % Local checks
                         err_opt_local(h,i) = e;
                         net_opt_local{h,i} = net;
@@ -220,7 +261,7 @@ for s = 1:length(sampler_tr_v)
                 'b%2.2f_%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_' ...
                 'Nva%i_Nte%i%s.mat'], ...
                 root, solver, reducer, sampler, sampler_tr, a, b, BCLt, BCLv, ...
-                BCRt, BCRv, mu1, mu2, K, N, L, Ntr, Nva, Nte, suffix);
+                BCRt, BCRv, mu1, mu2, K, N, L, Ntr, Nva, Nte_nn, suffix);
             save(filename, 'datafile', 'H', 'nruns', 'trainFcn', 'Ntr', 'Nva', 'Nte', ...
                 'err_opt_local', 'net_opt_local', 'tr_opt_local', 'row_opt', 'col_opt');
         end

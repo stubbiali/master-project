@@ -31,6 +31,7 @@ close all
 % nu2       upper bound for $\nu$
 % xi1       lower bound for $\xi$
 % xi2       upper bound for $\xi$
+% suffix    suffix for data file name
 % BCLt      kind of left boundary condition
 %           - 'D': Dirichlet, 
 %           - 'N': Neumann, 
@@ -59,6 +60,8 @@ close all
 % root      path to folder where storing the output dataset
 
 a = -pi/2;  b = pi/2;  K = 500;
+
+% Suffix ''
 v = @(u) exp(u);  dv = @(u) exp(u);
 u = @(t,mu,nu,xi) nu*exp(xi*t).*(2+sin(mu*t));
 du = @(t,mu,nu,xi) nu*exp(xi*t).*(xi*(2+sin(mu*t)) + mu*cos(mu*t));
@@ -66,16 +69,17 @@ ddu = @(t,mu,nu,xi) nu*exp(xi*t).*(xi*xi*(2+sin(mu*t)) + xi*mu*cos(mu*t) + ...
     mu*xi*cos(mu*t) - mu*mu*sin(mu*t));
 f = @(t,mu,nu,xi) - exp(u(t,mu,nu,xi)) .* (du(t,mu,nu,xi).^2 + ddu(t,mu,nu,xi));
 mu1 = 1;  mu2 = 3;  nu1 = 1;  nu2 = 3;  xi1 = -0.5;  xi2 = 0.5;  suffix = '';
+
 BCLt = 'D';  BCLv = @(mu,nu,xi) nu.*exp(xi*a).*(2+sin(mu*a));
 BCRt = 'D';  BCRv = @(mu,nu,xi) nu.*exp(xi*b).*(2+sin(mu*b));
 solver = 'FEP1';
 reducer = 'SVD';
 sampler = {'unif'};
-Nmu = [5 10];
-Nnu = [5 10];
-Nxi = [5 10];
+Nmu = [5:10 15];
+Nnu = [5:10 15];
+Nxi = [5:10 15];
 L = 1:25;  
-Nte = 50;
+Nte = 100;
 root = '../datasets';
 
 %
@@ -136,8 +140,6 @@ for k = 1:length(sampler)
                 solverFcn, a, b, K, v, dv, f, BCLt, BCLv, BCRt, BCRv);
         end
         
-        fprintf('Snapshots computed');
-
         % Evaluate force field for samples of $\mu$, $\nu$ and $\xi$
         g_tr = cell(N(n),1);
         parfor i = 1:N(n)
@@ -152,7 +154,7 @@ for k = 1:length(sampler)
             % employed for the computation of the snapshots
             alpha_tr = zeros(L(l),N(n));
             parfor i = 1:N(n)
-                [x,alpha_tr(:,i)] = rsolverFcn(a, b, K, v, g_tr{i}, ...
+                [x,alpha_tr(:,i)] = rsolverFcn(a, b, K, v, dv, g_tr{i}, ...
                     BCLt, BCLv(mu_tr(i),nu_tr(i),xi_tr(i)), ...
                     BCRt, BCRv(mu_tr(i),nu_tr(i),xi_tr(i)), VL);
             end
@@ -160,7 +162,7 @@ for k = 1:length(sampler)
             % Compute reduced solution for testing values of $\mu$, $\nu$ and $\xi$
             alpha_te = zeros(L(l),Nte);
             parfor i = 1:Nte
-                [x,alpha_te(:,i)] = rsolverFcn(a, b, K, v, g_te{i}, ...
+                [x,alpha_te(:,i)] = rsolverFcn(a, b, K, v, dv, g_te{i}, ...
                     BCLt, BCLv(mu_te(i),nu_te(i),xi_te(i)), ...
                     BCRt, BCRv(mu_te(i),nu_te(i),xi_te(i)), VL);
             end

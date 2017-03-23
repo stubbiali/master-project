@@ -204,9 +204,9 @@ function [x,alpha,z] = NonLinearPoisson1dFEP1ReducedNewton(a, b, K, v, dv, f, ..
        % Compute error, i.e. difference between consecutive iterations, and
        % update counter
        err1 = norm(alpha - alphaold);  err2 = norm(V'*F);  n = n + 1;
-       fprintf('Reduced solver: iteration %i, |dx| = %5.5E, |F| = %5.5E\n', ...
-           n, norm(alpha - alphaold), norm(V'*F));
+       %fprintf('Reduced solver: iteration %i, |dx| = %5.5E, |F| = %5.5E\n', ...
+       %    n, norm(alpha - alphaold), norm(V'*F));
     end
     
-    fprintf('Reduced solver: number of iterations %i, |F| = %5.5E\n', n, norm(F));
+    %fprintf('Reduced solver: number of iterations %i, |F| = %5.5E\n', n, norm(F));
 end

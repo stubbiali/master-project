@@ -18,9 +18,7 @@
 %               - 'P': periodic
 % \out   F      evaluation of the nonlinear system
 
-function [F,J] = evalNonLinearPoisson1dFEP1System(u)
-    global gh gv gdv grhs gBCLt gBCRt
-    
+function [F,J] = evalNonLinearPoisson1dFEP1System(u, h, v, dv, rhs, BCLt, BCRt)    
     % Some shortcuts
     ul = u(1:end-2);  uc = u(2:end-1);  ur = u(3:end);  
     ulc = 0.5*(ul+uc);  ucr = 0.5*(uc+ur);
@@ -34,28 +32,28 @@ function [F,J] = evalNonLinearPoisson1dFEP1System(u)
 
     % Evaluate nonlinear equations associated with internal points of
     % the domain
-    F(2:end-1) = (1/(6*gh)) * (- (gv(ul) + 4*gv(ulc) + gv(uc)) .* ul ...
-       + (gv(ul) + 4*gv(ulc) + 2*gv(uc) + 4*gv(ucr) + gv(ur)) .* uc ...
-       - (gv(uc) + 4*gv(ucr) + gv(ur)) .* ur) - grhs(2:end-1);
+    F(2:end-1) = (1/(6*h)) * (- (v(ul) + 4*v(ulc) + v(uc)) .* ul ...
+       + (v(ul) + 4*v(ulc) + 2*v(uc) + 4*v(ucr) + v(ur)) .* uc ...
+       - (v(uc) + 4*v(ucr) + v(ur)) .* ur) - rhs(2:end-1);
 
     % Evaluate nonlinear equation associated with left boundary
-    if strcmp(gBCLt,'D')
-       F(1) = (1/gh) * u(1) - grhs(1);
-    elseif strcmp(gBCLt,'N')
-       F(1) = (1/(6*gh)) * ((gv(u(1)) + 4*gv(0.5*(u(1)+u(2))) + gv(u(2))) * ...
-           (u(1) - u(2))) - grhs(1);
-    elseif strcmp(gBCLt,'P')
-       F(1) = (1/gh) * (u(1) - u(end));
+    if strcmp(BCLt,'D')
+       F(1) = (1/h) * u(1) - rhs(1);
+    elseif strcmp(BCLt,'N')
+       F(1) = (1/(6*h)) * ((v(u(1)) + 4*v(0.5*(u(1)+u(2))) + v(u(2))) * ...
+           (u(1) - u(2))) - rhs(1);
+    elseif strcmp(BCLt,'P')
+       F(1) = (1/h) * (u(1) - u(end));
     end
 
     % Evaluate nonlinear equation associated with right boundary
-    if strcmp(gBCRt,'D')
-       F(end) = (1/gh) * u(end) - grhs(end);
-    elseif strcmp(gBCRt,'N')
-       F(end) = (1/(6*gh)) * ((gv(u(end-1)) + 4*gv(0.5*(u(end-1)+u(end))) + gv(u(end))) * ...
-           (-u(end-1) + u(end))) - grhs(end);
-    elseif strcmp(gBCRt,'P')
-       F(end) = (1/gh) * (u(1) - u(end));
+    if strcmp(BCRt,'D')
+       F(end) = (1/h) * u(end) - rhs(end);
+    elseif strcmp(BCRt,'N')
+       F(end) = (1/(6*h)) * ((v(u(end-1)) + 4*v(0.5*(u(end-1)+u(end))) + v(u(end))) * ...
+           (-u(end-1) + u(end))) - rhs(end);
+    elseif strcmp(BCRt,'P')
+       F(end) = (1/h) * (u(1) - u(end));
     end
     
     %
@@ -67,44 +65,44 @@ function [F,J] = evalNonLinearPoisson1dFEP1System(u)
     
     % Evaluate Jacobian at current solution for equations associated
     % with internal points
-    J(2:end-1,1:end-2) = (1/(6*gh)) * diag(- (gdv(ul) + 2*gdv(ulc)) .* ul ...
-        - (gv(ul) + 4*gv(ulc) + gv(uc)) ...
-        + (gdv(ul) + 2*gdv(ulc)) .* uc);
+    J(2:end-1,1:end-2) = (1/(6*h)) * diag(- (dv(ul) + 2*dv(ulc)) .* ul ...
+        - (v(ul) + 4*v(ulc) + v(uc)) ...
+        + (dv(ul) + 2*dv(ulc)) .* uc);
     J(2:end-1,2:end-1) = J(2:end-1,2:end-1) + ...
-        (1/(6*gh)) * diag(- (2*gdv(ulc) + gdv(uc)) .* ul ...
-        + (2*gdv(ulc) + 2*gdv(uc) + 2*gdv(ucr)) .* uc ...
-        + (gv(ul) + 4*gv(ulc) + 2*gv(uc) + 4*gv(ucr) + gv(ur)) ...
-        - (gdv(uc) + 2*gdv(ucr)) .* ur);
+        (1/(6*h)) * diag(- (2*dv(ulc) + dv(uc)) .* ul ...
+        + (2*dv(ulc) + 2*dv(uc) + 2*dv(ucr)) .* uc ...
+        + (v(ul) + 4*v(ulc) + 2*v(uc) + 4*v(ucr) + v(ur)) ...
+        - (dv(uc) + 2*dv(ucr)) .* ur);
     J(2:end-1,3:end) = J(2:end-1,3:end) + ...
-        (1/(6*gh)) * diag((2*gdv(ucr) + gdv(ur)) .* uc ...
-        - (2*gdv(ucr) + gdv(ur)) .* ur ...
-        - (gv(uc) + 4*gv(ucr) + gv(ur)));
+        (1/(6*h)) * diag((2*dv(ucr) + dv(ur)) .* uc ...
+        - (2*dv(ucr) + dv(ur)) .* ur ...
+        - (v(uc) + 4*v(ucr) + v(ur)));
 
     % Evaluate Jacobian at current solution for the equation associated
     % with the left boundary
-    if strcmp(gBCLt,'D') 
-        J(1,1) = 1/gh;
-    elseif strcmp(gBCLt,'N')
-        J(1,1) = (1/(6*gh)) * ((gdv(u(1)) + 2*gdv(0.5*(u(1)+u(2)))) * (u(1) - u(2)) ...
-           + (gv(u(1)) + 4*gv(0.5*(u(1)+u(2))) + gv(u(2))));
-        J(1,2) = (1/(6*gh)) * ((2*gdv(0.5*(u(1)+u(2))) + gdv(u(2))) * (u(1) - u(2)) ...
-           - (gv(u(1)) + 4*gv(0.5*(u(1)+u(2))) + gv(u(2))));
-    elseif strcmp(gBCLt,'P')
-        J(1,1) = 1/gh;  J(1,end) = -1/gh;
+    if strcmp(BCLt,'D') 
+        J(1,1) = 1/h;
+    elseif strcmp(BCLt,'N')
+        J(1,1) = (1/(6*h)) * ((dv(u(1)) + 2*dv(0.5*(u(1)+u(2)))) * (u(1) - u(2)) ...
+           + (v(u(1)) + 4*v(0.5*(u(1)+u(2))) + v(u(2))));
+        J(1,2) = (1/(6*h)) * ((2*dv(0.5*(u(1)+u(2))) + dv(u(2))) * (u(1) - u(2)) ...
+           - (v(u(1)) + 4*v(0.5*(u(1)+u(2))) + v(u(2))));
+    elseif strcmp(BCLt,'P')
+        J(1,1) = 1/h;  J(1,end) = -1/h;
     end
 
     % Evaluate Jacobian at current solution for the equation associated
     % with the right boundary
-    if strcmp(gBCRt,'D') 
-        J(end,end) = 1/gh;
-    elseif strcmp(gBCRt,'N')
-        J(end,end-1) = (1/(6*gh)) * ((gdv(u(end-1)) + 2*gdv(0.5*(u(end-1)+u(end)))) ...
+    if strcmp(BCRt,'D') 
+        J(end,end) = 1/h;
+    elseif strcmp(BCRt,'N')
+        J(end,end-1) = (1/(6*h)) * ((dv(u(end-1)) + 2*dv(0.5*(u(end-1)+u(end)))) ...
            * (-u(end-1) + u(end)) ...
-           - (gv(u(end-1)) + 4*gv(0.5*(u(end-1)+u(end))) + gv(u(end))));
-        J(end,end) = (1/(6*gh)) * ((2*gdv(0.5*(u(end-1)+u(end))) + gdv(u(end))) ...
+           - (v(u(end-1)) + 4*v(0.5*(u(end-1)+u(end))) + v(u(end))));
+        J(end,end) = (1/(6*h)) * ((2*dv(0.5*(u(end-1)+u(end))) + dv(u(end))) ...
            * (-u(end-1) + u(end)) ...
-           + (gv(u(end-1)) + 4*gv(0.5*(u(end-1)+u(end))) + gv(u(end))));
-    elseif strcmp(gBCRt,'P')
-        J(end,1) = 1/gh;  J(end,end) = -1/gh;
+           + (v(u(end-1)) + 4*v(0.5*(u(end-1)+u(end))) + v(u(end))));
+    elseif strcmp(BCRt,'P')
+        J(end,1) = 1/h;  J(end,end) = -1/h;
     end
 end
