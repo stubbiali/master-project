@@ -52,19 +52,30 @@ close all
 % root      path to folder where storing the output dataset
 
 a = -1;  b = 1;  K = 100;
-%v = @(t,nu) 2 + sin(nu*pi*t);
-%f = @(t,mu) -(t < mu) + 2*(t >= mu);  
-v = @(t,nu) 1*(t < -0.5) + nu*(-0.5 <= t & t <= 0.5) + 1*(t > 0.5); 
-f = @(t,mu) sin(mu*pi*(t+1));
-suffix = '_quat';
-mu1 = 1;  mu2 = 3;  Nmu = 50;
-nu1 = 1;   nu2 = 5;  Nnu = 25;
+
+% Suffix ''
+%v = @(t,nu) 1*(t < -0.5) + nu*(-0.5 <= t & t <= 0.3) + 0.25*(t > 0.3);  
+%f = @(t,mu) gaussian(t,mu,0.1); 
+%mu1 = -1;  mu2 = 1;  nu1 = 1;  nu2 = 3;  suffix = '';
+% Suffix '_bis'
+%v = @(t,nu) 1 + (t+1).^nu;  
+%f = @(t,mu) - 1*(t < mu) + 2*(t >= mu);  
+%mu1 = -1;  mu2 = 1;  nu1 = 1;  nu2 = 3;  suffix = '_bis';
+% Suffix '_ter'
+v = @(t,nu) 2 + sin(nu*pi*t);
+f = @(t,mu) - 1*(t < mu) + 2*(t >= mu);  
+mu1 = -1;  mu2 = 1;  nu1 = 1;  nu2 = 3;  suffix = '_ter';
+% Suffix '_quat'
+%v = @(t,nu) 1*(t < -0.5) + nu*(-0.5 <= t & t <= 0.5) + 1*(t > 0.5);  
+%f = @(t,mu) sin(mu*pi*(t+1));  
+%mu1 = 1;  mu2 = 3;  nu1 = 1; nu2 = 5;  suffix = '_quat';
+
 BCLt = 'D';  BCLv = 0;
 BCRt = 'D';  BCRv = 0;
 solver = 'FEP1';
 reducer = 'SVD';
 sampler = 'unif';
-L = 12;  Nte_r = 50;
+Nmu = 50;  Nnu = 15;  L = 10;  Nte_r = 50;
 root = '../datasets';
 
 % Total number of sampled points for computing the reduced basis
@@ -82,7 +93,7 @@ N = Nmu*Nnu;
 %               $\mu$ and $\nu$
 % Nte_nn        number of testing samples for Neural Network
 
-Nmu_tr = 20;  Nnu_tr = 20;  valPercentage = 0.3;  Nte_nn = 200;
+Nmu_tr = 50;  Nnu_tr = 50;  valPercentage = 0.3;  Nte_nn = 200;
 
 %
 % Run
@@ -99,9 +110,9 @@ end
 Ntr = Nmu_tr*Nnu_tr;  Nva = ceil(valPercentage*Ntr);
 
 % Select three values for $\mu$ and $\nu$
-mu = mu1 + (mu2 - mu1) * rand(3,1);
+%mu = mu1 + (mu2 - mu1) * rand(3,1);
 %mu = [-0.455759 -0.455759 -0.455759]; 
-nu = nu1 + (nu2 - nu1) * rand(3,1);
+%nu = nu1 + (nu2 - nu1) * rand(3,1);
 %nu = [0.03478 0.5 0.953269]; 
 
 % Evaluate viscosity for the just set values for $\nu$
@@ -120,7 +131,7 @@ end
 filename = sprintf(['%s/HeterogeneousViscosityLinearPoisson1d2pNN/' ...
     'HeterogeneousViscosityLinearPoisson1d2p_%s_%s%s_NNunif_' ...
     'a%2.2f_b%2.2f_%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
-    'K%i_Nmu%i_Nnu%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
+    'K%i_Nmu%i_Nnu%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Ntr%i_Nva%i_Nte%i_2L%s.mat'], ...
     root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, ...
     mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, ...
     Nmu_tr, Nnu_tr, Ntr, Nva, Nte_nn, suffix);
@@ -130,11 +141,11 @@ load(filename);
 load(datafile);
 
 % Compute reduced solution to direct method
-[x, alpha1] = solverFcn(a, b, K, vis{1}, g{1}, BCLt, BCLv, BCRt, BCRv, UL);
+[x, u1, alpha1] = solverFcn(a, b, K, vis{1}, g{1}, BCLt, BCLv, BCRt, BCRv, UL);
 ur1 = UL * alpha1;
-[x, alpha2] = solverFcn(a, b, K, vis{2}, g{2}, BCLt, BCLv, BCRt, BCRv, UL);
+[x, u2, alpha2] = solverFcn(a, b, K, vis{2}, g{2}, BCLt, BCLv, BCRt, BCRv, UL);
 ur2 = UL * alpha2;
-[x, alpha3] = solverFcn(a, b, K, vis{3}, g{3}, BCLt, BCLv, BCRt, BCRv, UL);
+[x, u3, alpha3] = solverFcn(a, b, K, vis{3}, g{3}, BCLt, BCLv, BCRt, BCRv, UL);
 ur3 = UL * alpha3;
 
 % Extract optimal Neural Network and compute reduced solution through it
@@ -204,14 +215,14 @@ figure(2);
 hold off
 
 % Plot and set the legend
-plot(x(1:1:end), ur1(1:1:end), 'b')
+plot(x(1:1:end), u1(1:1:end), 'b')
 hold on
 plot(x(1:1:end), ur1_u(1:1:end), 'b--', 'Linewidth', 2)
 %plot(x(1:1:end), ur1_r(1:1:end), 'b:', 'Linewidth', 2)
-plot(x(1:1:end), ur2(1:1:end), 'r')
+plot(x(1:1:end), u2(1:1:end), 'r')
 plot(x(1:1:end), ur2_u(1:1:end), 'r--', 'Linewidth', 2)
 %plot(x(1:1:end), ur2_r(1:1:end), 'r:', 'Linewidth', 2)
-plot(x(1:1:end), ur3(1:1:end), 'g')
+plot(x(1:1:end), u3(1:1:end), 'g')
 plot(x(1:1:end), ur3_u(1:1:end), 'g--', 'Linewidth', 2)
 %plot(x(1:1:end), ur3_r(1:1:end), 'g:', 'Linewidth', 2)
 
@@ -221,13 +232,13 @@ str = sprintf('Reduced solution to Poisson equation ($k = %i$, $n_{tr} = %i$)', 
 title(str)
 xlabel('$x$')
 ylabel('$u$')
-legend(sprintf('$\\mu = %f$, $\\nu = %f$, reduced', mu(1), nu(1)), ...
+legend(sprintf('$\\mu = %f$, $\\nu = %f$', mu(1), nu(1)), ...
     sprintf('$\\mu = %f$, $\\nu = %f$, NN (uniform)', mu(1), nu(1)), ...
     ... %sprintf('$\\mu = %f$, $\\nu = %f$, NN (random)', mu(1), nu(1)), ...
-    sprintf('$\\mu = %f$, $\\nu = %f$, reduced', mu(2), nu(2)), ...
+    sprintf('$\\mu = %f$, $\\nu = %f$', mu(2), nu(2)), ...
     sprintf('$\\mu = %f$, $\\nu = %f$, NN (uniform)', mu(2), nu(2)), ...
     ... %sprintf('$\\mu = %f$, $\\nu = %f$, NN (random)', mu(2), nu(2)), ...
-    sprintf('$\\mu = %f$, $\\nu = %f$, reduced', mu(3), nu(3)), ...
+    sprintf('$\\mu = %f$, $\\nu = %f$', mu(3), nu(3)), ...
     sprintf('$\\mu = %f$, $\\nu = %f$, NN (uniform)', mu(3), nu(3)), ...
     ... %sprintf('$\\mu = %f$, $\\nu = %f$, NN (random)', mu(3), nu(3)), ...
     'location', 'best')
@@ -247,8 +258,8 @@ grid on
 % Nte_nn        number of testing samples for Neural Network
 % h             number of hidden neurons
 
-Nmu_tr = [5 10 15 25 50 75 100];  Nnu_tr = [5 15 25 50];  
-valPercentage = 0.3;  Nte_nn = 200;
+Nmu_tr = [5 10 15 25 50 75];  Nnu_tr = [5 15 25 50];  
+valPercentage = 0.3;  Nte_nn = 200;  h = 15;
 
 %
 % Run
@@ -269,6 +280,7 @@ err_ref = sqrt(dx)*mean(err_svd_abs);
 
 % Allocate memory for error
 err_u = zeros(length(Nmu_tr),length(Nnu_tr));
+err_2l_u = zeros(length(Nmu_tr),length(Nnu_tr));
 %err_r = zeros(length(Nmu_tr),length(Nnu_tr));
 
 for i = 1:length(Nmu_tr)
@@ -285,10 +297,24 @@ for i = 1:length(Nmu_tr)
             mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, ...
             Nmu_tr(i), Nnu_tr(j), Ntr, Nva, Nte_nn, suffix);
         load(filename);
-        
+                       
         % Get error
         idx = find(H == h);
         err_u(i,j) = sqrt(dx)*err_opt_local(idx,col_opt);
+        
+        % Load data for uniform distribution of samples; two layers
+        filename = sprintf(['%s/HeterogeneousViscosityLinearPoisson1d2pNN/' ...
+            'HeterogeneousViscosityLinearPoisson1d2p_%s_%s%s_NNunif_' ...
+            'a%2.2f_b%2.2f_%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
+            'K%i_Nmu%i_Nnu%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Ntr%i_Nva%i_Nte%i_2L%s.mat'], ...
+            root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, ...
+            mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, ...
+            Nmu_tr(i), Nnu_tr(j), Ntr, Nva, Nte_nn, suffix);
+        load(filename);
+                       
+        % Get error
+        idx = find(H == h);
+        err_2l_u(i,j) = sqrt(dx)*err_opt_local(idx,col_opt);
         
         %{
         % Load data for uniform random distribution of samples
@@ -314,15 +340,19 @@ hold off
 
 % Plot and dynamically update legend
 marker_u = {'bo-', 'rs-', 'g^-', 'mv-'};
+marker_2l_u = {'bo--', 'rs--', 'g^--', 'mv--'};
 %marker_r = {'bo--', 'rs--', 'g^--', 'mv--'};
 str_leg = 'legend(''location'', ''best''';
 for j = 1:length(Nnu_tr)
    semilogy(Nmu_tr', err_u(:,j), marker_u{j}, 'linewidth', 1.2)
    hold on
+   semilogy(Nmu_tr', err_2l_u(:,j), marker_2l_u{j}, 'linewidth', 1.2)
    %semilogy(Nmu_tr', err_r(:,j), marker_r{j}, 'linewidth', 1.2)
    str_u = sprintf('''$N_{\\nu,tr} = %i$''', Nnu_tr(j));
+   str_2l_u = sprintf('''$N_{\\nu,tr} = %i$, 2-layer''', Nnu_tr(j));
    %str_r = sprintf('''$N_{\\nu,tr} = %i$, random''', Nnu_tr(j));
-   str_leg = strcat(str_leg,', ',str_u);
+   %str_leg = strcat(str_leg,', ',str_u);
+   str_leg = strcat(str_leg,', ',str_u,', ',str_2l_u);
    %str_leg = strcat(str_leg,', ',str_u,', ',str_r);
 end
 semilogy(Nmu_tr([1 end]), [err_ref err_ref], 'k--')
@@ -332,7 +362,7 @@ str_leg = strcat(str_leg,', ''SVD'')');
 str = sprintf('Average error in $L^2_h$-norm on test data set ($h = %i$)', h);
 title(str)
 xlabel('$n_{\mu,tr}$')
-ylabel('||u - u^l||_{L^2_h}')
+ylabel('$||u - u^l||_{L^2_h}$')
 grid on
 eval(str_leg)
 
@@ -617,8 +647,8 @@ eval(str_leg)
 %               - 'trainbr' : Bayesian regularization   
 % h_opt         number of hidden neurons
 
-Nmu_tr = 40;  Nnu_tr = 40;  valPercentage = 0.3;  Nte_nn = 200;
-train_opt = 'trainlm';  h_opt = 19;
+Nmu_tr = 50;  Nnu_tr = 50;  valPercentage = 0.3;  Nte_nn = 200;
+train_opt = 'trainlm';  h_opt = 15;
 
 % 
 % Run
@@ -686,8 +716,8 @@ legend('Train', 'Validation', 'Test', 'location', 'best')
 %               - 'trainbr' : Bayesian regularization   
 % h_opt         number of hidden neurons
 
-Nmu_tr = 40;  Nnu_tr = 40;  valPercentage = 0.3;  Nte_nn = 200;
-train_opt = 'trainlm';  h_opt = 19;
+Nmu_tr = 50;  Nnu_tr = 50;  valPercentage = 0.3;  Nte_nn = 200;
+train_opt = 'trainlm';  h_opt = 15;
 
 %
 % Run

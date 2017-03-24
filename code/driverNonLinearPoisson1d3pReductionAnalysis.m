@@ -10,7 +10,7 @@
 clc
 clear variables
 clear variables -global
-%close all
+close all
 
 %
 % User-defined settings:
@@ -254,7 +254,7 @@ grid on
 % L     rank of reduced basis
 % Nte   number of testing samples
 
-N = [5 10].^3;  L = 1:25;  Nte = 50;
+N = [5 7 10].^3;  L = 1:25;  Nte = 100;
 
 %
 % Run
@@ -275,12 +275,13 @@ for i = 1:length(L)
             L(i), Nte, suffix);
         load(filename);
         
+        %{
         err_svd_abs = deleteoutliers(err_svd_abs, 0.01);
         fprintf('Number of outliers: %i\n', Nte-length(err_svd_abs))
         err_max_unif(i,j) = max(err_svd_abs);
         err_avg_unif(i,j) = sum(err_svd_abs)/Nte;
+        %}
         
-        %{
         e = zeros(Nte,1);  dx = (b-a)/(K-1);  x = linspace(a,b,K)';
         for r = 1:Nte
             alpha = VL'*u_te(:,r);
@@ -288,7 +289,7 @@ for i = 1:length(L)
         end
         err_max_unif(i,j) = max(e);
         err_avg_unif(i,j) = sum(e)/Nte;
-        %}
+        
     end
 end
     

@@ -315,7 +315,7 @@ for k = 1:length(Nnu)
         K, Nnu(k), Nte);
     title(str_leg)
     xlabel('$l$')
-    ylabel('$||u + u^l||_{L^2_h}$')
+    ylabel('$||u - u^l||_{L^2_h}$')
     grid on    
     xlim([min(L)-1 max(L)+1])
     
@@ -349,7 +349,7 @@ for k = 1:length(Nnu)
         K, Nnu(k), Nte);
     title(str_leg)
     xlabel('$l$')
-    ylabel('$||u + u^l||_{L^2_h}$')
+    ylabel('$||u - u^l||_{L^2_h}$')
     grid on    
     xlim([min(L)-1 max(L)+1])
 end
