@@ -57,13 +57,13 @@ a = -1;  b = 1;
 %f = @(t,mu) - 1*(t < mu) + 2*(t >= mu);  
 %mu1 = -1;  mu2 = 1;  nu1 = 1;  nu2 = 3;  suffix = '_bis';
 % Suffix '_ter'
-v = @(t,nu) 2 + sin(nu*pi*t);
-f = @(t,mu) - 1*(t < mu) + 2*(t >= mu);  
-mu1 = -1;  mu2 = 1;  nu1 = 1;  nu2 = 3;  suffix = '_ter';
+%v = @(t,nu) 2 + sin(nu*pi*t);
+%f = @(t,mu) - 1*(t < mu) + 2*(t >= mu);  
+%mu1 = -1;  mu2 = 1;  nu1 = 1;  nu2 = 3;  suffix = '_ter';
 % Suffix '_quat'
-%v = @(t,nu) 1*(t < -0.5) + nu*(-0.5 <= t & t <= 0.5) + 1*(t > 0.5);  
-%f = @(t,mu) sin(mu*pi*(t+1));  
-%mu1 = 1;  mu2 = 3;  nu1 = 1; nu2 = 5;  suffix = '_quat';
+v = @(t,nu) 1*(t < -0.5) + nu*(-0.5 <= t & t <= 0.5) + 1*(t > 0.5);  
+f = @(t,mu) sin(mu*pi*(t+1));  
+mu1 = 1;  mu2 = 3;  nu1 = 1; nu2 = 5;  suffix = '_quat';
 
 BCLt = 'D';  BCLv = 0;
 BCRt = 'D';  BCRv = 0;
@@ -315,7 +315,7 @@ for k = 1:length(Nnu)
         K, Nnu(k), Nte);
     title(str_leg)
     xlabel('$l$')
-    ylabel('$||u + u^l||_{L^2_h}$')
+    ylabel('$||u - u^l||_{L^2_h}$')
     grid on    
     xlim([min(L)-1 max(L)+1])
     
@@ -349,7 +349,7 @@ for k = 1:length(Nnu)
         K, Nnu(k), Nte);
     title(str_leg)
     xlabel('$l$')
-    ylabel('$||u + u^l||_{L^2_h}$')
+    ylabel('$||u - u^l||_{L^2_h}$')
     grid on    
     xlim([min(L)-1 max(L)+1])
 end

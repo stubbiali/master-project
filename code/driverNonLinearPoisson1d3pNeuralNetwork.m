@@ -93,7 +93,7 @@ BCRt = 'D';  BCRv = @(mu,nu) nu.*(2+sin(mu*b));
 solver = 'FEP1';
 reducer = 'SVD';
 sampler = 'unif';
-Nmu = 25;  Nnu = 25;  Nxi = 25;  L = 8;
+Nmu = 10;  Nnu = 10;  Nxi = 10;  L = 10;
 root = '../datasets';
 
 H = 5:2:25;  nruns = 10;

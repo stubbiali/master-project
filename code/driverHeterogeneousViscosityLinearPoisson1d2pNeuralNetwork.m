@@ -90,25 +90,25 @@ a = -1;  b = 1;  K = 100;
 %f = @(t,mu) - 1*(t < mu) + 2*(t >= mu);  
 %mu1 = -1;  mu2 = 1;  nu1 = 1;  nu2 = 3;  suffix = '_bis';
 % Suffix '_ter'
-v = @(t,nu) 2 + sin(nu*pi*t);
-f = @(t,mu) - 1*(t < mu) + 2*(t >= mu);  
-mu1 = -1;  mu2 = 1;  nu1 = 1;  nu2 = 3;  suffix = '_ter';
+%v = @(t,nu) 2 + sin(nu*pi*t);
+%f = @(t,mu) - 1*(t < mu) + 2*(t >= mu);  
+%mu1 = -1;  mu2 = 1;  nu1 = 1;  nu2 = 3;  suffix = '_ter';
 % Suffix '_quat'
-%v = @(t,nu) 1*(t < -0.5) + nu*(-0.5 <= t & t <= 0.5) + 1*(t > 0.5);  
-%f = @(t,mu) sin(mu*pi*(t+1));  
-%mu1 = 1;  mu2 = 3;  nu1 = 1; nu2 = 5;  suffix = '_quat';
+v = @(t,nu) 1*(t < -0.5) + nu*(-0.5 <= t & t <= 0.5) + 1*(t > 0.5);  
+f = @(t,mu) sin(mu*pi*(t+1));  
+mu1 = 1;  mu2 = 3;  nu1 = 1; nu2 = 5;  suffix = '_quat';
 
 BCLt = 'D';  BCLv = 0;
 BCRt = 'D';  BCRv = 0;
 solver = 'FEP1';
 reducer = 'SVD';
 sampler = 'unif';
-Nmu = 50;  Nnu = 10;  N = Nmu*Nnu;  L = 20;
+Nmu = 50;  Nnu = 10;  N = Nmu*Nnu;  L = 12;
 root = '../datasets';
 
-H = 15;  nruns = 10;
+H = 15;  nruns = 7;
 sampler_tr_v = {'unif'};
-Nmu_tr_v = [5 10 15 20 25 50 75];  Nnu_tr_v = [5 10 15 20 25 50 75]; 
+Nmu_tr_v = [5 10 15 20 25 50 75];  Nnu_tr_v = [5 15 25 50]; 
 valPercentage = 0.3;  Nte = 50;
 transferFcn = 'tansig';
 trainFcn = {'trainlm'};
@@ -156,19 +156,19 @@ nu_va = nu1 + (nu2-nu1) * rand(max(Nva_v),1);
 
 % Evaluate viscosity at the validation values
 vis_va = cell(max(Nva_v),1);
-for i = 1:max(Nva_v)
+parfor i = 1:max(Nva_v)
     vis_va{i} = @(t) v(t,nu_va(i));
 end
 
 % Evaluate force field at the validation values
 g_va = cell(max(Nva_v),1);
-for i = 1:max(Nva_v)
+parfor i = 1:max(Nva_v)
     g_va{i} = @(t) f(t,mu_va(i));
 end
 
 % Compute reduced solution
 alpha_va = zeros(L,max(Nva_v));
-for i = 1:max(Nva_v)
+parfor i = 1:max(Nva_v)
     [x,alpha_va(:,i)] = solverFcn(a, b, K, vis_va{i}, g_va{i}, ...
         BCLt, BCLv, BCRt, BCRv, UL);
 end
@@ -178,42 +178,52 @@ end
 %
 
 Nte_opt = 200;
+filename = sprintf(['%s/HeterogeneousViscosityLinearPoisson1d2pNN/' ...
+    'testingdata_a%2.2f_b%2.2f_%s%2.2f_%s%2.2f_' ...
+    'mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
+    'K%i_Nmu%i_Nnu%i_N%i_L%i_Nte%i%s.mat'], ...
+    root, a, b, BCLt, BCLv, BCRt, BCRv, mu1, mu2, nu1, nu2, ...
+    K, Nmu, Nnu, N, L, Nte_opt, suffix);
+if (exist(filename,'file') == 2)
+    load(filename);
+    Nte = Nte_opt;
+else
+    if (Nte ~= Nte_opt)
+        % Load random data
+        load(strcat(root,'/random_numbers.mat'));
 
-if (Nte < Nte_opt)
-    % Load random data
-    load(strcat(root,'/random_numbers.mat'));
-    
-    % Determine values for $\mu$ and $\nu$
-    mu_te = mu1 + (mu2-mu1) * random_on_reference_interval_first(1:Nte_opt);
-    nu_te = nu1 + (nu2-nu1) * random_on_reference_interval_second(1:Nte_opt);
-    
-    % Evaluate viscosity at the test values
-    vis_te = cell(Nte_opt,1);
-    for i = 1:Nte_opt
-        vis_te{i} = @(t) v(t,nu_te(i));
-    end
+        % Determine values for $\mu$ and $\nu$
+        mu_te = mu1 + (mu2-mu1) * random_on_reference_interval_first(1:Nte_opt);
+        nu_te = nu1 + (nu2-nu1) * random_on_reference_interval_second(1:Nte_opt);
 
-    % Evaluate force field at the test values
-    g_te = cell(Nte_opt,1);
-    for i = 1:Nte_opt
-        g_te{i} = @(t) f(t,mu_te(i));
-    end
+        % Evaluate viscosity at the test values
+        vis_te = cell(Nte_opt,1);
+        parfor i = 1:Nte_opt
+            vis_te{i} = @(t) v(t,nu_te(i));
+        end
 
-    % Compute full and reduced solution
-    alpha_te = zeros(L,Nte_opt);
-    for i = 1:Nte_opt
-        if i == 1
-            [x,u,alpha_te(:,1)] = solverFcn(a, b, K, vis_te{1}, g_te{1}, BCLt, ...
-                BCLv, BCRt, BCRv, UL);
-            u_te = zeros(size(u,1),Nte_opt);  u_te(:,1) = u;
-        else
-            [x,u_te(:,i),alpha_te(:,1)] = solverFcn(a, b, K, vis_te{i}, g_te{i}, BCLt, ...
+        % Evaluate force field at the test values
+        g_te = cell(Nte_opt,1);
+        parfor i = 1:Nte_opt
+            g_te{i} = @(t) f(t,mu_te(i));
+        end
+
+        % Compute full and reduced solution
+        alpha_te = zeros(L,Nte_opt);
+        [x,u,alpha_te(:,1)] = solverFcn(a, b, K, vis_te{1}, g_te{1}, BCLt, ...
+            BCLv, BCRt, BCRv, UL);
+        u_te = zeros(size(u,1),Nte_opt);  u_te(:,1) = u;
+        parfor i = 2:Nte_opt
+            [x,u_te(:,i),alpha_te(:,i)] = solverFcn(a, b, K, vis_te{i}, g_te{i}, BCLt, ...
                 BCLv, BCRt, BCRv, UL);
         end
+
+        % Set Nte
+        Nte = Nte_opt;
     end
     
-    % Set Nte
-    Nte = Nte_opt;
+    % Save data for future runs
+    save(filename, 'mu_te', 'nu_te', 'u_te', 'alpha_te');
 end
 
 
@@ -240,42 +250,56 @@ for s = 1:length(sampler_tr_v)
 
             %
             % Compute training patterns and teaching inputs
+            % First, check if data for training have already been computed
             %
-
-            % Get training patterns
-            if (strcmp(sampler_tr,'unif'))
-                mu_tr = linspace(mu1, mu2, Nmu_tr);
-                mu_tr = repmat(mu_tr, Nnu_tr, 1);  mu_tr = mu_tr(:);
-                nu_tr = linspace(nu1, nu2, Nnu_tr)';
-                nu_tr = repmat(nu_tr, Nmu_tr, 1);
-            elseif (strcmp(sampler_tr,'rand'))
-                mu_tr = mu1 + (mu2-mu1) * rand(Ntr,1);
-                nu_tr = nu1 + (nu2-nu1) * rand(Ntr,1);
-            end
             
-            % Evaluate viscosity for training patterns
-            vis_tr = cell(Ntr,1);
-            for ii = 1:Ntr
-                vis_tr{ii} = @(t) v(t,nu_tr(ii));
-            end
+            filename = sprintf(['%s/HeterogeneousViscosityLinearPoisson1d2pNN/' ...
+                'trainingdata_%s_a%2.2f_b%2.2f_%s%2.2f_%s%2.2f_' ...
+                'mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
+                'K%i_Nmu%i_Nnu%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Ntr%i%s.mat'], ...
+                root, sampler_tr, a, b, BCLt, BCLv, BCRt, BCRv, mu1, mu2, nu1, nu2, ...
+                K, Nmu, Nnu, N, L, Nmu_tr, Nnu_tr, Ntr, suffix);
+            if (exist(filename,'file') == 2)
+                load(filename);
+            else
+                % Get training patterns
+                if (strcmp(sampler_tr,'unif'))
+                    mu_tr = linspace(mu1, mu2, Nmu_tr);
+                    mu_tr = repmat(mu_tr, Nnu_tr, 1);  mu_tr = mu_tr(:);
+                    nu_tr = linspace(nu1, nu2, Nnu_tr)';
+                    nu_tr = repmat(nu_tr, Nmu_tr, 1);
+                elseif (strcmp(sampler_tr,'rand'))
+                    mu_tr = mu1 + (mu2-mu1) * rand(Ntr,1);
+                    nu_tr = nu1 + (nu2-nu1) * rand(Ntr,1);
+                end
 
-            % Evaluate force field for training patterns
-            g_tr = cell(Ntr,1);
-            for ii = 1:Ntr
-                g_tr{ii} = @(t) f(t,mu_tr(ii));
-            end
+                % Evaluate viscosity for training patterns
+                vis_tr = cell(Ntr,1);
+                parfor ii = 1:Ntr
+                    vis_tr{ii} = @(t) v(t,nu_tr(ii));
+                end
 
-            % Get teaching input
-            alpha_tr = zeros(L,Ntr);
-            for ii = 1:Ntr
-                [x,alpha_tr(:,ii)] = ...
-                    solverFcn(a, b, K, vis_tr{ii}, g_tr{ii}, BCLt, BCLv, ...
-                        BCRt, BCRv, UL);
+                % Evaluate force field for training patterns
+                g_tr = cell(Ntr,1);
+                parfor ii = 1:Ntr
+                    g_tr{ii} = @(t) f(t,mu_tr(ii));
+                end
+
+                % Get teaching input
+                alpha_tr = zeros(L,Ntr);
+                parfor ii = 1:Ntr
+                    [x,alpha_tr(:,ii)] = ...
+                        solverFcn(a, b, K, vis_tr{ii}, g_tr{ii}, BCLt, BCLv, ...
+                            BCRt, BCRv, UL);
+                end
+                
+                % Save data for future runs
+                save(filename, 'mu_tr', 'nu_tr', 'alpha_tr');
             end
                         
             % Add noise to training data to (attempt to) avoid overfitting
             %alpha_tr = alpha_tr + 0.1*randn(size(alpha_tr));
-
+            
             %
             % Train
             %
@@ -286,13 +310,13 @@ for s = 1:length(sampler_tr_v)
             err_opt = inf;
             net_opt_local = cell(length(H),length(trainFcn));
             tr_opt_local = cell(length(H),length(trainFcn));
-
+            
             for t = 1:length(trainFcn)
                 % Try different number of hidden neurons to find the optimal network
                 % architecture; for each architecture, re-training the network different
                 % times and store the minimum test error
                 err = inf * ones(length(H),1);
-
+                
                 for h = 1:length(H)
                     % Create the feedforward neural network
                     net = feedforwardnet(H(h),trainFcn{t});
@@ -319,7 +343,7 @@ for s = 1:length(sampler_tr_v)
                     %net.performParam.regularization = 0.5;
                     
                     % Set maximum number of iterations
-                    net.trainParam.epochs = 2000;
+                    net.trainParam.epochs = 1000;
 
                     % Set options for training window
                     net.trainParam.showWindow = showWindow;
@@ -334,10 +358,11 @@ for s = 1:length(sampler_tr_v)
                             [alpha_tr alpha_va(:,1:Nva) alpha_te]);
                         
                         % Get average error on test data set
-                        e = 0;
+                        e = 0;  ev = zeros(Nte,1);
                         for r = 1:Nte
                             alpha = net([mu_te(r) nu_te(r)]');
                             e = e + norm(u_te(:,r) - UL*alpha);
+                            ev(r) = norm(u_te(:,r) - UL*alpha);
                         end
                         e = e/Nte;
 
@@ -355,7 +380,19 @@ for s = 1:length(sampler_tr_v)
                     end
                 end
             end
-
+            
+            %{
+            net = newgrnn([mu_tr'; nu_tr'], alpha_tr, 0.02);
+            %net = newrb([mu_tr'; nu_tr'], alpha_tr, 1e-7, 0.02);
+            e = 0;  ev = zeros(Nte,1);
+            for r = 1:Nte
+                alpha = net([mu_te(r) nu_te(r)]');
+                e = e + norm(u_te(:,r) - UL*alpha);
+                ev(r) = norm(u_te(:,r) - UL*alpha);
+            end
+            e = e/Nte;
+            %}
+                        
             % Save data
             if tosave
                 filename = sprintf(['%s/HeterogeneousViscosityLinearPoisson1d2pNN/' ...
@@ -368,7 +405,7 @@ for s = 1:length(sampler_tr_v)
                 save(filename, 'datafile', 'H', 'nruns', 'trainFcn', 'Ntr', 'Nva', 'Nte', ...
                     'err_opt_local', 'net_opt_local', 'tr_opt_local', 'row_opt', 'col_opt');
             end
-
+            
             % Print information about optimal parameters
             fprintf(['Number of training patterns: %i (%i for mu, %i for nu)\n' ...
                 'Optimal training algorithm: %s\nOptimal number of hidden neurons: %i\n' ...
