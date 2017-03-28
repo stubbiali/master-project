@@ -103,7 +103,7 @@ BCRt = 'D';  BCRv = 0;
 solver = 'FEP1';
 reducer = 'SVD';
 sampler = 'unif';
-Nmu = 50;  Nnu = 10;  N = Nmu*Nnu;  L = 12;
+Nmu = 50;  Nnu = 25;  N = Nmu*Nnu;  L = 12;
 root = '../datasets';
 
 H = 15;  nruns = 7;

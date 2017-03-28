@@ -24,6 +24,7 @@ close all
 % mu2       upper bound for $\mu$
 % nu1       lower bound for $\nu$
 % nu2       upper bound for $\nu$
+% suffix    suffix for data file name
 % BCLt      kind of left boundary condition
 %           - 'D': Dirichlet, 
 %           - 'N': Neumann, 
@@ -45,10 +46,13 @@ close all
 % root      path to folder where storing the output dataset
 
 a = -pi;  b = pi;  K = 100;
+
+% Suffix ''
 v = @(u) u.^2;  dv = @(u) 2*u;
 f = @(t,mu,nu) nu.*nu.*mu.*mu.*(2+sin(mu.*t)).*(-2*nu.*cos(mu.*t).^2 + ...
     2*nu.*sin(mu.*t) + nu.*sin(mu.*t).^2);
 mu1 = 1;  mu2 = 3;  nu1 = 1;  nu2 = 3;  suffix = '';
+
 BCLt = 'D';  BCLv = @(mu,nu) nu.*(2+sin(mu*a));
 BCRt = 'D';  BCRv = @(mu,nu) nu.*(2+sin(mu*b));
 solver = 'FEP1';
@@ -110,21 +114,21 @@ g = cell(3,1);
 for i = 1:3
     g{i} = @(t) f(t,mu(i),nu(i));
 end
-[x, u1] = solverFcn(a, b, K, v, g{1}, BCLt, BCLv(mu(1),nu(1)), ...
+[x, u1] = solverFcn(a, b, K, v, dv, g{1}, BCLt, BCLv(mu(1),nu(1)), ...
     BCRt, BCRv(mu(1),nu(1)));
-[x, alpha1_unif] = rsolverFcn(a, b, K, v, g{1}, BCLt, BCLv(mu(1),nu(1)), ...
+[x, alpha1_unif] = rsolverFcn(a, b, K, v, dv, g{1}, BCLt, BCLv(mu(1),nu(1)), ...
     BCRt, BCRv(mu(1),nu(1)), VL);
 ur1_unif = VL * alpha1_unif;
 %alpha1_unif = VL \ u1;  ur1_unif = VL*alpha1_unif;
-[x, u2] = solverFcn(a, b, K, v, g{2}, BCLt, BCLv(mu(2),nu(2)), ...
+[x, u2] = solverFcn(a, b, K, v, dv, g{2}, BCLt, BCLv(mu(2),nu(2)), ...
     BCRt, BCRv(mu(2),nu(2)));
-[x, alpha2_unif] = rsolverFcn(a, b, K, v, g{2}, BCLt, BCLv(mu(2),nu(2)), ...
+[x, alpha2_unif] = rsolverFcn(a, b, K, v, dv, g{2}, BCLt, BCLv(mu(2),nu(2)), ...
     BCRt, BCRv(mu(2),nu(2)), VL);
 ur2_unif = VL * alpha2_unif;
 %alpha2_unif = VL \ u2;  ur2_unif = VL*alpha2_unif;
-[x, u3] = solverFcn(a, b, K, v, g{3}, BCLt, BCLv(mu(3),nu(3)), ...
+[x, u3] = solverFcn(a, b, K, v, dv, g{3}, BCLt, BCLv(mu(3),nu(3)), ...
     BCRt, BCRv(mu(3),nu(3)));
-[x, alpha3_unif] = rsolverFcn(a, b, K, v, g{3}, BCLt, BCLv(mu(3),nu(3)), ...
+[x, alpha3_unif] = rsolverFcn(a, b, K, v, dv, g{3}, BCLt, BCLv(mu(3),nu(3)), ...
     BCRt, BCRv(mu(3),nu(3)), VL);
 ur3_unif = VL * alpha3_unif;
 %alpha3_unif = VL \ u3;  ur3_unif = VL*alpha3_unif;
@@ -236,7 +240,7 @@ grid on
 % L     rank of reduced basis
 % Nte   number of testing samples
 
-Nmu = [5 15 25 50];  Nnu = [25 50];  L = 1:25;  Nte = 100;
+Nmu = [5 15 25 50];  Nnu = [5 15 25 50];  L = 1:25;  Nte = 100;
 
 %
 % Run
@@ -259,10 +263,10 @@ for k = 1:length(Nnu)
                 root, solver, reducer, a, b, BCLt, BCRt, mu1, mu2, ...
                 nu1, nu2, K, Nmu(j), Nnu(k), N(j), L(i), Nte, suffix);
             load(filename);
-            err_svd_rel = deleteoutliers(err_svd_rel, 0.01);
-            fprintf('Number of outliers: %i\n', Nte-length(err_svd_rel))
-            err_max_unif(i,j) = max(err_svd_rel);
-            err_avg_unif(i,j) = sum(err_svd_rel)/Nte;
+            err_svd_abs = deleteoutliers(err_svd_abs, 0.01);
+            %fprintf('Number of outliers: %i\n', Nte-length(err_svd_rel))
+            err_max_unif(i,j) = max(err_ref_abs);
+            err_avg_unif(i,j) = sum(err_ref_abs)/Nte;
         end
     end
     

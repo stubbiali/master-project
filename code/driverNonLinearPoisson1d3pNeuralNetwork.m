@@ -80,7 +80,7 @@ close all
 a = -pi/2;  b = pi/2;  K = 500;
 
 % Suffix ''
-v = @(u) exp(u);  dv = @(u) exp(u);
+v = @(t) exp(t);  dv = @(t) exp(t);
 u = @(t,mu,nu,xi) nu*exp(xi*t).*(2+sin(mu*t));
 du = @(t,mu,nu,xi) nu*exp(xi*t).*(xi*(2+sin(mu*t)) + mu*cos(mu*t));
 ddu = @(t,mu,nu,xi) nu*exp(xi*t).*(xi*xi*(2+sin(mu*t)) + xi*mu*cos(mu*t) + ...
@@ -88,8 +88,8 @@ ddu = @(t,mu,nu,xi) nu*exp(xi*t).*(xi*xi*(2+sin(mu*t)) + xi*mu*cos(mu*t) + ...
 f = @(t,mu,nu,xi) - exp(u(t,mu,nu,xi)) .* (du(t,mu,nu,xi).^2 + ddu(t,mu,nu,xi));
 mu1 = 1;  mu2 = 3;  nu1 = 1;  nu2 = 3;  xi1 = -0.5;  xi2 = 0.5;  suffix = '';
 
-BCLt = 'D';  BCLv = @(mu,nu) nu.*(2+sin(mu*a));
-BCRt = 'D';  BCRv = @(mu,nu) nu.*(2+sin(mu*b));
+BCLt = 'D';  BCLv = @(mu,nu,xi) nu.*exp(xi*a).*(2+sin(mu*a));
+BCRt = 'D';  BCRv = @(mu,nu,xi) nu.*exp(xi*b).*(2+sin(mu*b));
 solver = 'FEP1';
 reducer = 'SVD';
 sampler = 'unif';
@@ -98,9 +98,9 @@ root = '../datasets';
 
 H = 5:2:25;  nruns = 10;
 sampler_tr_v = {'unif','rand'};
-Nmu_tr_v = [5 10 15 20 25 50];  
-Nnu_tr_v = [5 10 15 20 25 50];  
-Nxi_tr_v = [5 10 15 20 25 50];
+Nmu_tr_v = [5 10 15 20 25 30];  
+Nnu_tr_v = [5 10 15 20 25 30];  
+Nxi_tr_v = [5 10 15 20 25 30];
 valPercentage = 0.3;  Nte = 100;
 transferFcn = 'tansig';
 trainFcn = {'trainlm'};
@@ -152,7 +152,7 @@ xi_va = xi1 + (xi2-xi1) * rand(max(Nva_v),1);
 % Evaluate force field at the validation values
 g_va = cell(max(Nva_v),1);
 parfor i = 1:max(Nva_v)
-    g_va{i} = @(t) f(t,mu_va(i),nu_va(i),xi_te(i));
+    g_va{i} = @(t) f(t,mu_va(i),nu_va(i),xi_va(i));
 end
 
 % Compute reduced solution
@@ -166,37 +166,51 @@ end
 alpha_va = VL'*u_va;
 
 %
-% Create test data set
+% Create test data set; first check if data are already available
 %
 
 Nte_opt = 200;
 
-% Load random data
-load(strcat(root,'/random_numbers.mat'));
+filename = sprintf(['%s/NonLinearPoisson1d3pNN/' ...
+ 	'testingdata_' ...
+    'a%2.2f_b%2.2f_%s_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
+    'xi1%2.2f_xi2%2.2f_K%i_Nmu%i_Nnu%i_Nxi%i_N%i_L%i_Nte%i%s.mat'], ...
+    root, a, b, BCLt, BCRt, mu1, mu2, nu1, nu2, xi1, xi2, K, ...
+    Nmu, Nnu, Nxi, N, L, Nte_opt, suffix);
+if (exist(filename,'file') == 2)
+	load(filename);
+	Nte = Nte_opt;
+else
+	% Load random data
+	load(strcat(root,'/random_numbers.mat'));
 
-% Determine values for $\mu$ and $\nu$
-mu_te = mu1 + (mu2-mu1) * random_on_reference_interval_first(1:Nte_opt);
-nu_te = nu1 + (nu2-nu1) * random_on_reference_interval_second(1:Nte_opt);
-xi_te = xi1 + (xi2-xi1) * random_on_reference_interval_first(Nte_opt+1:2*Nte_opt);
+	% Determine values for $\mu$ and $\nu$
+	mu_te = mu1 + (mu2-mu1) * random_on_reference_interval_first(1:Nte_opt);
+	nu_te = nu1 + (nu2-nu1) * random_on_reference_interval_second(1:Nte_opt);
+	xi_te = xi1 + (xi2-xi1) * random_on_reference_interval_first(Nte_opt+1:2*Nte_opt);
 
-% Evaluate force field at the test values
-g_te = cell(Nte_opt,1);
-parfor i = 1:Nte_opt
-    g_te{i} = @(t) f(t,mu_te(i),nu_te(i),xi_te(i));
+	% Evaluate force field at the test values
+	g_te = cell(Nte_opt,1);
+	parfor i = 1:Nte_opt
+		g_te{i} = @(t) f(t,mu_te(i),nu_te(i),xi_te(i));
+	end
+
+	% Compute reduced solution
+	[x,u] = solverFcn(a, b, K, v, dv, g_te{1}, BCLt, ...
+		BCLv(mu_te(1),nu_te(1),xi_te(1)), BCRt, BCRv(mu_te(1),nu_te(1),xi_te(1)));
+	u_te = zeros(size(u,1),Nte_opt);  u_te(:,1) = u;
+	parfor i = 2:Nte_opt
+		[x,u_te(:,i)] = solverFcn(a, b, K, v, dv, g_te{i}, BCLt, ...
+		    BCLv(mu_te(i),nu_te(i),xi_te(i)), BCRt, BCRv(mu_te(i),nu_te(i),xi_te(i)));
+	end
+	alpha_te = VL'*u_te;
+
+	% Set Nte
+	Nte = Nte_opt;
+	
+	% Save data for future runs
+	save(filename, 'mu_te', 'nu_te', 'xi_te', 'u_te', 'alpha_te');
 end
-
-% Compute reduced solution
-[x,u] = solverFcn(a, b, K, v, dv, g_te{1}, BCLt, ...
-    BCLv(mu_te(1),nu_te(1),xi_te(1)), BCRt, BCRv(mu_te(1),nu_te(1),xi_te(1)));
-u_te = zeros(size(u,1),Nte_opt);  u_te(:,1) = u;
-parfor i = 2:Nte_opt
-    [x,u_te(:,i)] = solverFcn(a, b, K, v, dv, g_te{i}, BCLt, ...
-        BCLv(mu_te(i),nu_te(i),xi_te(i)), BCRt, BCRv(mu_te(i),nu_te(i),xi_te(i)));
-end
-alpha_te = VL'*u_te;
-
-% Set Nte
-Nte = Nte_opt;
 
 %
 % Train the neural network
@@ -217,50 +231,66 @@ for s = 1:length(sampler_tr_v)
         testRatio = 1 - trainRatio - valRatio;
 
         %
-        % Compute training patterns and teaching inputs
+        % Compute training patterns and teaching inputs;
+        % first check if data are already available
         %
+		
+		filename = sprintf(['%s/NonLinearPoisson1d3pNN/' ...
+			'trainingdata_%s_' ...
+			'a%2.2f_b%2.2f_%s_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
+			'xi1%2.2f_xi2%2.2f_K%i_Nmu%i_Nnu%i_Nxi%i_N%i_L%i_' ...
+			'Nmu_tr%i_Nnu_tr%i_Nxi_tr%i_Ntr%i%s.mat'], ...
+			root, sampler_tr, a, b, BCLt, ...
+			BCRt, mu1, mu2, nu1, nu2, xi1, xi2, K, Nmu, Nnu, Nxi, N, L, ...
+			Nmu_tr, Nnu_tr, Nxi_tr, Ntr, suffix);
+		if (exist(filename,'file') == 2)
+			load(filename);
+		else
+		    % Get training patterns
+		    if (strcmp(sampler_tr,'unif'))
+		        mu_tr_s = linspace(mu1, mu2, Nmu_tr)';
+		        nu_tr_s = linspace(nu1, nu2, Nnu_tr)';
+		        xi_tr_s = linspace(xi1, xi2, Nnu_tr)';
+		        
+		        mu_tr = zeros(Ntr,1);  nu_tr = zeros(Ntr,1);  xi_tr = zeros(Ntr,1);
+		        idx = 1;
+		        for i = 1:Nmu_tr
+		            for j = 1:Nnu_tr
+		                for k = 1:Nxi_tr
+		                    mu_tr(idx) = mu_tr_s(i);
+		                    nu_tr(idx) = nu_tr_s(j);
+		                    xi_tr(idx) = xi_tr_s(k);
+		                    idx = idx+1;
+		                end
+		            end
+		        end
+		    elseif (strcmp(sampler_tr,'rand'))
+		        mu_tr = mu1 + (mu2-mu1) * rand(Ntr,1);
+		        nu_tr = nu1 + (nu2-nu1) * rand(Ntr,1);
+		        xi_tr = nu1 + (xi2-xi1) * rand(Ntr,1);
+		    end
 
-        % Get training patterns
-        if (strcmp(sampler_tr,'unif'))
-            mu_tr_s = linspace(mu1, mu2, Nmu_tr)';
-            nu_tr_s = linspace(nu1, nu2, Nnu_tr)';
-            xi_tr_s = linspace(xi1, xi2, Nnu_tr)';
-            
-            mu_tr = zeros(Ntr,1);  nu_tr = zeros(Ntr,1);  xi_tr = zeros(Ntr,1);
-            idx = 1;
-            for i = 1:Nmu_tr
-                for j = 1:Nnu_tr
-                    for k = 1:Nxi_tr
-                        mu_tr(idx) = mu_tr_s(i);
-                        nu_tr(idx) = nu_tr_s(j);
-                        xi_tr(idx) = xi_tr_s(k);
-                        idx = idx+1;
-                    end
-                end
-            end
-        elseif (strcmp(sampler_tr,'rand'))
-            mu_tr = mu1 + (mu2-mu1) * rand(Ntr,1);
-            nu_tr = nu1 + (nu2-nu1) * rand(Ntr,1);
-            xi_tr = nu1 + (xi2-xi1) * rand(Ntr,1);
-        end
+		    % Evaluate force field for training patterns
+		    g_tr = cell(Ntr,1);
+		    parfor i = 1:Ntr
+		        g_tr{i} = @(t) f(t,mu_tr(i),nu_tr(i),xi_tr(i));
+		    end
 
-        % Evaluate force field for training patterns
-        g_tr = cell(Ntr,1);
-        parfor i = 1:Ntr
-            g_tr{i} = @(t) f(t,mu_tr(i),nu_tr(i),xi_tr(i));
-        end
-
-        % Get teaching input
-        [x,u] = solverFcn(a, b, K, v, dv, g_tr{1}, ...
-            BCLt, BCLv(mu_tr(1),nu_tr(1),xi_tr(1)), ...
-            BCRt, BCRv(mu_tr(1),nu_tr(1),xi_tr(1)));
-        u_tr = zeros(size(u,1),Ntr);
-        parfor i = 2:Ntr
-            [x,u_tr(:,i)] = solverFcn(a, b, K, v, dv, g_tr{i}, ...
-                BCLt, BCLv(mu_tr(i),nu_tr(i),xi_tr(i)), ...
-                BCRt, BCRv(mu_tr(i),nu_tr(i),xi_tr(i)));
-        end
-        alpha_tr = VL'*u_tr;
+		    % Get teaching input
+		    [x,u] = solverFcn(a, b, K, v, dv, g_tr{1}, ...
+		        BCLt, BCLv(mu_tr(1),nu_tr(1),xi_tr(1)), ...
+		        BCRt, BCRv(mu_tr(1),nu_tr(1),xi_tr(1)));
+		    u_tr = zeros(size(u,1),Ntr);
+		    parfor i = 2:Ntr
+		        [x,u_tr(:,i)] = solverFcn(a, b, K, v, dv, g_tr{i}, ...
+		            BCLt, BCLv(mu_tr(i),nu_tr(i),xi_tr(i)), ...
+		            BCRt, BCRv(mu_tr(i),nu_tr(i),xi_tr(i)));
+		    end
+		    alpha_tr = VL'*u_tr;
+		    
+		    % Save data for future runs
+		    save(filename, 'mu_tr', 'nu_tr', 'xi_tr', 'u_tr', 'alpha_tr');
+		end
 
         %
         % Train
@@ -334,7 +364,7 @@ for s = 1:length(sampler_tr_v)
                     end
                     e = e/Nte;
                     
-                    % Get the test error and keep it if it is the minimum so far
+                    % Keep the error if it is the minimum so far
                     if (e < err_opt_local(h,t))  % Local checks
                         err_opt_local(h,t) = e;
                         net_opt_local{h,t} = net;
