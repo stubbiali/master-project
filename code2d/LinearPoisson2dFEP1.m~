@@ -1,0 +1,27 @@
+function [mesh_r, u] = LinearPoisson2dFEP1(geometry, problem, varargin)
+    % Build the mesh onto the physical domain
+    [mesh,opt] = buildMesh2d(geometry,varargin{:});
+    
+    % Extract nodes and element-node connectivity
+    nodes = mesh.nodes;   elems = mesh.elems;
+    
+    % Map the physical domain to the reference domain, i.e. a unit square
+    % Note that from now on, all variables which refer to the reference
+    % domain have '_r' as suffix
+    if strcmp(geometry,'rectangle')
+        % Some shortcuts
+        orig = opt.origin;  b = opt.base;  h = opt.height;  alpha = opt.angle;
+        
+        % Build rotational, translational and scale matrices
+        R = [cos(alpha) sin(alpha); -sin(alpha) cos(alpha)];
+        T = repmat(-orig, [1,mesh.getNumNodes()]);  S = [1/b 0; 0 1/h];
+        
+        % Map the vertices
+        nodes_r = S*(R*(nodes + T));        
+    end
+    
+    % Create a mesh2d object on the reference domain
+    mesh_r = mesh2d(nodes_r,elems);
+    
+    % Build stiffness matrix
+end

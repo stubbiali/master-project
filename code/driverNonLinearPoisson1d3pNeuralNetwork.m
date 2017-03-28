@@ -96,11 +96,19 @@ sampler = 'unif';
 Nmu = 10;  Nnu = 10;  Nxi = 10;  L = 10;
 root = '../datasets';
 
+<<<<<<< HEAD
 H = 15:2:35;  nruns = 7;
 sampler_tr_v = {'unif'};
 Nmu_tr_v = [10];  
 Nnu_tr_v = [10];  
 Nxi_tr_v = [10];
+=======
+H = 5:2:25;  nruns = 10;
+sampler_tr_v = {'unif','rand'};
+Nmu_tr_v = [5 10 15 20 25 30];  
+Nnu_tr_v = [5 10 15 20 25 30];  
+Nxi_tr_v = [5 10 15 20 25 30];
+>>>>>>> 201beffbbf0b579195b183b46b6d5f6f30f7502c
 valPercentage = 0.3;  Nte = 100;
 transferFcn = 'tansig';
 trainFcn = {'trainlm'};
@@ -153,7 +161,10 @@ xi_va = xi1 + (xi2-xi1) * rand(max(Nva_v),1);
 g_va = cell(max(Nva_v),1);
 parfor i = 1:max(Nva_v)
     g_va{i} = @(t) f(t,mu_va(i),nu_va(i),xi_va(i));
+<<<<<<< HEAD
     fprintf('Evaluate f for validation, i = %i\n', i);
+=======
+>>>>>>> 201beffbbf0b579195b183b46b6d5f6f30f7502c
 end
 
 % Compute reduced solution
@@ -204,7 +215,10 @@ else
 	parfor i = 2:Nte_opt
 		[x,u_te(:,i)] = solverFcn(a, b, K, v, dv, g_te{i}, BCLt, ...
 		    BCLv(mu_te(i),nu_te(i),xi_te(i)), BCRt, BCRv(mu_te(i),nu_te(i),xi_te(i)));
+<<<<<<< HEAD
 		fprintf('Test, i = %i\n', i)
+=======
+>>>>>>> 201beffbbf0b579195b183b46b6d5f6f30f7502c
 	end
 	alpha_te = VL'*u_te;
 
@@ -288,7 +302,10 @@ for s = 1:length(sampler_tr_v)
 		        [x,u_tr(:,i)] = solverFcn(a, b, K, v, dv, g_tr{i}, ...
 		            BCLt, BCLv(mu_tr(i),nu_tr(i),xi_tr(i)), ...
 		            BCRt, BCRv(mu_tr(i),nu_tr(i),xi_tr(i)));
+<<<<<<< HEAD
 		        fprintf('Case %i, training, i = %i\n', n,i)
+=======
+>>>>>>> 201beffbbf0b579195b183b46b6d5f6f30f7502c
 		    end
 		    alpha_tr = VL'*u_tr;
 		    

@@ -81,7 +81,7 @@ root = '../datasets';
 
 H = 1:25;  nruns = 10;
 sampler_tr_v = {'unif'};
-Ntr_v = [75];  Nva_v = ceil(0.3 * Ntr_v);  Nte_nn = 100;
+Ntr_v = [5 10 15 20 25 50 75];  Nva_v = ceil(0.3 * Ntr_v);  Nte_nn = 100;
 transferFcn = 'tansig';
 trainFcn = {'trainlm'};
 showWindow = false;

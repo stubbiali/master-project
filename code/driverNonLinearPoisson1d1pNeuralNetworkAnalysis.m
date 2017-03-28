@@ -173,14 +173,14 @@ grid on
 eval(str_leg)    
 
 %% Fix the number of hidden neurons, than for each sampling method and each 
-% training algorithm plot the accumulated error on test dataset as function
+% training algorithm plot the average error on test dataset as function
 % of the number of training samples.
 
 % 
 % User-defined settings:
 % Ntr_v  number of training patterns (row vector)
 % Nva_v  number of validation patterns (row vector, same length as Ntr_v)
-% h_opt  number of hidden neurons
+% h_opt  number of hidden neurons 
 
 Ntr_v = [5 10 15 20 25 50 75 100];  Nva_v = ceil(0.3 * Ntr_v);  h_opt = 10;
 
@@ -413,6 +413,7 @@ eval(str_leg)
 % User-defined settings:
 % Ntr           number of training patterns
 % Nva           number of validation patterns
+% Nte_nn        number of testing patterns for Neural Network
 % sampler_tr    how the training values for $\mu$ should be selected:
 %               - 'unif': uniformly distributed on $[\mu_1,\mu_2]$
 %               - 'rand': drawn from a uniform random distribution on $[\mu_1,\mu_2]$
@@ -422,15 +423,15 @@ eval(str_leg)
 %               - 'trainscg': scaled conjugate gradient
 %               - 'trainbfg': quasi-Newton method
 
-Ntr = 50;  Nva = ceil(0.3*Ntr);  
-sampler_tr = 'unif';  h = 10;  train = 'trainlm';
+Ntr = 25;  Nva = ceil(0.3*Ntr);  Nte_nn = 100;
+sampler_tr = 'unif';  h = 15;  train = 'trainlm';
 
 % Load data
 filename = sprintf(['%s/NonLinearPoisson1d1pNN/' ...
     'NonLinearPoisson1d1p_%s_%s%s_NN%s_a%2.2f_b%2.2f_%s%2.2f_' ...
     '%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
     root, solver, reducer, sampler, sampler_tr, a, b, BCLt, BCLv, BCRt, BCRv, ...
-    mu1, mu2, K, N, L, Ntr, Nva, Nte, suffix);
+    mu1, mu2, K, N, L, Ntr, Nva, Nte_nn, suffix);
 load(filename);
 
 % Open a new plot window
@@ -463,8 +464,9 @@ legend('Train', 'Validation', 'Test', 'location', 'best')
 
 % 
 % User-defined settings:
-% Ntr   number of training patterns
+% Ntr           number of training patterns
 % Nva           number of validation patterns
+% Nte_nn        number of testing patterns for Neural Network
 % sampler_tr    how the training values for $\mu$ should be selected:
 %               - 'unif': uniformly distributed on $[\mu_1,\mu_2]$
 %               - 'rand': drawn from a uniform random distribution on $[\mu_1,\mu_2]$
@@ -474,15 +476,15 @@ legend('Train', 'Validation', 'Test', 'location', 'best')
 %               - 'trainscg': scaled conjugate gradient
 %               - 'trainbfg': quasi-Newton method
 
-Ntr = 50;  Nva = ceil(0.3*Ntr);  
-sampler_tr = 'unif';  h = 10;  train = 'trainlm';
+Ntr = 25;  Nva = ceil(0.3*Ntr);  Nte_nn = 100;
+sampler_tr = 'unif';  h = 15;  train = 'trainlm';
 
 % Load data
 filename = sprintf(['%s/NonLinearPoisson1d1pNN/' ...
     'NonLinearPoisson1d1p_%s_%s%s_NN%s_a%2.2f_b%2.2f_%s%2.2f_' ...
     '%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
     root, solver, reducer, sampler, sampler_tr, a, b, BCLt, BCLv, BCRt, BCRv, ...
-    mu1, mu2, K, N, L, Ntr, Nva, Nte, suffix);
+    mu1, mu2, K, N, L, Ntr, Nva, Nte_nn, suffix);
 load(filename);
 
 % Load training and testing data

@@ -22,10 +22,11 @@ close all
 % f         force field $f = f(x,\mu,\nu)$ as handle function
 % mu1       lower bound for $\mu$
 % mu2       upper bound for $\mu$
-% Nmu       number of different samples for $\mu$ used for computing the
-%           snapshots
 % nu1       lower bound for $\nu$
 % nu2       upper bound for $\nu$
+% suffix    suffix for data file name
+% Nmu       number of different samples for $\mu$ used for computing the
+%           snapshots
 % Nnu       number of different samples for $\nu$ used for computing the
 %           snapshots
 % BCLt      kind of left boundary condition
@@ -132,13 +133,13 @@ for i = 1:3
 end
 
 % Compute reduced solution through direct method
-[x, alpha1] = rsolverFcn(a, b, K, v, g{1}, BCLt, BCLv(mu(1),nu(1)), ...
+[x, alpha1] = rsolverFcn(a, b, K, v, dv, g{1}, BCLt, BCLv(mu(1),nu(1)), ...
     BCRt, BCRv(mu(1),nu(1)), VL);
 ur1 = VL * alpha1;
-[x, alpha2] = rsolverFcn(a, b, K, v, g{2}, BCLt, BCLv(mu(2),nu(2)), ...
+[x, alpha2] = rsolverFcn(a, b, K, v, dv, g{2}, BCLt, BCLv(mu(2),nu(2)), ...
     BCRt, BCRv(mu(2),nu(2)), VL);
 ur2 = VL * alpha2;
-[x, alpha3] = rsolverFcn(a, b, K, v, g{3}, BCLt, BCLv(mu(3),nu(3)), ...
+[x, alpha3] = rsolverFcn(a, b, K, v, dv, g{3}, BCLt, BCLv(mu(3),nu(3)), ...
     BCRt, BCRv(mu(3),nu(3)), VL);
 ur3 = VL * alpha3;
 
@@ -269,7 +270,7 @@ grid on
 %               - 'trainbr' : Bayesian regularization 
 
 Nmu_tr = 20;  Nnu_tr = 20;  valPercentage = 0.3;  Nte_nn = 200;
-h_opt = 19;  train_opt = 'trainlm';
+h_opt = 15;  train_opt = 'trainlm';
 
 %
 % Run
@@ -301,9 +302,9 @@ load(filename);
 load(datafile);
 
 % Select three values for $\mu$ and $\nu$
-mu = mu1 + (mu2 - mu1) * rand(3,1);
-nu = nu1 + (nu2 - nu1) * rand(3,1);
-%mu = mu_te([5 50 43]);  nu = nu_te([5 50 43]);
+%mu = mu1 + (mu2 - mu1) * rand(3,1);
+%nu = nu1 + (nu2 - nu1) * rand(3,1);
+mu = mu_te([5 50 43]);  nu = nu_te([5 50 43]);
 
 % Evaluate forcing term for the just set values for $\mu$
 g = cell(3,1);
@@ -312,11 +313,11 @@ for i = 1:3
 end
 
 % Compute full solution
-[x, ur1] = solverFcn(a, b, K, v, g{1}, BCLt, BCLv(mu(1),nu(1)), ...
+[x, ur1] = solverFcn(a, b, K, v, dv, g{1}, BCLt, BCLv(mu(1),nu(1)), ...
     BCRt, BCRv(mu(1),nu(1)));
-[x, ur2] = solverFcn(a, b, K, v, g{2}, BCLt, BCLv(mu(2),nu(2)), ...
+[x, ur2] = solverFcn(a, b, K, v, dv, g{2}, BCLt, BCLv(mu(2),nu(2)), ...
     BCRt, BCRv(mu(2),nu(2)));
-[x, ur3] = solverFcn(a, b, K, v, g{3}, BCLt, BCLv(mu(3),nu(3)), ...
+[x, ur3] = solverFcn(a, b, K, v, dv, g{3}, BCLt, BCLv(mu(3),nu(3)), ...
     BCRt, BCRv(mu(3),nu(3)));
 
 % Find position in error metrix associated with the desired
@@ -453,11 +454,25 @@ valPercentage = 0.3;  Nte_nn = 200;  train_opt = 'trainlm';
 % Run
 % 
 
+% Grid spacing
+dx = (b-a) / (K-1);
+
+% Extract reference error, i.e. average distance between full solution and 
+% its projection on the reduced space
+datafile = sprintf(['%s/NonLinearPoisson1d2pSVD/' ...
+    'NonLinearPoisson1d2p_%s_%s%s_' ...
+    'a%2.2f_b%2.2f_%s_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
+    'K%i_Nmu%i_Nnu%i_N%i_L%i_Nte%i%s.mat'], ...
+    root, solver, reducer, sampler, a, b, BCLt, ...
+    BCRt, mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, Nte_r, suffix);
+load(datafile);
+err_ref = median(err_svd_abs);
+
 for n = 1:length(Nmu_tr)
     % Total number of training and validating samples
     Ntr = Nmu_tr(n)*Nnu_tr(n);  Nva = ceil(valPercentage*Ntr);
 
-    % Load data for uniform sampling
+    % Load data for uniform sampling; one hidden layer
     filename = sprintf(['%s/NonLinearPoisson1d2pNN/' ...
         'NonLinearPoisson1d2p_%s_%s%s_NNunif_' ...
         'a%2.2f_b%2.2f_%s_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
@@ -466,8 +481,8 @@ for n = 1:length(Nmu_tr)
         BCRt, mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, ...
         Nmu_tr(n), Nnu_tr(n), Ntr, Nva, Nte_nn, suffix);
     load(filename);
-
-    % Find position in error metrix associated with the desired
+    
+    % Find position in error matrix associated with the desired
     % training algorithm
     col = 0;
     for k = 1:length(trainFcn)
@@ -481,25 +496,97 @@ for n = 1:length(Nmu_tr)
     
     % Extract data
     if (n == 1)
+        h_u = cell(length(Nmu_tr),1);
+        hmin = min(H);  hmax = max(H);
         err_u = zeros(length(H),length(Nmu_tr));
     end
-    err_u(:,n) = err_opt_local(:,col);
+    h_u{n} = H;
+    err_u(:,n) = sqrt(dx)*err_opt_local(:,col);
     
-    %{
-    % Load data for random sampling
-    filename = sprintf(['%s/NonLinearPoisson1d2p/' ...
-        'NonLinearPoisson1d2p_%s_%s%s_NNrand_' ...
+    % Details for plotting
+    if min(H) < hmin
+        hmin = min(H);
+    end
+    if max(H) > hmax
+        hmax = max(H);
+    end
+    
+    % Load data for uniform sampling; two hidden layers
+    filename = sprintf(['%s/NonLinearPoisson1d2pNN/' ...
+        'NonLinearPoisson1d2p_%s_%s%s_NNunif_' ...
         'a%2.2f_b%2.2f_%s_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
-        'K%i_Nmu%i_Nnu%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
-        root, solver, reducer, sampler, a, b, BCLt, BCRt, mu1, mu2, nu1, nu2, ...
-        K, Nmu, Nnu, N, L, Ntr, Ntr, Ntr, Nva, Nte_nn, suffix);
+        'K%i_Nmu%i_Nnu%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Ntr%i_Nva%i_Nte%i_2L%s.mat'], ...
+        root, solver, reducer, sampler, a, b, BCLt, ...
+        BCRt, mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, ...
+        Nmu_tr(n), Nnu_tr(n), Ntr, Nva, Nte_nn, suffix);
     load(filename);
+    
+    % Find position in error matrix associated with the desired
+    % training algorithm
+    col = 0;
+    for k = 1:length(trainFcn)
+        if strcmp(trainFcn{k},train_opt)
+            col = k;
+        end
+    end
+    if isempty(col == 0)
+        error('Specified training algorithm not found.')
+    end
     
     % Extract data
     if (n == 1)
+        h_2l_u = cell(length(Nmu_tr),1);
+        err_2l_u = zeros(length(H),length(Nmu_tr));
+    end
+    h_2l_u{n} = H;
+    err_2l_u(:,n) = sqrt(dx)*err_opt_local(:,col);
+    
+    % Details for plotting
+    if min(H) < hmin
+        hmin = min(H);
+    end
+    if max(H) > hmax
+        hmax = max(H);
+    end
+    
+    %{
+    % Load data for random sampling
+    filename = sprintf(['%s/NonLinearPoisson1d2pNN/' ...
+        'NonLinearPoisson1d2p_%s_%s%s_NNrand_' ...
+        'a%2.2f_b%2.2f_%s_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
+        'K%i_Nmu%i_Nnu%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
+        root, solver, reducer, sampler, a, b, BCLt, ...
+        BCRt, mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, ...
+        Nmu_tr(n), Nnu_tr(n), Ntr, Nva, Nte_nn, suffix);
+    load(filename);
+    
+    % Find position in error matrix associated with the desired
+    % training algorithm
+    col = 0;
+    for k = 1:length(trainFcn)
+        if strcmp(trainFcn{k},train_opt)
+            col = k;
+        end
+    end
+    if isempty(col == 0)
+        error('Specified training algorithm not found.')
+    end
+    
+    % Extract data
+    if (n == 1)
+        h_r = cell{length(Nmu_tr),1};
         err_r = zeros(length(H),length(Nmu_tr));
     end
-    err_r(:,n) = err_opt_local(:,col);
+    h_r{n} = H;
+    err_r(:,n) = sqrt(dx)*err_opt_local(:,col);
+    
+    % Details for plotting
+    if min(H) < hmin
+        hmin = min(H);
+    end
+    if max(H) > hmax
+        hmax = max(H);
+    end
     %}
 end
 
@@ -509,19 +596,24 @@ hold off;
 
 % Plot and dynamically update the legend
 marker_u = {'bo-', 'rs-', 'g^-', 'mv-'};
-%marker_r = {'b--', 'r--', 'g--', 'm--'};
+marker_2l_u = {'bo--', 'rs--', 'g^--', 'mv--'};
+%marker_r = {'bo:', 'rs:', 'g^:', 'mv:'};
 str_leg = 'legend(''location'',''best''';
 for i = 1:length(Nmu_tr)
-    semilogy(H, err_u(:,i), marker_u{i});
+    semilogy(h_u{i}, err_u(:,i), marker_u{i}, 'linewidth', 1.2);
     hold on
-    %semilogy(Nnu_tr, err_r(i,:), marker_r{i});
+    semilogy(h_2l_u{i}, err_2l_u(:,i), marker_2l_u{i}, 'linewidth', 1.2);
+    %semilogy(h_r{i}, err_r(:,i), marker_r{i}, 'linewidth', 1.2);
     
     str_u = sprintf('''$N_{tr} = %i$''', Nmu_tr(i)*Nnu_tr(i));
+    str_2l_u = sprintf('''$N_{tr} = %i$, 2-layer''', Nmu_tr(i)*Nnu_tr(i));
     %str_r = sprintf('''$N_{tr} = %i$, random''', Nmu_tr(i)*Nnu_tr(i));
     str_leg = strcat(str_leg,', ',str_u);
-    %str_leg = strcat(str_leg,', ',str_u,', ',str_r);
+    str_leg = strcat(str_leg,', ',str_2l_u);
+    %str_leg = strcat(str_leg,', ',str_r);
 end
-str_leg = strcat(str_leg,')');
+semilogy([hmin-1 hmax+1], [err_ref err_ref], 'k--')
+str_leg = strcat(str_leg,', ''SVD'')');
 
 % Define plot settings
 title('Average error $\epsilon$ on testing dataset')
@@ -529,6 +621,7 @@ xlabel('$h$')
 ylabel('$\epsilon$')
 grid on
 eval(str_leg)
+xlim([hmin-1 hmax+1])
 
 %% For the optimal network, plot error on training, validation and test data 
 % set versus epochs
