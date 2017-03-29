@@ -28,10 +28,7 @@ function [A, rhs] = getLinearPoisson2dFEP1System_r(geometry, domain, mesh, ...
         R = [cos(alpha) -sin(alpha); sin(alpha) cos(alpha)];
         S = [b 0; 0 h];  iS = [1/b 0; 0 1/h];
         Jpsi = R*S;  iJpsi = iS*R';  dJpsi = b*h;
-        
-        % Precompute dJpsi * iJpsi' * iJpsi
-        Mpsi = dJpsi*(iJpsi')*iJpsi;
-        
+                
         % Go through all elements of the mesh
         for n = 1:Ne
             % Extract the vertices of the triangle
@@ -40,12 +37,12 @@ function [A, rhs] = getLinearPoisson2dFEP1System_r(geometry, domain, mesh, ...
 
             % Compute Jacobian of the map from reference to current
             % triangle, its inverse and its determinant
-            Jphi  = [vb(1)-va(1) vc(1)-va(1);  vb(2)-va(2) vc(2)-va(2)];
-            dJphi = (vb(1)-va(1))*((vc(2)-va(2))) - (vc(1)-va(1))*(vb(2)-va(2));
-            iJphi = [vc(2)-va(2) va(1)-vc(1);  va(2)-vb(2) vb(1)-va(1)]/dJphi;
+            Jphi  = [vb(1)-va(1) vc(1)-va(1); vb(2)-va(2) vc(2)-va(2)];
+            dJphi = abs((vb(1)-va(1))*((vc(2)-va(2))) - (vc(1)-va(1))*(vb(2)-va(2)));
+            iJphi = [vc(2)-va(2) va(1)-vc(1); va(2)-vb(2) vb(1)-va(1)]/dJphi;
 
-            % Precomupute dJphi * iJphi' * iJphi
-            Mphi = dJphi*(iJphi')*iJphi;
+            % Compute iJphi * iJpsi
+            M = iJphi * iJpsi;
 
             % Map quadrature nodes onto the physical (i.e. original) domain
             p1 = Jpsi*(Jphi*q1 + va) + orig;
@@ -53,12 +50,12 @@ function [A, rhs] = getLinearPoisson2dFEP1System_r(geometry, domain, mesh, ...
             p3 = Jpsi*(Jphi*q3 + va) + orig;
 
             % Compute entries of the stiffness matrix onto the reference triangle
-            A11 = gr1'* Mphi' * Mpsi' * (w1*K(p1) + w2*K(p2) + w3*K(p3))' * gr1;
-            A12 = gr1'* Mphi' * Mpsi' * (w1*K(p1) + w2*K(p2) + w3*K(p3))' * gr2;
-            A13 = gr1'* Mphi' * Mpsi' * (w1*K(p1) + w2*K(p2) + w3*K(p3))' * gr3;
-            A22 = gr2'* Mphi' * Mpsi' * (w1*K(p1) + w2*K(p2) + w3*K(p3))' * gr2;
-            A23 = gr2'* Mphi' * Mpsi' * (w1*K(p1) + w2*K(p2) + w3*K(p3))' * gr3;
-            A33 = gr3'* Mphi' * Mpsi' * (w1*K(p1) + w2*K(p2) + w3*K(p3))' * gr3;
+            A11 = dJphi * dJpsi * gr1'* M * (w1*K(p1) + w2*K(p2) + w3*K(p3))' * M' * gr1;
+            A12 = dJphi * dJpsi * gr1'* M * (w1*K(p1) + w2*K(p2) + w3*K(p3))' * M' * gr2;
+            A13 = dJphi * dJpsi * gr1'* M * (w1*K(p1) + w2*K(p2) + w3*K(p3))' * M' * gr3;
+            A22 = dJphi * dJpsi * gr2'* M * (w1*K(p1) + w2*K(p2) + w3*K(p3))' * M' * gr2;
+            A23 = dJphi * dJpsi * gr2'* M * (w1*K(p1) + w2*K(p2) + w3*K(p3))' * M' * gr3;
+            A33 = dJphi * dJpsi * gr3'* M * (w1*K(p1) + w2*K(p2) + w3*K(p3))' * M' * gr3;
 
             % Assemble stiffness matrix
             A(ia,ia) = A(ia,ia) + A11;  
@@ -81,18 +78,18 @@ function [A, rhs] = getLinearPoisson2dFEP1System_r(geometry, domain, mesh, ...
         % Apply boundary conditions
         h = 0.5*(mesh.hmin+mesh.hmax);  TOL = 1e-15;
         for i = 1:Nn
-            if (-TOL < nodes(1,i) && nodes(1,i) < TOL)        % South edge
-                A(i,:) = 0;  A(i,i) = 1/h;
-                rhs(i) = 1/h * BCs_v(Jpsi*(Jphi*nodes(:,i) + va) + orig);
-            elseif (1-TOL < nodes(1,i) && nodes(1,i) < 1+TOL) % North edge
-                A(i,:) = 0;  A(i,i) = 1/h;
-                rhs(i) = 1/h * BCn_v(Jpsi*(Jphi*nodes(:,i) + va) + orig);
-            elseif (-TOL < nodes(2,i) && nodes(2,i) < TOL)    % West edge
-                A(i,:) = 0;  A(i,i) = 1/h;
-                rhs(i) = 1/h * BCw_v(Jpsi*(Jphi*nodes(:,i) + va) + orig);
-            elseif (1-TOL < nodes(2,i) && nodes(2,i) < 1+TOL) % East edge
-                A(i,:) = 0;  A(i,i) = 1/h;
-                rhs(i) = 1/h * BCe_v(Jpsi*(Jphi*nodes(:,i) + va) + orig);
+            if (-TOL < nodes(2,i) && nodes(2,i) < TOL)        % South edge
+                A(i,:) = 0;  A(i,i) = h;
+                rhs(i) = h * BCs_v(Jpsi*nodes(:,i) + orig);
+            elseif (1-TOL < nodes(2,i) && nodes(2,i) < 1+TOL) % North edge
+                A(i,:) = 0;  A(i,i) = h;
+                rhs(i) = h * BCn_v(Jpsi*nodes(:,i) + orig);
+            elseif (-TOL < nodes(1,i) && nodes(1,i) < TOL)    % West edge
+                A(i,:) = 0;  A(i,i) = h;
+                rhs(i) = h * BCw_v(Jpsi*nodes(:,i) + orig);
+            elseif (1-TOL < nodes(1,i) && nodes(1,i) < 1+TOL) % East edge
+                A(i,:) = 0;  A(i,i) = h;
+                rhs(i) = h * BCe_v(Jpsi*nodes(:,i) + orig);
             end
         end
     end

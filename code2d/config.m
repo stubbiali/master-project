@@ -13,11 +13,15 @@ close all
 % width     width of a figure
 % height    height of a figure
 
-p = [1500 700];  width = 840;  height = 630;
+p = [0 0];  width = 840;  height = 630;
 
 %
 % Run
 %
+
+% Set path
+path(path,'ScalarFunctions')
+path(path,'MatrixFunctions')
 
 % Set default interpreter for text, plot and legend
 set(0, 'defaultTextInterpreter', 'latex');

@@ -485,7 +485,7 @@ datafile = sprintf(['%s/NonLinearPoisson1d3pSVD/' ...
     root, solver, reducer, sampler, a, b, BCLt, ...
     BCRt, mu1, mu2, nu1, nu2, xi1, xi2, K, Nmu, Nnu, Nxi, N, L, Nte_r, suffix);
 load(datafile);
-err_ref = median(err_ref_abs);
+err_ref = median(err_svd_abs);
 
 for n = 1:length(Nmu_tr)
     % Total number of training and validating samples
@@ -530,45 +530,43 @@ for n = 1:length(Nmu_tr)
         hmax = max(H);
     end
     
-    %{
-    % Load data for uniform sampling; two hidden layers
-     filename = sprintf(['%s/NonLinearPoisson1d3pNN/' ...
-        'NonLinearPoisson1d3p_%s_%s%s_NNunif_' ...
-        'a%2.2f_b%2.2f_%s_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_xi1%2.2f_xi2%2.2f' ...
-        'K%i_Nmu%i_Nnu%i_Nxi%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Nxi_tr%i_Ntr%i_Nva%i_Nte%i_2L%s.mat'], ...
-        root, solver, reducer, sampler, a, b, BCLt, ...
-        BCRt, mu1, mu2, nu1, nu2, xi1, xi2, K, Nmu, Nnu, Nxi, N, L, ...
-        Nmu_tr(n), Nnu_tr(n), Nxi_tr(n), Ntr, Nva, Nte_nn, suffix);
-    load(filename);
-    
-    % Find position in error matrix associated with the desired
-    % training algorithm
-    col = 0;
-    for k = 1:length(trainFcn)
-        if strcmp(trainFcn{k},train_opt)
-            col = k;
+    if Nmu_tr(n) == 10
+        % Load data for uniform sampling; two hidden layers
+         filename = sprintf(['%s/NonLinearPoisson1d3pNN/' ...
+            'NonLinearPoisson1d3p_%s_%s%s_NNunif_' ...
+            'a%2.2f_b%2.2f_%s_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_xi1%2.2f_xi2%2.2f_' ...
+            'K%i_Nmu%i_Nnu%i_Nxi%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Nxi_tr%i_Ntr%i_Nva%i_Nte%i_2L%s.mat'], ...
+            root, solver, reducer, sampler, a, b, BCLt, ...
+            BCRt, mu1, mu2, nu1, nu2, xi1, xi2, K, Nmu, Nnu, Nxi, N, L, ...
+            Nmu_tr(n), Nnu_tr(n), Nxi_tr(n), Ntr, Nva, Nte_nn, suffix);
+        load(filename);
+
+        % Find position in error matrix associated with the desired
+        % training algorithm
+        col = 0;
+        for k = 1:length(trainFcn)
+            if strcmp(trainFcn{k},train_opt)
+                col = k;
+            end
         end
+        if isempty(col == 0)
+            error('Specified training algorithm not found.')
+        end
+
+        % Extract data
+        h_2l_u = H;
+        err_2l_u = sqrt(dx)*err_opt_local(:,col);
+
+        % Details for plotting
+        if min(H) < hmin
+            hmin = min(H);
+        end
+        if max(H) > hmax
+            hmax = max(H);
+        end
+        
+        n_2l = n;
     end
-    if isempty(col == 0)
-        error('Specified training algorithm not found.')
-    end
-    
-    % Extract data
-    if (n == 1)
-        h_2l_u = cell(length(Nmu_tr),1);
-        err_2l_u = zeros(length(H),length(Nmu_tr));
-    end
-    h_2l_u{n} = H;
-    err_2l_u(:,n) = sqrt(dx)*err_opt_local(:,col);
-    
-    % Details for plotting
-    if min(H) < hmin
-        hmin = min(H);
-    end
-    if max(H) > hmax
-        hmax = max(H);
-    end
-    %}
     
     %{
     % Load data for random sampling
@@ -617,20 +615,24 @@ hold off;
 
 % Plot and dynamically update the legend
 marker_u = {'bo-', 'rs-', 'g^-', 'mv-'};
-%marker_2l_u = {'bo--', 'rs--', 'g^--', 'mv--'};
+marker_2l_u = {'bo--', 'rs--', 'g^--', 'mv--'};
 %marker_r = {'bo:', 'rs:', 'g^:', 'mv:'};
 str_leg = 'legend(''location'',''best''';
 for i = 1:length(Nmu_tr)
     semilogy(h_u{i}, err_u(:,i), marker_u{i}, 'linewidth', 1.2);
     hold on
-    %semilogy(h_2l_u{i}, err_2l_u(:,i), marker_2l_u{i}, 'linewidth', 1.2);
+    if i == n_2l
+        semilogy(h_2l_u, err_2l_u, marker_2l_u{i}, 'linewidth', 1.2);
+    end
     %semilogy(h_r{i}, err_r(:,i), marker_r{i}, 'linewidth', 1.2);
     
     str_u = sprintf('''$N_{tr} = %i$''', Nmu_tr(i)*Nnu_tr(i)*Nxi_tr(i));
-    %str_2l_u = sprintf('''$N_{tr} = %i$, 2-layer''', Nmu_tr(i)*Nnu_tr(i));
-    %str_r = sprintf('''$N_{tr} = %i$, random''', Nmu_tr(i)*Nnu_tr(i));
     str_leg = strcat(str_leg,', ',str_u);
-    %str_leg = strcat(str_leg,', ',str_2l_u);
+    if i == n_2l
+        str_2l_u = sprintf('''$N_{tr} = %i$, 2-layer''', Nmu_tr(i)*Nnu_tr(i)*Nxi_tr(i));
+        str_leg = strcat(str_leg,', ',str_2l_u);
+    end
+    %str_r = sprintf('''$N_{tr} = %i$, random''', Nmu_tr(i)*Nnu_tr(i));
     %str_leg = strcat(str_leg,', ',str_r);
 end
 semilogy([hmin-1 hmax+1], [err_ref err_ref], 'k--')
