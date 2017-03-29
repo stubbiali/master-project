@@ -17,10 +17,10 @@ end
 dt = toc(tstart);
 fprintf('Direct function: %5.5f\n',dt)
 
-%fun = @(t) foo2(t,2);
+fun = @(t) 1;
 tstart = tic;
 for i = 1:1e6
-    y = foo3(x(i));
+    y = fun(x(i));
 end
 dt = toc(tstart);
 fprintf('Handle function: %5.5f\n',dt)
@@ -45,6 +45,15 @@ plotMesh2d(mesh)
 
 %% Test first version of LinearPoisson2dFEP1
 
-[mesh,u] = LinearPoisson2dFEP1('rectangle', 'base',2, 'height',3, 'angle',-pi/4);
-
+%[mesh,u] = LinearPoisson2dFEP1('rectangle', 'base',2, 'height',3, 'angle',-pi/4);
 %plotMesh2d(mesh)
+
+%% Test full version of LinearPoisson2dFEP1
+
+[mesh,u] = LinearPoisson2dFEP1(@K1, @f1, 'D',@BC1, 'D',@BC1, 'D',@BC1, 'D',@BC1, ...
+     'rectangle', 'base',10, 'height',10, 'angle',pi/10);
+%[mesh,u,A,rhs] = LinearPoisson2dFEP1(@K1, @f2, 'D',@BC2, 'D',@BC0, 'D',@BC2, 'D',@BC0, ...
+%    'rectangle', 'origin',[1 0]', 'Hmax',0.04);
+
+close all
+plotSolution2d(mesh,u)

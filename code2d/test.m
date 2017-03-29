@@ -45,11 +45,15 @@ plotMesh2d(mesh)
 
 %% Test first version of LinearPoisson2dFEP1
 
-[mesh,u] = LinearPoisson2dFEP1('rectangle', 'base',2, 'height',3, 'angle',-pi/4);
-plotMesh2d(mesh)
+%[mesh,u] = LinearPoisson2dFEP1('rectangle', 'base',2, 'height',3, 'angle',-pi/4);
+%plotMesh2d(mesh)
 
 %% Test full version of LinearPoisson2dFEP1
 
 [mesh,u] = LinearPoisson2dFEP1(@K1, @f1, 'D',@BC1, 'D',@BC1, 'D',@BC1, 'D',@BC1, ...
-    'rectangle', 'base',2, 'height',3, 'angle',-pi/4);
+     'rectangle', 'base',10, 'height',10, 'angle',pi/10);
+%[mesh,u,A,rhs] = LinearPoisson2dFEP1(@K1, @f2, 'D',@BC2, 'D',@BC0, 'D',@BC2, 'D',@BC0, ...
+%    'rectangle', 'origin',[1 0]', 'Hmax',0.04);
+
+close all
 plotSolution2d(mesh,u)
