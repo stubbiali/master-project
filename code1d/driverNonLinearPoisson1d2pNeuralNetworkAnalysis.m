@@ -411,18 +411,18 @@ plot(x(1:1:end), ur3_u(1:1:end), 'g--', 'Linewidth', 2)
 %plot(x(1:1:end), ur3_r(1:1:end), 'g:', 'Linewidth', 2)
 
 % Define plot settings
-str = sprintf('Solution to Poisson equation ($k = %i$, $n_{tr} = %i$)', ...
+str = sprintf('Solution to Poisson equation ($K = %i$, $N_{tr} = %i$)', ...
     K, Ntr);
 title(str)
 xlabel('$x$')
 ylabel('$u$')
-legend(sprintf('$\\mu = %f$, $\\nu = %f$, full', mu(1), nu(1)), ...
+legend(sprintf('$\\mu = %f$, $\\nu = %f$', mu(1), nu(1)), ...
     sprintf('$\\mu = %f$, $\\nu = %f$, NN', mu(1), nu(1)), ...
     ... %sprintf('$\\mu = %f$, $\\nu = %f$, NN (random)', mu(1), nu(1)), ...
-    sprintf('$\\mu = %f$, $\\nu = %f$, full', mu(2), nu(2)), ...
+    sprintf('$\\mu = %f$, $\\nu = %f$', mu(2), nu(2)), ...
     sprintf('$\\mu = %f$, $\\nu = %f$, NN', mu(2), nu(2)), ...
     ... %sprintf('$\\mu = %f$, $\\nu = %f$, NN (random)', mu(2), nu(2)), ...
-    sprintf('$\\mu = %f$, $\\nu = %f$, full', mu(3), nu(3)), ...
+    sprintf('$\\mu = %f$, $\\nu = %f$', mu(3), nu(3)), ...
     sprintf('$\\mu = %f$, $\\nu = %f$, NN', mu(3), nu(3)), ...
     ... %sprintf('$\\mu = %f$, $\\nu = %f$, NN (random)', mu(3), nu(3)), ...
     'location', 'best')
@@ -466,7 +466,8 @@ datafile = sprintf(['%s/NonLinearPoisson1d2pSVD/' ...
     root, solver, reducer, sampler, a, b, BCLt, ...
     BCRt, mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, Nte_r, suffix);
 load(datafile);
-err_ref = median(err_svd_abs);
+err_ref_median = median(err_svd_abs);
+err_ref_mean = mean(err_svd_abs);
 
 for n = 1:length(Nmu_tr)
     % Total number of training and validating samples
@@ -612,16 +613,89 @@ for i = 1:length(Nmu_tr)
     str_leg = strcat(str_leg,', ',str_2l_u);
     %str_leg = strcat(str_leg,', ',str_r);
 end
-semilogy([hmin-1 hmax+1], [err_ref err_ref], 'k--')
-str_leg = strcat(str_leg,', ''SVD'')');
+semilogy([hmin-1 hmax+1], [err_ref_median err_ref_median], 'k-')
+str_leg = strcat(str_leg,', ''DM (median)''');
+semilogy([hmin-1 hmax+1], [err_ref_mean err_ref_mean], 'k--')
+str_leg = strcat(str_leg,', ''DM (mean)'')');
 
 % Define plot settings
-title('Average error $\epsilon$ on testing dataset')
-xlabel('$h$')
-ylabel('$\epsilon$')
+title('Average error in $L^2_h$-norm on test data set')
+xlabel('$H$')
+ylabel('$||u - u^l||_{L^2_h}$')
 grid on
 eval(str_leg)
 xlim([hmin-1 hmax+1])
+
+%% Boxplot for the errors yielded by Direct Method (DM) and Neural Network (NN)
+
+%
+% User defined settings:
+% Nmu_tr        number of training values for $\mu$ 
+% Nnu_tr        number of training values for $\nu$ 
+% valPercentage ratio between number of validation and training values for 
+%               $\mu$ and $\nu$
+% Nte_nn        number of testing samples for Neural Network
+% train_opt     training algorithm:
+%               - 'trainlm' : Levenberg-Marquardt
+%               - 'trainscg': scaled conjugate gradient
+%               - 'trainbfg': quasi-Newton method
+%               - 'trainbr' : Bayesian regularization
+% h_opt         number of hidden neurons
+
+Nmu_tr = 25;  Nnu_tr = 25;  valPercentage = 0.3;  Nte_nn = 200;  
+train_opt = 'trainlm';  h_opt = 21;
+
+%
+% Run
+% 
+
+% Grid spacing
+dx = (b-a) / (K-1);
+
+% Extract error yielded by Direct Method
+datafile = sprintf(['%s/NonLinearPoisson1d2pSVD/' ...
+    'NonLinearPoisson1d2p_%s_%s%s_' ...
+    'a%2.2f_b%2.2f_%s_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
+    'K%i_Nmu%i_Nnu%i_N%i_L%i_Nte%i%s.mat'], ...
+    root, solver, reducer, sampler, a, b, BCLt, ...
+    BCRt, mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, Nte_r, suffix);
+load(datafile);
+mu = mu_te;  nu = nu_te;
+
+% Extract error yielded by Neural Network
+filename = sprintf(['%s/NonLinearPoisson1d2pNN/' ...
+    'NonLinearPoisson1d2p_%s_%s%s_NNunif_' ...
+    'a%2.2f_b%2.2f_%s_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
+    'K%i_Nmu%i_Nnu%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Ntr%i_Nva%i_Nte%i_2L%s.mat'], ...
+    root, solver, reducer, sampler, a, b, BCLt, ...
+    BCRt, mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, ...
+    Nmu_tr, Nnu_tr, Nmu_tr*Nnu_tr, ceil(valPercentage*Nmu_tr*Nnu_tr), Nte_nn, suffix);
+load(filename);
+
+% Find position in error metrix associated with the desired
+% network topology and training algorithm
+row = find(H == h_opt);
+col = 0;
+for k = 1:length(trainFcn)
+    if strcmp(trainFcn{k},train_opt)
+        col = k;
+    end
+end
+if isempty(row) || (col == 0)
+    error('Specified number of hidden layers and/or training algorithm not found.')
+end
+
+% Compute errors
+net = net_opt_local{row,col};
+err_nn_abs = zeros(numel(mu),1);
+for i = 1:numel(mu)
+    y = net([mu(i) nu(i)]');
+    err_nn_abs(i) = sqrt(dx) * norm(u_te(:,i)-VL*y);
+end
+
+% Plot boxplot
+figure(6)
+boxplot([err_svd_abs err_nn_abs],'Labels',{'DM','NN'})
 
 %% For the optimal network, plot error on training, validation and test data 
 % set versus epochs
@@ -641,7 +715,7 @@ xlim([hmin-1 hmax+1])
 % h_opt         number of hidden neurons
 
 Nmu_tr = 25;  Nnu_tr = 25;  valPercentage = 0.3;  Nte_nn = 200;
-train_opt = 'trainlm';  h_opt = 15;
+train_opt = 'trainlm';  h_opt = 21;
 
 % 
 % Run
@@ -654,7 +728,7 @@ Ntr = Nmu_tr*Nnu_tr;  Nva = ceil(valPercentage*Ntr);
 filename = sprintf(['%s/NonLinearPoisson1d2pNN/' ...
     'NonLinearPoisson1d2p_%s_%s%s_NNunif_' ...
     'a%2.2f_b%2.2f_%s_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
-    'K%i_Nmu%i_Nnu%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
+    'K%i_Nmu%i_Nnu%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Ntr%i_Nva%i_Nte%i_2L%s.mat'], ...
     root, solver, reducer, sampler, a, b, BCLt, BCRt, ...
     mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, ...
     Nmu_tr, Nnu_tr, Ntr, Nva, Nte_nn, suffix);
@@ -684,11 +758,11 @@ tr_opt = tr_opt_local{row,col};
 semilogy(tr_opt.epoch,tr_opt.perf,'b', tr_opt.epoch,tr_opt.vperf,'r', ...
     tr_opt.epoch,tr_opt.tperf,'g')
 
-str = sprintf('Learning curves ($h = %i$, $n_{\\mu,tr} = %i$, $n_{\\nu,tr} = %i$, $n_{va} = %i$, $n_{te} = %i$)', ...
-    H(row_opt), Nmu_tr, Nnu_tr, Nva, Nte_r);
+str = sprintf('Learning curves ($H = %i$, $N_{\\mu,tr} = %i$, $N_{\\nu,tr} = %i$)', ...
+    h_opt, Nmu_tr, Nnu_tr);
 title(str)
 xlabel('$t$')
-ylabel('$\epsilon$')
+ylabel('$MSE$')
 grid on
 legend('Train', 'Validation', 'Test', 'location', 'best')
 
@@ -710,7 +784,7 @@ legend('Train', 'Validation', 'Test', 'location', 'best')
 % h_opt         number of hidden neurons
 
 Nmu_tr = 25;  Nnu_tr = 25;  valPercentage = 0.3;  Nte_nn = 200;
-train_opt = 'trainlm';  h_opt = 15;
+train_opt = 'trainlm';  h_opt = 21;
 
 %
 % Run
@@ -723,7 +797,7 @@ Ntr = Nmu_tr*Nnu_tr;  Nva = ceil(valPercentage*Ntr);
 filename = sprintf(['%s/NonLinearPoisson1d2pNN/' ...
     'NonLinearPoisson1d2p_%s_%s%s_NNunif_' ...
     'a%2.2f_b%2.2f_%s_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_' ...
-    'K%i_Nmu%i_Nnu%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
+    'K%i_Nmu%i_Nnu%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Ntr%i_Nva%i_Nte%i_2L%s.mat'], ...
     root, solver, reducer, sampler, a, b, BCLt, BCRt, ...
     mu1, mu2, nu1, nu2, K, Nmu, Nnu, N, L, ...
     Nmu_tr, Nnu_tr, Ntr, Nva, Nte_nn, suffix);
@@ -757,7 +831,7 @@ for i = 1:size(y,1)
     hold off
     plot(alpha_te(i,:),y(i,:),'bo', alpha_te(i,:),alpha_te(i,:),'r', ...
         [min(alpha_te(i,:)) max(alpha_te(i,:))],m*[min(alpha_te(i,:)) max(alpha_te(i,:))]+q,'r--');
-    str = sprintf('Current output versus exact output for output neuron $\\Omega = %i$ ($n_{tr} = %i$, $h = %i$)', ...
+    str = sprintf('Current output versus exact output for output neuron $\\Omega = %i$ ($N_{tr} = %i$, $H = %i$)', ...
         i, Ntr, h_opt);
     title(str)
     xlabel('$t_{\Omega}$')

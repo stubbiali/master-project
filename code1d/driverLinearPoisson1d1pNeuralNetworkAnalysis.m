@@ -46,11 +46,11 @@ close all
 a = -1;  b = 1;  K = 100;
 
 % Suffix ''
-%f = @(t,mu) gaussian(t,mu,0.2);  mu1 = -1;  mu2 = 1;  suffix = '';
+f = @(t,mu) gaussian(t,mu,0.2);  mu1 = -1;  mu2 = 1;  suffix = '';
 % Suffix '_bis'
 %f = @(t,mu) 50 * t .* cos(mu*pi*t);  mu1 = 1;  mu2 = 3;  suffix = '_bis';
 % Suffix '_ter'
-f = @(t,mu) -(t < mu) + 2*(t >= mu);  mu1 = -1;  mu2 = 1;  suffix = '_ter';
+%f = @(t,mu) -(t < mu) + 2*(t >= mu);  mu1 = -1;  mu2 = 1;  suffix = '_ter';
 
 BCLt = 'D';  BCLv = 0;
 BCRt = 'D';  BCRv = 0;
@@ -336,11 +336,11 @@ for i = 1:length(h)
     str_leg = strcat(str_leg, ', ', str);
 end
 semilogy(Ntr_v([1 end]), [err_ref err_ref], 'k--')
-str_leg = strcat(str_leg,', ''SVD'')');
+str_leg = strcat(str_leg,', ''DM'')');
 
 % Define plot settings
 title('Average error in $L^2_h$-norm on test data set')
-xlabel('$n_{tr}$')
+xlabel('$N_{tr}$')
 ylabel('$||u - u^l||_{L^2_h}$')
 grid on
 eval(str_leg)

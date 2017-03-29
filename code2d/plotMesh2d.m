@@ -1,3 +1,13 @@
+% plotMesh2d Utility to plot a two-dimensional triangular grid.
+%
+% plotMesh2d(mesh)
+% plotMesh2d(mesh, 'title',Title, 'xlabel',Xlabel, 'ylabel',Ylabel)
+%
+% \param mesh   computational mesh as a mesh2d object
+% \param Title  string with the title; default is ''
+% \param Xlabel string with the x-label; default is '$x$'
+% \param Ylabel string with the y-label; default is '$y$'
+
 function plotMesh2d(mesh, varargin)
     % Shortcuts
     nodes = mesh.nodes;  elems = mesh.elems;

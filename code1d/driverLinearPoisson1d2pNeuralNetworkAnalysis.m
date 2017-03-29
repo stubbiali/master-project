@@ -330,13 +330,13 @@ for n = 1:length(Nnu_tr)
         %str_leg = strcat(str_leg,', ',str_u,', ',str_r);
     end
     semilogy(Nmu_tr([1 end]), [err_ref err_ref], 'k--')
-    str_leg = strcat(str_leg,', ''SVD'')');
+    str_leg = strcat(str_leg,', ''DM'')');
 
     % Define plot settings
-    str = sprintf('Average error in $L^2_h$-norm on test data set ($n_{\\nu,tr} = %i$)', ...
+    str = sprintf('Average error in $L^2_h$-norm on test data set ($N_{\\nu,tr} = %i$)', ...
         Nnu_tr(n));
     title(str)
-    xlabel('$n_{\mu,tr}$')
+    xlabel('$N_{\mu,tr}$')
     ylabel('$||u - u^l||_{L^2_h}$')
     grid on
     eval(str_leg)

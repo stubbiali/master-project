@@ -209,8 +209,8 @@ plot(x(1:1:end), ur3_unif(1:1:end), 'g--', 'Linewidth', 2)
 %plot(x(1:1:end), ur3_rand(1:1:end), 'g:', 'Linewidth', 2)
 
 % Define plot settings
-str_leg = sprintf(['Full and reduced solution to Poisson equation ($k = %i$, ' ...
-    '$n_{\\mu} = %i$, $n_{\\nu} = %i$, $l = %i$)'], ...
+str_leg = sprintf(['Full and reduced solution to Poisson equation ($K = %i$, ' ...
+    '$N_{\\mu} = %i$, $N_{\\nu} = %i$, $L = %i$)'], ...
     K, Nmu, Nnu, L);
 title(str_leg)
 xlabel('$x$')
@@ -263,10 +263,10 @@ for k = 1:length(Nnu)
                 root, solver, reducer, a, b, BCLt, BCRt, mu1, mu2, ...
                 nu1, nu2, K, Nmu(j), Nnu(k), N(j), L(i), Nte, suffix);
             load(filename);
-            err_svd_abs = deleteoutliers(err_svd_abs, 0.01);
+            %err_svd_abs = deleteoutliers(err_svd_abs, 0.01);
             %fprintf('Number of outliers: %i\n', Nte-length(err_svd_rel))
-            err_max_unif(i,j) = max(err_ref_abs);
-            err_avg_unif(i,j) = sum(err_ref_abs)/Nte;
+            err_max_unif(i,j) = max(err_svd_abs);
+            err_avg_unif(i,j) = median(err_svd_abs);
         end
     end
     
@@ -306,7 +306,7 @@ for k = 1:length(Nnu)
         semilogy(L', err_max_unif(:,j), marker_unif{j});
         hold on
         %semilogy(L', err_rand(:,j), marker_rand{j});
-        str_unif = sprintf('''$n_{\\mu} = %i$, uniform''', Nmu(j));
+        str_unif = sprintf('''$N_{\\mu} = %i$, uniform''', Nmu(j));
         %str_rand = sprintf('''$n_{\\mu} = %i$, random''', Nmu(j));
         str_leg = strcat(str_leg, ', ', str_unif);
         %str_leg = sprintf('%s, %s, %s', str_leg, str_unif, str_rand);
@@ -316,11 +316,11 @@ for k = 1:length(Nnu)
     eval(str_leg)
 
     % Define plot settings
-    str_leg = sprintf('Maximum relative error $\\epsilon_{max}$ ($k = %i$, $n_{\\nu} = %i$, $n_{te} = %i$)', ...
-        K, Nnu(k), Nte);
+    str_leg = sprintf('Maximum error in $L^2_h$-norm on test data set ($K = %i$, $N_{\\nu} = %i$)', ...
+        K, Nnu(k));
     title(str_leg)
     xlabel('$l$')
-    ylabel('$\epsilon_{max}$')
+    ylabel('$||u - u^l||_{L^2_h}$')
     grid on    
     xlim([min(L)-1 max(L)+1])
     
@@ -340,7 +340,7 @@ for k = 1:length(Nnu)
         semilogy(L', err_avg_unif(:,j), marker_unif{j});
         hold on
         %semilogy(L', err_rand(:,j), marker_rand{j});
-        str_unif = sprintf('''$n_{\\mu} = %i$''', Nmu(j));
+        str_unif = sprintf('''$N_{\\mu} = %i$''', Nmu(j));
         %str_rand = sprintf('''$n_{\\mu} = %i$, random''', Nmu(j));
         str_leg = strcat(str_leg, ', ', str_unif);
         %str_leg = sprintf('%s, %s, %s', str_leg, str_unif, str_rand);
@@ -350,11 +350,11 @@ for k = 1:length(Nnu)
     eval(str_leg)
 
     % Define plot settings
-    str_leg = sprintf('Average relative error $\\epsilon_{avg}$ ($k = %i$, $n_{\\nu} = %i$, $n_{te} = %i$)', ...
-        K, Nnu(k), Nte);
+    str_leg = sprintf('Median error in $L^2_h$-norm on test data set ($K = %i$, $N_{\\nu} = %i$)', ...
+        K, Nnu(k));
     title(str_leg)
     xlabel('$l$')
-    ylabel('$\epsilon_{avg}$')
+    ylabel('$||u - u^l||_{L^2_h}$')
     grid on    
     xlim([min(L)-1 max(L)+1])
 end
@@ -572,7 +572,7 @@ ylabel('$\nu$')
 %           - 'rand': drawn from random uniform distribution
 % Nte       number of testing samples
 
-Nmu = 20;  Nnu = 10;  L = 5;  sampler = 'unif';  Nte = 100;
+Nmu = 25;  Nnu = 25;  L = 8;  sampler = 'unif';  Nte = 100;
 
 %
 % Run

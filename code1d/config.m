@@ -13,7 +13,7 @@ close all
 % width     width of a figure
 % height    height of a figure
 
-p = [30 30];  width = 840;  height = 630;
+p = [1500 700];  width = 840;  height = 630;
 
 %
 % Run

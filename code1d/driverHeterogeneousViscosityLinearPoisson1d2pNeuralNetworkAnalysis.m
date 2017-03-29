@@ -62,20 +62,20 @@ a = -1;  b = 1;  K = 100;
 %f = @(t,mu) - 1*(t < mu) + 2*(t >= mu);  
 %mu1 = -1;  mu2 = 1;  nu1 = 1;  nu2 = 3;  suffix = '_bis';
 % Suffix '_ter'
-%v = @(t,nu) 2 + sin(nu*pi*t);
-%f = @(t,mu) - 1*(t < mu) + 2*(t >= mu);  
-%mu1 = -1;  mu2 = 1;  nu1 = 1;  nu2 = 3;  suffix = '_ter';
+v = @(t,nu) 2 + sin(nu*pi*t);
+f = @(t,mu) - 1*(t < mu) + 2*(t >= mu);  
+mu1 = -1;  mu2 = 1;  nu1 = 1;  nu2 = 3;  suffix = '_ter';
 % Suffix '_quat'
-v = @(t,nu) 1*(t < -0.5) + nu*(-0.5 <= t & t <= 0.5) + 1*(t > 0.5);  
-f = @(t,mu) sin(mu*pi*(t+1));  
-mu1 = 1;  mu2 = 3;  nu1 = 1; nu2 = 5;  suffix = '_quat';
+%v = @(t,nu) 1*(t < -0.5) + nu*(-0.5 <= t & t <= 0.5) + 1*(t > 0.5);  
+%f = @(t,mu) sin(mu*pi*(t+1));  
+%mu1 = 1;  mu2 = 3;  nu1 = 1; nu2 = 5;  suffix = '_quat';
 
 BCLt = 'D';  BCLv = 0;
 BCRt = 'D';  BCRv = 0;
 solver = 'FEP1';
 reducer = 'SVD';
 sampler = 'unif';
-Nmu = 50;  Nnu = 25;  L = 12;  Nte_r = 50;
+Nmu = 50;  Nnu = 10;  L = 10;  Nte_r = 50;
 root = '../datasets';
 
 % Total number of sampled points for computing the reduced basis
@@ -258,7 +258,7 @@ grid on
 % Nte_nn        number of testing samples for Neural Network
 % h             number of hidden neurons
 
-Nmu_tr = [5 10 15 20 25 50 75];  Nnu_tr = [5 15 25 50];  
+Nmu_tr = [5 10 15 20 25 50 75];  Nnu_tr = [15 25 50];  
 valPercentage = 0.3;  Nte_nn = 200;  h = 15;
 
 %
@@ -281,7 +281,7 @@ err_ref = sqrt(dx)*mean(err_svd_abs);
 % Allocate memory for error
 err_u = zeros(length(Nmu_tr),length(Nnu_tr));
 err_2l_u = zeros(length(Nmu_tr),length(Nnu_tr));
-err_grnn_u = zeros(length(Nmu_tr),length(Nnu_tr));
+%err_grnn_u = zeros(length(Nmu_tr),length(Nnu_tr));
 %err_r = zeros(length(Nmu_tr),length(Nnu_tr));
 
 for i = 1:length(Nmu_tr)
@@ -317,7 +317,7 @@ for i = 1:length(Nmu_tr)
         idx = find(H == h);
         err_2l_u(i,j) = sqrt(dx)*err_opt_local(idx,col_opt);
         
-        
+        %{
         % Load data for uniform distribution of samples; GRNN
         filename = sprintf(['%s/HeterogeneousViscosityLinearPoisson1d2pNN/' ...
             'HeterogeneousViscosityLinearPoisson1d2p_%s_%s%s_GRNNunif_' ...
@@ -330,7 +330,7 @@ for i = 1:length(Nmu_tr)
                        
         % Get error
         err_grnn_u(i,j) = sqrt(dx)*err(col_opt);
-        
+        %}
     end
 end
 
@@ -341,30 +341,29 @@ hold off
 % Plot and dynamically update legend
 marker_u = {'bo-', 'rs-', 'g^-', 'mv-'};
 marker_2l_u = {'bo--', 'rs--', 'g^--', 'mv--'};
-marker_grnn_u = {'bo:', 'rs:', 'g^:', 'mv:'};
+%marker_grnn_u = {'bo:', 'rs:', 'g^:', 'mv:'};
 str_leg = 'legend(''location'', ''best''';
 for j = 1:length(Nnu_tr)
    semilogy(Nmu_tr', err_u(:,j), marker_u{j}, 'linewidth', 1.2)
    hold on
    semilogy(Nmu_tr', err_2l_u(:,j), marker_2l_u{j}, 'linewidth', 1.2)
-   semilogy(Nmu_tr', err_grnn_u(:,j), marker_grnn_u{j}, 'linewidth', 1.2)
+   %semilogy(Nmu_tr', err_grnn_u(:,j), marker_grnn_u{j}, 'linewidth', 1.2)
    %semilogy(Nmu_tr', err_r(:,j), marker_r{j}, 'linewidth', 1.2)
    
    str_u = sprintf('''$N_{\\nu,tr} = %i$''', Nnu_tr(j));
-   str_2l_u = sprintf('''$N_{\\nu,tr} = %i$, 2-layer''', Nnu_tr(j));
-   str_grnn_u = sprintf('''$N_{\\nu,tr} = %i$, GRNN''', Nnu_tr(j));
-   %str_r = sprintf('''$N_{\\nu,tr} = %i$, random''', Nnu_tr(j));
-   
    str_leg = strcat(str_leg,', ',str_u);
+   str_2l_u = sprintf('''$N_{\\nu,tr} = %i$, 2-layer''', Nnu_tr(j));
    str_leg = strcat(str_leg,', ',str_2l_u);
-   str_leg = strcat(str_leg,', ',str_grnn_u);
+   %str_grnn_u = sprintf('''$N_{\\nu,tr} = %i$, GRNN''', Nnu_tr(j));
+   %str_leg = strcat(str_leg,', ',str_grnn_u);
+   %str_r = sprintf('''$N_{\\nu,tr} = %i$, random''', Nnu_tr(j));   
    %str_leg = strcat(str_leg,', ',str_u,', ',str_r);
 end
 semilogy(Nmu_tr([1 end]), [err_ref err_ref], 'k--')
-str_leg = strcat(str_leg,', ''SVD'')');
+str_leg = strcat(str_leg,', ''DM'')');
 
 % Define plot settings
-str = sprintf('Average error in $L^2_h$-norm on test data set ($H = %i$)', h);
+str = sprintf('Average error in $L^2_h$-norm on test data set (H = %i)',h);
 title(str)
 xlabel('$N_{\mu,tr}$')
 ylabel('$||u - u^l||_{L^2_h}$')

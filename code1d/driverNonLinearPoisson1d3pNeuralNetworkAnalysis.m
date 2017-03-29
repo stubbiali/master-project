@@ -134,10 +134,11 @@ load(filename);
 load(datafile);
 
 % Select three values for $\mu$ and $\nu$
-mu = mu1 + (mu2 - mu1) * rand(3,1);
-nu = nu1 + (nu2 - nu1) * rand(3,1);
-xi = xi1 + (xi2 - xi1) * rand(3,1);
+%mu = mu1 + (mu2 - mu1) * rand(3,1);
+%nu = nu1 + (nu2 - nu1) * rand(3,1);
+%xi = xi1 + (xi2 - xi1) * rand(3,1);
 %mu = mu_te([5 50 43]);  nu = nu_te([5 50 43]);
+mu = [1.52 2.60 1.86];  nu = [2.82 1.36 1.53];  xi = [-0.35 -0.36 0.37];
 
 % Evaluate forcing term for the just set values for $\mu$
 g = cell(3,1);
@@ -248,19 +249,19 @@ plot(x(1:1:end), ur3_u(1:1:end), 'g--', 'Linewidth', 2)
 %plot(x(1:1:end), ur3_r(1:1:end), 'g:', 'Linewidth', 2)
 
 % Define plot settings
-str = sprintf('Reduced solution to Poisson equation ($k = %i$, $n_{tr} = %i$)', ...
+str = sprintf('Reduced solution to Poisson equation ($K = %i$, $N_{tr} = %i$)', ...
     K, Ntr);
 title(str)
 xlabel('$x$')
 ylabel('$u$')
-legend(sprintf('$\\mu = %f$, $\\nu = %f$, $\\xi = %f$', mu(1), nu(1), xi(1)), ...
-    sprintf('$\\mu = %f$, $\\nu = %f$, $\\xi = %f$, NN', mu(1), nu(1), xi(1)), ...
+legend(sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$', mu(1), nu(1), xi(1)), ...
+    sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$, NN', mu(1), nu(1), xi(1)), ...
     ... %sprintf('$\\mu = %f$, $\\nu = %f$, $\\xi = %f$, NN (random)', mu(1), nu(1), xi(1)), ...
-    sprintf('$\\mu = %f$, $\\nu = %f$, $\\xi = %f$', mu(2), nu(2), xi(2)), ...
-    sprintf('$\\mu = %f$, $\\nu = %f$, $\\xi = %f$, NN', mu(2), nu(2), xi(2)), ...
+    sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$', mu(2), nu(2), xi(2)), ...
+    sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$, NN', mu(2), nu(2), xi(2)), ...
     ... %sprintf('$\\mu = %f$, $\\nu = %f$, $\\xi = %f$, NN (random)', mu(2), nu(2), xi(2)), ...
-    sprintf('$\\mu = %f$, $\\nu = %f$, $\\xi = %f$', mu(3), nu(3), xi(3)), ...
-    sprintf('$\\mu = %f$, $\\nu = %f$, $\\xi = %f$, NN', mu(3), nu(3), xi(3)), ...
+    sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$', mu(3), nu(3), xi(3)), ...
+    sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$, NN', mu(3), nu(3), xi(3)), ...
     ... %sprintf('$\\mu = %f$, $\\nu = %f$, $\\xi = %f$, NN (random)', mu(3), nu(3), xi(3)), ...
     'location', 'best')
 grid on
@@ -321,6 +322,7 @@ mu = mu1 + (mu2 - mu1) * rand(3,1);
 nu = nu1 + (nu2 - nu1) * rand(3,1);
 xi = xi1 + (xi2 - xi1) * rand(3,1);
 %mu = mu_te([5 50 43]);  nu = nu_te([5 50 43]);
+mu = [1.52 2.60 1.86];  nu = [2.82 1.36 1.53];  xi = [-0.35 -0.36 0.37];
 
 % Evaluate forcing term for the just set values for $\mu$
 g = cell(3,1);
@@ -428,19 +430,19 @@ plot(x(1:1:end), ur3_u(1:1:end), 'g--', 'Linewidth', 2)
 %plot(x(1:1:end), ur3_r(1:1:end), 'g:', 'Linewidth', 2)
 
 % Define plot settings
-str = sprintf('Full and reduced to Poisson equation ($k = %i$, $n_{tr} = %i$)', ...
+str = sprintf('Full and reduced to Poisson equation ($K = %i$, $N_{tr} = %i$)', ...
     K, Ntr);
 title(str)
 xlabel('$x$')
 ylabel('$u$')
-legend(sprintf('$\\mu = %f$, $\\nu = %f$, $\\xi = %f$', mu(1), nu(1), xi(1)), ...
-    sprintf('$\\mu = %f$, $\\nu = %f$, $\\xi = %f$, NN', mu(1), nu(1), xi(1)), ...
+legend(sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$', mu(1), nu(1), xi(1)), ...
+    sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$, NN', mu(1), nu(1), xi(1)), ...
     ... %sprintf('$\\mu = %f$, $\\nu = %f$, $\\xi = %f$, NN (random)', mu(1), nu(1), xi(1)), ...
-    sprintf('$\\mu = %f$, $\\nu = %f$, $\\xi = %f$', mu(2), nu(2), xi(2)), ...
-    sprintf('$\\mu = %f$, $\\nu = %f$, $\\xi = %f$, NN', mu(2), nu(2), xi(2)), ...
+    sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$', mu(2), nu(2), xi(2)), ...
+    sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$, NN', mu(2), nu(2), xi(2)), ...
     ... %sprintf('$\\mu = %f$, $\\nu = %f$, $\\xi = %f$, NN (random)', mu(2), nu(2), xi(2)), ...
-    sprintf('$\\mu = %f$, $\\nu = %f$, $\\xi = %f$', mu(3), nu(3), xi(3)), ...
-    sprintf('$\\mu = %f$, $\\nu = %f$, $\\xi = %f$, NN', mu(3), nu(3), xi(3)), ...
+    sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$', mu(3), nu(3), xi(3)), ...
+    sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$, NN', mu(3), nu(3), xi(3)), ...
     ... %sprintf('$\\mu = %f$, $\\nu = %f$, $\\xi = %f$, NN (random)', mu(3), nu(3), xi(3)), ...
     'location', 'best')
 grid on
@@ -485,7 +487,9 @@ datafile = sprintf(['%s/NonLinearPoisson1d3pSVD/' ...
     root, solver, reducer, sampler, a, b, BCLt, ...
     BCRt, mu1, mu2, nu1, nu2, xi1, xi2, K, Nmu, Nnu, Nxi, N, L, Nte_r, suffix);
 load(datafile);
-err_ref = median(err_svd_abs);
+err_dm_median = median(err_svd_abs);
+err_dm_mean = mean(err_svd_abs);
+err_ref_mean = mean(err_ref_abs);
 
 for n = 1:length(Nmu_tr)
     % Total number of training and validating samples
@@ -517,10 +521,10 @@ for n = 1:length(Nmu_tr)
     if (n == 1)
         h_u = cell(length(Nmu_tr),1);
         hmin = min(H);  hmax = max(H);
-        err_u = zeros(length(H),length(Nmu_tr));
+        err_u = cell(length(Nmu_tr),1);
     end
     h_u{n} = H;
-    err_u(:,n) = sqrt(dx)*err_opt_local(:,col);
+    err_u{n} = sqrt(dx)*err_opt_local(:,col);
     
     % Details for plotting
     if min(H) < hmin
@@ -528,6 +532,34 @@ for n = 1:length(Nmu_tr)
     end
     if max(H) > hmax
         hmax = max(H);
+    end
+    
+    if Nmu_tr(n) == 10
+        % Load data for uniform sampling; one hidden layer
+        filename = sprintf(['%s/NonLinearPoisson1d3pNN/' ...
+            'NonLinearPoisson1d3p_%s_%s%s_NNunif_' ...
+            'a%2.2f_b%2.2f_%s_%s_mu1%2.2f_mu2%2.2f_nu1%2.2f_nu2%2.2f_xi1%2.2f_xi2%2.2f_' ...
+            'K%i_Nmu%i_Nnu%i_Nxi%i_N%i_L%i_Nmu_tr%i_Nnu_tr%i_Nxi_tr%i_Ntr%i_Nva%i_Nte%i%s_2.mat'], ...
+            root, solver, reducer, sampler, a, b, BCLt, ...
+            BCRt, mu1, mu2, nu1, nu2, xi1, xi2, K, Nmu, Nnu, Nxi, N, L, ...
+            Nmu_tr(n), Nnu_tr(n), Nxi_tr(n), Ntr, Nva, Nte_nn, suffix);
+        load(filename);
+
+        % Find position in error matrix associated with the desired
+        % training algorithm
+        col = 0;
+        for k = 1:length(trainFcn)
+            if strcmp(trainFcn{k},train_opt)
+                col = k;
+            end
+        end
+        if isempty(col == 0)
+            error('Specified training algorithm not found.')
+        end
+
+        % Extract data
+        h_u{n} = [h_u{n} H];
+        err_u{n} = [err_u{n}; sqrt(dx)*err_opt_local(:,col)];
     end
     
     if Nmu_tr(n) == 10
@@ -619,7 +651,7 @@ marker_2l_u = {'bo--', 'rs--', 'g^--', 'mv--'};
 %marker_r = {'bo:', 'rs:', 'g^:', 'mv:'};
 str_leg = 'legend(''location'',''best''';
 for i = 1:length(Nmu_tr)
-    semilogy(h_u{i}, err_u(:,i), marker_u{i}, 'linewidth', 1.2);
+    semilogy(h_u{i}, err_u{i}, marker_u{i}, 'linewidth', 1.2);
     hold on
     if i == n_2l
         semilogy(h_2l_u, err_2l_u, marker_2l_u{i}, 'linewidth', 1.2);
@@ -635,7 +667,11 @@ for i = 1:length(Nmu_tr)
     %str_r = sprintf('''$N_{tr} = %i$, random''', Nmu_tr(i)*Nnu_tr(i));
     %str_leg = strcat(str_leg,', ',str_r);
 end
-semilogy([hmin-1 hmax+1], [err_ref err_ref], 'k--')
+semilogy([hmin-1 hmax+1], [err_dm_median err_dm_median], 'k-')
+str_leg = strcat(str_leg,', ''DM (median)''');
+semilogy([hmin-1 hmax+1], [err_dm_mean err_dm_mean], 'k--')
+str_leg = strcat(str_leg,', ''DM (mean)''');
+semilogy([hmin-1 hmax+1], [err_ref_mean err_ref_mean], 'm--')
 str_leg = strcat(str_leg,', ''SVD'')');
 
 % Define plot settings

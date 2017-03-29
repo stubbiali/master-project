@@ -71,7 +71,7 @@ root = '../datasets';
 % Nva_v  number of validation patterns (row vector, same length as Ntr_v)
 % Nte_nn number of testing patterns for neural network
 
-Ntr_v = [5 10 15 20 25 50 75 100];  Nva_v = ceil(0.3 * Ntr_v);  Nte_nn = 100;
+Ntr_v = [5 10 15 20 25 50 75];  Nva_v = ceil(0.3 * Ntr_v);  Nte_nn = 100;
 
 %
 % Run
@@ -182,7 +182,8 @@ eval(str_leg)
 % Nva_v  number of validation patterns (row vector, same length as Ntr_v)
 % h_opt  number of hidden neurons 
 
-Ntr_v = [5 10 15 20 25 50 75 100];  Nva_v = ceil(0.3 * Ntr_v);  h_opt = 10;
+Ntr_v = [5 10 15 20 25 50 75];  Nva_v = ceil(0.3 * Ntr_v);  
+Nte_nn = 100;  h_opt = 10;
 
 %
 % Run
@@ -193,7 +194,7 @@ filename = sprintf(['%s/NonLinearPoisson1d1pNN/' ...
     'NonLinearPoisson1d1p_%s_%s%s_NNunif_a%2.2f_b%2.2f_%s%2.2f_' ...
     '%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
     root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, ...
-    mu1, mu2, K, N, L, Ntr_v(1), Nva_v(1), Nte, suffix);
+    mu1, mu2, K, N, L, Ntr_v(1), Nva_v(1), Nte_nn, suffix);
 load(filename);
 
 % Get for each number of training patterns, each training algorithm and 
@@ -207,7 +208,7 @@ for i = 1:length(Ntr_v)
         'NonLinearPoisson1d1p_%s_%s%s_NNunif_a%2.2f_b%2.2f_' ...
         '%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i%s.mat'], ...
         root, solver, reducer, sampler, a, b, BCLt, BCLv, BCRt, BCRv, mu1, ...
-        mu2, K, N, L, Ntr_v(i), Nva_v(i), Nte, suffix);
+        mu2, K, N, L, Ntr_v(i), Nva_v(i), Nte_nn, suffix);
     load(filename); 
     idx = find(H == h_opt);  err_unif(i,:) = err_opt_local(idx,:);
         
@@ -276,7 +277,7 @@ eval(str_leg)
 %               - 'trainbfg': quasi-Newton method
 
 Ntr_v = [5 10 15 20 25 50 75];  Nva_v = ceil(0.3 * Ntr_v);  Nte_nn = 100;
-h = [5 10 15 20];  sampler_tr = 'unif';  train = 'trainlm';  
+h = [10 15 20 25];  sampler_tr = 'unif';  train = 'trainlm';  
 
 %
 % Run
@@ -295,6 +296,7 @@ load(datafile);
 err_ref = mean(err_svd_abs);
 
 err = zeros(length(Ntr_v),length(h));
+err_2l = zeros(length(Ntr_v));
 for i = 1:length(Ntr_v)
     % Load data
     filename = sprintf(['%s/NonLinearPoisson1d1pNN/' ...
@@ -319,6 +321,34 @@ for i = 1:length(Ntr_v)
         % Get the error
         err(i,j) = sqrt(dx)*err_opt_local(iopt,jopt);
     end
+    
+    % Load data for 2-layer
+    filename = sprintf(['%s/NonLinearPoisson1d1pNN/' ...
+        'NonLinearPoisson1d1p_%s_%s%s_NN%s_a%2.2f_b%2.2f_' ...
+        '%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_Nva%i_Nte%i_2L%s.mat'], ...
+        root, solver, reducer, sampler, sampler_tr, a, b, BCLt, BCLv, ...
+        BCRt, BCRv, mu1, mu2, K, N, L, Ntr_v(i), Nva_v(i), Nte_nn, suffix);
+    load(filename);
+    
+    % Extract column index associated with the specified training algorithm
+    jopt = 0;
+    for j = 1:length(trainFcn)
+        if strcmp(trainFcn{j},train)
+            jopt = j;
+        end
+    end
+    
+    for j = 1:length(h)
+        if h(j) == 15
+            % Find row index associated with the specified number of neurons
+            iopt = find(H == h(j));
+
+            % Get the error
+            err_2l(i) = sqrt(dx)*err_opt_local(iopt,jopt);
+            
+            break;
+        end
+    end
 end
 
 %
@@ -331,19 +361,27 @@ hold off
 
 % Load data, plot and dynamically update legend
 marker = {'bo-', 'rs-', 'g^-', 'mv-'};
+%marker_2l = {'bo--', 'rs--', 'g^--', 'mv--'};
 str_leg = 'legend(''location'', ''best''';
 for i = 1:length(h)
     semilogy(Ntr_v', err(:,i), marker{i}, 'linewidth', 1.2);
     hold on
+    %if h(i) == 15
+    %    semilogy(Ntr_v', err_2l, marker_2l{i}, 'linewidth', 1.2);
+    %end
     str = sprintf('''$H = %i$''', h(i));
     str_leg = strcat(str_leg, ', ', str);
+    %if h(i) == 15
+    %    str = sprintf('''$H = %i$, 2-layer''', h(i));
+    %    str_leg = strcat(str_leg, ', ', str);
+    %end
 end
 semilogy(Ntr_v([1 end]), [err_ref err_ref], 'k--')
-str_leg = strcat(str_leg,', ''SVD'')');
+str_leg = strcat(str_leg,', ''DM'')');
 
 % Define plot settings
 title('Average error in $L^2_h$-norm on test data set')
-xlabel('$n_{tr}$')
+xlabel('$N_{tr}$')
 ylabel('$||u - u^l||_{L^2_h}$')
 grid on
 eval(str_leg)

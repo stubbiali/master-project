@@ -73,7 +73,7 @@ root = '../datasets';
 % L         rank of reduced basis
 % Nte       number of testing samples
 
-Nmu = 15;  Nnu = 15;  Nxi = 15;  L = 25;  Nte = 100;
+Nmu = 10;  Nnu = 10;  Nxi = 10;  L = 10;  Nte = 100;
 
 %
 % Run
@@ -92,11 +92,12 @@ end
 N = Nmu*Nnu*Nxi;
 
 % Select three values for $\mu$ and $\nu$
-%mu = mu1 + (mu2 - mu1) * rand(3,1);
+mu = mu1 + (mu2 - mu1) * rand(3,1);
 %mu = [-0.455759 -0.455759 -0.455759];  
-%nu = nu1 + (nu2 - nu1) * rand(3,1);
+nu = nu1 + (nu2 - nu1) * rand(3,1);
 %nu = [0.03478 0.5 0.953269];  
-%xi = xi1 + (xi2 - xi1) * rand(3,1);
+xi = xi1 + (xi2 - xi1) * rand(3,1);
+mu = [1.52 2.60 1.86];  nu = [2.82 1.36 1.53];  xi = [-0.35 -0.36 0.37];
 
 % Evaluate forcing term for the just set values for $\mu$, $\nu$ and $\xi$
 g = cell(3,1);
@@ -112,21 +113,21 @@ filename = sprintf(['%s/NonLinearPoisson1d3pSVD/' ...
     Nmu, Nnu, Nxi, N, L, Nte, suffix);
 load(filename);
 
-[x, u1] = solverFcn(a, b, K, v, g{1}, BCLt, BCLv(mu(1),nu(1),xi(1)), ...
+[x, u1] = solverFcn(a, b, K, v, dv, g{1}, BCLt, BCLv(mu(1),nu(1),xi(1)), ...
     BCRt, BCRv(mu(1),nu(1),xi(1)));
-[x, alpha1_unif] = rsolverFcn(a, b, K, v, g{1}, BCLt, BCLv(mu(1),nu(1),xi(1)), ...
+[x, alpha1_unif] = rsolverFcn(a, b, K, v, dv, g{1}, BCLt, BCLv(mu(1),nu(1),xi(1)), ...
     BCRt, BCRv(mu(1),nu(1),xi(1)), VL);
 ur1_unif = VL * alpha1_unif;
 %alpha1_unif = VL \ u1;  ur1_unif = VL*alpha1_unif;
-[x, u2] = solverFcn(a, b, K, v, g{2}, BCLt, BCLv(mu(2),nu(2),xi(2)), ...
+[x, u2] = solverFcn(a, b, K, v, dv, g{2}, BCLt, BCLv(mu(2),nu(2),xi(2)), ...
     BCRt, BCRv(mu(2),nu(2),xi(2)));
-[x, alpha2_unif] = rsolverFcn(a, b, K, v, g{2}, BCLt, BCLv(mu(2),nu(2),xi(2)), ...
+[x, alpha2_unif] = rsolverFcn(a, b, K, v, dv, g{2}, BCLt, BCLv(mu(2),nu(2),xi(2)), ...
     BCRt, BCRv(mu(2),nu(2),xi(2)), VL);
 ur2_unif = VL * alpha2_unif;
 %alpha2_unif = VL \ u2;  ur2_unif = VL*alpha2_unif;
-[x, u3] = solverFcn(a, b, K, v, g{3}, BCLt, BCLv(mu(3),nu(3),xi(3)), ...
+[x, u3] = solverFcn(a, b, K, v, dv, g{3}, BCLt, BCLv(mu(3),nu(3),xi(3)), ...
     BCRt, BCRv(mu(3),nu(3),xi(3)));
-[x, alpha3_unif] = rsolverFcn(a, b, K, v, g{3}, BCLt, BCLv(mu(3),nu(3),xi(3)), ...
+[x, alpha3_unif] = rsolverFcn(a, b, K, v, dv, g{3}, BCLt, BCLv(mu(3),nu(3),xi(3)), ...
     BCRt, BCRv(mu(3),nu(3),xi(3)), VL);
 ur3_unif = VL * alpha3_unif;
 %alpha3_unif = VL \ u3;  ur3_unif = VL*alpha3_unif;
@@ -222,20 +223,20 @@ plot(x(1:1:end), ur3_unif(1:1:end), 'g--', 'Linewidth', 2)
 %plot(x(1:1:end), ur3_rand(1:1:end), 'g:', 'Linewidth', 2)
 
 % Define plot settings
-str_leg = sprintf(['Full and reduced solution to Poisson equation ($k = %i$, ' ...
-    '$n_{\\mu} = %i$, $n_{\\nu} = %i$, $l = %i$)'], ...
-    K, Nmu, Nnu, L);
+str_leg = sprintf(['Full and reduced solution to Poisson equation ($K = %i$, ' ...
+    '$N_{\\mu} = %i$, $N_{\\nu} = %i$, $N_{\\xi} = %i$, $L = %i$)'], ...
+    K, Nmu, Nnu, Nxi, L);
 title(str_leg)
 xlabel('$x$')
 ylabel('$u$')
-legend(sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$, full', mu(1), nu(1), xi(1)), ...
-    sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$, reduced (uniform)', mu(1), nu(1), xi(1)), ...
+legend(sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$', mu(1), nu(1), xi(1)), ...
+    sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$, reduced', mu(1), nu(1), xi(1)), ...
     ... %sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$, reduced (random)', mu(1), nu(1), xi(1)), ...
-    sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$, full', mu(2), nu(2), xi(2)), ...
-    sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$, reduced (uniform)', mu(2), nu(2), xi(2)), ...
+    sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$', mu(2), nu(2), xi(2)), ...
+    sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$, reduced', mu(2), nu(2), xi(2)), ...
     ... %sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$, reduced (random)', mu(2), nu(2), xi(2)), ...
-    sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$, full', mu(3), nu(3), xi(3)), ...
-    sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$, reduced (uniform)', mu(3), nu(3), xi(3)), ...
+    sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$', mu(3), nu(3), xi(3)), ...
+    sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$, reduced', mu(3), nu(3), xi(3)), ...
     ... %sprintf('$\\mu = %2.2f$, $\\nu = %2.2f$, $\\xi = %2.2f$, reduced (random)', mu(3), nu(3), xi(3)), ...
     'location', 'best')
 grid on
@@ -275,12 +276,13 @@ for i = 1:length(L)
             L(i), Nte, suffix);
         load(filename);
         
-        %{
-        err_svd_abs = deleteoutliers(err_svd_abs, 0.01);
-        fprintf('Number of outliers: %i\n', Nte-length(err_svd_abs))
-        err_max_unif(i,j) = max(err_svd_abs);
-        err_avg_unif(i,j) = sum(err_svd_abs)/Nte;
-        %}
+        
+        %err_svd_abs = deleteoutliers(err_svd_abs, 0.01);
+        %fprintf('Number of outliers: %i\n', Nte-length(err_svd_abs))
+        %err_max_unif(i,j) = max(err_svd_abs);
+        %err_avg_unif(i,j) = median(err_svd_abs);
+        
+        
         
         e = zeros(Nte,1);  dx = (b-a)/(K-1);  x = linspace(a,b,K)';
         for r = 1:Nte
@@ -288,7 +290,7 @@ for i = 1:length(L)
             e(r) = sqrt(dx) * norm(u_te(:,r) - VL*alpha);
         end
         err_max_unif(i,j) = max(e);
-        err_avg_unif(i,j) = sum(e)/Nte;
+        err_avg_unif(i,j) = mean(e);
         
     end
 end
@@ -332,7 +334,7 @@ for j = 1:length(N)
     semilogy(L', err_max_unif(:,j), marker_unif{j});
     hold on
     %semilogy(L', err_rand(:,j), marker_rand{j});
-    str_unif = sprintf('''$n_{tr} = %i$''', N(j));
+    str_unif = sprintf('''$N_{tr} = %i$''', N(j));
     %str_rand = sprintf('''$n_{tr} = %i$, random''', N(j));
     str_leg = strcat(str_leg, ', ', str_unif);
     %str_leg = sprintf('%s, %s, %s', str_leg, str_unif, str_rand);
@@ -364,7 +366,7 @@ for j = 1:length(N)
     semilogy(L', err_avg_unif(:,j), marker_unif{j});
     hold on
     %semilogy(L', err_rand(:,j), marker_rand{j});
-    str_unif = sprintf('''$n_{tr} = %i$''', N(j));
+    str_unif = sprintf('''$N_{tr} = %i$''', N(j));
     %str_rand = sprintf('''$n_{tr} = %i$, random''', N(j));
     str_leg = strcat(str_leg, ', ', str_unif);
     %str_leg = sprintf('%s, %s, %s', str_leg, str_unif, str_rand);
@@ -374,7 +376,7 @@ str_leg = sprintf('%s, ''Singular values'')', str_leg);
 eval(str_leg)
 
 % Define plot settings
-title('Average error in $L^2_h$-norm on test data set')
+title('Average SVD error in $L^2_h$-norm on test data set')
 xlabel('$l$')
 ylabel('$||u - u^l||_{L^2_h}$')
 grid on    

@@ -79,7 +79,7 @@ sampler = 'unif';
 N = 50;  L = 12;  Nte = 50;
 root = '../datasets';
 
-H = 1:25;  nruns = 10;
+H = 15;  nruns = 7;
 sampler_tr_v = {'unif'};
 Ntr_v = [5 10 15 20 25 50 75];  Nva_v = ceil(0.3 * Ntr_v);  Nte_nn = 100;
 transferFcn = 'tansig';
@@ -208,7 +208,7 @@ for s = 1:length(sampler_tr_v)
 
             for h = 1:length(H)
                 % Create the feedforward neural network
-                net = feedforwardnet(H(h),trainFcn{i});
+                net = feedforwardnet([H(h) H(h)],trainFcn{i});
 
                 % Set transfer (activation) function for hidden neurons
                 net.layers{1}.transferFcn = transferFcn;
@@ -259,7 +259,7 @@ for s = 1:length(sampler_tr_v)
             filename = sprintf(['%s/NonLinearPoisson1d1pNN/' ...
                 'NonLinearPoisson1d1p_%s_%s%s_NN%s_a%2.2f_' ...
                 'b%2.2f_%s%2.2f_%s%2.2f_mu1%2.2f_mu2%2.2f_K%i_N%i_L%i_Ntr%i_' ...
-                'Nva%i_Nte%i%s.mat'], ...
+                'Nva%i_Nte%i_2L%s.mat'], ...
                 root, solver, reducer, sampler, sampler_tr, a, b, BCLt, BCLv, ...
                 BCRt, BCRv, mu1, mu2, K, N, L, Ntr, Nva, Nte_nn, suffix);
             save(filename, 'datafile', 'H', 'nruns', 'trainFcn', 'Ntr', 'Nva', 'Nte', ...

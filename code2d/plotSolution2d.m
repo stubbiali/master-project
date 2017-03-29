@@ -1,3 +1,17 @@
+% plotSolution2d Utility to plot a two-dimensional linear Finite Elements
+% solution over a triangular grid.
+%
+% plotSolution2d(mesh, u)
+% plotSolution2d(mesh, u, 'title',Title, 'xlabel',Xlabel, 'ylabel',Ylabel, ...
+%   'zlabel',Zlabel)
+%
+% \param mesh   computational mesh as a mesh2d object
+% \param u      numerical solution
+% \param Title  string with the title; default is ''
+% \param Xlabel string with the x-label; default is '$x$'
+% \param Ylabel string with the y-label; default is '$y$'
+% \param Zlabel string with the z-label; default is '$u$'
+
 function plotSolution2d(mesh, u, varargin)
     % Shortcuts
     nodes = mesh.nodes;  elems = mesh.elems;
@@ -29,4 +43,5 @@ function plotSolution2d(mesh, u, varargin)
     % Set plot options
     title(Title);  xlabel(Xlabel);  ylabel(Ylabel);  zlabel(Zlabel);  
     axis equal 
+    drawnow
 end

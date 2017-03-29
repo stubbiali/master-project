@@ -13,7 +13,8 @@ close all
 % width     width of a figure
 % height    height of a figure
 
-p = [0 0];  width = 840;  height = 630;
+screen = get(0,'screensize');
+width = 840;  height = 630; p = [screen(3)-width-100 screen(4)-height-100];
 
 %
 % Run

@@ -50,10 +50,31 @@ plotMesh2d(mesh)
 
 %% Test full version of LinearPoisson2dFEP1
 
-[mesh,u] = LinearPoisson2dFEP1(@K1, @f1, 'D',@BC1, 'D',@BC1, 'D',@BC1, 'D',@BC1, ...
-     'rectangle', 'base',10, 'height',10, 'angle',pi/10);
-%[mesh,u,A,rhs] = LinearPoisson2dFEP1(@K1, @f2, 'D',@BC2, 'D',@BC0, 'D',@BC2, 'D',@BC0, ...
+%[mesh,u] = LinearPoisson2dFEP1(@K1, @f1, 'D',@BC1, 'D',@BC1, 'D',@BC1, 'D',@BC1, ...
+%     'rectangle', 'base',10, 'height',10, 'angle',pi/10);
+%[mesh,u] = LinearPoisson2dFEP1(@K1, @f2, 'D',@BC2, 'D',@BC0, 'D',@BC2, 'D',@BC0, ...
 %    'rectangle', 'origin',[1 0]', 'Hmax',0.04);
+[mesh,u] = LinearPoisson2dFEP1(@K1, @sincos2, 'D',@sincos, 'D',@sincos, 'D',@sincos, 'D',@sincos, ...
+    'rectangle', 'base',2*pi, 'height',2*pi);
 
 close all
 plotSolution2d(mesh,u)
+
+%% Test convergence
+
+close all
+
+p = [25 50 100 200];
+h = 1./p;
+err = zeros(numel(p),1);
+
+for i = 1:numel(p)
+    %[mesh,u] = LinearPoisson2dFEP1(@identity, @doublesincos, 'D',@sincos, 'D',@sincos, 'D',@sincos, 'D',@sincos, ...
+    %    'rectangle', 'width',2*pi, 'height',2*pi, 'Hmax',h(i));
+    [mesh,u] = LinearPoisson2dFEP1(@identity, @unitperiodsinx2, 'D',@unitperiodsinx, ...
+        'D',@unitperiodsinx, 'D',@unitperiodsinx, 'D',@unitperiodsinx, ...
+        'rectangle', 'Hmax',h(i));
+    plotSolution2d(mesh,u)
+    %err(i) = getDiscreteContinuousErrorL2(mesh,u,@sincos);
+    err(i) = getDiscreteContinuousErrorL2(mesh,u,@unitperiodsinx);
+end
