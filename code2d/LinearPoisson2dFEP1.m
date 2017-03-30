@@ -6,8 +6,8 @@
 % [mesh, u] = LinearPoisson2dFEP1(K, f, BCs_t, BCs_v, BCe_t, BCe_v, ...
 %    BCn_t, BCn_v, BCw_t, BCw_v, geometry)
 % [mesh, u] = LinearPoisson2dFEP1(K, f, BCs_t, BCs_v, BCe_t, BCe_v, ...
-%    BCn_t, BCn_v, BCw_t, BCw_v, 'rectangle', 'origin',origin, 'base',base, ...
-%   'height',height, 'angle',angle, 'Hmax',Hmax)
+%    BCn_t, BCn_v, BCw_t, BCw_v, 'quadrilateral', 'A',A, 'B',B, 'C',C, ...
+%    'D',D, 'Hmax',Hmax)
 %
 % \param K          handle to a function evaluating the viscosity matrix in 
 %                   a generic two-dimensional point, passed as a two-elements 
@@ -32,56 +32,26 @@
 %                   - 'N': Neumann
 % \param BCw_v      handle function to West boundary condition
 % \param geometry   string reporting the shape of the domain:
-%                   - 'rectangle': rectangular domain
-% \out   mesh       computational mesh onto the physical domain; this is a
-%                   mesh2d object
+%                   - 'quadrilateral': quadrilateral domain
+% \out   mesh_r     mesh2d over the reference domain
+% \out   mesh       mesh2d over the physical domain     
 % \out   u          discrete solution in each vertex of the mesh
 %
-% Optional arguments for rectangular domains:
-% \param origin     location of the "origin" of the rectangle, i.e. the 
-%                   vertex which will be coincide with the actual origin  
-%                   once the domain has been mapped to the reference
-%                   square; defualt is [0,0]
-% \param width      width of the rectangle, namely the length of the edge 
-%                   whose end-points are the origin of the rectangle and 
-%                   the next vertex in counterclockwise sense; default is 1
-% \param height     height of the rectangle, namely the length of the edge 
-%                   whose end-points are the origin of the rectangle and 
-%                   the next vertex in clockwise sense; default is 1
-% \param angle      angle (in radians) between the x-axis and the base; it
-%                   should be in the interval (-pi/2,pi/2); default is 0
-% \param Hmax       length of the longest edge in the mesh (approximately);
-%                   default is 0.1
+% Optional arguments for quadrilateral domains:
+% \param A          coordinates of the first vertex; default is [0 0]'
+% \param B          coordinates of the second vertex; default is [1 0]'
+% \param C          coordinates of the third vertex; default is [1 1]'
+% \param D          coordinates of the fourth vertex; default is [0 1]'
+% \param Hmax       length of the longest edge in the mesh over the
+%                   reference domain; default is 0.05
 
-function [mesh, u] = LinearPoisson2dFEP1(K, f, BCs_t, BCs_v, BCe_t, BCe_v, ...
+function [mesh_r, mesh, u] = LinearPoisson2dFEP1(K, f, BCs_t, BCs_v, BCe_t, BCe_v, ...
     BCn_t, BCn_v, BCw_t, BCw_v, geometry, varargin)
-    % Build the mesh onto the physical domain
-    [mesh,domain] = buildMesh2d(geometry,varargin{:});
-    
-    % Extract nodes and element-node connectivity
-    nodes = mesh.nodes;   elems = mesh.elems;
-    
-    % Map the physical domain to the reference domain, i.e. a unit square
-    % Note that from now on, all variables which refer to the reference
-    % domain have '_r' as suffix
-    if strcmp(geometry,'rectangle')
-        % Some shortcuts
-        orig = domain.origin;  w = domain.width;  
-        h = domain.height;  alpha = domain.angle;
-        
-        % Build rotational, translational and scale matrices
-        R = [cos(alpha) sin(alpha); -sin(alpha) cos(alpha)];
-        T = repmat(-orig, [1,mesh.getNumNodes()]);  S = [1/w 0; 0 1/h];
-        
-        % Map the vertices
-        nodes_r = S*(R*(nodes + T));        
-    end
-    
-    % Create a mesh2d object on the reference domain
-    mesh_r = mesh2d(nodes_r,elems);
+    % Build the mesh onto the reference and physical domain
+    [mesh_r,mesh,domain] = buildMesh2d(geometry,varargin{:});
     
     % Build stiffness matrix and right-hand side
-    [A,rhs] = getLinearPoisson2dFEP1System_r(geometry, domain, mesh_r, ...
+    [A,rhs] = getMappedLinearPoisson2dFEP1System(geometry, domain, mesh_r, ...
         K, f, BCs_t, BCs_v, BCe_t, BCe_v, BCn_t, BCn_v, BCw_t, BCw_v);
 
     % Solve the system

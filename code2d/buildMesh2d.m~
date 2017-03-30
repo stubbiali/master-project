@@ -34,28 +34,13 @@ function [mesh_r, mesh, domain] = buildMesh2d(geometry, varargin)
         for i = 1:2:length(varargin)
             if strcmp(varargin{i},'A')
                 if size(varargin{i+1},1) > 1
-                    A = varargin{i+1};
-                else
-                    A = varargin{i+1}';
-                end
+                A = varargin{i+1};
             elseif strcmp(varargin{i},'B')
-                if size(varargin{i+1},1) > 1
-                    B = varargin{i+1};
-                else
-                    B = varargin{i+1}';
-                end
+                B = varargin{i+1};
             elseif strcmp(varargin{i},'C')
-                if size(varargin{i+1},1) > 1
-                    C = varargin{i+1};
-                else
-                    C = varargin{i+1}';
-                end
+                C = varargin{i+1};
             elseif strcmp(varargin{i},'D')
-                if size(varargin{i+1},1) > 1
-                    D = varargin{i+1};
-                else
-                    D = varargin{i+1}';
-                end
+                D = varargin{i+1};
             elseif strcmp(varargin{i},'Hmax')
                 Hmax = varargin{i+1};
             else
@@ -76,8 +61,7 @@ function [mesh_r, mesh, domain] = buildMesh2d(geometry, varargin)
             mesh_r = generateMesh(model,'Hmax',Hmax);
 
             % Convert to a mesh2d object
-            mesh_r = mesh2d(mesh_r.Nodes, mesh_r.Elements, ...
-                mesh_r.MaxElementSize, mesh_r.MinElementSize);
+            mesh_r = mesh2d(mesh_r.Nodes, mesh_r.Elements, mesh_r.Hmax, mesh_r.Hmin);
             
             % Update persistent variables
             pHmax = Hmax;  pmesh_r = mesh_r;  
@@ -86,12 +70,13 @@ function [mesh_r, mesh, domain] = buildMesh2d(geometry, varargin)
         end
                         
         % Map the grid from reference to phisical domain
-        M = [B-A D-A A-B+C-D A];  
+        M = [B(1)-A(1) D(1)-A(1) A(1)-B(1)+C(1)-D(1) A(1); ...
+            B(2)-A(2) D(2)-A(2) A(2)-B(2)+C(2)-D(2) A(2)];  
         S = repmat(A,1,pmesh_r.getNumNodes());
         mesh = mesh2d(M*pnodes_ext+S,pelems);
         
         % Store domain details in a struct
-        domain = struct('A',A, 'B',B, 'C',C, 'D',D);
+        domain = struct('A',A, 'B',B, 'C',C, 'D',D, 'M',M);
     else
         error('Unknown input geometry. Available geometries:\n\t''quadrilateral''.')
     end

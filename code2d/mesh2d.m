@@ -15,44 +15,51 @@ classdef mesh2d
     
     methods
         % Constructor.
-        % \param n  list of nodes
-        % \param e  list of triangles
-        function obj = mesh2d(n,e)
+        % \param n      list of nodes
+        % \param e      list of triangles
+        % \param hmax   length of longest edge
+        % \param hmin   length of shortest edge
+        function obj = mesh2d(n,e,varargin)
             % Initialize attributes
             obj.nodes = n;  obj.elems = e;
             
-            % Compute length for each edge and extract maximum and minimum 
-            obj.hmax = -Inf;  obj.hmin = Inf;
-            for i = 1:size(obj.elems,2)
-                % Extract vertices Id's
-                ia = obj.elems(1,i);  ib = obj.elems(2,i);  ic = obj.elems(3,i);
-                
-                % Compute edges length
-                ab = norm(obj.nodes(:,ib)-obj.nodes(:,ia)); 
-                bc = norm(obj.nodes(:,ic)-obj.nodes(:,ib)); 
-                ca = norm(obj.nodes(:,ia)-obj.nodes(:,ic)); 
-                
-                % If needed, update maximum
-                if (ab > obj.hmax)
-                    obj.hmax = ab;
+            if (nargin == 2)
+                % Compute length for each edge and extract maximum and minimum 
+                obj.hmax = -Inf;  obj.hmin = Inf;
+                for i = 1:size(obj.elems,2)
+                    % Extract vertices Id's
+                    ia = obj.elems(1,i);  ib = obj.elems(2,i);  ic = obj.elems(3,i);
+
+                    % Compute edges length
+                    ab = norm(obj.nodes(:,ib)-obj.nodes(:,ia)); 
+                    bc = norm(obj.nodes(:,ic)-obj.nodes(:,ib)); 
+                    ca = norm(obj.nodes(:,ia)-obj.nodes(:,ic)); 
+
+                    % If needed, update maximum
+                    if (ab > obj.hmax)
+                        obj.hmax = ab;
+                    end
+                    if (bc > obj.hmax)
+                        obj.hmax = bc;
+                    end
+                    if (ca > obj.hmax)
+                        obj.hmax = ca;
+                    end
+
+                    % If needed, update minimum
+                    if (ab < obj.hmin)
+                        obj.hmin = ab;
+                    end
+                    if (bc < obj.hmin)
+                        obj.hmin = bc;
+                    end
+                    if (ca < obj.hmin)
+                        obj.hmin = ca;
+                    end
                 end
-                if (bc > obj.hmax)
-                    obj.hmax = bc;
-                end
-                if (ca > obj.hmax)
-                    obj.hmax = ca;
-                end
-                
-                % If needed, update minimum
-                if (ab < obj.hmin)
-                    obj.hmin = ab;
-                end
-                if (bc < obj.hmin)
-                    obj.hmin = bc;
-                end
-                if (ca < obj.hmin)
-                    obj.hmin = ca;
-                end
+            elseif nargin == 4
+                % Catch length of longest and shortest edge
+                obj.hmax = varargin{1};  obj.hmin = varargin{2};
             end
         end
                 
