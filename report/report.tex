@@ -1,0 +1,254 @@
+\RequirePackage[hyphens]{url}
+
+\documentclass[11pt, a4paper, twoside, openright]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{amsmath}
+\allowdisplaybreaks
+\usepackage{amsfonts}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{anyfontsize}
+\usepackage{enumitem}
+\usepackage{pdfpages}
+\usepackage{fourier}	% Style
+\usepackage{bm}
+\usepackage{epstopdf}
+\usepackage{lipsum}
+\usepackage{authblk}
+\usepackage[top=3cm, bottom=3cm, left=2cm, right=2cm, scale=0.75]{geometry}	% Set the margins
+\usepackage{fancyhdr}
+\usepackage[letterspace=150]{microtype}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage{booktabs}
+\usepackage{amsmath,etoolbox}
+\usepackage{mathtools}
+\usepackage{anyfontsize}
+%\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{float}
+\usepackage{subfig}
+\usepackage[labelfont=bf,labelsep=period,font=small]{caption}
+\usepackage{newunicodechar}
+\usepackage{nicefrac}	% For diagonal fractions
+\usepackage{bbm}
+\usepackage{csvsimple}
+%\usepackage{floatrow}	% For notes below a figure
+
+% Set header and footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\nouppercase{\leftmark}}
+\fancyhead[LO]{\rightmark}
+
+% Packages needed for tables
+\usepackage{longtable}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{array}
+
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+\usepackage{breakurl}
+\usepackage{url}
+
+% To put footnotes at the bottom of the page
+\usepackage[bottom]{footmisc}
+
+% No indent
+%\setlength\parindent{0pt}
+
+% To enumerate subequations with arabic numbers (e.g. 1.1, 1.2, ecc)
+\patchcmd{\subequations}{\def\theequation{\theparentequation\alph{equation}}}{\def\theequation{\theparentequation.\arabic{equation}}}{}{}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+
+
+% Definition of theorem environment
+\theoremstyle{theorem}
+\newtheorem{thm}{Theorem}[section]
+
+% To enumerate the equations and the figures according to the section they are in
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+% Path to images folder
+\graphicspath{{./img/}}
+
+% To modify the space between figure and caption
+%\setlength{\abovecaptionskip}{-4pt}
+%\setlength{\belowcaptionskip}{3pt}
+
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\topfraction}{0.9}
+
+\usepackage{tikz}
+
+% Python
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{10.25} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{10.25}  % for normal
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+\usepackage{listings}
+
+% Python style for highlighting
+\newcommand\pythonstyle{\lstset{
+	language=Python,
+	basicstyle=\ttm,
+	otherkeywords={self},             % Add keywords here
+	keywordstyle=\ttb\color{deepblue},
+	emph={MyClass,__init__},          % Custom highlighting
+	emphstyle=\ttb\color{deepred},    % Custom highlighting style
+	stringstyle=\color{deepgreen},
+	frame=tb,                         % Any extra options here
+	showstringspaces=false            % 
+}}
+
+
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+	\pythonstyle
+	\lstset{#1}
+}
+{}
+
+% Python for external files
+\newcommand\pythonexternal[2][]{{
+		\pythonstyle
+		\lstinputlisting[#1]{#2}}}
+
+% Python for inline
+\newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+
+% C++ style for highlighting
+\newcommand\cppstyle{\lstset{
+	language=C++,
+	basicstyle=\ttm,
+	otherkeywords={},             % Add keywords here
+	keywordstyle=\ttb\color{deepred},
+	emph={int,double,bool,const,void,auto},          % Custom highlighting
+	emphstyle=\ttb\color{deepgreen},    % Custom highlighting style
+	stringstyle=\color{purple},
+	commentstyle=\color{blue}\ttfamily,
+	frame=tb,                         % Any extra options here
+	showstringspaces=false            % 
+}}
+
+% C++ environment
+\lstnewenvironment{cpp}[1][]
+{
+	\cppstyle
+	\lstset{#1}
+}
+{}
+
+% C++ for external files
+\newcommand\cppexternal[2][]{{
+		\cppstyle
+		\lstinputlisting[#1]{#2}}}
+
+% C++ for inline
+\newcommand\cppinline[1]{{\cppstyle\lstinline!#1!}}
+
+% Set listings options for R code
+\lstset{
+	language=R,
+	basicstyle=\ttm,
+	commentstyle=\ttfamily\color{blue},
+	backgroundcolor=\color{white},
+	frame=tb,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=2,
+	keywordstyle=\ttb\color{deepred},
+	stringstyle=\color{purple},
+	emph={NULL},          % Custom highlighting
+	emphstyle=\ttb\color{purple},
+}
+
+% For argmin
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+% To insert verbatim within a command
+\usepackage{fancyvrb}
+
+% For pseudocode
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\begin{document}
+
+	\chapter{Introduction to Neural Networks}
+	\label{chapter:Introduction to Neural Networks}
+	
+		Let us start this thesis by introducing the key components of artificial neural networks and discussing the way a neural network can be trained. Please note that this chapter is not meant to provide a comprehensive overview on neural networks, rather to investigate some aspects and concepts functional to the following chapters. For further reading, we refer the reader to, e.g., \cite{Hag14} and \cite{Kri} and the references therein, from which we retrieved many of the informations provided in this chapter.
+		
+		Throughout this work we confine the attention to the most-spread neural network paradigm - the \emph{feedforward} neural network, presented in Section \ref{} - employing the well-known \emph{backpropagation of error} as learning rule, derived in Section \ref{}. Actually, in the numerical experiments we carried out and whose results will be discussed in Chapter \ref{}, we mainly refer to a variant of backpropagation - the Levenberg-Marquardt algorithm \cite{}, shortly discussed in Section \ref{}. 
+		
+		Before moving to the description of technical neural networks, let us provide a brief excursus on their biological counterparts. The goal is to highlight the basic features of the human nervous system, focusing on the working principles of neurons and the way informations are processed, thus to extract the key concepts which should be taken over into a mathematical, simplified representation. 
+		
+	\section{Biological motivation}
+	\label{section:Biological motivation} 
+		
+		The information processing system of a vertebrate can be roughly divided into the \emph{central nervous system} (CNS) and the \emph{peripheral nervous system} (PNS). The former consists of the \emph{brain} and the \emph{spinal cord}, while the latter mainly comprises the \emph{nerves}, which transmit informations from all other parts of the body to the CNS (\emph{sensory nerves}) and viceversa (\emph{motor nerves}). When an output stimulus hits the sensory cells of an organ sense, these generate an electric signal, called \emph{sensory signal}, which is transfered to the central nervous system via the \emph{sensory nerves}. Within the CNS, informations are stored and managed to provide the muscles with a suitable \emph{motor signal}, broadcast through the \emph{motor nerves}. In addition, the central nervous system is also in charge of controlling the inner processes in the body and coordinating motor functions \cite{Kri}.
+		
+		Hence, both the central and peripheral nervous system are directly involved in the information processing. At the cellular level, this is accomplished through a huge amount of modified cells called \emph{neurons}. These processing elements continuosly communicate each other by means of electric signals, traveling through a thick net of connections. For instance, in a human being each neuron is linked in average with $10^3 - 10^4$ other neurons. As detailed in the next paragraph, a neuron is characterized by a rather simple structure, specifically designed to rapidly collect input signals and generate an output pulse whenever the accumulated incoming signal exceeds a threshold - the \emph{action potential}. In other terms, a neuron acts as a switch.
+		
+		From a simplifying perspective, a neuron consists of three main components: the \emph{dendrites}, the \emph{nucleus} or \emph{soma}, and the \emph{axon}. Dendrites are tree-like networks of nerve fibers receiving input signals from many sources and carrying them directly to the nucleus of the neuron. Here, input signals are accumulated and thresholded, as mentioned before. The possible output pulse is then broadcast to the next cell through the axon - a unique, slender fiber constituing an extension of the soma. To ease the electrical conduction of the signal, the axon is isolated through a myelin sheath that consists of Schwann cells (in the PNS) or oligodendrocytes (in the CNS). However, this insulating film is not continuous, rather presents gaps at regular intervals called \emph{nodes of Ranvier}, which lets the signal be conducted in a saltatory way.
+		The signal coming from the axon of another neuron or another cell is transfered to the dendrites of a neuron through a particular connection called \emph{synapsis}\footnote{For the sake of completeness, we mention that there exist synapses directly connecting the axon of the sender neuron with either the soma or the axon of the receiver. Actually, a synapsis may also connect the axon of a neuron with the dendrite or soma of the same neuron (autosynapsis). However, for our purposes we can confine the attention to the axon-dendrite synapsis.}. In particular, let us focus on chemical synapsis. It consists of a synaptic \emph{cleft}, physically separating the \emph{presynaptic} side, i.e. the sender axon, from the \emph{postsynaptic} side, i.e. the receiver dendrite. To let the action potential reach the postsynaptic side, at the presynaptic side the electrical signal is converted into a chemical signal. This is accomplished by releasing some chemical substances called \emph{neurotransmitters}. These neurotransmitters then cross the cleft and bind to the receptors dislocated onto the membrane of the postsynaptic side, where the chemical signal is re-converted into an electrical pulse. 
+		
+		On the other hand, neurotransmitters do not simply broadcast the signal. Indeed, we can distinguish between excitatory and inhibitory neurotransmitters, respectively amplifying or modulating the signal. Hence, the pulse outgoing a neuron gets weighted by the synapsis before reaching the connected cell. In other terms, a neuron gets in input many \emph{weighted} signals, which must then be accumulated. Furthermore, the nature of a synapsis is likely to vary throughout the life of the being, i.e. connections may become weaker or stronger with time. It worths mention that different studies have unveiled the tight correlation between the connections neurons established among each other, and the tasks a neural network can address. Then, a \emph{learning process} actually consists in \emph{adapting} the weights characterizing the connections between processing units, according to experience.
+		
+		
+		
+		
+	\section{From biological to artificial neural networks}
+	\label{section:From biological to artificial neural networks}
+		
+		
+		
+		
+		
+		 
+
+	\chapter{Reduced Basis method for nonlinear elliptic PDEs}
+	\label{chapter:Reduced Basis method for nonlinear elliptic PDEs}
+	
+		In this chapter, we derive a Reduced Basis (RB) approximation for a parametrized Boundary Value problem (BVP) involving a possibly nonlinear elliptic Partial Differential Equation (PDE). As a convenient test case, the nonlinear Poisson equation in one and two spatial dimensions is considered, with the nonlinearity stemming from a solution-dependent viscosity. In the one-dimensional case, the parameters may characterize the viscosity itself, the forcing term, or the boundary conditions. On the contrary, in the two-dimensional framework we are concerned with a parameter-free PDE defined on a domain undergoing geometrical transformations. In the RB context, when dealing with shape variations one needs to introduce a parametric transformation, mapping the whole domain to a parameter-independent reference configuration, e.g. a unit square \cite{MN16}. For this aim, we refer to the boundary displacement-dependent transfinite map (BDD TM) proposed in \cite{JIR14}, building a volumetric parametrization given the boundary parametrization of the domain. 
+		
+		For the sake of numerical efficiency, the RB procedure is usually carried out within an offline-online framework. The \emph{offline} stage consists in generating the reduced basis out of an ensemble of \emph{snapshots}, i.e. high-fidelity numerical solutions to the BVP for different realizations of the parameters. In this thesis, the well-known Proper Orthogonal Decomposition (POD) technique is used, relying on the Finite Element (FE) method for the computation of the snapshots. Then, given new values for the parameters, in the \emph{online} phase one seeks an approximation to the high-fidelity solution in the reduced space, i.e. the linear space generated by the reduced basis. To retain the well-posedness of the problem, the system yielded by the FE method is projected onto the reduced space, thus enforcing the orthogonality to the reduced basis of the residual for each equation \cite{HRS15,MN16}. Hence, the computational cost associated with the \emph{resolution} of the \emph{reduced} model is \emph{independent} of the size of the original, large-scale model. 
+		
+		The whole procedure sketched so far is detailed in the following sections. Section \ref{} and \ref{} discuss the Finite Element method applied to the one- and two-dimensional Poisson equation, respectively. The Reduced Basis technique is described in Section \ref{}, while in the final Section \ref{} we present an alternative, Neural Network-based approach for the computation of the reduced solution, which represents the actual novelty of the proposed reduced order modeling algorithm.
+		
+	\section{Finite Element method for one-dimensional Poisson}
+	\label{section:Finite Element method for one-dimensional Poisson}
+		
+		
+	\begin{thebibliography}{50}
+	
+		\bibitem{Hag14}
+		Hagan M. T., Demuth H. B., Beale M. H., De Jes\'us O. \emph{Neural Network Design, 2nd Edition}. eBook, 2014.
+		
+		\bibitem{Kri}
+		Kriesel D. \emph{A Brief Introduction to Neural Networks}. \url{http://www.dkriesel.com/en/science/neural_networks}.
+		
+	\end{thebibliography}	
+	
+\end{document}
