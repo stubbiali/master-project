@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.28)  5 MAY 2017 07:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.28)  7 MAY 2017 23:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1140,7 +1140,16 @@ ex
 \c@csvrow=\count139
 \c@csvcol=\count140
 \csv@out=\write3
-) (/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
+)
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 49.
+
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 50.
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 \LTleft=\skip74
 \LTright=\skip75
@@ -1351,7 +1360,7 @@ Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
 .
 )
 
-Package amsthm Warning: Unknown theoremstyle `theorem' on input line 78.
+Package amsthm Warning: Unknown theoremstyle `theorem' on input line 79.
 
 \c@thm=\count167
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
@@ -1607,7 +1616,8 @@ File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
 zlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
 )))
-LaTeX Font Info:    Try loading font information for T1+txtt on input line 99.
+LaTeX Font Info:    Try loading font information for T1+txtt on input line 100.
+
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/t1txtt.fd
 File: t1txtt.fd 2000/12/15 v3.1
@@ -1661,52 +1671,52 @@ Document Style - pseudocode environments for use with the `algorithmicx' style
 ) (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 196.
-LaTeX Font Info:    ... okay on input line 196.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 196.
-LaTeX Font Info:    ... okay on input line 196.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 196.
-LaTeX Font Info:    ... okay on input line 196.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 196.
-LaTeX Font Info:    ... okay on input line 196.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 196.
-LaTeX Font Info:    ... okay on input line 196.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 196.
-LaTeX Font Info:    ... okay on input line 196.
-LaTeX Font Info:    Checking defaults for FML/futm/m/it on input line 196.
-LaTeX Font Info:    Try loading font information for FML+futm on input line 196
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 197.
+LaTeX Font Info:    ... okay on input line 197.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 197.
+LaTeX Font Info:    ... okay on input line 197.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 197.
+LaTeX Font Info:    ... okay on input line 197.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 197.
+LaTeX Font Info:    ... okay on input line 197.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 197.
+LaTeX Font Info:    ... okay on input line 197.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 197.
+LaTeX Font Info:    ... okay on input line 197.
+LaTeX Font Info:    Checking defaults for FML/futm/m/it on input line 197.
+LaTeX Font Info:    Try loading font information for FML+futm on input line 197
 .
  (/usr/share/texlive/texmf-dist/tex/latex/fourier/fmlfutm.fd
 File: fmlfutm.fd 2004/10/30 Fontinst v1.926 font definitions for FML/futm.
 )
-LaTeX Font Info:    ... okay on input line 196.
-LaTeX Font Info:    Checking defaults for FMS/futm/m/n on input line 196.
-LaTeX Font Info:    Try loading font information for FMS+futm on input line 196
+LaTeX Font Info:    ... okay on input line 197.
+LaTeX Font Info:    Checking defaults for FMS/futm/m/n on input line 197.
+LaTeX Font Info:    Try loading font information for FMS+futm on input line 197
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/fourier/fmsfutm.fd
 File: fmsfutm.fd 2004/10/30 Fontinst v1.926 font definitions for FMS/futm.
 )
-LaTeX Font Info:    ... okay on input line 196.
-LaTeX Font Info:    Checking defaults for FMX/futm/m/n on input line 196.
-LaTeX Font Info:    Try loading font information for FMX+futm on input line 196
+LaTeX Font Info:    ... okay on input line 197.
+LaTeX Font Info:    Checking defaults for FMX/futm/m/n on input line 197.
+LaTeX Font Info:    Try loading font information for FMX+futm on input line 197
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/fourier/fmxfutm.fd
 File: fmxfutm.fd futm-extension
 )
-LaTeX Font Info:    ... okay on input line 196.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 196.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 196.
+LaTeX Font Info:    ... okay on input line 197.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 197.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 197.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 196.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 196.
-LaTeX Font Info:    ... okay on input line 196.
-LaTeX Font Info:    Try loading font information for T1+futs on input line 196.
+LaTeX Font Info:    ... okay on input line 197.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 197.
+LaTeX Font Info:    ... okay on input line 197.
+LaTeX Font Info:    Try loading font information for T1+futs on input line 197.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/fourier/t1futs.fd
@@ -1743,7 +1753,7 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
 * paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: twoside 
+* modes: 
 * h-part:(L,W,R)=(56.9055pt, 483.69687pt, 56.9055pt)
 * v-part:(T,H,B)=(85.35826pt, 674.33032pt, 85.35826pt)
 * \paperwidth=597.50787pt
@@ -1757,7 +1767,7 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
 * \headsep=25.0pt
 * \topskip=11.0pt
 * \footskip=30.0pt
-* \marginparwidth=103.0pt
+* \marginparwidth=50.0pt
 * \marginparsep=10.0pt
 * \columnsep=10.0pt
 * \skip\footins=10.0pt plus 4.0pt minus 2.0pt
@@ -1765,12 +1775,12 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
 * \voffset=0.0pt
 * \mag=1000
 * \@twocolumnfalse
-* \@twosidetrue
-* \@mparswitchtrue
+* \@twosidefalse
+* \@mparswitchfalse
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \microtypecontext on input line 196.
+LaTeX Info: Redefining \microtypecontext on input line 197.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1786,15 +1796,15 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             See the microtype manual for details.
 \symgns@font=\mathgroup11
 LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
-(Font)                  TS1/futs/m/n --> TS1/futs/bx/n on input line 196.
-Package gensymb Info: Math companion symbols declared on input line 196.
-LaTeX Info: Redefining \degree on input line 196.
-LaTeX Info: Redefining \celsius on input line 196.
+(Font)                  TS1/futs/m/n --> TS1/futs/bx/n on input line 197.
+Package gensymb Info: Math companion symbols declared on input line 197.
+LaTeX Info: Redefining \degree on input line 197.
+LaTeX Info: Redefining \celsius on input line 197.
 Package gensymb Info: Using text companion symbols for \degree, \celsius and \p
-erthousand on input line 196.
-LaTeX Info: Redefining \ohm on input line 196.
-Package gensymb Info: Using \textohm for \ohm on input line 196.
-Package gensymb Info: Using \textmu for \micro on input line 196.
+erthousand on input line 197.
+LaTeX Info: Redefining \ohm on input line 197.
+Package gensymb Info: Using \textohm for \ohm on input line 197.
+Package gensymb Info: Using \textmu for \micro on input line 197.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: hyperref package is loaded.
@@ -1803,7 +1813,7 @@ Package caption Info: longtable package is loaded.
 Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 196.
+Package hyperref Info: Link coloring OFF on input line 197.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1813,9 +1823,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count271
 )
-LaTeX Info: Redefining \ref on input line 196.
-LaTeX Info: Redefining \pageref on input line 196.
-LaTeX Info: Redefining \nameref on input line 196.
+LaTeX Info: Redefining \ref on input line 197.
+LaTeX Info: Redefining \pageref on input line 197.
+LaTeX Info: Redefining \nameref on input line 197.
 
 (./report.out) (./report.out)
 \@outlinefile=\write6
@@ -1824,37 +1834,37 @@ LaTeX Info: Redefining \nameref on input line 196.
  ABD: EveryShipout initializing macros
 Chapter 1.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 198.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 199.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 198.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 199.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 203.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 204.
 
-LaTeX Warning: Reference `' on page 1 undefined on input line 203.
-
-
-LaTeX Warning: Reference `' on page 1 undefined on input line 203.
+LaTeX Warning: Reference `' on page 1 undefined on input line 204.
 
 
-LaTeX Warning: Reference `' on page 1 undefined on input line 203.
+LaTeX Warning: Reference `' on page 1 undefined on input line 204.
 
 
-LaTeX Warning: Reference `' on page 1 undefined on input line 203.
+LaTeX Warning: Reference `' on page 1 undefined on input line 204.
+
+
+LaTeX Warning: Reference `' on page 1 undefined on input line 204.
 
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 207.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 208.
 LaTeX Font Info:    Try loading font information for FML+futmi on input line 21
-2.
+3.
 (/usr/share/texlive/texmf-dist/tex/latex/fourier/fmlfutmi.fd
 File: fmlfutmi.fd 2004/10/30 Fontinst v1.926 font definitions for FML/futmi.
 )
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 10.07397pt on input line 212.
+(Font)              scaled to size 10.07397pt on input line 213.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 7.63599pt on input line 212.
+(Font)              scaled to size 7.63599pt on input line 213.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 5.51999pt on input line 212.
-LaTeX Font Info:    Try loading font information for U+msa on input line 212.
+(Font)              scaled to size 5.51999pt on input line 213.
+LaTeX Font Info:    Try loading font information for U+msa on input line 213.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1862,7 +1872,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 212.
+LaTeX Font Info:    Try loading font information for U+msb on input line 213.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1871,12 +1881,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 10.07397pt on input line 212.
+(Font)              scaled to size 10.07397pt on input line 213.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 7.63599pt on input line 212.
+(Font)              scaled to size 7.63599pt on input line 213.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 5.51999pt on input line 212.
-LaTeX Font Info:    Try loading font information for TS1+futs on input line 212
+(Font)              scaled to size 5.51999pt on input line 213.
+LaTeX Font Info:    Try loading font information for TS1+futs on input line 213
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/fourier/ts1futs.fd
@@ -1886,18 +1896,19 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `futs' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 8.27998pt on input line 215.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 6.99199pt on input line 215.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 8.27998pt on input line 215.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 6.99199pt on input line 215.
  [1
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 8.27998pt on input line 217.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 6.99199pt on input line 217.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 8.27998pt on input line 217.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 6.99199pt on input line 217.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -1905,44 +1916,194 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [2]
-Chapter 2.
-
-LaTeX Warning: Citation `MN16' on page 3 undefined on input line 234.
-
-
-LaTeX Warning: Citation `JIR14' on page 3 undefined on input line 234.
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <12> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 234.
 
 
-LaTeX Warning: Citation `HRS15' on page 3 undefined on input line 236.
+LaTeX Warning: Reference `section:Biological neural network' on page 3 undefine
+d on input line 237.
 
 
-LaTeX Warning: Citation `MN16' on page 3 undefined on input line 236.
+LaTeX Warning: Reference `' on page 3 undefined on input line 237.
 
 
-LaTeX Warning: Reference `' on page 3 undefined on input line 238.
+LaTeX Warning: Reference `section:Biological neural network' on page 3 undefine
+d on input line 262.
 
 
-LaTeX Warning: Reference `' on page 3 undefined on input line 238.
+LaTeX Warning: Reference `' on page 3 undefined on input line 263.
 
 
-LaTeX Warning: Reference `' on page 3 undefined on input line 238.
+LaTeX Warning: Reference `' on page 3 undefined on input line 263.
 
-
-LaTeX Warning: Reference `' on page 3 undefined on input line 238.
-
-[3
-
-]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[4
+[3]
+
+LaTeX Warning: Reference `' on page 4 undefined on input line 282.
+
+
+LaTeX Warning: Reference `' on page 4 undefined on input line 282.
+
+
+LaTeX Warning: Reference `' on page 4 undefined on input line 301.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[4]
+
+LaTeX Warning: Citation `Cyb88' on page 5 undefined on input line 317.
+
+
+LaTeX Warning: Citation `Cyb89' on page 5 undefined on input line 317.
+
+
+LaTeX Warning: Citation `Cyb89' on page 5 undefined on input line 319.
+
+
+LaTeX Warning: Citation `Cyb88' on page 5 undefined on input line 320.
+
+
+LaTeX Warning: Reference `' on page 5 undefined on input line 324.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[5]
+Package epstopdf Info: Source file: <./img/neuron.eps>
+(epstopdf)                    date: 2017-05-07 23:31:42
+(epstopdf)                    size: 70617 bytes
+(epstopdf)             Output file: <./img/neuron-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-05-07 23:32:07
+(epstopdf)                    size: 67007 bytes
+(epstopdf)             Command: <repstopdf --outfile=./img/neuron-eps-converted
+-to.pdf ./img/neuron.eps>
+(epstopdf)             \includegraphics on input line 345.
+Package epstopdf Info: Output file is already uptodate.
+ <./img/neuron-eps-converted-to.pdf, id=107, 454.69875pt x 243.91125pt>
+File: ./img/neuron-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/neuron-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/neuron-eps-converted-to.pdf used on input line 3
+45.
+(pdftex.def)             Requested size: 227.34882pt x 121.95532pt.
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 347.
+Package epstopdf Info: Source file: <./img/neural_model_ter.eps>
+(epstopdf)                    date: 2017-05-07 23:14:54
+(epstopdf)                    size: 27684 bytes
+(epstopdf)             Output file: <./img/neural_model_ter-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2017-05-07 23:15:09
+(epstopdf)                    size: 10768 bytes
+(epstopdf)             Command: <repstopdf --outfile=./img/neural_model_ter-eps
+-converted-to.pdf ./img/neural_model_ter.eps>
+(epstopdf)             \includegraphics on input line 353.
+Package epstopdf Info: Output file is already uptodate.
+
+<./img/neural_model_ter-eps-converted-to.pdf, id=108, 344.28625pt x 179.67125pt
+>
+File: ./img/neural_model_ter-eps-converted-to.pdf Graphic file (type pdf)
+ <use ./img/neural_model_ter-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/neural_model_ter-eps-converted-to.pdf used on in
+put line 353.
+(pdftex.def)             Requested size: 240.99872pt x 125.769pt.
+Package epstopdf Info: Source file: <./img/neural_model_bias.eps>
+(epstopdf)                    date: 2017-05-07 23:22:52
+(epstopdf)                    size: 28710 bytes
+(epstopdf)             Output file: <./img/neural_model_bias-eps-converted-to.p
+df>
+(epstopdf)                    date: 2017-05-07 23:23:12
+(epstopdf)                    size: 11072 bytes
+(epstopdf)             Command: <repstopdf --outfile=./img/neural_model_bias-ep
+s-converted-to.pdf ./img/neural_model_bias.eps>
+(epstopdf)             \includegraphics on input line 361.
+Package epstopdf Info: Output file is already uptodate.
+
+<./img/neural_model_bias-eps-converted-to.pdf, id=109, 344.28625pt x 199.74625p
+t>
+File: ./img/neural_model_bias-eps-converted-to.pdf Graphic file (type pdf)
+ <use ./img/neural_model_bias-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/neural_model_bias-eps-converted-to.pdf used on i
+nput line 361.
+(pdftex.def)             Requested size: 240.99872pt x 139.82141pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[6 <./img/neuron-eps-converted-to.pdf> <./img/neural_model_ter-eps-converted-to
+.pdf>]
+Package epstopdf Info: Source file: <./img/neural_network_bis.eps>
+(epstopdf)                    date: 2017-05-07 21:46:16
+(epstopdf)                    size: 33818 bytes
+(epstopdf)             Output file: <./img/neural_network_bis-eps-converted-to.
+pdf>
+(epstopdf)                    date: 2017-05-07 21:47:55
+(epstopdf)                    size: 9858 bytes
+(epstopdf)             Command: <repstopdf --outfile=./img/neural_network_bis-e
+ps-converted-to.pdf ./img/neural_network_bis.eps>
+(epstopdf)             \includegraphics on input line 369.
+Package epstopdf Info: Output file is already uptodate.
+
+<./img/neural_network_bis-eps-converted-to.pdf, id=132, 532.99126pt x 296.10625
+pt>
+File: ./img/neural_network_bis-eps-converted-to.pdf Graphic file (type pdf)
+ <use ./img/neural_network_bis-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/neural_network_bis-eps-converted-to.pdf used on 
+input line 369.
+(pdftex.def)             Requested size: 319.79723pt x 177.66512pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[7 <./img/neural_model_bias-eps-converted-to.pdf> <./img/neural_network_bis-eps
+-converted-to.pdf>]
+Chapter 2.
+
+LaTeX Warning: Citation `MN16' on page 8 undefined on input line 383.
+
+
+LaTeX Warning: Citation `JIR14' on page 8 undefined on input line 383.
+
+
+LaTeX Warning: Citation `HRS15' on page 8 undefined on input line 385.
+
+
+LaTeX Warning: Citation `MN16' on page 8 undefined on input line 385.
+
+
+LaTeX Warning: Reference `' on page 8 undefined on input line 387.
+
+
+LaTeX Warning: Reference `' on page 8 undefined on input line 387.
+
+
+LaTeX Warning: Reference `' on page 8 undefined on input line 387.
+
+
+LaTeX Warning: Reference `' on page 8 undefined on input line 387.
+
+[8
 
 ]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 250.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 402.
 
  (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1951,40 +2112,47 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [5]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 254.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 254.
+ [9
+
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 412.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 412.
  (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 254.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 254.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 412.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 412.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 268C2F2CF4127B7DDC4093B22368DDDA;402.
+(rerunfilecheck)             Checksum: F9756B879F35EE1492789214DDF81EB8;654.
 
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 26237 strings out of 493029
- 461072 string characters out of 6136233
- 701490 words of memory out of 5000000
- 29002 multiletter control sequences out of 15000+600000
- 122638 words of font info for 239 fonts, out of 8000000 for 9000
+ 26497 strings out of 493029
+ 465224 string characters out of 6136233
+ 704406 words of memory out of 5000000
+ 29105 multiletter control sequences out of 15000+600000
+ 183452 words of font info for 367 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 54i,11n,72p,1256b,351s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 54i,12n,77p,1855b,467s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exi
 st, replaced by a fixed one
 
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texlive/texmf-dist/f
 onts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/fo
-urier/fourier-ms.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/adobe/utopia/putri8a.pfb>
-Output written on report.pdf (5 pages, 87359 bytes).
+urier/fourier-bb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/
+fourier-mcl.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fouri
+er-mex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-ml
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-mlit.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb></usr
+/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/adobe/utopia/putb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ad
+obe/utopia/putbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/
+putr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb>
+Output written on report.pdf (9 pages, 224281 bytes).
 PDF statistics:
- 88 PDF objects out of 1000 (max. 8388607)
- 75 compressed objects within 1 object stream
- 15 named destinations out of 1000 (max. 500000)
- 28725 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 227 PDF objects out of 1000 (max. 8388607)
+ 187 compressed objects within 2 object streams
+ 38 named destinations out of 1000 (max. 500000)
+ 36961 words of extra memory for PDF output out of 42996 (max. 10000000)
 
