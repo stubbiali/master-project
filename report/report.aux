@@ -22,6 +22,7 @@
 \citation{Hay05}
 \citation{Kri}
 \citation{SD}
+\providecommand\tcolorbox@label[2]{}
 \@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction to Neural Networks}{1}{chapter.1}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -38,18 +39,21 @@
 \newlabel{section:Artificial neural networks}{{1.2}{2}{Artificial neural networks}{section.1.2}{}}
 \citation{Kri}
 \citation{Kri}
+\newlabel{def:neural-network}{{1.1}{3}{Neural network}{definition.1.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2.1}Neuronal model}{3}{subsection.1.2.1}}
 \newlabel{section:Neuronal model}{{1.2.1}{3}{Neuronal model}{subsection.1.2.1}{}}
-\newlabel{eq:propagation-function}{{1.2.1}{3}{Neuronal model}{equation.1.2.1}{}}
-\newlabel{eq:weighted-summer}{{1.2.2}{3}{Neuronal model}{equation.1.2.2}{}}
-\newlabel{eq:activation-function}{{1.2.3}{3}{Neuronal model}{equation.1.2.3}{}}
+\newlabel{eq:propagation-function}{{1.1}{3}{Neuronal model}{equation.1.1}{}}
+\newlabel{eq:weighted-summer}{{1.2}{3}{Neuronal model}{equation.1.2}{}}
+\newlabel{eq:activation-function}{{1.3}{3}{Neuronal model}{equation.1.3}{}}
 \citation{Hay05}
 \citation{Hay05}
 \citation{Hay05}
-\newlabel{eq:heaviside}{{1.2.6}{4}{Neuronal model}{equation.1.2.6}{}}
-\newlabel{eq:logistic}{{1.2.7}{4}{Neuronal model}{equation.1.2.7}{}}
-\newlabel{eq:hyperbolic-tangent}{{1.2.8}{4}{Neuronal model}{equation.1.2.8}{}}
-\newlabel{eq:output-function}{{1.2.9}{4}{Neuronal model}{equation.1.2.9}{}}
+\newlabel{eq:net-input}{{1.4}{4}{Neuronal model}{equation.1.4}{}}
+\newlabel{eq:heaviside}{{1.6}{4}{Neuronal model}{equation.1.6}{}}
+\newlabel{eq:logistic}{{1.7}{4}{Neuronal model}{equation.1.7}{}}
+\newlabel{eq:hyperbolic-tangent}{{1.8}{4}{Neuronal model}{equation.1.8}{}}
+\newlabel{eq:output-function}{{1.9}{4}{Neuronal model}{equation.1.9}{}}
+\citation{Ros58}
 \citation{Kri}
 \citation{Cyb88}
 \citation{Cyb89}
@@ -57,28 +61,110 @@
 \citation{Cyb88}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2.2}Network topologies: the feedforward neural network}{5}{subsection.1.2.2}}
 \newlabel{section:Network topologies}{{1.2.2}{5}{Network topologies: the feedforward neural network}{subsection.1.2.2}{}}
+\newlabel{cybenko-first-rule}{{{{(i)}}}{5}{Network topologies: the feedforward neural network}{Item.1}{}}
+\newlabel{cybenko-second-rule}{{{{(ii)}}}{5}{Network topologies: the feedforward neural network}{Item.2}{}}
+\citation{Hay05}
+\citation{Kri}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2.3}Training a multilayer feedforward neural network}{6}{subsection.1.2.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.2.1}{\ignorespaces \relax }}{6}{figure.caption.1}}
+\newlabel{section:Training a multilayer feedforard neural network}{{1.2.3}{6}{Training a multilayer feedforward neural network}{subsection.1.2.3}{}}
+\citation{Kri}
+\citation{KLM96}
+\citation{Heb49}
+\citation{Hay05}
+\citation{Hay05}
+\newlabel{a}{{{{(a)}}}{7}{Training a multilayer feedforward neural network}{Item.3}{}}
+\newlabel{b}{{{{(b)}}}{7}{Training a multilayer feedforward neural network}{Item.4}{}}
+\newlabel{first-rule}{{{{(i)}}}{7}{Training a multilayer feedforward neural network}{Item.5}{}}
+\newlabel{second-rule}{{{{(ii)}}}{7}{Training a multilayer feedforward neural network}{Item.6}{}}
+\citation{Kri}
+\newlabel{first-rule}{{1.2.3}{8}{Training a multilayer feedforward neural network}{Item.6}{}}
+\newlabel{eq:hebbian-rule}{{1.10}{8}{Training a multilayer feedforward neural network}{equation.1.10}{}}
+\newlabel{eq:weight-update}{{1.11}{8}{Training a multilayer feedforward neural network}{equation.1.11}{}}
+\newlabel{eq:generalized-hebbian-rule}{{1.12}{8}{Training a multilayer feedforward neural network}{equation.1.12}{}}
+\newlabel{eq:performance-function}{{1.13}{8}{Training a multilayer feedforward neural network}{equation.1.13}{}}
+\newlabel{eq:accumulated-error}{{1.14}{8}{Training a multilayer feedforward neural network}{equation.1.14}{}}
+\newlabel{eq:mse}{{1.15}{8}{Training a multilayer feedforward neural network}{equation.1.15}{}}
+\citation{Hay05}
+\citation{MR86}
+\newlabel{eq:accumulated-mse}{{1.16}{9}{Training a multilayer feedforward neural network}{equation.1.16}{}}
+\newlabel{eq:antigradient}{{1.17}{9}{Training a multilayer feedforward neural network}{equation.1.17}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Backpropagation of error}{9}{section*.1}}
+\newlabel{section:Backpropagation of error}{{1.2.3}{9}{Backpropagation of error}{section*.1}{}}
+\newlabel{eq:bp-first-equation}{{1.18}{9}{Backpropagation of error}{equation.1.18}{}}
+\newlabel{eq:bp-second-equation}{{1.19}{9}{Backpropagation of error}{equation.1.19}{}}
+\newlabel{eq:bp-third-equation}{{1.20}{9}{Backpropagation of error}{equation.1.20}{}}
+\newlabel{eq:delta}{{1.21}{9}{Backpropagation of error}{equation.1.21}{}}
+\citation{Kri}
+\newlabel{eq:bp-weight-update}{{1.22}{10}{Backpropagation of error}{equation.1.22}{}}
+\newlabel{eq:bp-fourth-equation}{{1.23}{10}{Backpropagation of error}{equation.1.23}{}}
+\newlabel{eq:bp-fifth-equation}{{1.24}{10}{Backpropagation of error}{equation.1.24}{}}
+\newlabel{eq:bp-sixth-equation}{{1.25}{10}{Backpropagation of error}{equation.1.25}{}}
+\citation{Kri}
+\citation{WH60}
+\citation{Kri}
+\citation{Kri}
+\citation{RB93}
+\citation{Fah88}
+\citation{Mar63}
+\citation{Hag94}
+\newlabel{eq:bp-inner-neuron}{{1.26a}{11}{Backpropagation of error}{equation.1.26}{}}
+\newlabel{eq:bp-output-neuron}{{1.26b}{11}{Backpropagation of error}{equation.1.26}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Levenberg-Marquardt algorithm}{11}{section*.2}}
+\newlabel{section:Levenberg-Marquardt algorithm}{{1.2.3}{11}{Levenberg-Marquardt algorithm}{section*.2}{}}
+\newlabel{eq:newton}{{1.27}{11}{Levenberg-Marquardt algorithm}{equation.1.27}{}}
+\newlabel{eq:accumulated-mse-bis}{{1.28}{11}{Levenberg-Marquardt algorithm}{equation.1.28}{}}
+\citation{Hag94}
+\citation{Mar63}
+\citation{Mar63}
+\newlabel{eq:jacobian}{{1.29}{12}{Levenberg-Marquardt algorithm}{equation.1.29}{}}
+\newlabel{eq:gradient}{{1.30}{12}{Levenberg-Marquardt algorithm}{equation.1.30}{}}
+\newlabel{eq:hessian}{{1.31}{12}{Levenberg-Marquardt algorithm}{equation.1.31}{}}
+\newlabel{eq:newton-quadratic-function}{{1.32}{12}{Levenberg-Marquardt algorithm}{equation.1.32}{}}
+\newlabel{eq:levenberg-marquardt}{{1.33}{12}{Levenberg-Marquardt algorithm}{equation.1.33}{}}
+\newlabel{eq:jacobian-entry}{{1.34}{12}{Levenberg-Marquardt algorithm}{equation.1.34}{}}
+\citation{Mar63}
+\citation{Hag94}
+\newlabel{eq:jacobian-entry-equation}{{1.35}{13}{Levenberg-Marquardt algorithm}{equation.1.35}{}}
+\newlabel{eq:levenberg-marquardt-delta}{{1.36}{13}{Levenberg-Marquardt algorithm}{equation.1.36}{}}
+\newlabel{eq:jacobian-first-case}{{1.37}{13}{Levenberg-Marquardt algorithm}{equation.1.37}{}}
+\newlabel{eq:jacobian-second-case}{{1.38}{13}{Levenberg-Marquardt algorithm}{equation.1.38}{}}
+\newlabel{eq:jacobian-third-case}{{1.39}{13}{Levenberg-Marquardt algorithm}{equation.1.39}{}}
+\newlabel{eq:levenberg-marquardt-inner-neuron}{{1.40a}{13}{Levenberg-Marquardt algorithm}{equation.1.40}{}}
+\newlabel{eq:levenberg-marquardt-output-neuron}{{1.40b}{13}{Levenberg-Marquardt algorithm}{equation.1.40}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.4}Practical considerations on the design of artificial neural networks}{13}{subsection.1.2.4}}
+\newlabel{section:Practical considerations on the design of artificial neural networks}{{1.2.4}{13}{Practical considerations on the design of artificial neural networks}{subsection.1.2.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.2.1}{\ignorespaces \relax }}{14}{figure.caption.3}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:neuron}{{1.2.1}{6}{\relax }{figure.caption.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.2.2}{\ignorespaces \relax }}{6}{figure.caption.2}}
-\newlabel{fig:neural-model}{{1.2.2}{6}{\relax }{figure.caption.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.2.3}{\ignorespaces \relax }}{7}{figure.caption.3}}
-\newlabel{fig:neural-model-bias}{{1.2.3}{7}{\relax }{figure.caption.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.2.4}{\ignorespaces \relax }}{7}{figure.caption.4}}
-\newlabel{fig:neural-network}{{1.2.4}{7}{\relax }{figure.caption.4}{}}
+\newlabel{fig:neuron}{{1.2.1}{14}{\relax }{figure.caption.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.2.2}{\ignorespaces \relax }}{14}{figure.caption.4}}
+\newlabel{fig:neural-model}{{1.2.2}{14}{\relax }{figure.caption.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.2.3}{\ignorespaces \relax }}{14}{figure.caption.5}}
+\newlabel{fig:neural-model-bias}{{1.2.3}{14}{\relax }{figure.caption.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.2.4}{\ignorespaces \relax }}{15}{figure.caption.6}}
+\newlabel{fig:neural-network}{{1.2.4}{15}{\relax }{figure.caption.6}{}}
 \citation{MN16}
 \citation{JIR14}
 \citation{HRS15}
 \citation{MN16}
-\@writefile{toc}{\contentsline {chapter}{\numberline {2}Reduced Basis method for nonlinear elliptic PDEs}{8}{chapter.2}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Reduced Basis method for nonlinear elliptic PDEs}{16}{chapter.2}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chapter:Reduced Basis method for nonlinear elliptic PDEs}{{2}{8}{Reduced Basis method for nonlinear elliptic PDEs}{chapter.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}Finite Element method for one-dimensional Poisson}{8}{section.2.1}}
-\newlabel{section:Finite Element method for one-dimensional Poisson}{{2.1}{8}{Finite Element method for one-dimensional Poisson}{section.2.1}{}}
-\bibcite{Hag14}{1}
-\bibcite{Hay05}{2}
-\bibcite{Kri}{3}
-\bibcite{Nie15}{4}
-\bibcite{SD}{5}
+\newlabel{chapter:Reduced Basis method for nonlinear elliptic PDEs}{{2}{16}{Reduced Basis method for nonlinear elliptic PDEs}{chapter.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Finite Element method for one-dimensional Poisson}{16}{section.2.1}}
+\newlabel{section:Finite Element method for one-dimensional Poisson}{{2.1}{16}{Finite Element method for one-dimensional Poisson}{section.2.1}{}}
+\bibcite{Cyb88}{1}
+\bibcite{Cyb89}{2}
+\bibcite{Fah88}{3}
+\bibcite{Hag94}{4}
+\bibcite{Hag14}{5}
+\bibcite{Hay05}{6}
+\bibcite{Heb49}{7}
+\bibcite{KLM96}{8}
+\bibcite{Kri}{9}
+\bibcite{Mar63}{10}
+\bibcite{MR86}{11}
+\bibcite{Nie15}{12}
+\bibcite{RB93}{13}
+\bibcite{Ros58}{14}
+\bibcite{SD}{15}
+\bibcite{WH60}{16}
