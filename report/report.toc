@@ -1,0 +1,24 @@
+\contentsline {chapter}{\numberline {1}Introduction to neural networks}{7}{chapter.1}
+\contentsline {section}{\numberline {1.1}Biological motivation}{7}{section.1.1}
+\contentsline {section}{\numberline {1.2}Artificial neural networks}{9}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Neuronal model}{10}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Network topologies: the feedforward neural network}{13}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}Training a multilayer feedforward neural network}{15}{subsection.1.2.3}
+\contentsline {subsubsection}{Backpropagation of error}{19}{section*.9}
+\contentsline {subsubsection}{Levenberg-Marquardt algorithm}{22}{section*.10}
+\contentsline {subsection}{\numberline {1.2.4}Practical considerations on the design of artificial neural networks}{26}{subsection.1.2.4}
+\contentsline {chapter}{\numberline {2}Reduced basis methods for nonlinear partial differential equations}{29}{chapter.2}
+\contentsline {section}{\numberline {2.1}Parametrized nonlinear PDEs}{32}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Nonlinear Poisson equation}{33}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Steady Navier-Stokes equations}{35}{subsection.2.1.2}
+\contentsline {section}{\numberline {2.2}From the original to the reference domain}{36}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Change of variables formulae}{37}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}The problems of interest}{39}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}The boundary displacement-dependent transfinite map (BDD TM)}{40}{subsection.2.2.3}
+\contentsline {section}{\numberline {2.3}Well-posedness of the test cases}{42}{section.2.3}
+\contentsline {section}{\numberline {2.4}Finite element method}{43}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Nonlinear Poisson equation}{45}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Steady Navier-Stokes equations}{46}{subsection.2.4.2}
+\contentsline {section}{\numberline {2.5}POD-Galerkin reduced basis method}{48}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Proper Orthogonal Decomposition}{52}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}Implementation: details and issues}{56}{subsection.2.5.2}

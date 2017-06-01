@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.28)  1 JUN 2017 17:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.28)  26 MAY 2017 20:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**report.tex
-(./report.tex
+**img/generate_pdf.tex
+(./img/generate_pdf.tex
 LaTeX2e <2016/02/01>
 Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
@@ -12,8 +12,8 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
 Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
-(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
-File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@chapter=\count80
@@ -1158,588 +1158,50 @@ ex
 \c@csvrow=\count143
 \c@csvcol=\count144
 \csv@out=\write3
-) (/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
-Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
-\LTleft=\skip74
-\LTright=\skip75
-\LTpre=\skip76
-\LTpost=\skip77
-\LTchunksize=\count145
-\LTcapwidth=\dimen169
-\LT@head=\box37
-\LT@firsthead=\box38
-\LT@foot=\box39
-\LT@lastfoot=\box40
-\LT@cols=\count146
-\LT@rows=\count147
-\c@LT@tables=\count148
-\c@LT@chunks=\count149
-\LT@p@ftn=\toks38
-)
-(/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
-Package: multicol 2015/08/19 v1.8n multicolumn formatting (FMi)
-\c@tracingmulticols=\count150
-\mult@box=\box41
-\multicol@leftmargin=\dimen170
-\c@unbalance=\count151
-\c@collectmore=\count152
-\doublecol@number=\count153
-\multicoltolerance=\count154
-\multicolpretolerance=\count155
-\full@width=\dimen171
-\page@free=\dimen172
-\premulticols=\dimen173
-\postmulticols=\dimen174
-\multicolsep=\skip78
-\multicolbaselineskip=\skip79
-\partial@page=\box42
-\last@line=\box43
-\maxbalancingoverflow=\dimen175
-\mult@rightbox=\box44
-\mult@grightbox=\box45
-\mult@gfirstbox=\box46
-\mult@firstbox=\box47
-\@tempa=\box48
-\@tempa=\box49
-\@tempa=\box50
-\@tempa=\box51
-\@tempa=\box52
-\@tempa=\box53
-\@tempa=\box54
-\@tempa=\box55
-\@tempa=\box56
-\@tempa=\box57
-\@tempa=\box58
-\@tempa=\box59
-\@tempa=\box60
-\@tempa=\box61
-\@tempa=\box62
-\@tempa=\box63
-\@tempa=\box64
-\c@columnbadness=\count156
-\c@finalcolumnbadness=\count157
-\last@try=\dimen176
-\multicolovershoot=\dimen177
-\multicolundershoot=\dimen178
-\mult@nat@firstbox=\box65
-\colbreak@box=\box66
-\mc@col@check@num=\count158
-)
-(/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
-\bigstrutjot=\dimen179
-)
-(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
-Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
-\col@sep=\dimen180
-\extrarowheight=\dimen181
-\NC@list=\toks39
-\extratabsurround=\skip80
-\backup@length=\skip81
-)
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
+) (/usr/share/texlive/texmf-dist/tex/latex/pstool/pstool.sty
+Package: pstool 2014/05/11 v1.5c Wrapper for processing PostScript/psfrag figur
+es
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
-Package: hobsub-hyperref 2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/catchfile.sty
+Package: catchfile 2011/03/01 v1.6 Catch the contents of a file (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/ifplatform/ifplatform.sty
+Package: ifplatform 2010/10/22 v0.4 Testing for the operating system
 
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
-Package: hobsub-generic 2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
-Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
-Package hobsub Info: Skipping package `infwarerr' (already loaded).
-Package hobsub Info: Skipping package `ltxcmds' (already loaded).
-Package hobsub Info: Skipping package `ifluatex' (already loaded).
-Package hobsub Info: Skipping package `ifvtex' (already loaded).
-Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
-Package hobsub Info: Skipping package `ifpdf' (already loaded).
-Package hobsub Info: Skipping package `etexcmds' (already loaded).
-Package hobsub Info: Skipping package `kvsetkeys' (already loaded).
-Package hobsub Info: Skipping package `kvdefinekeys' (already loaded).
-Package hobsub Info: Skipping package `pdftexcmds' (already loaded).
-Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
-Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
-)
-Package: bitset 2011/01/30 v1.1 Handle bit-vector datatype (HO)
-Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
-)
-Package hobsub Info: Skipping package `hobsub' (already loaded).
-Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
-Package: hopatch 2012/05/28 v1.2 Wrapper for package hooks (HO)
-Package: xcolor-patch 2011/01/30 xcolor patch
-Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
-Package hobsub Info: Skipping package `atbegshi' (already loaded).
-Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
-Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
-Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
-)
-\@linkdim=\dimen182
-\Hy@linkcounter=\count159
-\Hy@pagecounter=\count160
+Package ifplatform Warning: 
+    shell escape is disabled, so I can only detect \ifwindows.
 
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
-Now handling font encoding PD1 ...
-... no UTF-8 mapping file for font encoding PD1
-)
-\Hy@SavedSpaceFactor=\count161
+) (/usr/share/texlive/texmf-dist/tex/latex/filemod/filemod.sty
+Package: filemod 2011/09/19 v1.2 Get and compare file modification times
 
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
-File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+(/usr/share/texlive/texmf-dist/tex/latex/filemod/filemod-expmin.sty
+Package: filemod-expmin 2011/09/19 v1.2 Get and compare file modification times
+ (expandable; minimal)
+))
+(/usr/share/texmf/tex/latex/psfrag/psfrag.sty
+Package: psfrag 1998/04/11 v3.04 PSfrag (MCG)
+\pfg@pcount=\count145
+\pfg@scount=\count146
+\pfg@temp=\write4
 )
-Package hyperref Info: Hyper figures OFF on input line 4443.
-Package hyperref Info: Link nesting OFF on input line 4448.
-Package hyperref Info: Hyper index ON on input line 4451.
-Package hyperref Info: Plain pages OFF on input line 4458.
-Package hyperref Info: Backreferencing OFF on input line 4463.
-Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4688.
-\c@Hy@tempcnt=\count162
-LaTeX Info: Redefining \url on input line 5041.
-\XeTeXLinkMargin=\dimen183
-\Fld@menulength=\count163
-\Field@Width=\dimen184
-\Fld@charsize=\dimen185
-Package hyperref Info: Hyper figures OFF on input line 6295.
-Package hyperref Info: Link nesting OFF on input line 6300.
-Package hyperref Info: Hyper index ON on input line 6303.
-Package hyperref Info: backreferencing OFF on input line 6310.
-Package hyperref Info: Link coloring OFF on input line 6315.
-Package hyperref Info: Link coloring with OCG OFF on input line 6320.
-Package hyperref Info: PDF/A mode OFF on input line 6325.
-LaTeX Info: Redefining \ref on input line 6365.
-LaTeX Info: Redefining \pageref on input line 6369.
-\Hy@abspage=\count164
-\c@Item=\count165
-\c@Hfootnote=\count166
+(/usr/share/texlive/texmf-dist/tex/latex/bigfoot/suffix.sty
+Package: suffix 2006/07/15 1.5a Variant command support
 )
-
-Package hyperref Message: Driver (autodetected): hpdftex.
-
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
-\Fld@listcount=\count167
-\c@bookmark@seq@number=\count168
-
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
-Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
-82.
+(/usr/share/texlive/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 )
-\Hy@SectionHShift=\skip82
-)
-(/usr/share/texlive/texmf-dist/tex/latex/breakurl/breakurl.sty
-Package: breakurl 2013/04/10 v1.40 Breakable hyperref URLs
-
 (/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 
 (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
 (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks40
-\XKV@tempa@toks=\toks41
+\XKV@toks=\toks38
+\XKV@tempa@toks=\toks39
 )
-\XKV@depth=\count169
+\XKV@depth=\count147
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
-
-Package breakurl Warning: You are using breakurl while processing via pdflatex.
-
-(breakurl)                \burl will be just a synonym of \url.
-(breakurl)                 on input line 48.
-
-) (/usr/share/texlive/texmf-dist/tex/latex/footmisc/footmisc.sty
-Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
-\FN@temptoken=\toks42
-\footnotemargin=\dimen186
-
-
-LaTeX Warning: Command \@makecol  has changed.
-               Check if current package is valid.
-
-\c@pp@next@reset=\count170
-Package footmisc Info: Declaring symbol style bringhurst on input line 855.
-Package footmisc Info: Declaring symbol style chicago on input line 863.
-Package footmisc Info: Declaring symbol style wiley on input line 872.
-Package footmisc Info: Declaring symbol style lamport-robust on input line 883.
-
-Package footmisc Info: Declaring symbol style lamport* on input line 903.
-Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
-.
-)
-
-Package amsthm Warning: Unknown theoremstyle `theorem' on input line 85.
-
-\c@theorem=\count171
-\c@definition=\count172
-\c@remark=\count173
-
-Package amsthm Warning: Unknown theoremstyle `proposition' on input line 91.
-
-\c@proposition=\count174
-(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
-(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
-(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks43
-\pgfutil@tempdima=\dimen187
-\pgfutil@tempdimb=\dimen188
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.t
-ex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box67
-(/usr/share/texlive/texmf-dist/tex/latex/ms/everyshi.sty
-Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
-))
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
-Package: pgfrcs 2015/08/07 v3.0.1a (rcs-revision 1.31)
-))
-Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
-
-(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
-(/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
-Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)
-\pgf@x=\dimen189
-\pgf@y=\dimen190
-\pgf@xa=\dimen191
-\pgf@ya=\dimen192
-\pgf@xb=\dimen193
-\pgf@yb=\dimen194
-\pgf@xc=\dimen195
-\pgf@yc=\dimen196
-\w@pgf@writea=\write4
-\r@pgf@reada=\read2
-\c@pgf@counta=\count175
-\c@pgf@countb=\count176
-\c@pgf@countc=\count177
-\c@pgf@countd=\count178
-\t@pgf@toka=\toks44
-\t@pgf@tokb=\toks45
-\t@pgf@tokc=\toks46
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
-File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
-)
-Driver file for pgf: pgfsys-pdftex.def
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
-File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de
-f
-File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
-)))
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
-tex
-File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
-\pgfsyssoftpath@smallbuffer@items=\count179
-\pgfsyssoftpath@bigbuffer@items=\count180
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
-tex
-File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
-))
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
-Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen197
-\pgfmath@count=\count181
-\pgfmath@box=\box68
-\pgfmath@toks=\toks47
-\pgfmath@stack@operand=\toks48
-\pgfmath@stack@operation=\toks49
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
-.tex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet
-ric.code.tex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod
-e.tex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison
-.code.tex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.
-tex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code
-.tex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.
-tex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
-thmetics.code.tex)))
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count182
-))
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
-x
-File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
-\pgf@picminx=\dimen198
-\pgf@picmaxx=\dimen199
-\pgf@picminy=\dimen256
-\pgf@picmaxy=\dimen257
-\pgf@pathminx=\dimen258
-\pgf@pathmaxx=\dimen259
-\pgf@pathminy=\dimen260
-\pgf@pathmaxy=\dimen261
-\pgf@xx=\dimen262
-\pgf@xy=\dimen263
-\pgf@yx=\dimen264
-\pgf@yy=\dimen265
-\pgf@zx=\dimen266
-\pgf@zy=\dimen267
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
-code.tex
-File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
-\pgf@path@lastx=\dimen268
-\pgf@path@lasty=\dimen269
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
-.tex
-File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
-\pgf@shorten@end@additional=\dimen270
-\pgf@shorten@start@additional=\dimen271
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
-x
-File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
-\pgfpic=\box69
-\pgf@hbox=\box70
-\pgf@layerbox@main=\box71
-\pgf@picture@serial@count=\count183
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
-ode.tex
-File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
-\pgflinewidth=\dimen272
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
-s.code.tex
-File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
-\pgf@pt@x=\dimen273
-\pgf@pt@y=\dimen274
-\pgf@pt@temp=\dimen275
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
-File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.t
-ex
-File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing
-.code.tex
-File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
-x
-File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
-\pgfarrowsep=\dimen276
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
-File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
-\pgf@max=\dimen277
-\pgf@sys@shading@range@num=\count184
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
-File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
-tex
-File: pgfcoreexternal.code.tex 2014/07/09  (rcs-revision 1.21)
-\pgfexternal@startupbox=\box72
-))
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
-x
-File: pgfcorelayers.code.tex 2013/07/18  (rcs-revision 1.7)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.c
-ode.tex
-File: pgfcoretransparency.code.tex 2013/09/30  (rcs-revision 1.5)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.
-tex
-File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
-)))
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
-File: pgfmoduleshapes.code.tex 2014/03/21  (rcs-revision 1.35)
-\pgfnodeparttextbox=\box73
-) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
-File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
-.sty
-Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
-\pgf@nodesepstart=\dimen278
-\pgf@nodesepend=\dimen279
-)
-(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
-.sty
-Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
-)) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
-(/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
-Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
-\pgffor@iter=\dimen280
-\pgffor@skip=\dimen281
-\pgffor@stack=\toks50
-\pgffor@toks=\toks51
-))
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
-Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
-.code.tex
-File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
-\pgf@plot@mark@count=\count185
-\pgfplotmarksize=\dimen282
-)
-\tikz@lastx=\dimen283
-\tikz@lasty=\dimen284
-\tikz@lastxsaved=\dimen285
-\tikz@lastysaved=\dimen286
-\tikzleveldistance=\dimen287
-\tikzsiblingdistance=\dimen288
-\tikz@figbox=\box74
-\tikz@figbox@bg=\box75
-\tikz@tempbox=\box76
-\tikz@tempbox@bg=\box77
-\tikztreelevel=\count186
-\tikznumberofchildren=\count187
-\tikznumberofcurrentchild=\count188
-\tikz@fig@count=\count189
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
-File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
-\pgfmatrixcurrentrow=\count190
-\pgfmatrixcurrentcolumn=\count191
-\pgf@matrix@numberofcolumns=\count192
-)
-\tikz@expandcount=\count193
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
-zlibrarytopaths.code.tex
-File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
-)))
-LaTeX Font Info:    Try loading font information for T1+txtt on input line 116.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/txfonts/t1txtt.fd
-File: t1txtt.fd 2000/12/15 v3.1
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty
-File: lstlang2.sty 2015/06/04 1.6 listings language file
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang3.sty
-File: lstlang3.sty 2015/06/04 1.6 listings language file
-)
-(/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
-Package: fancyvrb 2008/02/07
-
-Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
-<2008/02/07> (tvz)
-\FV@CodeLineNo=\count194
-\FV@InFile=\read3
-\FV@TabBox=\box78
-\c@FancyVerbLine=\count195
-\FV@StepNumber=\count196
-\FV@OutFile=\write5
-)
-(/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
-Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
-nment
-\@float@every@algorithm=\toks52
-\c@algorithm=\count197
-)
-(/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
-Package: algpseudocode 
-
-(/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
-Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
-
-Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count198
-\c@ALG@rem=\count199
-\c@ALG@nested=\count266
-\ALG@tlm=\skip83
-\ALG@thistlm=\skip84
-\c@ALG@Lnr=\count267
-\c@ALG@blocknr=\count268
-\c@ALG@storecount=\count269
-\c@ALG@tmpcounter=\count270
-\ALG@tmplength=\skip85
-)
-Document Style - pseudocode environments for use with the `algorithmicx' style
-) (/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
-Package: tcolorbox 2016/02/29 version 3.90 text color boxes
-
-(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
-Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks53
-\verbatim@line=\toks54
-\verbatim@in@stream=\read4
-)
-(/usr/share/texlive/texmf-dist/tex/latex/environ/environ.sty
-Package: environ 2014/05/04 v0.3 A new way to define environments
-
-(/usr/share/texlive/texmf-dist/tex/latex/trimspaces/trimspaces.sty
-Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
-))
-\tcb@titlebox=\box79
-\tcb@upperbox=\box80
-\tcb@lowerbox=\box81
-\tcb@phantombox=\box82
-\c@tcbbreakpart=\count271
-\c@tcblayer=\count272
-\tcolorbox@number=\count273
-\tcb@temp=\box83
-\tcb@temp=\box84
-\tcb@temp=\box85
-\tcb@temp=\box86
-\tcb@out=\write6
-\tcb@record@out=\write7
-
-(/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcbraster.code.tex
-Library (tcolorbox): 'tcbraster.code.tex' version '3.90'
-\c@tcbrastercolumn=\count274
-\c@tcbrasterrow=\count275
-\c@tcbraster=\count276
-) (/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
-Library (tcolorbox): 'tcbskins.code.tex' version '3.90'
-\tcb@waterbox=\box87
-(/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
-Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '3.90'
-)) (/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcbbreakable.code.tex
-Library (tcolorbox): 'tcbbreakable.code.tex' version '3.90'
-\tcb@testbox=\box88
-\tcb@totalupperbox=\box89
-\tcb@totallowerbox=\box90
-) (/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcbhooks.code.tex
-Library (tcolorbox): 'tcbhooks.code.tex' version '3.90'
-) (/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcbtheorems.code.tex
-Library (tcolorbox): 'tcbtheorems.code.tex' version '3.90'
-) (/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcbfitting.code.tex
-Library (tcolorbox): 'tcbfitting.code.tex' version '3.90'
-\tcbfitdim=\dimen289
-\tcb@lowerfitdim=\dimen290
-\tcb@upperfitdim=\dimen291
-\tcb@cur@hbadness=\count277
-) (/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcbxparse.code.tex
-Library (tcolorbox): 'tcbxparse.code.tex' version '3.90'
-(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2016/01/19 v6377 L3 programming layer (loader) 
 
@@ -1753,37 +1215,37 @@ L3 Module: l3tl 2015/09/29 v6121 L3 Token lists
 L3 Module: l3str 2016/01/03 v6357 L3 Strings
 L3 Module: l3seq 2015/08/05 v5777 L3 Sequences and stacks
 L3 Module: l3int 2016/01/05 v6366 L3 Integers
-\c_max_int=\count278
-\l_tmpa_int=\count279
-\l_tmpb_int=\count280
-\g_tmpa_int=\count281
-\g_tmpb_int=\count282
+\c_max_int=\count148
+\l_tmpa_int=\count149
+\l_tmpb_int=\count150
+\g_tmpa_int=\count151
+\g_tmpb_int=\count152
 L3 Module: l3quark 2015/08/17 v5855 L3 Quarks
 L3 Module: l3prg 2015/11/01 v6216 L3 Control structures
-\g__prg_map_int=\count283
+\g__prg_map_int=\count153
 L3 Module: l3clist 2015/09/02 v5901 L3 Comma separated lists
 L3 Module: l3token 2015/11/11 v6249 L3 Experimental token manipulation
 L3 Module: l3prop 2016/01/05 v6366 L3 Property lists
 L3 Module: l3msg 2015/09/28 v6113 L3 Messages
 L3 Module: l3file 2015/12/03 v6317 L3 File and I/O operations
-\l_iow_line_count_int=\count284
-\l__iow_target_count_int=\count285
-\l__iow_current_line_int=\count286
-\l__iow_current_word_int=\count287
-\l__iow_current_indentation_int=\count288
+\l_iow_line_count_int=\count154
+\l__iow_target_count_int=\count155
+\l__iow_current_line_int=\count156
+\l__iow_current_word_int=\count157
+\l__iow_current_indentation_int=\count158
 L3 Module: l3skip 2016/01/05 v6366 L3 Dimensions and skips
-\c_zero_dim=\dimen292
-\c_max_dim=\dimen293
-\l_tmpa_dim=\dimen294
-\l_tmpb_dim=\dimen295
-\g_tmpa_dim=\dimen296
-\g_tmpb_dim=\dimen297
-\c_zero_skip=\skip86
-\c_max_skip=\skip87
-\l_tmpa_skip=\skip88
-\l_tmpb_skip=\skip89
-\g_tmpa_skip=\skip90
-\g_tmpb_skip=\skip91
+\c_zero_dim=\dimen169
+\c_max_dim=\dimen170
+\l_tmpa_dim=\dimen171
+\l_tmpb_dim=\dimen172
+\g_tmpa_dim=\dimen173
+\g_tmpb_dim=\dimen174
+\c_zero_skip=\skip74
+\c_max_skip=\skip75
+\l_tmpa_skip=\skip76
+\l_tmpb_skip=\skip77
+\g_tmpa_skip=\skip78
+\g_tmpb_skip=\skip79
 \c_zero_muskip=\muskip12
 \c_max_muskip=\muskip13
 \l_tmpa_muskip=\muskip14
@@ -1791,164 +1253,147 @@ L3 Module: l3skip 2016/01/05 v6366 L3 Dimensions and skips
 \g_tmpa_muskip=\muskip16
 \g_tmpb_muskip=\muskip17
 L3 Module: l3keys 2015/11/17 v6284 L3 Key-value interfaces
-\g__keyval_level_int=\count289
-\l_keys_choice_int=\count290
+\g__keyval_level_int=\count159
+\l_keys_choice_int=\count160
 L3 Module: l3fp 2015/08/25 v5890 L3 Floating points
-\c__fp_leading_shift_int=\count291
-\c__fp_middle_shift_int=\count292
-\c__fp_trailing_shift_int=\count293
-\c__fp_big_leading_shift_int=\count294
-\c__fp_big_middle_shift_int=\count295
-\c__fp_big_trailing_shift_int=\count296
-\c__fp_Bigg_leading_shift_int=\count297
-\c__fp_Bigg_middle_shift_int=\count298
-\c__fp_Bigg_trailing_shift_int=\count299
+\c__fp_leading_shift_int=\count161
+\c__fp_middle_shift_int=\count162
+\c__fp_trailing_shift_int=\count163
+\c__fp_big_leading_shift_int=\count164
+\c__fp_big_middle_shift_int=\count165
+\c__fp_big_trailing_shift_int=\count166
+\c__fp_Bigg_leading_shift_int=\count167
+\c__fp_Bigg_middle_shift_int=\count168
+\c__fp_Bigg_trailing_shift_int=\count169
 L3 Module: l3box 2015/08/09 v5822 L3 Experimental boxes
-\c_empty_box=\box91
-\l_tmpa_box=\box92
-\l_tmpb_box=\box93
-\g_tmpa_box=\box94
-\g_tmpb_box=\box95
+\c_empty_box=\box37
+\l_tmpa_box=\box38
+\l_tmpb_box=\box39
+\g_tmpa_box=\box40
+\g_tmpb_box=\box41
 L3 Module: l3coffins 2015/08/06 v5789 L3 Coffin code layer
-\l__coffin_internal_box=\box96
-\l__coffin_internal_dim=\dimen298
-\l__coffin_offset_x_dim=\dimen299
-\l__coffin_offset_y_dim=\dimen300
-\l__coffin_x_dim=\dimen301
-\l__coffin_y_dim=\dimen302
-\l__coffin_x_prime_dim=\dimen303
-\l__coffin_y_prime_dim=\dimen304
-\c_empty_coffin=\box97
-\l__coffin_aligned_coffin=\box98
-\l__coffin_aligned_internal_coffin=\box99
-\l_tmpa_coffin=\box100
-\l_tmpb_coffin=\box101
-\l__coffin_display_coffin=\box102
-\l__coffin_display_coord_coffin=\box103
-\l__coffin_display_pole_coffin=\box104
-\l__coffin_display_offset_dim=\dimen305
-\l__coffin_display_x_dim=\dimen306
-\l__coffin_display_y_dim=\dimen307
+\l__coffin_internal_box=\box42
+\l__coffin_internal_dim=\dimen175
+\l__coffin_offset_x_dim=\dimen176
+\l__coffin_offset_y_dim=\dimen177
+\l__coffin_x_dim=\dimen178
+\l__coffin_y_dim=\dimen179
+\l__coffin_x_prime_dim=\dimen180
+\l__coffin_y_prime_dim=\dimen181
+\c_empty_coffin=\box43
+\l__coffin_aligned_coffin=\box44
+\l__coffin_aligned_internal_coffin=\box45
+\l_tmpa_coffin=\box46
+\l_tmpb_coffin=\box47
+\l__coffin_display_coffin=\box48
+\l__coffin_display_coord_coffin=\box49
+\l__coffin_display_pole_coffin=\box50
+\l__coffin_display_offset_dim=\dimen182
+\l__coffin_display_x_dim=\dimen183
+\l__coffin_display_y_dim=\dimen184
 L3 Module: l3color 2014/08/23 v5354 L3 Experimental color support
 L3 Module: l3sys 2015/09/25 v6087 L3 Experimental system/runtime functions
 L3 Module: l3candidates 2016/01/14 v6376 L3 Experimental additions to l3kernel
-\l__box_top_dim=\dimen308
-\l__box_bottom_dim=\dimen309
-\l__box_left_dim=\dimen310
-\l__box_right_dim=\dimen311
-\l__box_top_new_dim=\dimen312
-\l__box_bottom_new_dim=\dimen313
-\l__box_left_new_dim=\dimen314
-\l__box_right_new_dim=\dimen315
-\l__box_internal_box=\box105
-\l__coffin_bounding_shift_dim=\dimen316
-\l__coffin_left_corner_dim=\dimen317
-\l__coffin_right_corner_dim=\dimen318
-\l__coffin_bottom_corner_dim=\dimen319
-\l__coffin_top_corner_dim=\dimen320
-\l__coffin_scaled_total_height_dim=\dimen321
-\l__coffin_scaled_width_dim=\dimen322
+\l__box_top_dim=\dimen185
+\l__box_bottom_dim=\dimen186
+\l__box_left_dim=\dimen187
+\l__box_right_dim=\dimen188
+\l__box_top_new_dim=\dimen189
+\l__box_bottom_new_dim=\dimen190
+\l__box_left_new_dim=\dimen191
+\l__box_right_new_dim=\dimen192
+\l__box_internal_box=\box51
+\l__coffin_bounding_shift_dim=\dimen193
+\l__coffin_left_corner_dim=\dimen194
+\l__coffin_right_corner_dim=\dimen195
+\l__coffin_bottom_corner_dim=\dimen196
+\l__coffin_top_corner_dim=\dimen197
+\l__coffin_scaled_total_height_dim=\dimen198
+\l__coffin_scaled_width_dim=\dimen199
 L3 Module: l3luatex 2015/11/11 v6250 L3 Experimental LuaTeX-specific functions
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
 File: l3pdfmode.def 2015/11/11 v6250 L3 Experimental driver: PDF mode
-\l__driver_color_stack_int=\count300
+\l__driver_color_stack_int=\count170
 ))
-Package: xparse 2016/01/19 v6377 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count301
-\l__xparse_m_args_int=\count302
-\l__xparse_mandatory_args_int=\count303
-\l__xparse_processor_int=\count304
-\l__xparse_v_nesting_int=\count305
-)
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \tcboxverb with sig. ' O{} v ' on line 128.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \tcbsidebyside with sig. ' +O{} +m +m ' on line 280.
-.................................................
-))
-(./report.aux
-
-LaTeX Warning: Label `first-rule' multiply defined.
+\pstool@out=\write5
+\pstool@mainfile@ior=\read2
+\pstool@auxfile@ior=\read3
 
 
-LaTeX Warning: Label `eq:ns-weak-forms' multiply defined.
+Package pstool Warning: 
+  Package option [process=none] activated
+  because -shell-escape is not enabled.
+This warning occurred on input line 137.
 
 )
-\openout1 = `report.aux'.
+No file generate_pdf.aux.
+\openout1 = `generate_pdf.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 252.
-LaTeX Font Info:    ... okay on input line 252.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 252.
-LaTeX Font Info:    ... okay on input line 252.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 252.
-LaTeX Font Info:    ... okay on input line 252.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 252.
-LaTeX Font Info:    ... okay on input line 252.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 252.
-LaTeX Font Info:    ... okay on input line 252.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 252.
-LaTeX Font Info:    ... okay on input line 252.
-LaTeX Font Info:    Checking defaults for FML/futm/m/it on input line 252.
-LaTeX Font Info:    Try loading font information for FML+futm on input line 252
-.
- (/usr/share/texlive/texmf-dist/tex/latex/fourier/fmlfutm.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for FML/futm/m/it on input line 49.
+LaTeX Font Info:    Try loading font information for FML+futm on input line 49.
+
+(/usr/share/texlive/texmf-dist/tex/latex/fourier/fmlfutm.fd
 File: fmlfutm.fd 2004/10/30 Fontinst v1.926 font definitions for FML/futm.
 )
-LaTeX Font Info:    ... okay on input line 252.
-LaTeX Font Info:    Checking defaults for FMS/futm/m/n on input line 252.
-LaTeX Font Info:    Try loading font information for FMS+futm on input line 252
-.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for FMS/futm/m/n on input line 49.
+LaTeX Font Info:    Try loading font information for FMS+futm on input line 49.
+
 
 (/usr/share/texlive/texmf-dist/tex/latex/fourier/fmsfutm.fd
 File: fmsfutm.fd 2004/10/30 Fontinst v1.926 font definitions for FMS/futm.
 )
-LaTeX Font Info:    ... okay on input line 252.
-LaTeX Font Info:    Checking defaults for FMX/futm/m/n on input line 252.
-LaTeX Font Info:    Try loading font information for FMX+futm on input line 252
-.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for FMX/futm/m/n on input line 49.
+LaTeX Font Info:    Try loading font information for FMX+futm on input line 49.
+
 
 (/usr/share/texlive/texmf-dist/tex/latex/fourier/fmxfutm.fd
 File: fmxfutm.fd futm-extension
 )
-LaTeX Font Info:    ... okay on input line 252.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 252.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 252.
-
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 49.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 252.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 252.
-LaTeX Font Info:    ... okay on input line 252.
-LaTeX Font Info:    Try loading font information for T1+futs on input line 252.
-
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Try loading font information for T1+futs on input line 49.
 
 (/usr/share/texlive/texmf-dist/tex/latex/fourier/t1futs.fd
 File: t1futs.fd 2004/03/02 Fontinst v1.926 font definitions for T1/futs.
 )
-\c@lstlisting=\count306
-\AtBeginShipoutBox=\box106
+\c@lstlisting=\count171
+\Hy@linkcounter=\count172
+\AtBeginShipoutBox=\box52
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count307
-\scratchdimen=\dimen323
-\scratchbox=\box107
-\nofMPsegments=\count308
-\nofMParguments=\count309
-\everyMPshowfont=\toks55
-\MPscratchCnt=\count310
-\MPscratchDim=\dimen324
-\MPnumerator=\count311
-\makeMPintoPDFobject=\count312
-\everyMPtoPDFconversion=\toks56
+\scratchcounter=\count173
+\scratchdimen=\dimen256
+\scratchbox=\box53
+\nofMPsegments=\count174
+\nofMParguments=\count175
+\everyMPshowfont=\toks40
+\MPscratchCnt=\count176
+\MPscratchDim=\dimen257
+\MPnumerator=\count177
+\makeMPintoPDFobject=\count178
+\everyMPtoPDFconversion=\toks41
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/pdflscape.sty
 Package: pdflscape 2008/08/11 v0.10 Display of landscape pages in PDF (HO)
 
@@ -1976,12 +1421,12 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
 * \topmargin=-23.91173pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=12.0pt
+* \topskip=11.0pt
 * \footskip=30.0pt
-* \marginparwidth=85.0pt
+* \marginparwidth=103.0pt
 * \marginparsep=10.0pt
 * \columnsep=10.0pt
-* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -1991,7 +1436,7 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \microtypecontext on input line 252.
+LaTeX Info: Redefining \microtypecontext on input line 49.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -2007,856 +1452,64 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             See the microtype manual for details.
 \symgns@font=\mathgroup11
 LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
-(Font)                  TS1/futs/m/n --> TS1/futs/bx/n on input line 252.
-Package gensymb Info: Math companion symbols declared on input line 252.
-LaTeX Info: Redefining \degree on input line 252.
-LaTeX Info: Redefining \celsius on input line 252.
+(Font)                  TS1/futs/m/n --> TS1/futs/bx/n on input line 49.
+Package gensymb Info: Math companion symbols declared on input line 49.
+LaTeX Info: Redefining \degree on input line 49.
+LaTeX Info: Redefining \celsius on input line 49.
 Package gensymb Info: Using text companion symbols for \degree, \celsius and \p
-erthousand on input line 252.
-LaTeX Info: Redefining \ohm on input line 252.
-Package gensymb Info: Using \textohm for \ohm on input line 252.
-Package gensymb Info: Using \textmu for \micro on input line 252.
+erthousand on input line 49.
+LaTeX Info: Redefining \ohm on input line 49.
+Package gensymb Info: Using \textohm for \ohm on input line 49.
+Package gensymb Info: Using \textmu for \micro on input line 49.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
-Package caption Info: hyperref package is loaded.
-Package caption Info: longtable package is loaded.
-(/usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty
-Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
-)
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 252.
 
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+! Package pstool Error: No graphic "newplot.eps" or "newplot-psfrag.eps" found.
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
-Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
-)
-\c@section@level=\count313
-)
-LaTeX Info: Redefining \ref on input line 252.
-LaTeX Info: Redefining \pageref on input line 252.
-LaTeX Info: Redefining \nameref on input line 252.
 
-(./report.out) (./report.out)
-\@outlinefile=\write8
-\openout8 = `report.out'.
+See the pstool package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.51 \end
+         {document}
+? q
+OK, entering \batchmode...
+! Undefined control sequence.
+<write> ...at may contain macros for "\pstool@eps 
+                                                  .eps"\on@line .
+l.51 \end
+         {document}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
- ABD: EveryShipout initializing macros
-LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 254.
 
-(./report.toc
-LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <12> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 1.
-LaTeX Font Info:    Try loading font information for FML+futmi on input line 2.
-
- (/usr/share/texlive/texmf-dist/tex/latex/fourier/fmlfutmi.fd
-File: fmlfutmi.fd 2004/10/30 Fontinst v1.926 font definitions for FML/futmi.
-)
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 11.03998pt on input line 2.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 8.27998pt on input line 2.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 6.43999pt on input line 2.
-LaTeX Font Info:    Try loading font information for U+msa on input line 2.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
-File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 2.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
-File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-)
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 11.03998pt on input line 2.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 8.27998pt on input line 2.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 6.43999pt on input line 2.
-LaTeX Font Info:    Try loading font information for TS1+futs on input line 2.
-
-(/usr/share/texlive/texmf-dist/tex/latex/fourier/ts1futs.fd
-File: ts1futs.fd 2004/03/26 Fontinst v1.926 font definitions for TS1/futs.
-)
-Package microtype Info: Loading generic settings for font family
-(microtype)             `futs' (encoding: TS1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-)
-\tf@toc=\write9
-\openout9 = `report.toc'.
+Package pstool Warning: No file "newplot.tex" or "newplot-psfrag.tex" can be fo
+und that may contain macros for ".eps" on input line 51.
 
  [1
+Non-PDF special ignored!
 
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[2
-
-] (./report.lof)
-\tf@lof=\write10
-\openout10 = `report.lof'.
-
- [3]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[4
-
-] (./report.loa)
-\tf@loa=\write11
-\openout11 = `report.loa'.
-
- [5]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[6
-
-]
-Chapter 1.
-
-LaTeX Warning: Reference `' on page 7 undefined on input line 263.
-
-LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 269.
-Package epstopdf Info: Source file: <./img/neuron.eps>
-(epstopdf)                    date: 2017-05-07 23:31:42
-(epstopdf)                    size: 70617 bytes
-(epstopdf)             Output file: <./img/neuron-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-05-07 23:32:06
-(epstopdf)                    size: 67007 bytes
-(epstopdf)             Command: <repstopdf --outfile=./img/neuron-eps-converted
--to.pdf ./img/neuron.eps>
-(epstopdf)             \includegraphics on input line 274.
-Package epstopdf Info: Output file is already uptodate.
-<./img/neuron-eps-converted-to.pdf, id=197, 454.69875pt x 243.91125pt>
-File: ./img/neuron-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./img/neuron-eps-converted-to.pdf>
-Package pdftex.def Info: ./img/neuron-eps-converted-to.pdf used on input line 2
-74.
-(pdftex.def)             Requested size: 227.34882pt x 121.95532pt.
-LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 276.
- [7]
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 9.19998pt on input line 286.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 6.99199pt on input line 286.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 5.51999pt on input line 286.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 9.19998pt on input line 286.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 6.99199pt on input line 286.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 5.51999pt on input line 286.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[8 <./img/neuron-eps-converted-to.pdf>]
-LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 314.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[9]
-Package epstopdf Info: Source file: <./img/neural_model_ter.eps>
-(epstopdf)                    date: 2017-05-07 23:14:54
-(epstopdf)                    size: 27684 bytes
-(epstopdf)             Output file: <./img/neural_model_ter-eps-converted-to.pd
-f>
-(epstopdf)                    date: 2017-05-07 23:15:08
-(epstopdf)                    size: 10768 bytes
-(epstopdf)             Command: <repstopdf --outfile=./img/neural_model_ter-eps
--converted-to.pdf ./img/neural_model_ter.eps>
-(epstopdf)             \includegraphics on input line 337.
-Package epstopdf Info: Output file is already uptodate.
-
-<./img/neural_model_ter-eps-converted-to.pdf, id=237, 344.28625pt x 179.67125pt
->
-File: ./img/neural_model_ter-eps-converted-to.pdf Graphic file (type pdf)
- <use ./img/neural_model_ter-eps-converted-to.pdf>
-Package pdftex.def Info: ./img/neural_model_ter-eps-converted-to.pdf used on in
-put line 337.
-(pdftex.def)             Requested size: 206.57333pt x 107.80356pt.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 10.07397pt on input line 339.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 7.63599pt on input line 339.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 10.07397pt on input line 339.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 7.63599pt on input line 339.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[10 <./img/neural_model_ter-eps-converted-to.pdf>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[11]
-Package epstopdf Info: Source file: <./img/neural_model_bias.eps>
-(epstopdf)                    date: 2017-05-07 23:22:52
-(epstopdf)                    size: 28710 bytes
-(epstopdf)             Output file: <./img/neural_model_bias-eps-converted-to.p
-df>
-(epstopdf)                    date: 2017-05-07 23:23:12
-(epstopdf)                    size: 11072 bytes
-(epstopdf)             Command: <repstopdf --outfile=./img/neural_model_bias-ep
-s-converted-to.pdf ./img/neural_model_bias.eps>
-(epstopdf)             \includegraphics on input line 396.
-Package epstopdf Info: Output file is already uptodate.
-
-<./img/neural_model_bias-eps-converted-to.pdf, id=280, 344.28625pt x 199.74625p
-t>
-File: ./img/neural_model_bias-eps-converted-to.pdf Graphic file (type pdf)
- <use ./img/neural_model_bias-eps-converted-to.pdf>
-Package pdftex.def Info: ./img/neural_model_bias-eps-converted-to.pdf used on i
-nput line 396.
-(pdftex.def)             Requested size: 206.57333pt x 119.84866pt.
-
-Underfull \vbox (badness 1596) has occurred while \output is active []
-
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[12 <./img/neural_model_bias-eps-converted-to.pdf>]
-<./img/fermi_function_bis.pdf, id=304, 597.50829pt x 845.0471pt>
-File: ./img/fermi_function_bis.pdf Graphic file (type pdf)
-
-<use ./img/fermi_function_bis.pdf>
-Package pdftex.def Info: ./img/fermi_function_bis.pdf used on input line 416.
-(pdftex.def)             Requested size: 219.08708pt x 165.25424pt.
-
-<./img/hyperbolic_tangent_bis.pdf, id=306, 597.50829pt x 845.0471pt>
-File: ./img/hyperbolic_tangent_bis.pdf Graphic file (type pdf)
-
-<use ./img/hyperbolic_tangent_bis.pdf>
-Package pdftex.def Info: ./img/hyperbolic_tangent_bis.pdf used on input line 41
-7.
-(pdftex.def)             Requested size: 219.08708pt x 165.25424pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[13 <./img/fermi_function_bis.pdf> <./img/hyperbolic_tangent_bis.pdf>]
-
-LaTeX Warning: Reference `' on page 14 undefined on input line 438.
-
-
-LaTeX Warning: Reference `' on page 14 undefined on input line 448.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[14]
-Package epstopdf Info: Source file: <./img/neural_network_bis.eps>
-(epstopdf)                    date: 2017-05-07 21:46:16
-(epstopdf)                    size: 33818 bytes
-(epstopdf)             Output file: <./img/neural_network_bis-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2017-05-07 21:47:54
-(epstopdf)                    size: 9858 bytes
-(epstopdf)             Command: <repstopdf --outfile=./img/neural_network_bis-e
-ps-converted-to.pdf ./img/neural_network_bis.eps>
-(epstopdf)             \includegraphics on input line 469.
-Package epstopdf Info: Output file is already uptodate.
-
-<./img/neural_network_bis-eps-converted-to.pdf, id=387, 532.99126pt x 296.10625
-pt>
-File: ./img/neural_network_bis-eps-converted-to.pdf Graphic file (type pdf)
- <use ./img/neural_network_bis-eps-converted-to.pdf>
-Package pdftex.def Info: ./img/neural_network_bis-eps-converted-to.pdf used on 
-input line 469.
-(pdftex.def)             Requested size: 319.79723pt x 177.66512pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[15]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[16 <./img/neural_network_bis-eps-converted-to.pdf>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[17]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 583.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[18]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[19]
-Underfull \vbox (badness 3118) has occurred while \output is active []
-
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[20]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[21]
-
-LaTeX Warning: Reference `' on page 22 undefined on input line 707.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[22]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[23]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[24]
-
-LaTeX Warning: Reference `alg:levenberg-marquardt' on page 25 undefined on inpu
-t line 819.
-
-
-LaTeX Warning: Reference `' on page 25 undefined on input line 821.
-
-
-Overfull \hbox (1.15477pt too wide) in paragraph at lines 848--848
-[]\T1/futs/b/n/14.4 Practical con-sid-er-a-tions on the de-sign of ar-ti-fi-cia
-l neu-ral net-works 
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[25]
-
-LaTeX Warning: Reference `' on page 26 undefined on input line 865.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[26]
-
-LaTeX Warning: Reference `' on page 27 undefined on input line 874.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[27]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[28]
-Chapter 2.
-
-Overfull \hbox (4.22421pt too wide) in paragraph at lines 930--932
-\T1/futs/m/n/12 (-20) allowing to for-mu-late and solve the dif-fer-en-tial pro
-b-lem over a fixed, parameter-independent,
- []
-
-[29
-
-]
-
-LaTeX Warning: Reference `' on page 30 undefined on input line 940.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[30]
-
-LaTeX Warning: Reference `' on page 31 undefined on input line 972.
-
-
-LaTeX Warning: Reference `' on page 31 undefined on input line 975.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[31]
-
-LaTeX Warning: Reference `' on page 32 undefined on input line 999.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[32]
-
-LaTeX Warning: Reference `' on page 33 undefined on input line 1034.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[33]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[34]
-
-LaTeX Warning: Reference `' on page 35 undefined on input line 1112.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[35]
-Overfull \hbox (9.38419pt too wide) detected at line 1153
-[][] [] \FML/futmi/m/it/12 d[]\T1/futs/m/n/12 (\FML/futmi/b/it/12 ^^V[]\T1/futs
-/m/n/12 ) \FMS/futm/m/n/12 Ä [][] []  \FML/futmi/m/it/12 d[]\T1/futs/m/n/12 (\F
-ML/futmi/b/it/12 ^^V[]\T1/futs/m/n/12 ) \FML/futmi/m/it/12 :
- []
-
-
-Overfull \hbox (47.01006pt too wide) detected at line 1162
-[] []
- []
-
-
-LaTeX Warning: Reference `' on page 36 undefined on input line 1181.
-
-
-LaTeX Warning: Reference `' on page 36 undefined on input line 1181.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[36]
-
-LaTeX Warning: Reference `' on page 37 undefined on input line 1195.
-
-
-LaTeX Warning: Reference `' on page 37 undefined on input line 1205.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[37]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[38]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[39]
-Overfull \hbox (1.73189pt too wide) in paragraph at lines 1344--1344
-[]\T1/futs/b/n/14.4 The bound-ary displacement-dependent trans-fi-nite map (BDD
- TM) 
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[40]
-
-LaTeX Warning: Reference `' on page 41 undefined on input line 1396.
-
-
-LaTeX Warning: Reference `' on page 41 undefined on input line 1396.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[41]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[42]
-
-LaTeX Warning: Reference `' on page 43 undefined on input line 1468.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[43]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[44]
-Overfull \hbox (9.30992pt too wide) detected at line 1555
-[] [][]
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[45]
-Overfull \hbox (15.64478pt too wide) detected at line 1565
-[] [][]
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[46]
-Overfull \hbox (24.00299pt too wide) detected at line 1729
-[] []
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[47]
-Overfull \hbox (14.86774pt too wide) detected at line 1760
-[][] \FMS/futm/m/n/12 Å []
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[48]
-Overfull \hbox (26.41347pt too wide) in paragraph at lines 1796--1797
-\T1/futs/m/it/12 (-20) re-duced ba-sis func-tions\T1/futs/m/n/12 (-20) , built 
-from a col-lec-tion of high-fidelity so-lu-tions $[]\FML/futmi/m/it/12 u[][]\FM
-L/futmi/b/it/12 ^^V[][]\FML/futmi/m/it/12 ;  []  ; u[][]\FML/futmi/b/it/12 ^^V[
-][][] \FMS/futm/m/n/12 ^^Z
- []
-
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 1798
-.
-(/usr/share/texmf/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-Package microtype Info: Loading generic settings for font family
-(microtype)             `lmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[49]
-
-LaTeX Warning: Reference `' on page 50 undefined on input line 1832.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[50]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[51]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[52]
-Overfull \hbox (9.81145pt too wide) in paragraph at lines 1962--1964
-\T1/futs/m/n/12 (-20) where $(\FMS/futm/m/n/12 ^^A\FML/futmi/m/it/12 ; \FMS/fut
-m/m/n/12 ^^A\T1/futs/m/n/12 (-20) )[]$ de-notes the Eu-clidean scalar prod-uct 
-in $\U/futm/m/n/12 R[]$\T1/futs/m/n/12 (-20) . There-fore, the columns $[]\T1/f
-uts/b/n/12 w[]\FML/futmi/m/it/12 ;  []  ; \T1/futs/b/n/12 w[][]$
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[53]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[54]
-
-LaTeX Warning: Reference `' on page 55 undefined on input line 2052.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[55]
-
-LaTeX Warning: Reference `' on page 56 undefined on input line 2072.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[56]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[57]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[58
-
-] [59]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[60]
-Underfull \hbox (badness 6775) in paragraph at lines 2197--2198
-[]\T1/futs/m/n/12 (+20) Stergiou, C., Siganos, D. (2013). \T1/futs/m/it/12 (+20
-) Neu-ral Net-works\T1/futs/m/n/12 (+20) . Re-trieved from []$\T1/lmtt/m/n/12 h
-ttps :
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2197--2198
-\T1/lmtt/m/n/12 / / www . doc . ic . ac . uk / ~nd / surprise _ 96 / journal / 
-vol4 / cs11 / report . html #
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[61]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2207.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2207.
- (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2207.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2207.
-
-Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 46DCFA4B1657644613FBE91640F8D8A5;1863.
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./generate_pdf.aux) ) 
 Here is how much of TeX's memory you used:
- 37843 strings out of 493029
- 717403 string characters out of 6136233
- 944163 words of memory out of 5000000
- 39921 multiletter control sequences out of 15000+600000
- 232203 words of font info for 521 fonts, out of 8000000 for 9000
+ 19336 strings out of 493029
+ 331982 string characters out of 6136233
+ 506284 words of memory out of 5000000
+ 22569 multiletter control sequences out of 15000+600000
+ 9898 words of font info for 25 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 58i,31n,93p,10465b,532s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Hfootnote.9} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.8} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.7} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.6} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
-, replaced by a fixed one
-
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texlive/texmf-dist/f
-onts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/fo
-urier/fourier-bb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/
-fourier-mcl.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fouri
-er-mex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-ml
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-mlb.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-mlit.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-mlitb.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb></usr/share/t
-exmf/fonts/type1/public/lm/lmtt12.pfb></usr/share/texmf/fonts/type1/public/lm/l
-mtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putbi8a.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/adobe/utopia/putri8a.pfb>
-Output written on report.pdf (61 pages, 561706 bytes).
+ 44i,6n,46p,10333b,275s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/us
+r/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texm
+f-dist/fonts/type1/adobe/utopia/putr8a.pfb>
+Output written on generate_pdf.pdf (1 page, 3197 bytes).
 PDF statistics:
- 1229 PDF objects out of 1440 (max. 8388607)
- 1111 compressed objects within 12 object streams
- 323 named destinations out of 1000 (max. 500000)
- 56551 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 13 PDF objects out of 1000 (max. 8388607)
+ 8 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 6145 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -16,89 +16,109 @@
 \gdef\HyperFirstAtBeginDocument#1{#1}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
+\providecommand\tcolorbox@label[2]{}
+\citation{Kri}
 \citation{Hag14}
 \citation{Hay05}
 \citation{Kri}
+\citation{Kri}
+\citation{Kri}
 \citation{Hay05}
 \citation{Kri}
-\citation{SD}
-\providecommand\tcolorbox@label[2]{}
-\@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction to Neural Networks}{1}{chapter.1}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction to neural networks}{7}{chapter.1}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chapter:Introduction to Neural Networks}{{1}{1}{Introduction to Neural Networks}{chapter.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.1}Biological motivation}{1}{section.1.1}}
-\newlabel{section:Biological motivation}{{1.1}{1}{Biological motivation}{section.1.1}{}}
+\newlabel{chapter:Introduction to neural networks}{{1}{7}{Introduction to neural networks}{chapter.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.1}Biological motivation}{7}{section.1.1}}
+\newlabel{section:Biological motivation}{{1.1}{7}{Biological motivation}{section.1.1}{}}
+\citation{SD13}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces Simplified representation of a biological neuron, with the components discussed in the text; retrieved from \cite  {Kri}.\relax }}{8}{figure.caption.4}}
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:neuron}{{1.1}{8}{Simplified representation of a biological neuron, with the components discussed in the text; retrieved from \cite {Kri}.\relax }{figure.caption.4}{}}
 \citation{Hag14}
 \citation{Kri}
 \citation{Kri}
 \citation{Nie15}
-\citation{SD}
+\citation{SD13}
 \citation{Kri}
-\@writefile{toc}{\contentsline {section}{\numberline {1.2}Artificial neural networks}{2}{section.1.2}}
-\newlabel{section:Artificial neural networks}{{1.2}{2}{Artificial neural networks}{section.1.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.2}Artificial neural networks}{9}{section.1.2}}
+\newlabel{section:Artificial neural networks}{{1.2}{9}{Artificial neural networks}{section.1.2}{}}
+\newlabel{def:neural-network}{{1.1}{9}{Neural network}{definition.1.1}{}}
 \citation{Kri}
 \citation{Kri}
-\newlabel{def:neural-network}{{1.1}{3}{Neural network}{definition.1.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.1}Neuronal model}{3}{subsection.1.2.1}}
-\newlabel{section:Neuronal model}{{1.2.1}{3}{Neuronal model}{subsection.1.2.1}{}}
-\newlabel{eq:propagation-function}{{1.1}{3}{Neuronal model}{equation.1.1}{}}
-\newlabel{eq:weighted-summer}{{1.2}{3}{Neuronal model}{equation.1.2}{}}
-\newlabel{eq:activation-function}{{1.3}{3}{Neuronal model}{equation.1.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces Visualization of the generic $j$-th neuron of an artificial neural network. The neuron accumulates the weighted inputs ${\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left \delimiter "42663A9 \vcenter to\@ne \big@size {}\right .$}\box \z@ }w_{s_1,j} \nobreakspace  {} y_{s_1}, \tmspace  +\thinmuskip {.1667em} \ldots  \tmspace  +\thinmuskip {.1667em} , w_{s_m,j} \nobreakspace  {} y_{s_m} {\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left \delimiter "52673AA \vcenter to\@ne \big@size {}\right .$}\box \z@ }$ coming from the sending neurons $s_1, \tmspace  +\thinmuskip {.1667em} \ldots  \tmspace  +\thinmuskip {.1667em} , s_m$, and fires $y_j$, sent to the target neurons ${\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left \delimiter "42663A9 \vcenter to\@ne \big@size {}\right .$}\box \z@ }r_1, \tmspace  +\thinmuskip {.1667em} \ldots  \tmspace  +\thinmuskip {.1667em} , r_n {\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left \delimiter "52673AA \vcenter to\@ne \big@size {}\right .$}\box \z@ }$ through the synapsis ${\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left \delimiter "42663A9 \vcenter to\@ne \big@size {}\right .$}\box \z@ }w_{j,r_1}, \tmspace  +\thinmuskip {.1667em} \ldots  \tmspace  +\thinmuskip {.1667em} , w_{j,r_n} {\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left \delimiter "52673AA \vcenter to\@ne \big@size {}\right .$}\box \z@ }$. The neuron threshold $\theta _j$ is reported within its body.\relax }}{10}{figure.caption.5}}
+\newlabel{fig:neural-model}{{1.2}{10}{Visualization of the generic $j$-th neuron of an artificial neural network. The neuron accumulates the weighted inputs $\big \lbrace w_{s_1,j} ~ y_{s_1}, \, \ldots \, , w_{s_m,j} ~ y_{s_m} \big \rbrace $ coming from the sending neurons $s_1, \, \ldots \, , s_m$, and fires $y_j$, sent to the target neurons $\big \lbrace r_1, \, \ldots \, , r_n \big \rbrace $ through the synapsis $\big \lbrace w_{j,r_1}, \, \ldots \, , w_{j,r_n} \big \rbrace $. The neuron threshold $\theta _j$ is reported within its body.\relax }{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.1}Neuronal model}{10}{subsection.1.2.1}}
+\newlabel{section:Neuronal model}{{1.2.1}{10}{Neuronal model}{subsection.1.2.1}{}}
+\newlabel{eq:propagation-function}{{1.1}{10}{Neuronal model}{equation.1.1}{}}
+\newlabel{eq:weighted-sum}{{1.2}{10}{Neuronal model}{equation.1.2}{}}
+\newlabel{eq:activation-function}{{1.3}{10}{Neuronal model}{equation.1.3}{}}
 \citation{Hay05}
 \citation{Hay05}
+\newlabel{eq:net-input}{{1.4}{11}{Neuronal model}{equation.1.4}{}}
+\newlabel{eq:heaviside}{{1.6}{11}{Neuronal model}{equation.1.6}{}}
+\newlabel{eq:logistic}{{1.7}{11}{Neuronal model}{equation.1.7}{}}
 \citation{Hay05}
-\newlabel{eq:net-input}{{1.4}{4}{Neuronal model}{equation.1.4}{}}
-\newlabel{eq:heaviside}{{1.6}{4}{Neuronal model}{equation.1.6}{}}
-\newlabel{eq:logistic}{{1.7}{4}{Neuronal model}{equation.1.7}{}}
-\newlabel{eq:hyperbolic-tangent}{{1.8}{4}{Neuronal model}{equation.1.8}{}}
-\newlabel{eq:output-function}{{1.9}{4}{Neuronal model}{equation.1.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.3}{\ignorespaces Visualization of the generic $j$-th neuron of an artificial neural network. The neuron accumulates the weighted inputs ${\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left \delimiter "42663A9 \vcenter to\@ne \big@size {}\right .$}\box \z@ }w_{s_1,j} \nobreakspace  {} y_{s_1}, \tmspace  +\thinmuskip {.1667em} \ldots  \tmspace  +\thinmuskip {.1667em} , w_{s_m,j} \nobreakspace  {} y_{s_m}, \tmspace  +\thinmuskip {.1667em} -\theta _j {\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left \delimiter "52673AA \vcenter to\@ne \big@size {}\right .$}\box \z@ }$ coming from the sending neurons $s_1, \tmspace  +\thinmuskip {.1667em} \ldots  \tmspace  +\thinmuskip {.1667em} , s_m, \tmspace  +\thinmuskip {.1667em} b$, respectively, with $b$ the bias neuron. The neuron output $y_j$ is then conveyed towards the target neurons ${\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left \delimiter "42663A9 \vcenter to\@ne \big@size {}\right .$}\box \z@ }r_1, \tmspace  +\thinmuskip {.1667em} \ldots  \tmspace  +\thinmuskip {.1667em} , r_n {\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left \delimiter "52673AA \vcenter to\@ne \big@size {}\right .$}\box \z@ }$ through the synapsis ${\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left \delimiter "42663A9 \vcenter to\@ne \big@size {}\right .$}\box \z@ }w_{j,r_1}, \tmspace  +\thinmuskip {.1667em} \ldots  \tmspace  +\thinmuskip {.1667em} , w_{j,r_n} {\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left \delimiter "52673AA \vcenter to\@ne \big@size {}\right .$}\box \z@ }$. Observe that, conversely to the model offered in Figure \ref  {fig:neural-model}, the neuron threshold is now set to $0$.\relax }}{12}{figure.caption.6}}
+\newlabel{fig:neural-model-bias}{{1.3}{12}{Visualization of the generic $j$-th neuron of an artificial neural network. The neuron accumulates the weighted inputs $\big \lbrace w_{s_1,j} ~ y_{s_1}, \, \ldots \, , w_{s_m,j} ~ y_{s_m}, \, -\theta _j \big \rbrace $ coming from the sending neurons $s_1, \, \ldots \, , s_m, \, b$, respectively, with $b$ the bias neuron. The neuron output $y_j$ is then conveyed towards the target neurons $\big \lbrace r_1, \, \ldots \, , r_n \big \rbrace $ through the synapsis $\big \lbrace w_{j,r_1}, \, \ldots \, , w_{j,r_n} \big \rbrace $. Observe that, conversely to the model offered in Figure \ref {fig:neural-model}, the neuron threshold is now set to $0$.\relax }{figure.caption.6}{}}
+\newlabel{eq:hyperbolic-tangent}{{1.8}{12}{Neuronal model}{equation.1.8}{}}
+\newlabel{eq:output-function}{{1.9}{12}{Neuronal model}{equation.1.9}{}}
 \citation{Ros58}
 \citation{Kri}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.4}{\ignorespaces Left: logistic function \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:logistic}\unskip \@@italiccorr )}} for three values of the parameter $T$; note that as $T$ decreases, the logistic function resemble the Heaviside function. Right: hyperbolic tangent.\relax }}{13}{figure.caption.7}}
+\newlabel{fig:activation-functions}{{1.4}{13}{Left: logistic function \eqref {eq:logistic} for three values of the parameter $T$; note that as $T$ decreases, the logistic function resemble the Heaviside function. Right: hyperbolic tangent.\relax }{figure.caption.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.2}Network topologies: the feedforward neural network}{13}{subsection.1.2.2}}
+\newlabel{section:Network topologies}{{1.2.2}{13}{Network topologies: the feedforward neural network}{subsection.1.2.2}{}}
 \citation{Cyb88}
 \citation{Cyb89}
 \citation{Cyb89}
 \citation{Cyb88}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.2}Network topologies: the feedforward neural network}{5}{subsection.1.2.2}}
-\newlabel{section:Network topologies}{{1.2.2}{5}{Network topologies: the feedforward neural network}{subsection.1.2.2}{}}
-\newlabel{cybenko-first-rule}{{{{(i)}}}{5}{Network topologies: the feedforward neural network}{Item.1}{}}
-\newlabel{cybenko-second-rule}{{{{(ii)}}}{5}{Network topologies: the feedforward neural network}{Item.2}{}}
+\citation{Hop82}
+\citation{Koh98}
+\newlabel{cybenko-first-rule}{{{{(i)}}}{14}{Network topologies: the feedforward neural network}{Item.1}{}}
+\newlabel{cybenko-second-rule}{{{{(ii)}}}{14}{Network topologies: the feedforward neural network}{Item.2}{}}
 \citation{Hay05}
 \citation{Kri}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.3}Training a multilayer feedforward neural network}{6}{subsection.1.2.3}}
-\newlabel{section:Training a multilayer feedforard neural network}{{1.2.3}{6}{Training a multilayer feedforward neural network}{subsection.1.2.3}{}}
 \citation{Kri}
 \citation{KLM96}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.3}Training a multilayer feedforward neural network}{15}{subsection.1.2.3}}
+\newlabel{section:Training a multilayer feedforard neural network}{{1.2.3}{15}{Training a multilayer feedforward neural network}{subsection.1.2.3}{}}
 \citation{Heb49}
 \citation{Hay05}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.5}{\ignorespaces A three-layer feedforward neural network, with $3$ input neurons, two hidden layers each one consisting of $6$ neurons, and $4$ output neurons. Within each connection, information flows from left to right.\relax }}{16}{figure.caption.8}}
+\newlabel{fig:neural-network}{{1.5}{16}{A three-layer feedforward neural network, with $3$ input neurons, two hidden layers each one consisting of $6$ neurons, and $4$ output neurons. Within each connection, information flows from left to right.\relax }{figure.caption.8}{}}
+\newlabel{a}{{{{(a)}}}{16}{Training a multilayer feedforward neural network}{Item.3}{}}
+\newlabel{b}{{{{(b)}}}{16}{Training a multilayer feedforward neural network}{Item.4}{}}
 \citation{Hay05}
-\newlabel{a}{{{{(a)}}}{7}{Training a multilayer feedforward neural network}{Item.3}{}}
-\newlabel{b}{{{{(b)}}}{7}{Training a multilayer feedforward neural network}{Item.4}{}}
-\newlabel{first-rule}{{{{(i)}}}{7}{Training a multilayer feedforward neural network}{Item.5}{}}
-\newlabel{second-rule}{{{{(ii)}}}{7}{Training a multilayer feedforward neural network}{Item.6}{}}
 \citation{Kri}
-\newlabel{first-rule}{{1.2.3}{8}{Training a multilayer feedforward neural network}{Item.6}{}}
-\newlabel{eq:hebbian-rule}{{1.10}{8}{Training a multilayer feedforward neural network}{equation.1.10}{}}
-\newlabel{eq:weight-update}{{1.11}{8}{Training a multilayer feedforward neural network}{equation.1.11}{}}
-\newlabel{eq:generalized-hebbian-rule}{{1.12}{8}{Training a multilayer feedforward neural network}{equation.1.12}{}}
-\newlabel{eq:performance-function}{{1.13}{8}{Training a multilayer feedforward neural network}{equation.1.13}{}}
-\newlabel{eq:accumulated-error}{{1.14}{8}{Training a multilayer feedforward neural network}{equation.1.14}{}}
-\newlabel{eq:mse}{{1.15}{8}{Training a multilayer feedforward neural network}{equation.1.15}{}}
+\newlabel{first-rule}{{{{(i)}}}{17}{Training a multilayer feedforward neural network}{Item.5}{}}
+\newlabel{second-rule}{{{{(ii)}}}{17}{Training a multilayer feedforward neural network}{Item.6}{}}
+\newlabel{first-rule}{{1.2.3}{17}{Training a multilayer feedforward neural network}{Item.6}{}}
+\newlabel{eq:hebbian-rule}{{1.10}{17}{Training a multilayer feedforward neural network}{equation.1.10}{}}
+\newlabel{eq:weight-update}{{1.11}{17}{Training a multilayer feedforward neural network}{equation.1.11}{}}
+\newlabel{eq:generalized-hebbian-rule}{{1.12}{17}{Training a multilayer feedforward neural network}{equation.1.12}{}}
+\newlabel{eq:performance-function}{{1.13}{17}{Training a multilayer feedforward neural network}{equation.1.13}{}}
 \citation{Hay05}
 \citation{MR86}
-\newlabel{eq:accumulated-mse}{{1.16}{9}{Training a multilayer feedforward neural network}{equation.1.16}{}}
-\newlabel{eq:antigradient}{{1.17}{9}{Training a multilayer feedforward neural network}{equation.1.17}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Backpropagation of error}{9}{section*.1}}
-\newlabel{section:Backpropagation of error}{{1.2.3}{9}{Backpropagation of error}{section*.1}{}}
-\newlabel{eq:bp-first-equation}{{1.18}{9}{Backpropagation of error}{equation.1.18}{}}
-\newlabel{eq:bp-second-equation}{{1.19}{9}{Backpropagation of error}{equation.1.19}{}}
-\newlabel{eq:bp-third-equation}{{1.20}{9}{Backpropagation of error}{equation.1.20}{}}
-\newlabel{eq:delta}{{1.21}{9}{Backpropagation of error}{equation.1.21}{}}
+\newlabel{eq:accumulated-error}{{1.14}{18}{Training a multilayer feedforward neural network}{equation.1.14}{}}
+\newlabel{eq:mse}{{1.15}{18}{Training a multilayer feedforward neural network}{equation.1.15}{}}
+\newlabel{eq:accumulated-mse}{{1.16}{18}{Training a multilayer feedforward neural network}{equation.1.16}{}}
+\newlabel{eq:antigradient}{{1.17}{18}{Training a multilayer feedforward neural network}{equation.1.17}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1.1}{\ignorespaces Backbone of any supervised online learning algorithm; note that the full procedure ends when all training patterns yield an error which is below a defined threshold.\relax }}{19}{algorithm.1.1}}
+\newlabel{alg:online-learning}{{1.1}{19}{Backbone of any supervised online learning algorithm; note that the full procedure ends when all training patterns yield an error which is below a defined threshold.\relax }{algorithm.1.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Backpropagation of error}{19}{section*.9}}
+\newlabel{section:Backpropagation of error}{{1.2.3}{19}{Backpropagation of error}{section*.9}{}}
+\newlabel{eq:bp-first-equation}{{1.18}{19}{Backpropagation of error}{equation.1.18}{}}
+\newlabel{eq:bp-second-equation}{{1.19}{19}{Backpropagation of error}{equation.1.19}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1.2}{\ignorespaces Backbone of any supervised offline learning algorithm; the procedure to compute the accumulated error is provided as well.\relax }}{20}{algorithm.1.2}}
+\newlabel{alg:offline-learning}{{1.2}{20}{Backbone of any supervised offline learning algorithm; the procedure to compute the accumulated error is provided as well.\relax }{algorithm.1.2}{}}
+\newlabel{eq:bp-third-equation}{{1.20}{20}{Backpropagation of error}{equation.1.20}{}}
+\newlabel{eq:delta}{{1.21}{20}{Backpropagation of error}{equation.1.21}{}}
+\newlabel{eq:bp-weight-update}{{1.22}{20}{Backpropagation of error}{equation.1.22}{}}
 \citation{Kri}
-\newlabel{eq:bp-weight-update}{{1.22}{10}{Backpropagation of error}{equation.1.22}{}}
-\newlabel{eq:bp-fourth-equation}{{1.23}{10}{Backpropagation of error}{equation.1.23}{}}
-\newlabel{eq:bp-fifth-equation}{{1.24}{10}{Backpropagation of error}{equation.1.24}{}}
-\newlabel{eq:bp-sixth-equation}{{1.25}{10}{Backpropagation of error}{equation.1.25}{}}
+\newlabel{eq:bp-fourth-equation}{{1.23}{21}{Backpropagation of error}{equation.1.23}{}}
+\newlabel{eq:bp-fifth-equation}{{1.24}{21}{Backpropagation of error}{equation.1.24}{}}
+\newlabel{eq:bp-sixth-equation}{{1.25}{21}{Backpropagation of error}{equation.1.25}{}}
 \citation{Kri}
 \citation{WH60}
 \citation{Kri}
@@ -107,64 +127,267 @@
 \citation{Fah88}
 \citation{Mar63}
 \citation{Hag94}
-\newlabel{eq:bp-inner-neuron}{{1.26a}{11}{Backpropagation of error}{equation.1.26}{}}
-\newlabel{eq:bp-output-neuron}{{1.26b}{11}{Backpropagation of error}{equation.1.26}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Levenberg-Marquardt algorithm}{11}{section*.2}}
-\newlabel{section:Levenberg-Marquardt algorithm}{{1.2.3}{11}{Levenberg-Marquardt algorithm}{section*.2}{}}
-\newlabel{eq:newton}{{1.27}{11}{Levenberg-Marquardt algorithm}{equation.1.27}{}}
-\newlabel{eq:accumulated-mse-bis}{{1.28}{11}{Levenberg-Marquardt algorithm}{equation.1.28}{}}
+\newlabel{eq:bp-inner-neuron}{{1.26a}{22}{Backpropagation of error}{equation.1.26}{}}
+\newlabel{eq:bp-output-neuron}{{1.26b}{22}{Backpropagation of error}{equation.1.26}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Levenberg-Marquardt algorithm}{22}{section*.10}}
+\newlabel{section:Levenberg-Marquardt algorithm}{{1.2.3}{22}{Levenberg-Marquardt algorithm}{section*.10}{}}
 \citation{Hag94}
 \citation{Mar63}
 \citation{Mar63}
-\newlabel{eq:jacobian}{{1.29}{12}{Levenberg-Marquardt algorithm}{equation.1.29}{}}
-\newlabel{eq:gradient}{{1.30}{12}{Levenberg-Marquardt algorithm}{equation.1.30}{}}
-\newlabel{eq:hessian}{{1.31}{12}{Levenberg-Marquardt algorithm}{equation.1.31}{}}
-\newlabel{eq:newton-quadratic-function}{{1.32}{12}{Levenberg-Marquardt algorithm}{equation.1.32}{}}
-\newlabel{eq:levenberg-marquardt}{{1.33}{12}{Levenberg-Marquardt algorithm}{equation.1.33}{}}
-\newlabel{eq:jacobian-entry}{{1.34}{12}{Levenberg-Marquardt algorithm}{equation.1.34}{}}
+\newlabel{eq:newton}{{1.27}{23}{Levenberg-Marquardt algorithm}{equation.1.27}{}}
+\newlabel{eq:accumulated-mse-bis}{{1.28}{23}{Levenberg-Marquardt algorithm}{equation.1.28}{}}
+\newlabel{eq:jacobian}{{1.29}{23}{Levenberg-Marquardt algorithm}{equation.1.29}{}}
+\newlabel{eq:gradient}{{1.30}{23}{Levenberg-Marquardt algorithm}{equation.1.30}{}}
+\newlabel{eq:hessian}{{1.31}{23}{Levenberg-Marquardt algorithm}{equation.1.31}{}}
+\newlabel{eq:newton-quadratic-function}{{1.32}{23}{Levenberg-Marquardt algorithm}{equation.1.32}{}}
+\newlabel{eq:levenberg-marquardt}{{1.33}{23}{Levenberg-Marquardt algorithm}{equation.1.33}{}}
+\newlabel{eq:jacobian-entry}{{1.34}{24}{Levenberg-Marquardt algorithm}{equation.1.34}{}}
+\newlabel{eq:jacobian-entry-equation}{{1.35}{24}{Levenberg-Marquardt algorithm}{equation.1.35}{}}
+\newlabel{eq:levenberg-marquardt-delta}{{1.36}{24}{Levenberg-Marquardt algorithm}{equation.1.36}{}}
+\newlabel{eq:jacobian-first-case}{{1.37}{24}{Levenberg-Marquardt algorithm}{equation.1.37}{}}
+\newlabel{eq:jacobian-second-case}{{1.38}{24}{Levenberg-Marquardt algorithm}{equation.1.38}{}}
 \citation{Mar63}
 \citation{Hag94}
-\newlabel{eq:jacobian-entry-equation}{{1.35}{13}{Levenberg-Marquardt algorithm}{equation.1.35}{}}
-\newlabel{eq:levenberg-marquardt-delta}{{1.36}{13}{Levenberg-Marquardt algorithm}{equation.1.36}{}}
-\newlabel{eq:jacobian-first-case}{{1.37}{13}{Levenberg-Marquardt algorithm}{equation.1.37}{}}
-\newlabel{eq:jacobian-second-case}{{1.38}{13}{Levenberg-Marquardt algorithm}{equation.1.38}{}}
-\newlabel{eq:jacobian-third-case}{{1.39}{13}{Levenberg-Marquardt algorithm}{equation.1.39}{}}
-\newlabel{eq:levenberg-marquardt-inner-neuron}{{1.40a}{13}{Levenberg-Marquardt algorithm}{equation.1.40}{}}
-\newlabel{eq:levenberg-marquardt-output-neuron}{{1.40b}{13}{Levenberg-Marquardt algorithm}{equation.1.40}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.4}Practical considerations on the design of artificial neural networks}{13}{subsection.1.2.4}}
-\newlabel{section:Practical considerations on the design of artificial neural networks}{{1.2.4}{13}{Practical considerations on the design of artificial neural networks}{subsection.1.2.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.2.1}{\ignorespaces \relax }}{14}{figure.caption.3}}
-\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:neuron}{{1.2.1}{14}{\relax }{figure.caption.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.2.2}{\ignorespaces \relax }}{14}{figure.caption.4}}
-\newlabel{fig:neural-model}{{1.2.2}{14}{\relax }{figure.caption.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.2.3}{\ignorespaces \relax }}{14}{figure.caption.5}}
-\newlabel{fig:neural-model-bias}{{1.2.3}{14}{\relax }{figure.caption.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.2.4}{\ignorespaces \relax }}{15}{figure.caption.6}}
-\newlabel{fig:neural-network}{{1.2.4}{15}{\relax }{figure.caption.6}{}}
+\newlabel{eq:jacobian-third-case}{{1.39}{25}{Levenberg-Marquardt algorithm}{equation.1.39}{}}
+\newlabel{eq:levenberg-marquardt-inner-neuron}{{1.40a}{25}{Levenberg-Marquardt algorithm}{equation.1.40}{}}
+\newlabel{eq:levenberg-marquardt-output-neuron}{{1.40b}{25}{Levenberg-Marquardt algorithm}{equation.1.40}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1.3}{\ignorespaces An iteration of the Levenberg-Marquardt training algorithm.\relax }}{25}{algorithm.1.3}}
+\newlabel{alg:levenberg-marquart}{{1.3}{25}{An iteration of the Levenberg-Marquardt training algorithm.\relax }{algorithm.1.3}{}}
+\citation{Kri}
+\citation{Mat16}
+\citation{Koh95}
+\citation{Mat16}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.4}Practical considerations on the design of artificial neural networks}{26}{subsection.1.2.4}}
+\newlabel{section:Practical considerations on the design of artificial neural networks}{{1.2.4}{26}{Practical considerations on the design of artificial neural networks}{subsection.1.2.4}{}}
+\citation{OBS}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1.4}{\ignorespaces The complete training algorithm adopted in our numerical tests.\relax }}{28}{algorithm.1.4}}
+\newlabel{alg:offline-learning-complete}{{1.4}{28}{The complete training algorithm adopted in our numerical tests.\relax }{algorithm.1.4}{}}
 \citation{MN16}
-\citation{JIR14}
-\citation{HRS15}
-\citation{MN16}
-\@writefile{toc}{\contentsline {chapter}{\numberline {2}Reduced Basis method for nonlinear elliptic PDEs}{16}{chapter.2}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Reduced basis methods for nonlinear partial differential equations}{29}{chapter.2}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chapter:Reduced Basis method for nonlinear elliptic PDEs}{{2}{16}{Reduced Basis method for nonlinear elliptic PDEs}{chapter.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}Finite Element method for one-dimensional Poisson}{16}{section.2.1}}
-\newlabel{section:Finite Element method for one-dimensional Poisson}{{2.1}{16}{Finite Element method for one-dimensional Poisson}{section.2.1}{}}
-\bibcite{Cyb88}{1}
-\bibcite{Cyb89}{2}
-\bibcite{Fah88}{3}
-\bibcite{Hag94}{4}
-\bibcite{Hag14}{5}
-\bibcite{Hay05}{6}
-\bibcite{Heb49}{7}
-\bibcite{KLM96}{8}
-\bibcite{Kri}{9}
-\bibcite{Mar63}{10}
-\bibcite{MR86}{11}
-\bibcite{Nie15}{12}
-\bibcite{RB93}{13}
-\bibcite{Ros58}{14}
-\bibcite{SD}{15}
-\bibcite{WH60}{16}
+\newlabel{chapter:Reduced Basis method for nonlinear partial differential equations}{{2}{29}{Reduced basis methods for nonlinear partial differential equations}{chapter.2}{}}
+\newlabel{eq:geometric-map}{{2}{29}{Reduced basis methods for nonlinear partial differential equations}{chapter.2}{}}
+\citation{HSR16}
+\citation{JIR14}
+\citation{QMN15}
+\newlabel{eq:map-continuous}{{2.1}{30}{Reduced basis methods for nonlinear partial differential equations}{equation.2.1}{}}
+\newlabel{eq:nonlinear-system-full}{{2.2}{30}{Reduced basis methods for nonlinear partial differential equations}{equation.2.2}{}}
+\newlabel{eq:reduced-solution-algebraic}{{2.3}{30}{Reduced basis methods for nonlinear partial differential equations}{equation.2.3}{}}
+\newlabel{eq:reduced-solution}{{2.4}{30}{Reduced basis methods for nonlinear partial differential equations}{equation.2.4}{}}
+\citation{MN16}
+\citation{Pru02}
+\citation{HSR16}
+\citation{QMN15}
+\citation{MN16}
+\citation{Bar04}
+\citation{NMA15}
+\citation{HSR16}
+\citation{QMN15}
+\newlabel{eq:nonlinear-system-reduced}{{2.5}{31}{Reduced basis methods for nonlinear partial differential equations}{equation.2.5}{}}
+\citation{Ams10}
+\citation{Chen17}
+\citation{Haa13}
+\newlabel{eq:rb-vs-projection}{{2.6}{32}{Reduced basis methods for nonlinear partial differential equations}{equation.2.6}{}}
+\newlabel{eq:rb-vs-projection-coefficients}{{2.7}{32}{Reduced basis methods for nonlinear partial differential equations}{equation.2.7}{}}
+\newlabel{eq:interpolation-function}{{2.9}{32}{Reduced basis methods for nonlinear partial differential equations}{equation.2.9}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Parametrized nonlinear PDEs}{32}{section.2.1}}
+\newlabel{section:Parametrized nonlinear PDEs}{{2.1}{32}{Parametrized nonlinear PDEs}{section.2.1}{}}
+\citation{Qua10}
+\citation{MM10}
+\newlabel{eq:pde-differential-form}{{2.10}{33}{Parametrized nonlinear PDEs}{equation.2.10}{}}
+\newlabel{eq:pde-variational-form}{{2.11}{33}{Parametrized nonlinear PDEs}{equation.2.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}Nonlinear Poisson equation}{33}{subsection.2.1.1}}
+\newlabel{section:Nonlinear Poisson equation}{{2.1.1}{33}{Nonlinear Poisson equation}{subsection.2.1.1}{}}
+\newlabel{eq:poisson-differential}{{2.12}{33}{Nonlinear Poisson equation}{equation.2.12}{}}
+\newlabel{eq:poisson-differential-first-equation}{{2.12a}{33}{Nonlinear Poisson equation}{equation.2.12a}{}}
+\citation{Ran99}
+\newlabel{eq:poisson-weak-derivation}{{2.13}{34}{Nonlinear Poisson equation}{equation.2.13}{}}
+\newlabel{eq:poisson-weak-forms}{{2.14}{34}{Nonlinear Poisson equation}{equation.2.14}{}}
+\newlabel{eq:poisson-weak}{{2.15}{34}{Nonlinear Poisson equation}{equation.2.15}{}}
+\citation{QMN15}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.2}Steady Navier-Stokes equations}{35}{subsection.2.1.2}}
+\newlabel{section:Steady Navier-Stokes equations}{{2.1.2}{35}{Steady Navier-Stokes equations}{subsection.2.1.2}{}}
+\newlabel{eq:ns-differential}{{2.16}{35}{Steady Navier-Stokes equations}{equation.2.16}{}}
+\newlabel{eq:mass-conservation}{{2.16a}{35}{Steady Navier-Stokes equations}{equation.2.16a}{}}
+\newlabel{eq:momentum-conservation}{{2.16b}{35}{Steady Navier-Stokes equations}{equation.2.16b}{}}
+\newlabel{eq:ns-weak}{{2.17}{35}{Steady Navier-Stokes equations}{equation.2.17}{}}
+\newlabel{eq:ns-weak-velocity}{{2.17a}{35}{Steady Navier-Stokes equations}{equation.2.17a}{}}
+\newlabel{eq:ns-weak-pressure}{{2.17b}{35}{Steady Navier-Stokes equations}{equation.2.17b}{}}
+\newlabel{eq:ns-weak-forms}{{2.18}{35}{Steady Navier-Stokes equations}{equation.2.18}{}}
+\newlabel{eq:ns-weak-forms-c}{{2.18a}{35}{Steady Navier-Stokes equations}{equation.2.18a}{}}
+\newlabel{eq:ns-weak-forms-d}{{2.18b}{36}{Steady Navier-Stokes equations}{equation.2.18b}{}}
+\newlabel{eq:ns-weak-forms-b}{{2.18c}{36}{Steady Navier-Stokes equations}{equation.2.18c}{}}
+\newlabel{eq:ns-weak-forms-f1}{{2.18d}{36}{Steady Navier-Stokes equations}{equation.2.18d}{}}
+\newlabel{eq:ns-weak-forms-f2}{{2.18e}{36}{Steady Navier-Stokes equations}{equation.2.18e}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}From the original to the reference domain}{36}{section.2.2}}
+\newlabel{section:From the original to the reference domain}{{2.2}{36}{From the original to the reference domain}{section.2.2}{}}
+\newlabel{first-compatibility-condition}{{{{(a)}}}{36}{From the original to the reference domain}{Item.12}{}}
+\newlabel{second-compatibility-condition}{{{{(b)}}}{36}{From the original to the reference domain}{Item.13}{}}
+\citation{JIR14}
+\newlabel{eq:parametrized-map}{{2.19}{37}{From the original to the reference domain}{equation.2.19}{}}
+\newlabel{eq:pde-differential-reference}{{2.20}{37}{From the original to the reference domain}{equation.2.20}{}}
+\newlabel{eq:pde-weak-reference}{{2.21}{37}{From the original to the reference domain}{equation.2.21}{}}
+\newlabel{eq:parametrized-map-discrete}{{2.23}{37}{From the original to the reference domain}{equation.2.23}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Change of variables formulae}{37}{subsection.2.2.1}}
+\newlabel{section:Change of variables formulae}{{2.2.1}{37}{Change of variables formulae}{subsection.2.2.1}{}}
+\citation{Rud64}
+\citation{Rud64}
+\newlabel{eq:chain-rule-component}{{2.24}{38}{Change of variables formulae}{equation.2.24}{}}
+\newlabel{eq:chain-rule}{{2.25}{38}{Change of variables formulae}{equation.2.25}{}}
+\newlabel{eq:chain-rule-bis}{{2.26}{38}{Change of variables formulae}{equation.2.26}{}}
+\newlabel{eq:change-of-variables}{{2.27}{38}{Change of variables formulae}{equation.2.27}{}}
+\newlabel{eq:change-of-variables-vectorial}{{2.28}{39}{Change of variables formulae}{equation.2.28}{}}
+\newlabel{eq:change-of-variables-first}{{2.29}{39}{Change of variables formulae}{equation.2.29}{}}
+\newlabel{eq:change-of-variables-second}{{2.30}{39}{Change of variables formulae}{equation.2.30}{}}
+\newlabel{eq:change-of-variables-third}{{2.31}{39}{Change of variables formulae}{equation.2.31}{}}
+\newlabel{eq:change-of-variables-fourth}{{2.32}{39}{Change of variables formulae}{equation.2.32}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}The problems of interest}{39}{subsection.2.2.2}}
+\newlabel{section:The problems of interest}{{2.2.2}{39}{The problems of interest}{subsection.2.2.2}{}}
+\newlabel{eq:poisson-weak-reference}{{2.33}{39}{The problems of interest}{equation.2.33}{}}
+\newlabel{eq:poisson-weak-forms-reference}{{2.34}{39}{The problems of interest}{equation.2.34}{}}
+\newlabel{eq:poisson-weak-forms-reference-first}{{2.34a}{39}{The problems of interest}{equation.2.34a}{}}
+\newlabel{eq:poisson-weak-forms-reference-second}{{2.34b}{39}{The problems of interest}{equation.2.34b}{}}
+\citation{JIR14}
+\newlabel{eq:ns-weak-reference}{{2.35}{40}{The problems of interest}{equation.2.35}{}}
+\newlabel{eq:ns-weak-forms}{{2.36}{40}{The problems of interest}{equation.2.36}{}}
+\newlabel{eq:ns-weak-forms-c-reference}{{2.36a}{40}{The problems of interest}{equation.2.36a}{}}
+\newlabel{eq:ns-weak-forms-d-reference}{{2.36b}{40}{The problems of interest}{equation.2.36b}{}}
+\newlabel{eq:ns-weak-forms-b-reference}{{2.36c}{40}{The problems of interest}{equation.2.36c}{}}
+\newlabel{eq:ns-weak-forms-f1-reference}{{2.36d}{40}{The problems of interest}{equation.2.36d}{}}
+\newlabel{eq:ns-weak-forms-f2-reference}{{2.36e}{40}{The problems of interest}{equation.2.36e}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}The boundary displacement-dependent transfinite map (BDD TM)}{40}{subsection.2.2.3}}
+\newlabel{section:The boundary displacement-dependent transfinite map}{{2.2.3}{40}{The boundary displacement-dependent transfinite map (BDD TM)}{subsection.2.2.3}{}}
+\citation{JIR14}
+\newlabel{eq:laplace-problem-weight-function}{{2.38}{41}{The boundary displacement-dependent transfinite map (BDD TM)}{equation.2.38}{}}
+\newlabel{eq:laplace-problem-projection-function}{{2.39}{41}{The boundary displacement-dependent transfinite map (BDD TM)}{equation.2.39}{}}
+\citation{JIR14}
+\citation{Rud64}
+\citation{JIR14}
+\newlabel{eq:weight-projection-function}{{2.40}{42}{The boundary displacement-dependent transfinite map (BDD TM)}{equation.2.40}{}}
+\newlabel{eq:bddtm}{{2.41}{42}{The boundary displacement-dependent transfinite map (BDD TM)}{equation.2.41}{}}
+\newlabel{eq:my-bddtm}{{2.42}{42}{The boundary displacement-dependent transfinite map (BDD TM)}{equation.2.42}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Well-posedness of the test cases}{42}{section.2.3}}
+\newlabel{section:Well-posedness of the test cases}{{2.3}{42}{Well-posedness of the test cases}{section.2.3}{}}
+\citation{CR97}
+\citation{QMN15}
+\citation{ESW04}
+\citation{Qua10}
+\citation{Rud64}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Finite element method}{43}{section.2.4}}
+\newlabel{section:Finite element method}{{2.4}{43}{Finite element method}{section.2.4}{}}
+\newlabel{eq:galerkin}{{2.43}{43}{Finite element method}{equation.2.43}{}}
+\newlabel{eq:continuity}{{2.44}{43}{Finite element method}{equation.2.44}{}}
+\newlabel{eq:inf-sup}{{2.45}{44}{Finite element method}{equation.2.45}{}}
+\newlabel{eq:newton-linearized-problem}{{2.46}{44}{Finite element method}{equation.2.46}{}}
+\newlabel{eq:galerkin-solution}{{2.47}{44}{Finite element method}{equation.2.47}{}}
+\newlabel{eq:galerkin-algebraic}{{2.48}{44}{Finite element method}{equation.2.48}{}}
+\newlabel{eq:galerkin-nonlinear-system}{{2.49}{44}{Finite element method}{equation.2.49}{}}
+\newlabel{eq:galerkin-nonlinear-system-equation}{{2.50}{44}{Finite element method}{equation.2.50}{}}
+\newlabel{eq:galerkin-linear-system}{{2.51}{44}{Finite element method}{equation.2.51}{}}
+\citation{QMN15}
+\newlabel{eq:notation-1}{{2.53}{45}{Finite element method}{equation.2.53}{}}
+\newlabel{eq:notation-2}{{2.54}{45}{Finite element method}{equation.2.54}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}Nonlinear Poisson equation}{45}{subsection.2.4.1}}
+\newlabel{section:Nonlinear Poisson equation (FE)}{{2.4.1}{45}{Nonlinear Poisson equation}{subsection.2.4.1}{}}
+\citation{Ran99}
+\citation{Qua10}
+\citation{Per02}
+\newlabel{eq:poisson-residual-vector}{{2.4.1}{46}{Nonlinear Poisson equation}{subsection.2.4.1}{}}
+\newlabel{eq:poisson-jacobian}{{2.4.1}{46}{Nonlinear Poisson equation}{subsection.2.4.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}Steady Navier-Stokes equations}{46}{subsection.2.4.2}}
+\newlabel{section:Steady Navier-Stokes equations (FE)}{{2.4.2}{46}{Steady Navier-Stokes equations}{subsection.2.4.2}{}}
+\citation{Dep08}
+\citation{HSR16}
+\citation{QMN15}
+\newlabel{eq:ns-jacobian}{{2.58}{48}{Steady Navier-Stokes equations}{equation.2.58}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}POD-Galerkin reduced basis method}{48}{section.2.5}}
+\newlabel{section:POD-Galerkin reduced basis method}{{2.5}{48}{POD-Galerkin reduced basis method}{section.2.5}{}}
+\citation{HSR16}
+\citation{Chen17}
+\citation{Vol08}
+\citation{HSR16}
+\citation{Mad06}
+\newlabel{eq:rb-solution}{{2.59}{49}{POD-Galerkin reduced basis method}{equation.2.59}{}}
+\citation{Mad06}
+\citation{Buf12}
+\citation{Buf12}
+\citation{HSR16}
+\citation{Mad06}
+\citation{Dep08}
+\citation{QMN15}
+\newlabel{eq:kolmogorov-L-width}{{2.61}{50}{}{equation.2.61}{}}
+\newlabel{eq:pde-rb}{{2.62}{50}{POD-Galerkin reduced basis method}{equation.2.62}{}}
+\newlabel{eq:pde-rb-newton}{{2.63}{51}{POD-Galerkin reduced basis method}{equation.2.63}{}}
+\newlabel{eq:rb-fe-coefficients}{{2.64}{51}{POD-Galerkin reduced basis method}{equation.2.64}{}}
+\newlabel{eq:rb-algebraic-formulation-1}{{2.65}{51}{POD-Galerkin reduced basis method}{equation.2.65}{}}
+\newlabel{eq:rb-nonlinear-system}{{2.66}{51}{POD-Galerkin reduced basis method}{equation.2.66}{}}
+\citation{QMN15}
+\citation{Vol08}
+\citation{Lia02}
+\newlabel{eq:rb-nonlinear-system-jacobian}{{2.67}{52}{POD-Galerkin reduced basis method}{equation.2.67}{}}
+\newlabel{eq:rb-nonlinear-system-newton}{{2.68}{52}{POD-Galerkin reduced basis method}{equation.2.68}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.1}Proper Orthogonal Decomposition}{52}{subsection.2.5.1}}
+\newlabel{section:Proper Orthogonal Decomposition}{{2.5.1}{52}{Proper Orthogonal Decomposition}{subsection.2.5.1}{}}
+\citation{Vol08}
+\newlabel{eq:svd}{{2.69}{53}{Proper Orthogonal Decomposition}{equation.2.69}{}}
+\newlabel{eq:left-singular-vectors}{{2.70}{53}{Proper Orthogonal Decomposition}{equation.2.70}{}}
+\newlabel{eq:right-singular-vectors}{{2.71}{53}{Proper Orthogonal Decomposition}{equation.2.71}{}}
+\newlabel{eq:snapshot-method}{{2.72}{53}{Proper Orthogonal Decomposition}{equation.2.72}{}}
+\newlabel{eq:svd-compact}{{2.74}{53}{Proper Orthogonal Decomposition}{equation.2.74}{}}
+\newlabel{eq:svd-compact-matrices}{{2.75}{53}{Proper Orthogonal Decomposition}{equation.2.75}{}}
+\citation{Vol08}
+\newlabel{eq:basis-error}{{2.76}{54}{Proper Orthogonal Decomposition}{equation.2.76}{}}
+\newlabel{eq:pod-optimality}{{2.77}{54}{Schmidt-Eckart-Young}{equation.2.77}{}}
+\citation{Vol08}
+\citation{HSR16}
+\citation{Pru02}
+\newlabel{eq:pod-error}{{2.78}{55}{Proper Orthogonal Decomposition}{equation.2.78}{}}
+\citation{Bar04}
+\citation{MN16}
+\citation{QMN15}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.2}Implementation: details and issues}{56}{subsection.2.5.2}}
+\newlabel{section:Implementation}{{2.5.2}{56}{Implementation: details and issues}{subsection.2.5.2}{}}
+\bibcite{Ams10}{1}
+\bibcite{Bar04}{2}
+\bibcite{Buf12}{3}
+\bibcite{CR97}{4}
+\bibcite{Chen17}{5}
+\bibcite{Cyb88}{6}
+\bibcite{Cyb89}{7}
+\bibcite{Dep08}{8}
+\bibcite{ESW04}{9}
+\bibcite{Fah88}{10}
+\bibcite{Hag94}{11}
+\bibcite{Hag14}{12}
+\bibcite{Haa13}{13}
+\bibcite{Hay05}{14}
+\bibcite{Heb49}{15}
+\bibcite{Lia02}{16}
+\bibcite{OBS}{17}
+\bibcite{HSR16}{18}
+\bibcite{Hop82}{19}
+\bibcite{JIR14}{20}
+\bibcite{KLM96}{21}
+\bibcite{Koh95}{22}
+\bibcite{Koh98}{23}
+\bibcite{Kri}{24}
+\bibcite{Mad06}{25}
+\bibcite{Mar63}{26}
+\bibcite{Mat16}{27}
+\bibcite{MM10}{28}
+\bibcite{MN16}{29}
+\bibcite{MR86}{30}
+\bibcite{Nie15}{31}
+\bibcite{NMA15}{32}
+\bibcite{Per02}{33}
+\bibcite{Pru02}{34}
+\bibcite{Qua10}{35}
+\bibcite{QMN15}{36}
+\bibcite{Ran99}{37}
+\bibcite{RB93}{38}
+\bibcite{Ros58}{39}
+\bibcite{Rud64}{40}
+\bibcite{SD13}{41}
+\bibcite{Vol08}{42}
+\bibcite{WH60}{43}
