@@ -20,3 +20,7 @@
 \BOOKMARK [1][-]{section.2.5}{POD-Galerkin reduced basis method}{chapter.2}% 20
 \BOOKMARK [2][-]{subsection.2.5.1}{Proper Orthogonal Decomposition}{section.2.5}% 21
 \BOOKMARK [2][-]{subsection.2.5.2}{Implementation: details and issues}{section.2.5}% 22
+\BOOKMARK [2][-]{subsection.2.5.3}{Application to the steady Navier-Stokes equations}{section.2.5}% 23
+\BOOKMARK [1][-]{section.2.6}{A POD-based RB method using neural networks}{chapter.2}% 24
+\BOOKMARK [2][-]{subsection.2.6.1}{An a priori error analysis}{section.2.6}% 25
+\BOOKMARK [0][-]{chapter.3}{Numerical results}{}% 26

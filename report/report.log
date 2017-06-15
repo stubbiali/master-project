@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.28)  1 JUN 2017 17:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.28)  15 JUN 2017 10:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1369,13 +1369,13 @@ Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
 .
 )
 
-Package amsthm Warning: Unknown theoremstyle `theorem' on input line 85.
+Package amsthm Warning: Unknown theoremstyle `theorem' on input line 86.
 
 \c@theorem=\count171
 \c@definition=\count172
 \c@remark=\count173
 
-Package amsthm Warning: Unknown theoremstyle `proposition' on input line 91.
+Package amsthm Warning: Unknown theoremstyle `proposition' on input line 92.
 
 \c@proposition=\count174
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
@@ -1631,7 +1631,7 @@ File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
 zlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
 )))
-LaTeX Font Info:    Try loading font information for T1+txtt on input line 116.
+LaTeX Font Info:    Try loading font information for T1+txtt on input line 117.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/t1txtt.fd
@@ -1882,52 +1882,52 @@ LaTeX Warning: Label `eq:ns-weak-forms' multiply defined.
 )
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 252.
-LaTeX Font Info:    ... okay on input line 252.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 252.
-LaTeX Font Info:    ... okay on input line 252.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 252.
-LaTeX Font Info:    ... okay on input line 252.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 252.
-LaTeX Font Info:    ... okay on input line 252.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 252.
-LaTeX Font Info:    ... okay on input line 252.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 252.
-LaTeX Font Info:    ... okay on input line 252.
-LaTeX Font Info:    Checking defaults for FML/futm/m/it on input line 252.
-LaTeX Font Info:    Try loading font information for FML+futm on input line 252
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 253.
+LaTeX Font Info:    ... okay on input line 253.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 253.
+LaTeX Font Info:    ... okay on input line 253.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 253.
+LaTeX Font Info:    ... okay on input line 253.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 253.
+LaTeX Font Info:    ... okay on input line 253.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 253.
+LaTeX Font Info:    ... okay on input line 253.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 253.
+LaTeX Font Info:    ... okay on input line 253.
+LaTeX Font Info:    Checking defaults for FML/futm/m/it on input line 253.
+LaTeX Font Info:    Try loading font information for FML+futm on input line 253
 .
  (/usr/share/texlive/texmf-dist/tex/latex/fourier/fmlfutm.fd
 File: fmlfutm.fd 2004/10/30 Fontinst v1.926 font definitions for FML/futm.
 )
-LaTeX Font Info:    ... okay on input line 252.
-LaTeX Font Info:    Checking defaults for FMS/futm/m/n on input line 252.
-LaTeX Font Info:    Try loading font information for FMS+futm on input line 252
+LaTeX Font Info:    ... okay on input line 253.
+LaTeX Font Info:    Checking defaults for FMS/futm/m/n on input line 253.
+LaTeX Font Info:    Try loading font information for FMS+futm on input line 253
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/fourier/fmsfutm.fd
 File: fmsfutm.fd 2004/10/30 Fontinst v1.926 font definitions for FMS/futm.
 )
-LaTeX Font Info:    ... okay on input line 252.
-LaTeX Font Info:    Checking defaults for FMX/futm/m/n on input line 252.
-LaTeX Font Info:    Try loading font information for FMX+futm on input line 252
+LaTeX Font Info:    ... okay on input line 253.
+LaTeX Font Info:    Checking defaults for FMX/futm/m/n on input line 253.
+LaTeX Font Info:    Try loading font information for FMX+futm on input line 253
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/fourier/fmxfutm.fd
 File: fmxfutm.fd futm-extension
 )
-LaTeX Font Info:    ... okay on input line 252.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 252.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 252.
+LaTeX Font Info:    ... okay on input line 253.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 253.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 253.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 252.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 252.
-LaTeX Font Info:    ... okay on input line 252.
-LaTeX Font Info:    Try loading font information for T1+futs on input line 252.
+LaTeX Font Info:    ... okay on input line 253.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 253.
+LaTeX Font Info:    ... okay on input line 253.
+LaTeX Font Info:    Try loading font information for T1+futs on input line 253.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/fourier/t1futs.fd
@@ -1991,7 +1991,7 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \microtypecontext on input line 252.
+LaTeX Info: Redefining \microtypecontext on input line 253.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -2007,15 +2007,15 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             See the microtype manual for details.
 \symgns@font=\mathgroup11
 LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
-(Font)                  TS1/futs/m/n --> TS1/futs/bx/n on input line 252.
-Package gensymb Info: Math companion symbols declared on input line 252.
-LaTeX Info: Redefining \degree on input line 252.
-LaTeX Info: Redefining \celsius on input line 252.
+(Font)                  TS1/futs/m/n --> TS1/futs/bx/n on input line 253.
+Package gensymb Info: Math companion symbols declared on input line 253.
+LaTeX Info: Redefining \degree on input line 253.
+LaTeX Info: Redefining \celsius on input line 253.
 Package gensymb Info: Using text companion symbols for \degree, \celsius and \p
-erthousand on input line 252.
-LaTeX Info: Redefining \ohm on input line 252.
-Package gensymb Info: Using \textohm for \ohm on input line 252.
-Package gensymb Info: Using \textmu for \micro on input line 252.
+erthousand on input line 253.
+LaTeX Info: Redefining \ohm on input line 253.
+Package gensymb Info: Using \textohm for \ohm on input line 253.
+Package gensymb Info: Using \textmu for \micro on input line 253.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: hyperref package is loaded.
@@ -2024,7 +2024,7 @@ Package caption Info: longtable package is loaded.
 Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 252.
+Package hyperref Info: Link coloring OFF on input line 253.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -2034,33 +2034,68 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count313
 )
-LaTeX Info: Redefining \ref on input line 252.
-LaTeX Info: Redefining \pageref on input line 252.
-LaTeX Info: Redefining \nameref on input line 252.
+LaTeX Info: Redefining \ref on input line 253.
+LaTeX Info: Redefining \pageref on input line 253.
+LaTeX Info: Redefining \nameref on input line 253.
 
 (./report.out) (./report.out)
 \@outlinefile=\write8
 \openout8 = `report.out'.
 
  ABD: EveryShipout initializing macros
-LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 254.
+Package epstopdf Info: Source file: <./img/polimi.eps>
+(epstopdf)                    date: 2017-06-11 22:14:10
+(epstopdf)                    size: 230619 bytes
+(epstopdf)             Output file: <./img/polimi-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-06-11 22:14:10
+(epstopdf)                    size: 68622 bytes
+(epstopdf)             Command: <repstopdf --outfile=./img/polimi-eps-converted
+-to.pdf ./img/polimi.eps>
+(epstopdf)             \includegraphics on input line 263.
+Package epstopdf Info: Output file is already uptodate.
 
-(./report.toc
-LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <12> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 1.
-LaTeX Font Info:    Try loading font information for FML+futmi on input line 2.
+<./img/polimi-eps-converted-to.pdf, id=111, 193.72375pt x 193.72375pt>
+File: ./img/polimi-eps-converted-to.pdf Graphic file (type pdf)
 
- (/usr/share/texlive/texmf-dist/tex/latex/fourier/fmlfutmi.fd
+<use ./img/polimi-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/polimi-eps-converted-to.pdf used on input line 2
+63.
+(pdftex.def)             Requested size: 213.09677pt x 72.25522pt.
+Package epstopdf Info: Source file: <./img/EPFL-Logo-CMJN.eps>
+(epstopdf)                    date: 2017-06-11 22:14:10
+(epstopdf)                    size: 1074102 bytes
+(epstopdf)             Output file: <./img/EPFL-Logo-CMJN-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2017-06-11 22:14:10
+(epstopdf)                    size: 36258 bytes
+(epstopdf)             Command: <repstopdf --outfile=./img/EPFL-Logo-CMJN-eps-c
+onverted-to.pdf ./img/EPFL-Logo-CMJN.eps>
+(epstopdf)             \includegraphics on input line 275.
+Package epstopdf Info: Output file is already uptodate.
+
+<./img/EPFL-Logo-CMJN-eps-converted-to.pdf, id=113, 142.5325pt x 68.255pt>
+File: ./img/EPFL-Logo-CMJN-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./img/EPFL-Logo-CMJN-eps-converted-to.pdf>
+Package pdftex.def Info: ./img/EPFL-Logo-CMJN-eps-converted-to.pdf used on inpu
+t line 275.
+(pdftex.def)             Requested size: 156.78621pt x 75.08072pt.
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <25> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 290.
+LaTeX Font Info:    Calculating math sizes for size <25> on input line 302.
+LaTeX Font Info:    Try loading font information for FML+futmi on input line 30
+2.
+
+(/usr/share/texlive/texmf-dist/tex/latex/fourier/fmlfutmi.fd
 File: fmlfutmi.fd 2004/10/30 Fontinst v1.926 font definitions for FML/futmi.
 )
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 11.03998pt on input line 2.
+(Font)              scaled to size 22.99995pt on input line 302.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 8.27998pt on input line 2.
+(Font)              scaled to size 17.47983pt on input line 302.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 6.43999pt on input line 2.
-LaTeX Font Info:    Try loading font information for U+msa on input line 2.
+(Font)              scaled to size 13.80011pt on input line 302.
+LaTeX Font Info:    Try loading font information for U+msa on input line 302.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -2068,7 +2103,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 2.
+LaTeX Font Info:    Try loading font information for U+msb on input line 302.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -2077,12 +2112,13 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 11.03998pt on input line 2.
+(Font)              scaled to size 22.99995pt on input line 302.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 8.27998pt on input line 2.
+(Font)              scaled to size 17.47983pt on input line 302.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 6.43999pt on input line 2.
-LaTeX Font Info:    Try loading font information for TS1+futs on input line 2.
+(Font)              scaled to size 13.80011pt on input line 302.
+LaTeX Font Info:    Try loading font information for TS1+futs on input line 302
+.
 
 (/usr/share/texlive/texmf-dist/tex/latex/fourier/ts1futs.fd
 File: ts1futs.fd 2004/03/26 Fontinst v1.926 font definitions for TS1/futs.
@@ -2091,14 +2127,10 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `futs' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-)
-\tf@toc=\write9
-\openout9 = `report.toc'.
-
  [1
 
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./img/polimi-eps-converted
+-to.pdf> <./img/EPFL-Logo-CMJN-eps-converted-to.pdf>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2107,9 +2139,27 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [2
 
-] (./report.lof)
-\tf@lof=\write10
-\openout10 = `report.lof'.
+]
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <24.88> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 324.
+ (./report.toc
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <12> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 11.03998pt on input line 2.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 8.27998pt on input line 2.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 6.43999pt on input line 2.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 11.03998pt on input line 2.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 8.27998pt on input line 2.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 6.43999pt on input line 2.
+)
+\tf@toc=\write9
+\openout9 = `report.toc'.
 
  [3]
 
@@ -2120,9 +2170,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [4
 
-] (./report.loa)
-\tf@loa=\write11
-\openout11 = `report.loa'.
+] (./report.lof)
+\tf@lof=\write10
+\openout10 = `report.lof'.
 
  [5]
 
@@ -2133,45 +2183,58 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [6
 
+] (./report.loa)
+\tf@loa=\write11
+\openout11 = `report.loa'.
+
+ [7]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[8
+
 ]
 Chapter 1.
 
-LaTeX Warning: Reference `' on page 7 undefined on input line 263.
+LaTeX Warning: Reference `' on page 1 undefined on input line 335.
 
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 269.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 341.
 Package epstopdf Info: Source file: <./img/neuron.eps>
-(epstopdf)                    date: 2017-05-07 23:31:42
+(epstopdf)                    date: 2017-06-11 22:14:10
 (epstopdf)                    size: 70617 bytes
 (epstopdf)             Output file: <./img/neuron-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-05-07 23:32:06
+(epstopdf)                    date: 2017-06-11 22:14:10
 (epstopdf)                    size: 67007 bytes
 (epstopdf)             Command: <repstopdf --outfile=./img/neuron-eps-converted
 -to.pdf ./img/neuron.eps>
-(epstopdf)             \includegraphics on input line 274.
+(epstopdf)             \includegraphics on input line 346.
 Package epstopdf Info: Output file is already uptodate.
-<./img/neuron-eps-converted-to.pdf, id=197, 454.69875pt x 243.91125pt>
+<./img/neuron-eps-converted-to.pdf, id=283, 454.69875pt x 243.91125pt>
 File: ./img/neuron-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./img/neuron-eps-converted-to.pdf>
-Package pdftex.def Info: ./img/neuron-eps-converted-to.pdf used on input line 2
-74.
+Package pdftex.def Info: ./img/neuron-eps-converted-to.pdf used on input line 3
+46.
 (pdftex.def)             Requested size: 227.34882pt x 121.95532pt.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 276.
- [7]
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 348.
+ [1]
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 9.19998pt on input line 286.
+(Font)              scaled to size 9.19998pt on input line 358.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 6.99199pt on input line 286.
+(Font)              scaled to size 6.99199pt on input line 358.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 5.51999pt on input line 286.
+(Font)              scaled to size 5.51999pt on input line 358.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 9.19998pt on input line 286.
+(Font)              scaled to size 9.19998pt on input line 358.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 6.99199pt on input line 286.
+(Font)              scaled to size 6.99199pt on input line 358.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 5.51999pt on input line 286.
+(Font)              scaled to size 5.51999pt on input line 358.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2179,9 +2242,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[8 <./img/neuron-eps-converted-to.pdf>]
+[2 <./img/neuron-eps-converted-to.pdf>]
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 314.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 386.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2189,34 +2252,34 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[9]
+[3]
 Package epstopdf Info: Source file: <./img/neural_model_ter.eps>
-(epstopdf)                    date: 2017-05-07 23:14:54
+(epstopdf)                    date: 2017-06-11 22:14:10
 (epstopdf)                    size: 27684 bytes
 (epstopdf)             Output file: <./img/neural_model_ter-eps-converted-to.pd
 f>
-(epstopdf)                    date: 2017-05-07 23:15:08
+(epstopdf)                    date: 2017-06-11 22:14:10
 (epstopdf)                    size: 10768 bytes
 (epstopdf)             Command: <repstopdf --outfile=./img/neural_model_ter-eps
 -converted-to.pdf ./img/neural_model_ter.eps>
-(epstopdf)             \includegraphics on input line 337.
+(epstopdf)             \includegraphics on input line 409.
 Package epstopdf Info: Output file is already uptodate.
 
-<./img/neural_model_ter-eps-converted-to.pdf, id=237, 344.28625pt x 179.67125pt
+<./img/neural_model_ter-eps-converted-to.pdf, id=322, 344.28625pt x 179.67125pt
 >
 File: ./img/neural_model_ter-eps-converted-to.pdf Graphic file (type pdf)
  <use ./img/neural_model_ter-eps-converted-to.pdf>
 Package pdftex.def Info: ./img/neural_model_ter-eps-converted-to.pdf used on in
-put line 337.
+put line 409.
 (pdftex.def)             Requested size: 206.57333pt x 107.80356pt.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 10.07397pt on input line 339.
+(Font)              scaled to size 10.07397pt on input line 411.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 7.63599pt on input line 339.
+(Font)              scaled to size 7.63599pt on input line 411.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 10.07397pt on input line 339.
+(Font)              scaled to size 10.07397pt on input line 411.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 7.63599pt on input line 339.
+(Font)              scaled to size 7.63599pt on input line 411.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2224,32 +2287,32 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[10 <./img/neural_model_ter-eps-converted-to.pdf>]
+[4 <./img/neural_model_ter-eps-converted-to.pdf>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[11]
+[5]
 Package epstopdf Info: Source file: <./img/neural_model_bias.eps>
-(epstopdf)                    date: 2017-05-07 23:22:52
+(epstopdf)                    date: 2017-06-11 22:14:10
 (epstopdf)                    size: 28710 bytes
 (epstopdf)             Output file: <./img/neural_model_bias-eps-converted-to.p
 df>
-(epstopdf)                    date: 2017-05-07 23:23:12
+(epstopdf)                    date: 2017-06-11 22:14:10
 (epstopdf)                    size: 11072 bytes
 (epstopdf)             Command: <repstopdf --outfile=./img/neural_model_bias-ep
 s-converted-to.pdf ./img/neural_model_bias.eps>
-(epstopdf)             \includegraphics on input line 396.
+(epstopdf)             \includegraphics on input line 468.
 Package epstopdf Info: Output file is already uptodate.
 
-<./img/neural_model_bias-eps-converted-to.pdf, id=280, 344.28625pt x 199.74625p
+<./img/neural_model_bias-eps-converted-to.pdf, id=364, 344.28625pt x 199.74625p
 t>
 File: ./img/neural_model_bias-eps-converted-to.pdf Graphic file (type pdf)
  <use ./img/neural_model_bias-eps-converted-to.pdf>
 Package pdftex.def Info: ./img/neural_model_bias-eps-converted-to.pdf used on i
-nput line 396.
+nput line 468.
 (pdftex.def)             Requested size: 206.57333pt x 119.84866pt.
 
 Underfull \vbox (badness 1596) has occurred while \output is active []
@@ -2261,20 +2324,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[12 <./img/neural_model_bias-eps-converted-to.pdf>]
-<./img/fermi_function_bis.pdf, id=304, 597.50829pt x 845.0471pt>
+[6 <./img/neural_model_bias-eps-converted-to.pdf>]
+<./img/fermi_function_bis.pdf, id=387, 597.50829pt x 845.0471pt>
 File: ./img/fermi_function_bis.pdf Graphic file (type pdf)
 
 <use ./img/fermi_function_bis.pdf>
-Package pdftex.def Info: ./img/fermi_function_bis.pdf used on input line 416.
+Package pdftex.def Info: ./img/fermi_function_bis.pdf used on input line 488.
 (pdftex.def)             Requested size: 219.08708pt x 165.25424pt.
 
-<./img/hyperbolic_tangent_bis.pdf, id=306, 597.50829pt x 845.0471pt>
+<./img/hyperbolic_tangent_bis.pdf, id=389, 597.50829pt x 845.0471pt>
 File: ./img/hyperbolic_tangent_bis.pdf Graphic file (type pdf)
 
 <use ./img/hyperbolic_tangent_bis.pdf>
-Package pdftex.def Info: ./img/hyperbolic_tangent_bis.pdf used on input line 41
-7.
+Package pdftex.def Info: ./img/hyperbolic_tangent_bis.pdf used on input line 48
+9.
 (pdftex.def)             Requested size: 219.08708pt x 165.25424pt.
 
 
@@ -2283,12 +2346,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[13 <./img/fermi_function_bis.pdf> <./img/hyperbolic_tangent_bis.pdf>]
+[7 <./img/fermi_function_bis.pdf> <./img/hyperbolic_tangent_bis.pdf>]
 
-LaTeX Warning: Reference `' on page 14 undefined on input line 438.
+LaTeX Warning: Reference `' on page 8 undefined on input line 510.
 
 
-LaTeX Warning: Reference `' on page 14 undefined on input line 448.
+LaTeX Warning: Reference `' on page 8 undefined on input line 520.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2296,25 +2359,25 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[14]
+[8]
 Package epstopdf Info: Source file: <./img/neural_network_bis.eps>
-(epstopdf)                    date: 2017-05-07 21:46:16
+(epstopdf)                    date: 2017-06-11 22:14:10
 (epstopdf)                    size: 33818 bytes
 (epstopdf)             Output file: <./img/neural_network_bis-eps-converted-to.
 pdf>
-(epstopdf)                    date: 2017-05-07 21:47:54
+(epstopdf)                    date: 2017-06-11 22:14:10
 (epstopdf)                    size: 9858 bytes
 (epstopdf)             Command: <repstopdf --outfile=./img/neural_network_bis-e
 ps-converted-to.pdf ./img/neural_network_bis.eps>
-(epstopdf)             \includegraphics on input line 469.
+(epstopdf)             \includegraphics on input line 541.
 Package epstopdf Info: Output file is already uptodate.
 
-<./img/neural_network_bis-eps-converted-to.pdf, id=387, 532.99126pt x 296.10625
+<./img/neural_network_bis-eps-converted-to.pdf, id=469, 532.99126pt x 296.10625
 pt>
 File: ./img/neural_network_bis-eps-converted-to.pdf Graphic file (type pdf)
  <use ./img/neural_network_bis-eps-converted-to.pdf>
 Package pdftex.def Info: ./img/neural_network_bis-eps-converted-to.pdf used on 
-input line 469.
+input line 541.
 (pdftex.def)             Requested size: 319.79723pt x 177.66512pt.
 
 
@@ -2323,14 +2386,65 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[15]
+[9]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[16 <./img/neural_network_bis-eps-converted-to.pdf>]
+[10 <./img/neural_network_bis-eps-converted-to.pdf>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[11]
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 655.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[12]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[13]
+Underfull \vbox (badness 3158) has occurred while \output is active []
+
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[14]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[15]
+
+LaTeX Warning: Reference `' on page 16 undefined on input line 779.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[16]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2338,9 +2452,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [17]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 583.
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2349,62 +2460,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [18]
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[19]
-Underfull \vbox (badness 3118) has occurred while \output is active []
+LaTeX Warning: Reference `alg:levenberg-marquardt' on page 19 undefined on inpu
+t line 891.
 
 
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[20]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[21]
-
-LaTeX Warning: Reference `' on page 22 undefined on input line 707.
+LaTeX Warning: Reference `' on page 19 undefined on input line 893.
 
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[22]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[23]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[24]
-
-LaTeX Warning: Reference `alg:levenberg-marquardt' on page 25 undefined on inpu
-t line 819.
-
-
-LaTeX Warning: Reference `' on page 25 undefined on input line 821.
-
-
-Overfull \hbox (1.15477pt too wide) in paragraph at lines 848--848
+Overfull \hbox (1.15477pt too wide) in paragraph at lines 920--920
 []\T1/futs/b/n/14.4 Practical con-sid-er-a-tions on the de-sign of ar-ti-fi-cia
 l neu-ral net-works 
  []
@@ -2415,10 +2478,65 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
+[19]
+
+LaTeX Warning: Reference `' on page 20 undefined on input line 937.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[20]
+
+LaTeX Warning: Reference `' on page 21 undefined on input line 946.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[21]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[22]
+Chapter 2.
+[23
+
+]
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 1058
+.
+ (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[24]
+
+LaTeX Warning: Reference `' on page 25 undefined on input line 1082.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
 [25]
-
-LaTeX Warning: Reference `' on page 26 undefined on input line 865.
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2427,7 +2545,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [26]
 
-LaTeX Warning: Reference `' on page 27 undefined on input line 874.
+LaTeX Warning: Reference `' on page 27 undefined on input line 1148.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2443,18 +2561,21 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [28]
-Chapter 2.
 
-Overfull \hbox (4.22421pt too wide) in paragraph at lines 930--932
-\T1/futs/m/n/12 (-20) allowing to for-mu-late and solve the dif-fer-en-tial pro
-b-lem over a fixed, parameter-independent,
+LaTeX Warning: Reference `' on page 29 undefined on input line 1226.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[29]
+Overfull \hbox (9.38419pt too wide) detected at line 1268
+[][] [] \FML/futmi/m/it/12 d[]\T1/futs/m/n/12 (\FML/futmi/b/it/12 ^^V[]\T1/futs
+/m/n/12 ) \FMS/futm/m/n/12 Ä [][] []  \FML/futmi/m/it/12 d[]\T1/futs/m/n/12 (\F
+ML/futmi/b/it/12 ^^V[]\T1/futs/m/n/12 ) \FML/futmi/m/it/12 :
  []
-
-[29
-
-]
-
-LaTeX Warning: Reference `' on page 30 undefined on input line 940.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2464,12 +2585,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [30]
 
-LaTeX Warning: Reference `' on page 31 undefined on input line 972.
-
-
-LaTeX Warning: Reference `' on page 31 undefined on input line 975.
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
@@ -2477,18 +2592,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [31]
 
-LaTeX Warning: Reference `' on page 32 undefined on input line 999.
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [32]
-
-LaTeX Warning: Reference `' on page 33 undefined on input line 1034.
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2503,32 +2612,30 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [34]
-
-LaTeX Warning: Reference `' on page 35 undefined on input line 1112.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[35]
-Overfull \hbox (9.38419pt too wide) detected at line 1153
-[][] [] \FML/futmi/m/it/12 d[]\T1/futs/m/n/12 (\FML/futmi/b/it/12 ^^V[]\T1/futs
-/m/n/12 ) \FMS/futm/m/n/12 Ä [][] []  \FML/futmi/m/it/12 d[]\T1/futs/m/n/12 (\F
-ML/futmi/b/it/12 ^^V[]\T1/futs/m/n/12 ) \FML/futmi/m/it/12 :
+Overfull \hbox (1.73189pt too wide) in paragraph at lines 1463--1463
+[]\T1/futs/b/n/14.4 The bound-ary displacement-dependent trans-fi-nite map (BDD
+ TM) 
  []
 
 
-Overfull \hbox (47.01006pt too wide) detected at line 1162
-[] []
- []
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
+[35] <./img/bc_weight_bis.pdf, id=944, 279.77124pt x 231.1325pt>
+File: ./img/bc_weight_bis.pdf Graphic file (type pdf)
 
-LaTeX Warning: Reference `' on page 36 undefined on input line 1181.
+<use ./img/bc_weight_bis.pdf>
+Package pdftex.def Info: ./img/bc_weight_bis.pdf used on input line 1521.
+(pdftex.def)             Requested size: 174.85658pt x 144.45744pt.
 
+<./img/bc_proj_bis.pdf, id=945, 283.68132pt x 254.12039pt>
+File: ./img/bc_proj_bis.pdf Graphic file (type pdf)
 
-LaTeX Warning: Reference `' on page 36 undefined on input line 1181.
+<use ./img/bc_proj_bis.pdf>
+Package pdftex.def Info: ./img/bc_proj_bis.pdf used on input line 1524.
+(pdftex.def)             Requested size: 177.30038pt x 158.82484pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2536,12 +2643,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[36]
+[36 <./img/bc_weight_bis.pdf> <./img/bc_proj_bis.pdf>]
+<./img/bc_square.pdf, id=1002, 207.7386pt x 199.48328pt>
+File: ./img/bc_square.pdf Graphic file (type pdf)
 
-LaTeX Warning: Reference `' on page 37 undefined on input line 1195.
-
-
-LaTeX Warning: Reference `' on page 37 undefined on input line 1205.
+<use ./img/bc_square.pdf>
+Package pdftex.def Info: ./img/bc_square.pdf used on input line 1558.
+(pdftex.def)             Requested size: 150.61137pt x 144.62622pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2549,7 +2657,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[37]
+[37 <./img/bc_square.pdf>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2564,11 +2672,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [39]
-Overfull \hbox (1.73189pt too wide) in paragraph at lines 1344--1344
-[]\T1/futs/b/n/14.4 The bound-ary displacement-dependent trans-fi-nite map (BDD
- TM) 
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2576,11 +2679,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [40]
+Overfull \hbox (6.20494pt too wide) detected at line 1717
+[] [][]
+ []
 
-LaTeX Warning: Reference `' on page 41 undefined on input line 1396.
 
-
-LaTeX Warning: Reference `' on page 41 undefined on input line 1396.
+Overfull \hbox (15.64478pt too wide) detected at line 1726
+[] [][]
+ []
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2597,9 +2703,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [42]
 
-LaTeX Warning: Reference `' on page 43 undefined on input line 1468.
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
@@ -2613,10 +2716,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [44]
-Overfull \hbox (9.30992pt too wide) detected at line 1555
-[] [][]
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2624,10 +2723,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [45]
-Overfull \hbox (15.64478pt too wide) detected at line 1565
-[] [][]
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2635,10 +2730,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [46]
-Overfull \hbox (24.00299pt too wide) detected at line 1729
-[] []
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2646,10 +2737,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [47]
-Overfull \hbox (14.86774pt too wide) detected at line 1760
-[][] \FMS/futm/m/n/12 Å []
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2657,22 +2744,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [48]
-Overfull \hbox (26.41347pt too wide) in paragraph at lines 1796--1797
-\T1/futs/m/it/12 (-20) re-duced ba-sis func-tions\T1/futs/m/n/12 (-20) , built 
-from a col-lec-tion of high-fidelity so-lu-tions $[]\FML/futmi/m/it/12 u[][]\FM
-L/futmi/b/it/12 ^^V[][]\FML/futmi/m/it/12 ;  []  ; u[][]\FML/futmi/b/it/12 ^^V[
-][][] \FMS/futm/m/n/12 ^^Z
+Overfull \hbox (9.81145pt too wide) in paragraph at lines 2170--2172
+\T1/futs/m/n/12 (-20) where $(\FMS/futm/m/n/12 ^^A\FML/futmi/m/it/12 ; \FMS/fut
+m/m/n/12 ^^A\T1/futs/m/n/12 (-20) )[]$ de-notes the Eu-clidean scalar prod-uct 
+in $\U/futm/m/n/12 R[]$\T1/futs/m/n/12 (-20) . There-fore, the columns $[]\T1/f
+uts/b/n/12 w[]\FML/futmi/m/it/12 ;  []  ; \T1/futs/b/n/12 w[][]$
  []
-
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 1798
-.
-(/usr/share/texmf/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-Package microtype Info: Loading generic settings for font family
-(microtype)             `lmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2681,9 +2758,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [49]
-
-LaTeX Warning: Reference `' on page 50 undefined on input line 1832.
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2705,13 +2779,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [52]
-Overfull \hbox (9.81145pt too wide) in paragraph at lines 1962--1964
-\T1/futs/m/n/12 (-20) where $(\FMS/futm/m/n/12 ^^A\FML/futmi/m/it/12 ; \FMS/fut
-m/m/n/12 ^^A\T1/futs/m/n/12 (-20) )[]$ de-notes the Eu-clidean scalar prod-uct 
-in $\U/futm/m/n/12 R[]$\T1/futs/m/n/12 (-20) . There-fore, the columns $[]\T1/f
-uts/b/n/12 w[]\FML/futmi/m/it/12 ;  []  ; \T1/futs/b/n/12 w[][]$
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2727,18 +2794,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [54]
 
-LaTeX Warning: Reference `' on page 55 undefined on input line 2052.
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [55]
-
-LaTeX Warning: Reference `' on page 56 undefined on input line 2072.
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2747,21 +2808,67 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [56]
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
+LaTeX Warning: Reference `' on page 57 undefined on input line 2571.
 
-[57]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[58
+[57] <./img/domain_square.pdf, id=1316, 202.82675pt x 221.5236pt>
+File: ./img/domain_square.pdf Graphic file (type pdf)
 
-] [59]
+<use ./img/domain_square.pdf>
+Package pdftex.def Info: ./img/domain_square.pdf used on input line 2588.
+(pdftex.def)             Requested size: 141.97775pt x 155.06546pt.
+
+<./img/poisson2d_1_error_vs_rank.pdf, id=1317, 597.50829pt x 845.0471pt>
+File: ./img/poisson2d_1_error_vs_rank.pdf Graphic file (type pdf)
+
+<use ./img/poisson2d_1_error_vs_rank.pdf>
+Package pdftex.def Info: ./img/poisson2d_1_error_vs_rank.pdf used on input line
+ 2593.
+(pdftex.def)             Requested size: 239.00064pt x 193.93192pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[58 <./img/poisson2d_1_error_vs_rank.pdf> <./img/domain_square.pdf>]
+<./img/domain_stenosis.pdf, id=1385, 297.07637pt x 241.25934pt>
+File: ./img/domain_stenosis.pdf Graphic file (type pdf)
+
+<use ./img/domain_stenosis.pdf>
+Package pdftex.def Info: ./img/domain_stenosis.pdf used on input line 2614.
+(pdftex.def)             Requested size: 197.99365pt x 139.0052pt.
+
+Overfull \hbox (19.99637pt too wide) in paragraph at lines 2614--2615
+ [] 
+ []
+
+<./img/poisson2d_4_error_vs_rank.pdf, id=1387, 597.50829pt x 845.0471pt>
+File: ./img/poisson2d_4_error_vs_rank.pdf Graphic file (type pdf)
+
+<use ./img/poisson2d_4_error_vs_rank.pdf>
+Package pdftex.def Info: ./img/poisson2d_4_error_vs_rank.pdf used on input line
+ 2619.
+(pdftex.def)             Requested size: 239.00064pt x 193.93192pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[59 <./img/domain_stenosis.pdf> <./img/poisson2d_4_error_vs_rank.pdf>]
+Overfull \hbox (4.76459pt too wide) in paragraph at lines 2657--2658
+[]\T1/futs/m/n/12 (-20) As de-scribed in Sec-tion []1.2.3[], in our nu-mer-i-ca
+l tests we re-sort to the Levenberg-Marquardt
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2769,14 +2876,65 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [60]
-Underfull \hbox (badness 6775) in paragraph at lines 2197--2198
+
+LaTeX Warning: Reference `' on page 61 undefined on input line 2711.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[61]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[62]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[63]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[64]
+Chapter 3.
+[65
+
+]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[66
+
+] [67]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[68]
+Underfull \hbox (badness 6775) in paragraph at lines 2966--2967
 []\T1/futs/m/n/12 (+20) Stergiou, C., Siganos, D. (2013). \T1/futs/m/it/12 (+20
 ) Neu-ral Net-works\T1/futs/m/n/12 (+20) . Re-trieved from []$\T1/lmtt/m/n/12 h
 ttps :
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2197--2198
+Underfull \hbox (badness 10000) in paragraph at lines 2966--2967
 \T1/lmtt/m/n/12 / / www . doc . ic . ac . uk / ~nd / surprise _ 96 / journal / 
 vol4 / cs11 / report . html #
  []
@@ -2787,15 +2945,22 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[61]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2207.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2207.
+[69]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[70]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2976.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2976.
  (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2207.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2207.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2976.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2976.
 
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 46DCFA4B1657644613FBE91640F8D8A5;1863.
+(rerunfilecheck)             Checksum: 642F1936169C2DCF22034EF3B608595A;2189.
 
 
 LaTeX Warning: There were undefined references.
@@ -2805,15 +2970,24 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 37843 strings out of 493029
- 717403 string characters out of 6136233
- 944163 words of memory out of 5000000
- 39921 multiletter control sequences out of 15000+600000
- 232203 words of font info for 521 fonts, out of 8000000 for 9000
+ 38189 strings out of 493029
+ 723609 string characters out of 6136233
+ 949743 words of memory out of 5000000
+ 40121 multiletter control sequences out of 15000+600000
+ 302287 words of font info for 610 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 58i,31n,93p,10465b,532s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Hfootnote.9} has been referenced but does not exi
-st, replaced by a fixed one
+ 58i,31n,93p,10465b,559s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{Hfootnote.12} has been referenced but does not ex
+ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.11} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.10} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.9} has been referenced but does not exist
+, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.8} has been referenced but does not exist
 , replaced by a fixed one
@@ -2840,23 +3014,28 @@ pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
 
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texlive/texmf-dist/f
-onts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/fo
-urier/fourier-bb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/
-fourier-mcl.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fouri
-er-mex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-ml
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-mlb.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-mlit.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-mlitb.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb></usr/share/t
-exmf/fonts/type1/public/lm/lmtt12.pfb></usr/share/texmf/fonts/type1/public/lm/l
-mtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putbi8a.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/adobe/utopia/putri8a.pfb>
-Output written on report.pdf (61 pages, 561706 bytes).
+onts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-bb.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-mcl.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/fourier/fourier-mex.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/fourier/fourier-ml.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/fourier/fourier-mlb.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/fourier/fourier-mlit.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/fourier/fourier-mlitb.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/fourier/fourier-ms.pfb></usr/share/texmf/fonts/type1/public/lm
+/lmtt12.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt8.pfb></usr/share/texmf
+/fonts/type1/public/lm/lmtt9.pfb></usr/share/texmf/fonts/type1/public/lm/lmtti1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/adobe/utopia/putbi8a.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/adobe/utopia/putri8a.pfb>
+Output written on report.pdf (78 pages, 952168 bytes).
 PDF statistics:
- 1229 PDF objects out of 1440 (max. 8388607)
- 1111 compressed objects within 12 object streams
- 323 named destinations out of 1000 (max. 500000)
- 56551 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 1703 PDF objects out of 1728 (max. 8388607)
+ 1503 compressed objects within 16 object streams
+ 393 named destinations out of 1000 (max. 500000)
+ 72012 words of extra memory for PDF output out of 74296 (max. 10000000)
 
