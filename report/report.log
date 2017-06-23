@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.28)  15 JUN 2017 10:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.28)  22 JUN 2017 09:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1879,6 +1879,9 @@ LaTeX Warning: Label `first-rule' multiply defined.
 
 LaTeX Warning: Label `eq:ns-weak-forms' multiply defined.
 
+
+LaTeX Warning: Label `' multiply defined.
+
 )
 \openout1 = `report.aux'.
 
@@ -2054,13 +2057,13 @@ Package epstopdf Info: Source file: <./img/polimi.eps>
 (epstopdf)             \includegraphics on input line 263.
 Package epstopdf Info: Output file is already uptodate.
 
-<./img/polimi-eps-converted-to.pdf, id=111, 193.72375pt x 193.72375pt>
+<./img/polimi-eps-converted-to.pdf, id=143, 193.72375pt x 193.72375pt>
 File: ./img/polimi-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./img/polimi-eps-converted-to.pdf>
 Package pdftex.def Info: ./img/polimi-eps-converted-to.pdf used on input line 2
 63.
-(pdftex.def)             Requested size: 213.09677pt x 72.25522pt.
+(pdftex.def)             Requested size: 193.72327pt x 65.6862pt.
 Package epstopdf Info: Source file: <./img/EPFL-Logo-CMJN.eps>
 (epstopdf)                    date: 2017-06-11 22:14:10
 (epstopdf)                    size: 1074102 bytes
@@ -2073,29 +2076,31 @@ onverted-to.pdf ./img/EPFL-Logo-CMJN.eps>
 (epstopdf)             \includegraphics on input line 275.
 Package epstopdf Info: Output file is already uptodate.
 
-<./img/EPFL-Logo-CMJN-eps-converted-to.pdf, id=113, 142.5325pt x 68.255pt>
+<./img/EPFL-Logo-CMJN-eps-converted-to.pdf, id=145, 142.5325pt x 68.255pt>
 File: ./img/EPFL-Logo-CMJN-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./img/EPFL-Logo-CMJN-eps-converted-to.pdf>
 Package pdftex.def Info: ./img/EPFL-Logo-CMJN-eps-converted-to.pdf used on inpu
 t line 275.
-(pdftex.def)             Requested size: 156.78621pt x 75.08072pt.
-LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <25> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 290.
-LaTeX Font Info:    Calculating math sizes for size <25> on input line 302.
+(pdftex.def)             Requested size: 142.53214pt x 68.25482pt.
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <26> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 285.
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <17> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 299.
+LaTeX Font Info:    Calculating math sizes for size <17> on input line 303.
 LaTeX Font Info:    Try loading font information for FML+futmi on input line 30
-2.
+3.
 
 (/usr/share/texlive/texmf-dist/tex/latex/fourier/fmlfutmi.fd
 File: fmlfutmi.fd 2004/10/30 Fontinst v1.926 font definitions for FML/futmi.
 )
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 22.99995pt on input line 302.
+(Font)              scaled to size 15.63997pt on input line 303.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 17.47983pt on input line 302.
+(Font)              scaled to size 11.88628pt on input line 303.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 13.80011pt on input line 302.
-LaTeX Font Info:    Try loading font information for U+msa on input line 302.
+(Font)              scaled to size 9.38406pt on input line 303.
+LaTeX Font Info:    Try loading font information for U+msa on input line 303.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -2103,7 +2108,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 302.
+LaTeX Font Info:    Try loading font information for U+msb on input line 303.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -2112,12 +2117,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 22.99995pt on input line 302.
+(Font)              scaled to size 15.63997pt on input line 303.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 17.47983pt on input line 302.
+(Font)              scaled to size 11.88628pt on input line 303.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 13.80011pt on input line 302.
-LaTeX Font Info:    Try loading font information for TS1+futs on input line 302
+(Font)              scaled to size 9.38406pt on input line 303.
+LaTeX Font Info:    Try loading font information for TS1+futs on input line 303
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/fourier/ts1futs.fd
@@ -2141,7 +2146,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 ]
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 324.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 325.
  (./report.toc
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <12> not available
 (Font)              Font shape `T1/futs/b/n' tried instead on input line 1.
@@ -2170,24 +2175,38 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [4
 
-] (./report.lof)
-\tf@lof=\write10
-\openout10 = `report.lof'.
+] (./report.lof
+Underfull \vbox (badness 1147) has occurred while \output is active []
 
  [5]
+Overfull \hbox (1.7263pt too wide) in paragraph at lines 34--34
+ [][] [][]\T1/futs/m/n/12 (-20) The steno-sis ge-om-e-try em-ployed in the sim-
+u-la-tions (\T1/futs/m/it/12 (-20) left\T1/futs/m/n/12 (-20) ) and the parametr
+iza- 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[6
+[6])
+\tf@lof=\write10
+\openout10 = `report.lof'.
 
-] (./report.loa)
-\tf@loa=\write11
-\openout11 = `report.loa'.
 
- [7]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[7]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2196,13 +2215,23 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [8
 
+] (./report.loa)
+\tf@loa=\write11
+\openout11 = `report.loa'.
+
+ [9]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[10
+
 ]
 Chapter 1.
-
-LaTeX Warning: Reference `' on page 1 undefined on input line 335.
-
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 341.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 342.
 Package epstopdf Info: Source file: <./img/neuron.eps>
 (epstopdf)                    date: 2017-06-11 22:14:10
 (epstopdf)                    size: 70617 bytes
@@ -2211,30 +2240,30 @@ Package epstopdf Info: Source file: <./img/neuron.eps>
 (epstopdf)                    size: 67007 bytes
 (epstopdf)             Command: <repstopdf --outfile=./img/neuron-eps-converted
 -to.pdf ./img/neuron.eps>
-(epstopdf)             \includegraphics on input line 346.
+(epstopdf)             \includegraphics on input line 347.
 Package epstopdf Info: Output file is already uptodate.
-<./img/neuron-eps-converted-to.pdf, id=283, 454.69875pt x 243.91125pt>
+<./img/neuron-eps-converted-to.pdf, id=447, 454.69875pt x 243.91125pt>
 File: ./img/neuron-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./img/neuron-eps-converted-to.pdf>
 Package pdftex.def Info: ./img/neuron-eps-converted-to.pdf used on input line 3
-46.
+47.
 (pdftex.def)             Requested size: 227.34882pt x 121.95532pt.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 348.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 349.
  [1]
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 9.19998pt on input line 358.
+(Font)              scaled to size 9.19998pt on input line 359.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 6.99199pt on input line 358.
+(Font)              scaled to size 6.99199pt on input line 359.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 5.51999pt on input line 358.
+(Font)              scaled to size 5.51999pt on input line 359.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 9.19998pt on input line 358.
+(Font)              scaled to size 9.19998pt on input line 359.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 6.99199pt on input line 358.
+(Font)              scaled to size 6.99199pt on input line 359.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 5.51999pt on input line 358.
+(Font)              scaled to size 5.51999pt on input line 359.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2244,7 +2273,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [2 <./img/neuron-eps-converted-to.pdf>]
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 386.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 387.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2262,24 +2291,24 @@ f>
 (epstopdf)                    size: 10768 bytes
 (epstopdf)             Command: <repstopdf --outfile=./img/neural_model_ter-eps
 -converted-to.pdf ./img/neural_model_ter.eps>
-(epstopdf)             \includegraphics on input line 409.
+(epstopdf)             \includegraphics on input line 410.
 Package epstopdf Info: Output file is already uptodate.
 
-<./img/neural_model_ter-eps-converted-to.pdf, id=322, 344.28625pt x 179.67125pt
+<./img/neural_model_ter-eps-converted-to.pdf, id=486, 344.28625pt x 179.67125pt
 >
 File: ./img/neural_model_ter-eps-converted-to.pdf Graphic file (type pdf)
  <use ./img/neural_model_ter-eps-converted-to.pdf>
 Package pdftex.def Info: ./img/neural_model_ter-eps-converted-to.pdf used on in
-put line 409.
+put line 410.
 (pdftex.def)             Requested size: 206.57333pt x 107.80356pt.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 10.07397pt on input line 411.
+(Font)              scaled to size 10.07397pt on input line 412.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 7.63599pt on input line 411.
+(Font)              scaled to size 7.63599pt on input line 412.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 10.07397pt on input line 411.
+(Font)              scaled to size 10.07397pt on input line 412.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 7.63599pt on input line 411.
+(Font)              scaled to size 7.63599pt on input line 412.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2304,15 +2333,15 @@ df>
 (epstopdf)                    size: 11072 bytes
 (epstopdf)             Command: <repstopdf --outfile=./img/neural_model_bias-ep
 s-converted-to.pdf ./img/neural_model_bias.eps>
-(epstopdf)             \includegraphics on input line 468.
+(epstopdf)             \includegraphics on input line 469.
 Package epstopdf Info: Output file is already uptodate.
 
-<./img/neural_model_bias-eps-converted-to.pdf, id=364, 344.28625pt x 199.74625p
+<./img/neural_model_bias-eps-converted-to.pdf, id=527, 344.28625pt x 199.74625p
 t>
 File: ./img/neural_model_bias-eps-converted-to.pdf Graphic file (type pdf)
  <use ./img/neural_model_bias-eps-converted-to.pdf>
 Package pdftex.def Info: ./img/neural_model_bias-eps-converted-to.pdf used on i
-nput line 468.
+nput line 469.
 (pdftex.def)             Requested size: 206.57333pt x 119.84866pt.
 
 Underfull \vbox (badness 1596) has occurred while \output is active []
@@ -2325,19 +2354,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [6 <./img/neural_model_bias-eps-converted-to.pdf>]
-<./img/fermi_function_bis.pdf, id=387, 597.50829pt x 845.0471pt>
+<./img/fermi_function_bis.pdf, id=550, 597.50829pt x 845.0471pt>
 File: ./img/fermi_function_bis.pdf Graphic file (type pdf)
 
 <use ./img/fermi_function_bis.pdf>
-Package pdftex.def Info: ./img/fermi_function_bis.pdf used on input line 488.
+Package pdftex.def Info: ./img/fermi_function_bis.pdf used on input line 489.
 (pdftex.def)             Requested size: 219.08708pt x 165.25424pt.
 
-<./img/hyperbolic_tangent_bis.pdf, id=389, 597.50829pt x 845.0471pt>
+<./img/hyperbolic_tangent_bis.pdf, id=552, 597.50829pt x 845.0471pt>
 File: ./img/hyperbolic_tangent_bis.pdf Graphic file (type pdf)
 
 <use ./img/hyperbolic_tangent_bis.pdf>
-Package pdftex.def Info: ./img/hyperbolic_tangent_bis.pdf used on input line 48
-9.
+Package pdftex.def Info: ./img/hyperbolic_tangent_bis.pdf used on input line 49
+0.
 (pdftex.def)             Requested size: 219.08708pt x 165.25424pt.
 
 
@@ -2347,12 +2376,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [7 <./img/fermi_function_bis.pdf> <./img/hyperbolic_tangent_bis.pdf>]
-
-LaTeX Warning: Reference `' on page 8 undefined on input line 510.
-
-
-LaTeX Warning: Reference `' on page 8 undefined on input line 520.
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2369,15 +2392,15 @@ pdf>
 (epstopdf)                    size: 9858 bytes
 (epstopdf)             Command: <repstopdf --outfile=./img/neural_network_bis-e
 ps-converted-to.pdf ./img/neural_network_bis.eps>
-(epstopdf)             \includegraphics on input line 541.
+(epstopdf)             \includegraphics on input line 542.
 Package epstopdf Info: Output file is already uptodate.
 
-<./img/neural_network_bis-eps-converted-to.pdf, id=469, 532.99126pt x 296.10625
+<./img/neural_network_bis-eps-converted-to.pdf, id=634, 532.99126pt x 296.10625
 pt>
 File: ./img/neural_network_bis-eps-converted-to.pdf Graphic file (type pdf)
  <use ./img/neural_network_bis-eps-converted-to.pdf>
 Package pdftex.def Info: ./img/neural_network_bis-eps-converted-to.pdf used on 
-input line 541.
+input line 542.
 (pdftex.def)             Requested size: 319.79723pt x 177.66512pt.
 
 
@@ -2402,7 +2425,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [11]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 655.
+put line 656.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2436,9 +2459,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [15]
 
-LaTeX Warning: Reference `' on page 16 undefined on input line 779.
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
@@ -2459,15 +2479,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [18]
-
-LaTeX Warning: Reference `alg:levenberg-marquardt' on page 19 undefined on inpu
-t line 891.
-
-
-LaTeX Warning: Reference `' on page 19 undefined on input line 893.
-
-
-Overfull \hbox (1.15477pt too wide) in paragraph at lines 920--920
+Overfull \hbox (1.15477pt too wide) in paragraph at lines 921--921
 []\T1/futs/b/n/14.4 Practical con-sid-er-a-tions on the de-sign of ar-ti-fi-cia
 l neu-ral net-works 
  []
@@ -2480,18 +2492,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [19]
 
-LaTeX Warning: Reference `' on page 20 undefined on input line 937.
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [20]
-
-LaTeX Warning: Reference `' on page 21 undefined on input line 946.
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2510,7 +2516,7 @@ Chapter 2.
 [23
 
 ]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 1058
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 1059
 .
  (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -2528,9 +2534,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [24]
 
-LaTeX Warning: Reference `' on page 25 undefined on input line 1082.
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
@@ -2544,9 +2547,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [26]
-
-LaTeX Warning: Reference `' on page 27 undefined on input line 1148.
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2562,16 +2562,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [28]
 
-LaTeX Warning: Reference `' on page 29 undefined on input line 1226.
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [29]
-Overfull \hbox (9.38419pt too wide) detected at line 1268
+Overfull \hbox (9.38419pt too wide) detected at line 1269
 [][] [] \FML/futmi/m/it/12 d[]\T1/futs/m/n/12 (\FML/futmi/b/it/12 ^^V[]\T1/futs
 /m/n/12 ) \FMS/futm/m/n/12 Ä [][] []  \FML/futmi/m/it/12 d[]\T1/futs/m/n/12 (\F
 ML/futmi/b/it/12 ^^V[]\T1/futs/m/n/12 ) \FML/futmi/m/it/12 :
@@ -2612,7 +2609,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [34]
-Overfull \hbox (1.73189pt too wide) in paragraph at lines 1463--1463
+Overfull \hbox (1.73189pt too wide) in paragraph at lines 1464--1464
 []\T1/futs/b/n/14.4 The bound-ary displacement-dependent trans-fi-nite map (BDD
  TM) 
  []
@@ -2623,18 +2620,18 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[35] <./img/bc_weight_bis.pdf, id=944, 279.77124pt x 231.1325pt>
+[35] <./img/bc_weight_bis.pdf, id=1116, 279.77124pt x 231.1325pt>
 File: ./img/bc_weight_bis.pdf Graphic file (type pdf)
 
 <use ./img/bc_weight_bis.pdf>
-Package pdftex.def Info: ./img/bc_weight_bis.pdf used on input line 1521.
+Package pdftex.def Info: ./img/bc_weight_bis.pdf used on input line 1522.
 (pdftex.def)             Requested size: 174.85658pt x 144.45744pt.
 
-<./img/bc_proj_bis.pdf, id=945, 283.68132pt x 254.12039pt>
+<./img/bc_proj_bis.pdf, id=1117, 283.68132pt x 254.12039pt>
 File: ./img/bc_proj_bis.pdf Graphic file (type pdf)
 
 <use ./img/bc_proj_bis.pdf>
-Package pdftex.def Info: ./img/bc_proj_bis.pdf used on input line 1524.
+Package pdftex.def Info: ./img/bc_proj_bis.pdf used on input line 1525.
 (pdftex.def)             Requested size: 177.30038pt x 158.82484pt.
 
 
@@ -2644,11 +2641,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [36 <./img/bc_weight_bis.pdf> <./img/bc_proj_bis.pdf>]
-<./img/bc_square.pdf, id=1002, 207.7386pt x 199.48328pt>
+<./img/bc_square.pdf, id=1174, 207.7386pt x 199.48328pt>
 File: ./img/bc_square.pdf Graphic file (type pdf)
 
 <use ./img/bc_square.pdf>
-Package pdftex.def Info: ./img/bc_square.pdf used on input line 1558.
+Package pdftex.def Info: ./img/bc_square.pdf used on input line 1559.
 (pdftex.def)             Requested size: 150.61137pt x 144.62622pt.
 
 
@@ -2679,12 +2676,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [40]
-Overfull \hbox (6.20494pt too wide) detected at line 1717
+Overfull \hbox (6.20494pt too wide) detected at line 1718
 [] [][]
  []
 
 
-Overfull \hbox (15.64478pt too wide) detected at line 1726
+Overfull \hbox (15.64478pt too wide) detected at line 1727
 [] [][]
  []
 
@@ -2744,7 +2741,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [48]
-Overfull \hbox (9.81145pt too wide) in paragraph at lines 2170--2172
+Overfull \hbox (9.81145pt too wide) in paragraph at lines 2171--2173
 \T1/futs/m/n/12 (-20) where $(\FMS/futm/m/n/12 ^^A\FML/futmi/m/it/12 ; \FMS/fut
 m/m/n/12 ^^A\T1/futs/m/n/12 (-20) )[]$ de-notes the Eu-clidean scalar prod-uct 
 in $\U/futm/m/n/12 R[]$\T1/futs/m/n/12 (-20) . There-fore, the columns $[]\T1/f
@@ -2808,54 +2805,43 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [56]
 
-LaTeX Warning: Reference `' on page 57 undefined on input line 2571.
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[57] <./img/domain_square.pdf, id=1316, 202.82675pt x 221.5236pt>
+[57]
+Overfull \hbox (4.3994pt too wide) in paragraph at lines 2580--2582
+\T1/futs/m/n/12 (-20) In par-tic-u-lar, the plot re-ports the av-er-age val-ues
+ $[](\FML/futmi/m/it/12 L\T1/futs/m/n/12 (-20) )$ and $[](\FML/futmi/m/it/12 L\
+T1/futs/m/n/12 (-20) )$ of $\FML/futmi/m/it/12 "[]\T1/futs/m/n/12 (-20) (\FML/f
+utmi/m/it/12 L;  \FML/futmi/b/it/12 ^^V\T1/futs/m/n/12 (-20) )$ and $\FML/futmi
+/m/it/12 "[]\T1/futs/m/n/12 (-20) (\FML/futmi/m/it/12 L;  \FML/futmi/b/it/12 ^^
+V\T1/futs/m/n/12 (-20) )$,
+ []
+
+<./img/domain_square.pdf, id=1496, 202.82675pt x 221.5236pt>
 File: ./img/domain_square.pdf Graphic file (type pdf)
 
 <use ./img/domain_square.pdf>
-Package pdftex.def Info: ./img/domain_square.pdf used on input line 2588.
-(pdftex.def)             Requested size: 141.97775pt x 155.06546pt.
+Package pdftex.def Info: ./img/domain_square.pdf used on input line 2585.
+(pdftex.def)             Requested size: 111.55505pt x 121.83835pt.
 
-<./img/poisson2d_1_error_vs_rank.pdf, id=1317, 597.50829pt x 845.0471pt>
-File: ./img/poisson2d_1_error_vs_rank.pdf Graphic file (type pdf)
+<./img/poisson2d_2_error_vs_rank_partial.pdf, id=1499, 597.50829pt x 845.0471pt
+>
+File: ./img/poisson2d_2_error_vs_rank_partial.pdf Graphic file (type pdf)
+ <use ./img/poisson2d_2_error_vs_rank_partial.pdf>
+Package pdftex.def Info: ./img/poisson2d_2_error_vs_rank_partial.pdf used on in
+put line 2594.
+(pdftex.def)             Requested size: 221.0766pt x 202.55391pt.
 
-<use ./img/poisson2d_1_error_vs_rank.pdf>
-Package pdftex.def Info: ./img/poisson2d_1_error_vs_rank.pdf used on input line
- 2593.
-(pdftex.def)             Requested size: 239.00064pt x 193.93192pt.
+<./img/poisson2d_2_time_partial.pdf, id=1501, 597.50829pt x 845.0471pt>
+File: ./img/poisson2d_2_time_partial.pdf Graphic file (type pdf)
 
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[58 <./img/poisson2d_1_error_vs_rank.pdf> <./img/domain_square.pdf>]
-<./img/domain_stenosis.pdf, id=1385, 297.07637pt x 241.25934pt>
-File: ./img/domain_stenosis.pdf Graphic file (type pdf)
-
-<use ./img/domain_stenosis.pdf>
-Package pdftex.def Info: ./img/domain_stenosis.pdf used on input line 2614.
-(pdftex.def)             Requested size: 197.99365pt x 139.0052pt.
-
-Overfull \hbox (19.99637pt too wide) in paragraph at lines 2614--2615
- [] 
- []
-
-<./img/poisson2d_4_error_vs_rank.pdf, id=1387, 597.50829pt x 845.0471pt>
-File: ./img/poisson2d_4_error_vs_rank.pdf Graphic file (type pdf)
-
-<use ./img/poisson2d_4_error_vs_rank.pdf>
-Package pdftex.def Info: ./img/poisson2d_4_error_vs_rank.pdf used on input line
- 2619.
-(pdftex.def)             Requested size: 239.00064pt x 193.93192pt.
+<use ./img/poisson2d_2_time_partial.pdf>
+Package pdftex.def Info: ./img/poisson2d_2_time_partial.pdf used on input line 
+2595.
+(pdftex.def)             Requested size: 210.54684pt x 201.44205pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2863,11 +2849,27 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[59 <./img/domain_stenosis.pdf> <./img/poisson2d_4_error_vs_rank.pdf>]
-Overfull \hbox (4.76459pt too wide) in paragraph at lines 2657--2658
-[]\T1/futs/m/n/12 (-20) As de-scribed in Sec-tion []1.2.3[], in our nu-mer-i-ca
-l tests we re-sort to the Levenberg-Marquardt
- []
+[58 <./img/domain_square.pdf>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[59 <./img/poisson2d_2_error_vs_rank_partial.pdf> <./img/poisson2d_2_time_parti
+al.pdf>] <./img/lhs_sample.pdf, id=1598, 597.50829pt x 845.0471pt>
+File: ./img/lhs_sample.pdf Graphic file (type pdf)
+
+<use ./img/lhs_sample.pdf>
+Package pdftex.def Info: ./img/lhs_sample.pdf used on input line 2702.
+(pdftex.def)             Requested size: 236.5162pt x 191.91597pt.
+
+<./img/lhs_sample_legend.pdf, id=1600, 597.50829pt x 845.0471pt>
+File: ./img/lhs_sample_legend.pdf Graphic file (type pdf)
+
+<use ./img/lhs_sample_legend.pdf>
+Package pdftex.def Info: ./img/lhs_sample_legend.pdf used on input line 2703.
+(pdftex.def)             Requested size: 187.789pt x 129.88748pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2877,15 +2879,17 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [60]
 
-LaTeX Warning: Reference `' on page 61 undefined on input line 2711.
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[61]
+[61 <./img/lhs_sample.pdf> <./img/lhs_sample_legend.pdf>]
+Overfull \hbox (4.76459pt too wide) in paragraph at lines 2709--2710
+[]\T1/futs/m/n/12 (-20) As de-scribed in Sec-tion []1.2.3[], in our nu-mer-i-ca
+l tests we re-sort to the Levenberg-Marquardt
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2907,10 +2911,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [64]
-Chapter 3.
-[65
 
-]
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[65]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2919,22 +2926,527 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [66
 
-] [67]
+]
+Chapter 3.
+[67]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[68]
-Underfull \hbox (badness 6775) in paragraph at lines 2966--2967
+[68] <./img/poisson1d_1_error_vs_rank.pdf, id=1736, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_1_error_vs_rank.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_1_error_vs_rank.pdf>
+Package pdftex.def Info: ./img/poisson1d_1_error_vs_rank.pdf used on input line
+ 2929.
+(pdftex.def)             Requested size: 210.54684pt x 200.3039pt.
+
+<./img/poisson1d_1_fe_vs_podg.pdf, id=1738, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_1_fe_vs_podg.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_1_fe_vs_podg.pdf>
+Package pdftex.def Info: ./img/poisson1d_1_fe_vs_podg.pdf used on input line 29
+30.
+(pdftex.def)             Requested size: 215.81573pt x 200.65024pt.
+
+<./img/poisson1d_1_hopt.pdf, id=1742, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_1_hopt.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_1_hopt.pdf>
+Package pdftex.def Info: ./img/poisson1d_1_hopt.pdf used on input line 2938.
+(pdftex.def)             Requested size: 221.0766pt x 169.6912pt.
+
+<./img/poisson1d_1_eopt.pdf, id=1744, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_1_eopt.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_1_eopt.pdf>
+Package pdftex.def Info: ./img/poisson1d_1_eopt.pdf used on input line 2939.
+(pdftex.def)             Requested size: 221.0766pt x 169.6912pt.
+
+<./img/poisson1d_1_nn_convergence.pdf, id=1750, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_1_nn_convergence.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_1_nn_convergence.pdf>
+Package pdftex.def Info: ./img/poisson1d_1_nn_convergence.pdf used on input lin
+e 2945.
+(pdftex.def)             Requested size: 221.0766pt x 205.54143pt.
+
+<./img/poisson1d_1_fe_vs_podnn.pdf, id=1752, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_1_fe_vs_podnn.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_1_fe_vs_podnn.pdf>
+Package pdftex.def Info: ./img/poisson1d_1_fe_vs_podnn.pdf used on input line 2
+946.
+(pdftex.def)             Requested size: 221.0766pt x 205.54143pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[69 <./img/poisson1d_1_error_vs_rank.pdf> <./img/poisson1d_1_fe_vs_podg.pdf>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[70 <./img/poisson1d_1_hopt.pdf> <./img/poisson1d_1_eopt.pdf> <./img/poisson1d_
+1_nn_convergence.pdf> <./img/poisson1d_1_fe_vs_podnn.pdf>]
+<./img/poisson1d_2_error_vs_rank.pdf, id=1953, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_2_error_vs_rank.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_2_error_vs_rank.pdf>
+Package pdftex.def Info: ./img/poisson1d_2_error_vs_rank.pdf used on input line
+ 2959.
+(pdftex.def)             Requested size: 226.33745pt x 192.08092pt.
+
+Overfull \hbox (4.28969pt too wide) in paragraph at lines 2972--2974
+\T1/futs/m/n/12 (-20) where $\FML/futmi/b/it/12 ^^V \FMS/futm/m/n/12 Å []\FML/f
+utmi/m/it/12 ^^V[];  ^^V[][] \FMS/futm/m/n/12 2 P Å \T1/futs/m/n/12 (-20) [1\FM
+L/futmi/m/it/12 ;  \T1/futs/m/n/12 (-20) 3] \FMS/futm/m/n/12 ^^B \T1/futs/m/n/1
+2 (-20) [1\FML/futmi/m/it/12 ;  \T1/futs/m/n/12 (-20) 3]$ and the source term $
+\FML/futmi/m/it/12 s\T1/futs/m/n/12 (-20) (\FML/futmi/m/it/12 x\T1/futs/m/n/12 
+(-20) ;  \FML/futmi/b/it/12 ^^V\T1/futs/m/n/12 (-20) )$ is cho-sen so that $\FM
+L/futmi/m/it/12 u[]\T1/futs/m/n/12 (-20) (\FML/futmi/m/it/12 x\T1/futs/m/n/12 (
+-20) ;  \FML/futmi/b/it/12 ^^V\T1/futs/m/n/12 (-20) ) \FMS/futm/m/n/12 Å
+ []
+
+<./img/poisson1d_2_nn_convergence.pdf, id=1962, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_2_nn_convergence.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_2_nn_convergence.pdf>
+Package pdftex.def Info: ./img/poisson1d_2_nn_convergence.pdf used on input lin
+e 2977.
+(pdftex.def)             Requested size: 221.0766pt x 205.54143pt.
+
+<./img/poisson1d_2_fe_vs_podnn.pdf, id=1964, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_2_fe_vs_podnn.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_2_fe_vs_podnn.pdf>
+Package pdftex.def Info: ./img/poisson1d_2_fe_vs_podnn.pdf used on input line 2
+978.
+(pdftex.def)             Requested size: 221.0766pt x 205.54143pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[71 <./img/poisson1d_2_error_vs_rank.pdf>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[72 <./img/poisson1d_2_nn_convergence.pdf> <./img/poisson1d_2_fe_vs_podnn.pdf>]
+<./img/poisson1d_2_regression_1.pdf, id=2083, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_2_regression_1.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_2_regression_1.pdf>
+Package pdftex.def Info: ./img/poisson1d_2_regression_1.pdf used on input line 
+2990.
+(pdftex.def)             Requested size: 216.23729pt x 195.7516pt.
+
+<./img/poisson1d_2_regression_7.pdf, id=2085, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_2_regression_7.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_2_regression_7.pdf>
+Package pdftex.def Info: ./img/poisson1d_2_regression_7.pdf used on input line 
+2991.
+(pdftex.def)             Requested size: 216.23729pt x 195.7516pt.
+
+<./img/poisson1d_2_regression_8.pdf, id=2087, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_2_regression_8.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_2_regression_8.pdf>
+Package pdftex.def Info: ./img/poisson1d_2_regression_8.pdf used on input line 
+2993.
+(pdftex.def)             Requested size: 216.23729pt x 224.20386pt.
+
+<./img/poisson1d_2_regression_9.pdf, id=2089, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_2_regression_9.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_2_regression_9.pdf>
+Package pdftex.def Info: ./img/poisson1d_2_regression_9.pdf used on input line 
+2994.
+(pdftex.def)             Requested size: 216.23729pt x 224.20386pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[73
+
+ <./img/poisson1d_2_regression_1.pdf> <./img/poisson1d_2_regression_7.pdf> <./i
+mg/poisson1d_2_regression_8.pdf> <./img/poisson1d_2_regression_9.pdf>]
+<./img/poisson1d_3_basis1.pdf, id=2266, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_3_basis1.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_3_basis1.pdf>
+Package pdftex.def Info: ./img/poisson1d_3_basis1.pdf used on input line 3016.
+(pdftex.def)             Requested size: 88.16667pt x 72.11243pt.
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 3016.
+
+<./img/poisson1d_3_basis2.pdf, id=2268, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_3_basis2.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_3_basis2.pdf>
+Package pdftex.def Info: ./img/poisson1d_3_basis2.pdf used on input line 3017.
+(pdftex.def)             Requested size: 85.53484pt x 72.11243pt.
+
+<./img/poisson1d_3_basis3.pdf, id=2270, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_3_basis3.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_3_basis3.pdf>
+Package pdftex.def Info: ./img/poisson1d_3_basis3.pdf used on input line 3018.
+(pdftex.def)             Requested size: 88.16667pt x 72.11243pt.
+
+<./img/poisson1d_3_basis4.pdf, id=2272, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_3_basis4.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_3_basis4.pdf>
+Package pdftex.def Info: ./img/poisson1d_3_basis4.pdf used on input line 3019.
+(pdftex.def)             Requested size: 88.16667pt x 72.11243pt.
+
+<./img/poisson1d_3_basis5.pdf, id=2274, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_3_basis5.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_3_basis5.pdf>
+Package pdftex.def Info: ./img/poisson1d_3_basis5.pdf used on input line 3020.
+(pdftex.def)             Requested size: 88.16667pt x 72.11243pt.
+
+<./img/poisson1d_3_basis6.pdf, id=2276, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_3_basis6.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_3_basis6.pdf>
+Package pdftex.def Info: ./img/poisson1d_3_basis6.pdf used on input line 3021.
+(pdftex.def)             Requested size: 88.16667pt x 87.90346pt.
+
+<./img/poisson1d_3_basis7.pdf, id=2278, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_3_basis7.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_3_basis7.pdf>
+Package pdftex.def Info: ./img/poisson1d_3_basis7.pdf used on input line 3022.
+(pdftex.def)             Requested size: 88.16667pt x 87.90346pt.
+
+<./img/poisson1d_3_basis8.pdf, id=2280, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_3_basis8.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_3_basis8.pdf>
+Package pdftex.def Info: ./img/poisson1d_3_basis8.pdf used on input line 3023.
+(pdftex.def)             Requested size: 88.16667pt x 87.90346pt.
+
+<./img/poisson1d_3_basis9.pdf, id=2282, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_3_basis9.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_3_basis9.pdf>
+Package pdftex.def Info: ./img/poisson1d_3_basis9.pdf used on input line 3024.
+(pdftex.def)             Requested size: 88.16667pt x 87.90346pt.
+
+<./img/poisson1d_3_basis10.pdf, id=2284, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_3_basis10.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_3_basis10.pdf>
+Package pdftex.def Info: ./img/poisson1d_3_basis10.pdf used on input line 3025.
+
+(pdftex.def)             Requested size: 88.16667pt x 87.90346pt.
+
+<./img/poisson1d_3_error_vs_rank.pdf, id=2288, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_3_error_vs_rank.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_3_error_vs_rank.pdf>
+Package pdftex.def Info: ./img/poisson1d_3_error_vs_rank.pdf used on input line
+ 3035.
+(pdftex.def)             Requested size: 227.05162pt x 223.46654pt.
+
+<./img/poisson1d_3_fe_vs_podnn.pdf, id=2290, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_3_fe_vs_podnn.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_3_fe_vs_podnn.pdf>
+Package pdftex.def Info: ./img/poisson1d_3_fe_vs_podnn.pdf used on input line 3
+036.
+(pdftex.def)             Requested size: 215.10156pt x 223.46654pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[74 <./img/poisson1d_3_basis1.pdf> <./img/poisson1d_3_basis2.pdf> <./img/poisso
+n1d_3_basis3.pdf> <./img/poisson1d_3_basis4.pdf> <./img/poisson1d_3_basis5.pdf>
+ <./img/poisson1d_3_basis6.pdf> <./img/poisson1d_3_basis7.pdf> <./img/poisson1d
+_3_basis8.pdf> <./img/poisson1d_3_basis9.pdf> <./img/poisson1d_3_basis10.pdf> <
+./img/poisson1d_3_error_vs_rank.pdf> <./img/poisson1d_3_fe_vs_podnn.pdf>]
+<./img/poisson1d_3_nn_test.pdf, id=2642, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_3_nn_test.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_3_nn_test.pdf>
+Package pdftex.def Info: ./img/poisson1d_3_nn_test.pdf used on input line 3051.
+
+(pdftex.def)             Requested size: 216.23729pt x 201.44205pt.
+
+<./img/poisson1d_3_nn_test_legend.pdf, id=2644, 597.50829pt x 845.0471pt>
+File: ./img/poisson1d_3_nn_test_legend.pdf Graphic file (type pdf)
+
+<use ./img/poisson1d_3_nn_test_legend.pdf>
+Package pdftex.def Info: ./img/poisson1d_3_nn_test_legend.pdf used on input lin
+e 3052.
+(pdftex.def)             Requested size: 215.10155pt x 184.62878pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[75 <./img/poisson1d_3_nn_test.pdf> <./img/poisson1d_3_nn_test_legend.pdf>]
+<./img/domain_square_ext.pdf, id=2712, 203.4842pt x 228.76164pt>
+File: ./img/domain_square_ext.pdf Graphic file (type pdf)
+
+<use ./img/domain_square_ext.pdf>
+Package pdftex.def Info: ./img/domain_square_ext.pdf used on input line 3068.
+(pdftex.def)             Requested size: 142.43796pt x 160.13205pt.
+
+<./img/domain_stenosis.pdf, id=2713, 297.07637pt x 241.25934pt>
+File: ./img/domain_stenosis.pdf Graphic file (type pdf)
+
+<use ./img/domain_stenosis.pdf>
+Package pdftex.def Info: ./img/domain_stenosis.pdf used on input line 3097.
+(pdftex.def)             Requested size: 207.95203pt x 168.88037pt.
+
+Overfull \hbox (29.95474pt too wide) in paragraph at lines 3097--3098
+ [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[76 <./img/domain_square_ext.pdf> <./img/domain_stenosis.pdf>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[77] <./img/poisson2d_1_time.pdf, id=2769, 597.50829pt x 845.0471pt>
+File: ./img/poisson2d_1_time.pdf Graphic file (type pdf)
+
+<use ./img/poisson2d_1_time.pdf>
+Package pdftex.def Info: ./img/poisson2d_1_time.pdf used on input line 3150.
+(pdftex.def)             Requested size: 204.8564pt x 170.14458pt.
+
+<./img/poisson2d_1_nn_convergence.pdf, id=2773, 597.50829pt x 845.0471pt>
+File: ./img/poisson2d_1_nn_convergence.pdf Graphic file (type pdf)
+
+<use ./img/poisson2d_1_nn_convergence.pdf>
+Package pdftex.def Info: ./img/poisson2d_1_nn_convergence.pdf used on input lin
+e 3158.
+(pdftex.def)             Requested size: 220.22023pt x 210.4326pt.
+
+<./img/poisson2d_1_error_vs_rank.pdf, id=2775, 597.50829pt x 845.0471pt>
+File: ./img/poisson2d_1_error_vs_rank.pdf Graphic file (type pdf)
+
+<use ./img/poisson2d_1_error_vs_rank.pdf>
+Package pdftex.def Info: ./img/poisson2d_1_error_vs_rank.pdf used on input line
+ 3160.
+(pdftex.def)             Requested size: 220.22023pt x 210.4326pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[78 <./img/poisson2d_1_time.pdf> <./img/poisson2d_1_nn_convergence.pdf> <./img/
+poisson2d_1_error_vs_rank.pdf>]
+<./img/poisson2d_2_fem_solution.png, id=2884, 963.6pt x 550.055pt>
+File: ./img/poisson2d_2_fem_solution.png Graphic file (type png)
+
+<use ./img/poisson2d_2_fem_solution.png>
+Package pdftex.def Info: ./img/poisson2d_2_fem_solution.png used on input line 
+3185.
+(pdftex.def)             Requested size: 135.0428pt x 159.51186pt.
+
+<./img/poisson2d_2_podg_solution.png, id=2886, 963.6pt x 550.055pt>
+File: ./img/poisson2d_2_podg_solution.png Graphic file (type png)
+
+<use ./img/poisson2d_2_podg_solution.png>
+Package pdftex.def Info: ./img/poisson2d_2_podg_solution.png used on input line
+ 3186.
+(pdftex.def)             Requested size: 135.0428pt x 159.51186pt.
+
+<./img/poisson2d_2_podnn_solution.png, id=2888, 963.6pt x 550.055pt>
+File: ./img/poisson2d_2_podnn_solution.png Graphic file (type png)
+
+<use ./img/poisson2d_2_podnn_solution.png>
+Package pdftex.def Info: ./img/poisson2d_2_podnn_solution.png used on input lin
+e 3187.
+(pdftex.def)             Requested size: 135.0428pt x 159.51186pt.
+
+<./img/poisson2d_2_pointwise_error.pdf, id=2892, 597.50829pt x 845.0471pt>
+File: ./img/poisson2d_2_pointwise_error.pdf Graphic file (type pdf)
+
+<use ./img/poisson2d_2_pointwise_error.pdf>
+Package pdftex.def Info: ./img/poisson2d_2_pointwise_error.pdf used on input li
+ne 3195.
+(pdftex.def)             Requested size: 215.10156pt x 205.54143pt.
+
+<./img/poisson2d_2_time.pdf, id=2894, 597.50829pt x 845.0471pt>
+File: ./img/poisson2d_2_time.pdf Graphic file (type pdf)
+
+<use ./img/poisson2d_2_time.pdf>
+Package pdftex.def Info: ./img/poisson2d_2_time.pdf used on input line 3197.
+(pdftex.def)             Requested size: 204.8564pt x 204.28728pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[79 <./img/poisson2d_2_fem_solution.png (PNG copy)> <./img/poisson2d_2_podg_sol
+ution.png (PNG copy)> <./img/poisson2d_2_podnn_solution.png (PNG copy)>]
+<./img/poisson2d_2_error_vs_rank.pdf, id=2906, 597.50829pt x 845.0471pt>
+File: ./img/poisson2d_2_error_vs_rank.pdf Graphic file (type pdf)
+
+<use ./img/poisson2d_2_error_vs_rank.pdf>
+Package pdftex.def Info: ./img/poisson2d_2_error_vs_rank.pdf used on input line
+ 3205.
+(pdftex.def)             Requested size: 220.22023pt x 210.4326pt.
+
+<./img/poisson2d_2_nn_convergence.pdf, id=2908, 597.50829pt x 845.0471pt>
+File: ./img/poisson2d_2_nn_convergence.pdf Graphic file (type pdf)
+
+<use ./img/poisson2d_2_nn_convergence.pdf>
+Package pdftex.def Info: ./img/poisson2d_2_nn_convergence.pdf used on input lin
+e 3206.
+(pdftex.def)             Requested size: 215.10156pt x 210.32138pt.
+
+
+LaTeX Warning: Reference `fig:stenosis-geometry' on page 80 undefined on input 
+line 3215.
+
+
+Underfull \vbox (badness 1701) has occurred while \output is active []
+
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[80 <./img/poisson2d_2_pointwise_error.pdf> <./img/poisson2d_2_time.pdf> <./img
+/poisson2d_2_error_vs_rank.pdf> <./img/poisson2d_2_nn_convergence.pdf>]
+<./img/poisson2d_3_error_vs_rank.pdf, id=3031, 597.50829pt x 845.0471pt>
+File: ./img/poisson2d_3_error_vs_rank.pdf Graphic file (type pdf)
+
+<use ./img/poisson2d_3_error_vs_rank.pdf>
+Package pdftex.def Info: ./img/poisson2d_3_error_vs_rank.pdf used on input line
+ 3227.
+(pdftex.def)             Requested size: 220.22023pt x 210.4326pt.
+
+<./img/poisson2d_3_nn_convergence.pdf, id=3033, 597.50829pt x 845.0471pt>
+File: ./img/poisson2d_3_nn_convergence.pdf Graphic file (type pdf)
+
+<use ./img/poisson2d_3_nn_convergence.pdf>
+Package pdftex.def Info: ./img/poisson2d_3_nn_convergence.pdf used on input lin
+e 3228.
+(pdftex.def)             Requested size: 220.22023pt x 210.4326pt.
+
+<./img/poisson2d_3_fem_solution.png, id=3039, 963.6pt x 550.055pt>
+File: ./img/poisson2d_3_fem_solution.png Graphic file (type png)
+
+<use ./img/poisson2d_3_fem_solution.png>
+Package pdftex.def Info: ./img/poisson2d_3_fem_solution.png used on input line 
+3236.
+(pdftex.def)             Requested size: 217.7617pt x 182.5635pt.
+
+<./img/poisson2d_3_error_projection.png, id=3041, 963.6pt x 550.055pt>
+File: ./img/poisson2d_3_error_projection.png Graphic file (type png)
+
+<use ./img/poisson2d_3_error_projection.png>
+Package pdftex.def Info: ./img/poisson2d_3_error_projection.png used on input l
+ine 3237.
+(pdftex.def)             Requested size: 217.7617pt x 182.5635pt.
+
+<./img/poisson2d_3_error_podg.png, id=3043, 963.6pt x 550.055pt>
+File: ./img/poisson2d_3_error_podg.png Graphic file (type png)
+
+<use ./img/poisson2d_3_error_podg.png>
+Package pdftex.def Info: ./img/poisson2d_3_error_podg.png used on input line 32
+38.
+(pdftex.def)             Requested size: 217.7617pt x 182.5635pt.
+
+<./img/poisson2d_3_error_podnn.png, id=3045, 963.6pt x 550.055pt>
+File: ./img/poisson2d_3_error_podnn.png Graphic file (type png)
+
+<use ./img/poisson2d_3_error_podnn.png>
+Package pdftex.def Info: ./img/poisson2d_3_error_podnn.png used on input line 3
+239.
+(pdftex.def)             Requested size: 217.7617pt x 182.5635pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[81 <./img/poisson2d_3_error_vs_rank.pdf> <./img/poisson2d_3_nn_convergence.pdf
+>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[82 <./img/poisson2d_3_fem_solution.png (PNG copy)> <./img/poisson2d_3_error_pr
+ojection.png (PNG copy)> <./img/poisson2d_3_error_podg.png (PNG copy)> <./img/p
+oisson2d_3_error_podnn.png (PNG copy)>] [83
+
+]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[84]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[85]
+Underfull \hbox (badness 6775) in paragraph at lines 3442--3443
 []\T1/futs/m/n/12 (+20) Stergiou, C., Siganos, D. (2013). \T1/futs/m/it/12 (+20
 ) Neu-ral Net-works\T1/futs/m/n/12 (+20) . Re-trieved from []$\T1/lmtt/m/n/12 h
 ttps :
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2966--2967
+Underfull \hbox (badness 10000) in paragraph at lines 3442--3443
 \T1/lmtt/m/n/12 / / www . doc . ic . ac . uk / ~nd / surprise _ 96 / journal / 
 vol4 / cs11 / report . html #
  []
@@ -2945,22 +3457,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[69]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[70]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2976.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2976.
+[86]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3452.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3452.
  (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2976.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2976.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3452.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3452.
 
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 642F1936169C2DCF22034EF3B608595A;2189.
+(rerunfilecheck)             Checksum: D740C1CFFFF3BD3720A58405C574D93E;2847.
 
 
 LaTeX Warning: There were undefined references.
@@ -2970,15 +3475,21 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 38189 strings out of 493029
- 723609 string characters out of 6136233
- 949743 words of memory out of 5000000
- 40121 multiletter control sequences out of 15000+600000
- 302287 words of font info for 610 fonts, out of 8000000 for 9000
+ 38630 strings out of 493029
+ 734556 string characters out of 6136233
+ 959889 words of memory out of 5000000
+ 40360 multiletter control sequences out of 15000+600000
+ 317352 words of font info for 659 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 58i,31n,93p,10465b,559s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Hfootnote.12} has been referenced but does not ex
+ 58i,31n,93p,10465b,566s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{Hfootnote.14} has been referenced but does not ex
 ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.13} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.12} has been referenced but does not exis
+t, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.11} has been referenced but does not exis
 t, replaced by a fixed one
@@ -3032,10 +3543,10 @@ nts/type1/public/fourier/fourier-ms.pfb></usr/share/texmf/fonts/type1/public/lm
 share/texlive/texmf-dist/fonts/type1/adobe/utopia/putbi8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/adobe/utopia/putri8a.pfb>
-Output written on report.pdf (78 pages, 952168 bytes).
+Output written on report.pdf (96 pages, 2528865 bytes).
 PDF statistics:
- 1703 PDF objects out of 1728 (max. 8388607)
- 1503 compressed objects within 16 object streams
- 393 named destinations out of 1000 (max. 500000)
- 72012 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 3320 PDF objects out of 3580 (max. 8388607)
+ 2803 compressed objects within 29 object streams
+ 484 named destinations out of 1000 (max. 500000)
+ 79226 words of extra memory for PDF output out of 89155 (max. 10000000)
 

@@ -6,5 +6,5 @@
 \contentsline {algorithm}{\numberline {2.2}{\ignorespaces The Newton's method applied to the reduced nonlinear system \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:rb-nonlinear-system}\unskip \@@italiccorr )}}.\relax }}{48}{algorithm.2.2}
 \contentsline {algorithm}{\numberline {2.3}{\ignorespaces The POD algorithm.\relax }}{52}{algorithm.2.3}
 \contentsline {algorithm}{\numberline {2.4}{\ignorespaces The offline and online stages for the POD-Galerkin (POD-G) RB method.\relax }}{53}{algorithm.2.4}
-\contentsline {algorithm}{\numberline {2.5}{\ignorespaces The offline and online stages for the POD-NN RB method.\relax }}{61}{algorithm.2.5}
-\contentsline {algorithm}{\numberline {2.6}{\ignorespaces Selection of an optimal network configuration.\relax }}{64}{algorithm.2.6}
+\contentsline {algorithm}{\numberline {2.5}{\ignorespaces Selection of an optimal network configuration.\relax }}{61}{algorithm.2.5}
+\contentsline {algorithm}{\numberline {2.6}{\ignorespaces The offline and online stages for the POD-NN RB method.\relax }}{62}{algorithm.2.6}

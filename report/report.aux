@@ -152,7 +152,7 @@
 \newlabel{eq:levenberg-marquardt-inner-neuron}{{1.40a}{19}{Levenberg-Marquardt algorithm}{equation.1.40}{}}
 \newlabel{eq:levenberg-marquardt-output-neuron}{{1.40b}{19}{Levenberg-Marquardt algorithm}{equation.1.40}{}}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {1.3}{\ignorespaces An iteration of the Levenberg-Marquardt training algorithm.\relax }}{19}{algorithm.1.3}}
-\newlabel{alg:levenberg-marquart}{{1.3}{19}{An iteration of the Levenberg-Marquardt training algorithm.\relax }{algorithm.1.3}{}}
+\newlabel{alg:levenberg-marquardt}{{1.3}{19}{An iteration of the Levenberg-Marquardt training algorithm.\relax }{algorithm.1.3}{}}
 \citation{Kri}
 \citation{Mat16}
 \citation{Koh95}
@@ -385,34 +385,113 @@
 \@writefile{toc}{\contentsline {section}{\numberline {2.6}A POD-based RB method using neural networks}{56}{section.2.6}}
 \newlabel{section:A POD-based RB method using neural networks}{{2.6}{56}{A POD-based RB method using neural networks}{section.2.6}{}}
 \citation{Imam08}
-\newlabel{eq:linear-poisson}{{2.88}{57}{A POD-based RB method using neural networks}{equation.2.88}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Left: computational domain $\mathaccentV {widetilde}365{\Omega } = \mathaccentV {widetilde}365{\Omega }(\bm  {\mu })$ (solid line) for the linear Poisson problem \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:linear-poisson}\unskip \@@italiccorr )}}. Right: average relative error committed by approximating the FE solution either through its projection onto the reduced space (red) or the POD-Galerkin RB solution (blue); the errors have been evaluated on a test parameter set $\Xi _{te} \subset \mathcal  {P}$ consisting of $N_{te} = 200$ randomly picked values.\relax }}{58}{figure.caption.17}}
-\newlabel{fig:linear-poisson}{{2.3}{58}{Left: computational domain $\wt {\Omega } = \wt {\Omega }(\bg {\mu })$ (solid line) for the linear Poisson problem \eqref {eq:linear-poisson}. Right: average relative error committed by approximating the FE solution either through its projection onto the reduced space (red) or the POD-Galerkin RB solution (blue); the errors have been evaluated on a test parameter set $\Xi _{te} \subset \mathcal {P}$ consisting of $N_{te} = 200$ randomly picked values.\relax }{figure.caption.17}{}}
-\newlabel{eq:nonlinear-poisson}{{2.89}{58}{A POD-based RB method using neural networks}{equation.2.89}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Left: computational domain $\mathaccentV {widetilde}365{\Omega } = \mathaccentV {widetilde}365{\Omega }(\bm  {\mu })$ (solid line) for the nonlinear Poisson problem \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:linear-poisson}\unskip \@@italiccorr )}}, with $H = 2$. Right: average relative error committed by approximating the FE solution either through its projection onto the reduced space (red) or the POD-Galerkin RB solution (blue). The errors have been evaluated on a test parameter set $\Xi _{te} \subset \mathcal  {P}$ consisting of $N_{te} = 200$ randomly picked values.\relax }}{59}{figure.caption.18}}
-\newlabel{fig:nonlinear-poisson}{{2.4}{59}{Left: computational domain $\wt {\Omega } = \wt {\Omega }(\bg {\mu })$ (solid line) for the nonlinear Poisson problem \eqref {eq:linear-poisson}, with $H = 2$. Right: average relative error committed by approximating the FE solution either through its projection onto the reduced space (red) or the POD-Galerkin RB solution (blue). The errors have been evaluated on a test parameter set $\Xi _{te} \subset \mathcal {P}$ consisting of $N_{te} = 200$ randomly picked values.\relax }{figure.caption.18}{}}
-\newlabel{eq:high-fidelity-projected}{{2.90}{59}{A POD-based RB method using neural networks}{equation.2.90}{}}
-\newlabel{eq:map-to-approximate}{{2.91}{59}{A POD-based RB method using neural networks}{equation.2.91}{}}
+\newlabel{eq:good-rb-solution}{{2.88}{57}{A POD-based RB method using neural networks}{equation.2.88}{}}
+\newlabel{eq:nonlinear-poisson-example}{{2.89}{57}{A POD-based RB method using neural networks}{equation.2.89}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces The parametrized computational domain (solid line) for the Poisson problem \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:nonlinear-poisson-example}\unskip \@@italiccorr )}}.\relax }}{58}{figure.caption.17}}
+\newlabel{fig:nonlinear-poisson-example-domain}{{2.3}{58}{The parametrized computational domain (solid line) for the Poisson problem \eqref {eq:nonlinear-poisson-example}.\relax }{figure.caption.17}{}}
+\newlabel{eq:high-fidelity-projected}{{2.90}{58}{A POD-based RB method using neural networks}{equation.2.90}{}}
 \citation{Ams10}
 \citation{Chen17}
-\newlabel{eq:pod-nn-mse}{{2.94}{61}{A POD-based RB method using neural networks}{equation.2.94}{}}
-\newlabel{eq:pod-nn-solution}{{2.95}{61}{A POD-based RB method using neural networks}{equation.2.95}{}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {2.5}{\ignorespaces The offline and online stages for the POD-NN RB method.\relax }}{61}{algorithm.2.5}}
-\newlabel{alg:pod-nn}{{2.5}{61}{The offline and online stages for the POD-NN RB method.\relax }{algorithm.2.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.6.1}An a priori error analysis}{62}{subsection.2.6.1}}
-\newlabel{section:An a priori error analysis}{{2.6.1}{62}{An a priori error analysis}{subsection.2.6.1}{}}
-\newlabel{eq:error-analysis-1}{{2.96}{62}{An a priori error analysis}{equation.2.96}{}}
-\newlabel{eq:error-analysis-2}{{2.97}{62}{An a priori error analysis}{equation.2.97}{}}
-\newlabel{eq:error-analysis-3}{{2.99}{63}{An a priori error analysis}{equation.2.99}{}}
-\newlabel{eq:error-analysis-4}{{2.100}{63}{An a priori error analysis}{equation.2.100}{}}
-\newlabel{eq:error-analysis-5}{{2.101}{63}{An a priori error analysis}{equation.2.101}{}}
-\newlabel{eq:error-analysis-final}{{2.102}{64}{An a priori error analysis}{equation.2.102}{}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {2.6}{\ignorespaces Selection of an optimal network configuration.\relax }}{64}{algorithm.2.6}}
-\newlabel{alg:podnn-training}{{2.6}{64}{Selection of an optimal network configuration.\relax }{algorithm.2.6}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Numerical results}{65}{chapter.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Left: average relative error between the FE solution for the problem \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:nonlinear-poisson-example}\unskip \@@italiccorr )}} and either its projection onto the reduced space (red) or the POD-Galerkin RB solution (blue); the errors have been evaluated on a test parameter set $\Xi _{te} \subset \mathcal  {P}$ consisting of $N_{te} = 50$ randomly picked values. Right: comparison between the online run times for the FE (full-order) scheme and the POD-Galerkin (reduced-order) method on $\Xi _{te}$.\relax }}{59}{figure.caption.18}}
+\newlabel{fig:nonlinear-poisson-example}{{2.4}{59}{Left: average relative error between the FE solution for the problem \eqref {eq:nonlinear-poisson-example} and either its projection onto the reduced space (red) or the POD-Galerkin RB solution (blue); the errors have been evaluated on a test parameter set $\Xi _{te} \subset \mathcal {P}$ consisting of $N_{te} = 50$ randomly picked values. Right: comparison between the online run times for the FE (full-order) scheme and the POD-Galerkin (reduced-order) method on $\Xi _{te}$.\relax }{figure.caption.18}{}}
+\newlabel{eq:map-to-approximate}{{2.91}{59}{A POD-based RB method using neural networks}{equation.2.91}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2.5}{\ignorespaces Selection of an optimal network configuration.\relax }}{61}{algorithm.2.5}}
+\newlabel{alg:podnn-training}{{2.5}{61}{Selection of an optimal network configuration.\relax }{algorithm.2.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Three point sets randomly generate through the latin hypercube sampling. Observe the good coverage provided by the union of the sets, with only a few overlapping points.\relax }}{61}{figure.caption.19}}
+\newlabel{fig:lhs}{{2.5}{61}{Three point sets randomly generate through the latin hypercube sampling. Observe the good coverage provided by the union of the sets, with only a few overlapping points.\relax }{figure.caption.19}{}}
+\newlabel{eq:pod-nn-mse}{{2.94}{62}{A POD-based RB method using neural networks}{equation.2.94}{}}
+\newlabel{eq:pod-nn-solution}{{2.95}{62}{A POD-based RB method using neural networks}{equation.2.95}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2.6}{\ignorespaces The offline and online stages for the POD-NN RB method.\relax }}{62}{algorithm.2.6}}
+\newlabel{alg:pod-nn}{{2.6}{62}{The offline and online stages for the POD-NN RB method.\relax }{algorithm.2.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6.1}An a priori error analysis}{63}{subsection.2.6.1}}
+\newlabel{section:An a priori error analysis}{{2.6.1}{63}{An a priori error analysis}{subsection.2.6.1}{}}
+\newlabel{eq:error-analysis-1}{{2.96}{63}{An a priori error analysis}{equation.2.96}{}}
+\newlabel{eq:error-analysis-2}{{2.97}{63}{An a priori error analysis}{equation.2.97}{}}
+\newlabel{eq:error-analysis-3}{{2.99}{64}{An a priori error analysis}{equation.2.99}{}}
+\newlabel{eq:error-analysis-4}{{2.100}{64}{An a priori error analysis}{equation.2.100}{}}
+\newlabel{eq:error-analysis-5}{{2.101}{64}{An a priori error analysis}{equation.2.101}{}}
+\newlabel{eq:error-analysis-final}{{2.102}{65}{An a priori error analysis}{equation.2.102}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Numerical results}{67}{chapter.3}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chapter:Numerical results}{{3}{65}{Numerical results}{chapter.3}{}}
+\newlabel{chapter:Numerical results}{{3}{67}{Numerical results}{chapter.3}{}}
+\newlabel{eq:podg-error}{{3.1}{67}{Numerical results}{equation.3.1}{}}
+\newlabel{eq:podnn-error}{{3.2}{67}{Numerical results}{equation.3.2}{}}
+\newlabel{eq:projection-error}{{3.3}{68}{Numerical results}{equation.3.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}One-dimensional Poisson equation}{69}{section.3.1}}
+\newlabel{section:One-dimensional Poisson equation (results)}{{3.1}{69}{One-dimensional Poisson equation}{section.3.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Linear test case}{69}{subsection.3.1.1}}
+\newlabel{section:poisson1d-1}{{3.1.1}{69}{Linear test case}{subsection.3.1.1}{}}
+\newlabel{eq:poisson1d-1}{{3.4}{69}{Linear test case}{equation.3.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Left: error analysis for the POD-G RB method applied to Equation \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:poisson1d-1}\unskip \@@italiccorr )}}; the results refer to a POD basis constructed based on $N = 25$, $50$, $100$ snapshots; for $N = 100$, the singular values of the correspondent snapshot matrix are shown as well. Right: FE and POD-G solutions for three parameter values.\relax }}{69}{figure.caption.20}}
+\newlabel{fig:poisson1d-1-fig1}{{3.1}{69}{Left: error analysis for the POD-G RB method applied to Equation \eqref {eq:poisson1d-1}; the results refer to a POD basis constructed based on $N = 25$, $50$, $100$ snapshots; for $N = 100$, the singular values of the correspondent snapshot matrix are shown as well. Right: FE and POD-G solutions for three parameter values.\relax }{figure.caption.20}{}}
+\citation{Mol93}
+\citation{GMW81}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces In respect to the approximation of the map \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:map-to-approximate}\unskip \@@italiccorr )}} for the Poisson problem \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:poisson1d-1}\unskip \@@italiccorr )}} via neural networks, comparison between three supervised algorithms - Levenberg-Marquardt (blue), Scaled Conjugate Gradient (orange), BFGS Quasi-Newton (yellow) - in terms of the optimal configuration detected (\emph  {right}) and the associated test error (\emph  {right}) for different amounts of training samples.\relax }}{70}{figure.caption.21}}
+\newlabel{fig:poisson1d-1-fig2}{{3.2}{70}{In respect to the approximation of the map \eqref {eq:map-to-approximate} for the Poisson problem \eqref {eq:poisson1d-1} via neural networks, comparison between three supervised algorithms - Levenberg-Marquardt (blue), Scaled Conjugate Gradient (orange), BFGS Quasi-Newton (yellow) - in terms of the optimal configuration detected (\emph {right}) and the associated test error (\emph {right}) for different amounts of training samples.\relax }{figure.caption.21}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Left: relative error yielded by the POD-NN RB method applied to Equation \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:poisson1d-1}\unskip \@@italiccorr )}}; the convergence to the projection error for $L = 10$ (solid line) is analyzed in terms of both the number of neurons included in the neural network and the dimension of the training set. Right: FE and POD-NN solutions for three parameter values.\relax }}{70}{figure.caption.21}}
+\newlabel{fig:poisson1d-1-fig3}{{3.3}{70}{Left: relative error yielded by the POD-NN RB method applied to Equation \eqref {eq:poisson1d-1}; the convergence to the projection error for $L = 10$ (solid line) is analyzed in terms of both the number of neurons included in the neural network and the dimension of the training set. Right: FE and POD-NN solutions for three parameter values.\relax }{figure.caption.21}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Nonlinear test case, two parameters}{71}{subsection.3.1.2}}
+\newlabel{section:poisson1d-2}{{3.1.2}{71}{Nonlinear test case, two parameters}{subsection.3.1.2}{}}
+\newlabel{eq:poisson1d-2}{{3.5}{71}{Nonlinear test case, two parameters}{equation.3.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Error analysis for the POD-Galerkin RB method applied to the problem \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:poisson1d-2}\unskip \@@italiccorr )}}. The lower-bound provided by the projection error \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:projection-error}\unskip \@@italiccorr )}} is reported as reference.\relax }}{71}{figure.caption.22}}
+\newlabel{fig:poisson1d-2-fig1}{{3.4}{71}{Error analysis for the POD-Galerkin RB method applied to the problem \eqref {eq:poisson1d-2}. The lower-bound provided by the projection error \eqref {eq:projection-error} is reported as reference.\relax }{figure.caption.22}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Left: error analysis for the POD-NN RB method (dotted lines) applied to problem \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:poisson1d-2}\unskip \@@italiccorr )}}. The solid solid sections refer to the steps carried out by the routine \ref  {alg:podnn-training}; the error yielded by the POD-G method using $L = 8$ or $L = 15$ basis functions are reported as reference. Right: comparison between FE and POD-NN solutions for three input vectors.\relax }}{72}{figure.caption.23}}
+\newlabel{fig:poisson1d-2-fig2}{{3.5}{72}{Left: error analysis for the POD-NN RB method (dotted lines) applied to problem \eqref {eq:poisson1d-2}. The solid solid sections refer to the steps carried out by the routine \ref {alg:podnn-training}; the error yielded by the POD-G method using $L = 8$ or $L = 15$ basis functions are reported as reference. Right: comparison between FE and POD-NN solutions for three input vectors.\relax }{figure.caption.23}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces From left to right, top to bottom: regression plots for the first, seventh, eighth and nine scalar components of the outputs provided on $\Xi _{te}$ by a network with $H_1 = H_2 = 25$ neurons per hidden layer, trained to approximate the map \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:map-to-approximate}\unskip \@@italiccorr )}} for problem \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:poisson1d-2}\unskip \@@italiccorr )}}.\relax }}{73}{figure.caption.24}}
+\newlabel{fig:poisson1d-2-fig3}{{3.6}{73}{From left to right, top to bottom: regression plots for the first, seventh, eighth and nine scalar components of the outputs provided on $\Xi _{te}$ by a network with $H_1 = H_2 = 25$ neurons per hidden layer, trained to approximate the map \eqref {eq:map-to-approximate} for problem \eqref {eq:poisson1d-2}.\relax }{figure.caption.24}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Nonlinear test case, three parameters}{73}{subsection.3.1.3}}
+\newlabel{section:poisson1d-3}{{3.1.3}{73}{Nonlinear test case, three parameters}{subsection.3.1.3}{}}
+\newlabel{eq:poisson1d-3}{{3.6}{73}{Nonlinear test case, three parameters}{equation.3.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces The first $10$ POD basis functions for the (nonlinear) Poisson problem \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:poisson1d-3}\unskip \@@italiccorr )}}.\relax }}{74}{figure.caption.25}}
+\newlabel{fig:poisson1d-3-fig1}{{3.7}{74}{The first $10$ POD basis functions for the (nonlinear) Poisson problem \eqref {eq:poisson1d-3}.\relax }{figure.caption.25}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {$\psi _1$}}}{74}{subfigure.7.1}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {$\psi _2$}}}{74}{subfigure.7.2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {$\psi _3$}}}{74}{subfigure.7.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {$\psi _4$}}}{74}{subfigure.7.4}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(e)}{\ignorespaces {$\psi _5$}}}{74}{subfigure.7.5}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(f)}{\ignorespaces {$\psi _6$}}}{74}{subfigure.7.6}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(g)}{\ignorespaces {$\psi _7$}}}{74}{subfigure.7.7}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(h)}{\ignorespaces {$\psi _8$}}}{74}{subfigure.7.8}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(i)}{\ignorespaces {$\psi _9$}}}{74}{subfigure.7.9}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(j)}{\ignorespaces {$\psi _{10}$}}}{74}{subfigure.7.10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces Convergence analysis for the POD-G and POD-NN methods applied to the problem \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:poisson1d-3}\unskip \@@italiccorr )}} (\emph  {left}) and comparison between the FE and the POD-NN solutions for three parameter values (\emph  {right}). These latter results have been obtained via a neural network with $H_1 = H_2 = 35$ units per hidden layer, and considering $L = 10$ POD modes.\relax }}{74}{figure.caption.26}}
+\newlabel{fig:poisson1d-3-fig2}{{3.8}{74}{Convergence analysis for the POD-G and POD-NN methods applied to the problem \eqref {eq:poisson1d-3} (\emph {left}) and comparison between the FE and the POD-NN solutions for three parameter values (\emph {right}). These latter results have been obtained via a neural network with $H_1 = H_2 = 35$ units per hidden layer, and considering $L = 10$ POD modes.\relax }{figure.caption.26}{}}
+\newlabel{eq:podnn-solution-full}{{3.7}{75}{Nonlinear test case, three parameters}{equation.3.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces Sensitivity analysis for the POD-NN method applied to the problem \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:poisson1d-3}\unskip \@@italiccorr )}} with respect to the number of POD coefficients (per sample) used during the training; to prevent overfitting, $N_{tr} = 300$ learning patterns have been used.\relax }}{75}{figure.caption.27}}
+\newlabel{fig:poisson1d-3-fig3}{{3.9}{75}{Sensitivity analysis for the POD-NN method applied to the problem \eqref {eq:poisson1d-3} with respect to the number of POD coefficients (per sample) used during the training; to prevent overfitting, $N_{tr} = 300$ learning patterns have been used.\relax }{figure.caption.27}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Two-dimensional Poisson equation}{75}{section.3.2}}
+\newlabel{section:Two-dimensional Poisson equation (results)}{{3.2}{75}{Two-dimensional Poisson equation}{section.3.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.10}{\ignorespaces The quadrilateral domain used in the simulations (\emph  {left}, solid line) and the parametrizations of its sides (\emph  {right}).\relax }}{76}{figure.caption.28}}
+\newlabel{fig:quadrilateral-domain}{{3.10}{76}{The quadrilateral domain used in the simulations (\emph {left}, solid line) and the parametrizations of its sides (\emph {right}).\relax }{figure.caption.28}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.11}{\ignorespaces The stenosis geometry employed in the simulations (\emph  {left}) and the parametrizations of its sides (\emph  {right}).\relax }}{76}{figure.caption.28}}
+\newlabel{fig:stenosis-domain}{{3.11}{76}{The stenosis geometry employed in the simulations (\emph {left}) and the parametrizations of its sides (\emph {right}).\relax }{figure.caption.28}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Linear test case}{77}{subsection.3.2.1}}
+\newlabel{section:poisson2d-1}{{3.2.1}{77}{Linear test case}{subsection.3.2.1}{}}
+\newlabel{eq:poisson2d-1}{{3.8}{77}{Linear test case}{equation.3.8}{}}
+\newlabel{eq:poisson2d-1-fe-system}{{3.9}{77}{Linear test case}{equation.3.9}{}}
+\newlabel{eq:poisson2d-1-podg-system}{{3.10}{77}{Linear test case}{equation.3.10}{}}
+\newlabel{eq:poisson2d-1-podg-matrices}{{3.11}{77}{Linear test case}{equation.3.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.12}{\ignorespaces Online run times for the FE, POD-G and POD-NN methods applied to the problem \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:poisson2d-1}\unskip \@@italiccorr )}}, for $N_{te} = 100$ randomly generated parameter values. \relax }}{78}{figure.caption.29}}
+\newlabel{fig:poisson2d-1-fig1}{{3.12}{78}{Online run times for the FE, POD-G and POD-NN methods applied to the problem \eqref {eq:poisson2d-1}, for $N_{te} = 100$ randomly generated parameter values. \relax }{figure.caption.29}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.13}{\ignorespaces On the right, error analysis for the POD-G (blue dashed line) and the POD-NN (dotted lines) methods applied to the problem \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:poisson2d-1}\unskip \@@italiccorr )}}. For the latter, a convergence analysis with respect to the number of training samples and hidden neurons used is provided on the left. The solid tracts denote the steps actually pursued by the automatic training routine \ref  {alg:podnn-training}. All the results refer to neural networks exposed to $L = 15$ POD coefficients per learning sample.\relax }}{78}{figure.caption.30}}
+\newlabel{fig:poisson2d-1-fig2}{{3.13}{78}{On the right, error analysis for the POD-G (blue dashed line) and the POD-NN (dotted lines) methods applied to the problem \eqref {eq:poisson2d-1}. For the latter, a convergence analysis with respect to the number of training samples and hidden neurons used is provided on the left. The solid tracts denote the steps actually pursued by the automatic training routine \ref {alg:podnn-training}. All the results refer to neural networks exposed to $L = 15$ POD coefficients per learning sample.\relax }{figure.caption.30}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Nonlinear test case, two parameters}{79}{subsection.3.2.2}}
+\newlabel{section:poisson2d-2}{{3.2.2}{79}{Nonlinear test case, two parameters}{subsection.3.2.2}{}}
+\newlabel{eq:poisson2d-2}{{3.12}{79}{Nonlinear test case, two parameters}{equation.3.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.14}{\ignorespaces Finite element (\emph  {left}), POD-G (\emph  {center}) and POD-NN (\emph  {right}) solution to the semilinear Poisson problem \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:poisson2d-2}\unskip \@@italiccorr )}} re-stated over the reference domain, with $\bm  {\mu } = (0.835, \tmspace  +\thinmuskip {.1667em} 0.034)$.\relax }}{79}{figure.caption.31}}
+\newlabel{fig:poisson2d-2-fig1}{{3.14}{79}{Finite element (\emph {left}), POD-G (\emph {center}) and POD-NN (\emph {right}) solution to the semilinear Poisson problem \eqref {eq:poisson2d-2} re-stated over the reference domain, with $\bg {\mu } = (0.835, \, 0.034)$.\relax }{figure.caption.31}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.15}{\ignorespaces Online relative errors (\emph  {left}) and run times (\emph  {right}) for the POD-G and the POD-NN methods applied to problem \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:poisson2d-2}\unskip \@@italiccorr )}} for $N_{te} = 50$ randomly picked parameter values.\relax }}{80}{figure.caption.32}}
+\newlabel{fig:poisson2d-2-fig2}{{3.15}{80}{Online relative errors (\emph {left}) and run times (\emph {right}) for the POD-G and the POD-NN methods applied to problem \eqref {eq:poisson2d-2} for $N_{te} = 50$ randomly picked parameter values.\relax }{figure.caption.32}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.16}{\ignorespaces Convergence analysis for the POD-NN RB method applied to the BVP \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:poisson2d-2}\unskip \@@italiccorr )}}. The results have been obtained via three-layers (i.e., two hidden layers plus the output layer) neural networks with $H_1 = H_2 \in {\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left \delimiter "42663A9 \vcenter to\@ne \big@size {}\right .$}\box \z@ }15, \tmspace  +\thinmuskip {.1667em} 20, \tmspace  +\thinmuskip {.1667em} 25, \tmspace  +\thinmuskip {.1667em} 30, \tmspace  +\thinmuskip {.1667em} 35 {\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left \delimiter "52673AA \vcenter to\@ne \big@size {}\right .$}\box \z@ }$ neurons in each hidden layer, and trained with $N_{tr} \in {\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left \delimiter "42663A9 \vcenter to\@ne \big@size {}\right .$}\box \z@ }100, \tmspace  +\thinmuskip {.1667em} 200, \tmspace  +\thinmuskip {.1667em} 300 {\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left \delimiter "52673AA \vcenter to\@ne \big@size {}\right .$}\box \z@ }$ learning patterns. Each pattern consists of an input vector $\bm  {\mu } \in \mathcal  {P}$ and the first $L = 35$ POD coefficients ${\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left (\vcenter to\@ne \big@size {}\right .$}\box \z@ } \mathbf  {u}_h(\bm  {\mu }), \bm  {\psi }_i {\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\nulldelimiterspace \z@ \left )\vcenter to\@ne \big@size {}\right .$}\box \z@ }_{\math@bb  {R}^M}$, $i = 1, \tmspace  +\thinmuskip {.1667em} \ldots  \tmspace  +\thinmuskip {.1667em} , L$, as teaching inputs.\relax }}{80}{figure.caption.33}}
+\newlabel{fig:poisson2d-2-fig3}{{3.16}{80}{Convergence analysis for the POD-NN RB method applied to the BVP \eqref {eq:poisson2d-2}. The results have been obtained via three-layers (i.e., two hidden layers plus the output layer) neural networks with $H_1 = H_2 \in \big \lbrace 15, \, 20, \, 25, \, 30, \, 35 \big \rbrace $ neurons in each hidden layer, and trained with $N_{tr} \in \big \lbrace 100, \, 200, \, 300 \big \rbrace $ learning patterns. Each pattern consists of an input vector $\bg {\mu } \in \mathcal {P}$ and the first $L = 35$ POD coefficients $\big ( \mathbf {u}_h(\bg {\mu }), \bg {\psi }_i \big )_{\mathbb {R}^M}$, $i = 1, \, \ldots \, , L$, as teaching inputs.\relax }{figure.caption.33}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}Nonlinear test case, three parameters}{80}{subsection.3.2.3}}
+\newlabel{section:poisson2d-3}{{3.2.3}{80}{Nonlinear test case, three parameters}{subsection.3.2.3}{}}
+\newlabel{eq:poisson2d-3}{{3.13}{81}{Nonlinear test case, three parameters}{equation.3.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.17}{\ignorespaces On the left, error analysis for the POD-G (blue dashed line) and the POD-NN (dotted lines) methods (\emph  {left}) applied to the problem \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:poisson2d-3}\unskip \@@italiccorr )}}. For the latter, a convergence analysis with respect to the number of training samples and hidden neurons used is provided on the right. The solid tracts denote the steps actually pursued by the automatic training routine \ref  {alg:podnn-training}. All the results refer to neural networks exposed to $L = 30$ POD coefficients per sample during the learning step.\relax }}{81}{figure.caption.34}}
+\newlabel{}{{3.17}{81}{On the left, error analysis for the POD-G (blue dashed line) and the POD-NN (dotted lines) methods (\emph {left}) applied to the problem \eqref {eq:poisson2d-3}. For the latter, a convergence analysis with respect to the number of training samples and hidden neurons used is provided on the right. The solid tracts denote the steps actually pursued by the automatic training routine \ref {alg:podnn-training}. All the results refer to neural networks exposed to $L = 30$ POD coefficients per sample during the learning step.\relax }{figure.caption.34}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.18}{\ignorespaces \relax }}{82}{figure.caption.35}}
+\newlabel{}{{3.18}{82}{\relax }{figure.caption.35}{}}
 \bibcite{Ams10}{1}
 \bibcite{Bal14}{2}
 \bibcite{Bar04}{3}
@@ -425,37 +504,39 @@
 \bibcite{Dep08}{10}
 \bibcite{ESW04}{11}
 \bibcite{Fah88}{12}
-\bibcite{Hag94}{13}
-\bibcite{Hag14}{14}
-\bibcite{Haa13}{15}
-\bibcite{Hay05}{16}
-\bibcite{Heb49}{17}
-\bibcite{Lia02}{18}
-\bibcite{OBS}{19}
-\bibcite{HSR16}{20}
-\bibcite{Hop82}{21}
-\bibcite{Imam08}{22}
-\bibcite{JIR14}{23}
-\bibcite{KLM96}{24}
-\bibcite{Koh95}{25}
-\bibcite{Koh98}{26}
-\bibcite{Kri}{27}
-\bibcite{Mad06}{28}
-\bibcite{Mar63}{29}
-\bibcite{Mat16}{30}
-\bibcite{MM10}{31}
-\bibcite{MN16}{32}
-\bibcite{MR86}{33}
-\bibcite{Nie15}{34}
-\bibcite{NMA15}{35}
-\bibcite{Per02}{36}
-\bibcite{Pru02}{37}
-\bibcite{Qua10}{38}
-\bibcite{QMN15}{39}
-\bibcite{Ran99}{40}
-\bibcite{RB93}{41}
-\bibcite{Ros58}{42}
-\bibcite{Rud64}{43}
-\bibcite{SD13}{44}
-\bibcite{Vol08}{45}
-\bibcite{WH60}{46}
+\bibcite{GMW81}{13}
+\bibcite{Hag94}{14}
+\bibcite{Hag14}{15}
+\bibcite{Haa13}{16}
+\bibcite{Hay05}{17}
+\bibcite{Heb49}{18}
+\bibcite{Lia02}{19}
+\bibcite{OBS}{20}
+\bibcite{HSR16}{21}
+\bibcite{Hop82}{22}
+\bibcite{Imam08}{23}
+\bibcite{JIR14}{24}
+\bibcite{KLM96}{25}
+\bibcite{Koh95}{26}
+\bibcite{Koh98}{27}
+\bibcite{Kri}{28}
+\bibcite{Mad06}{29}
+\bibcite{Mar63}{30}
+\bibcite{Mat16}{31}
+\bibcite{MM10}{32}
+\bibcite{MN16}{33}
+\bibcite{Mol93}{34}
+\bibcite{MR86}{35}
+\bibcite{Nie15}{36}
+\bibcite{NMA15}{37}
+\bibcite{Per02}{38}
+\bibcite{Pru02}{39}
+\bibcite{Qua10}{40}
+\bibcite{QMN15}{41}
+\bibcite{Ran99}{42}
+\bibcite{RB93}{43}
+\bibcite{Ros58}{44}
+\bibcite{Rud64}{45}
+\bibcite{SD13}{46}
+\bibcite{Vol08}{47}
+\bibcite{WH60}{48}

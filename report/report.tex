@@ -256,54 +256,55 @@
 	
 	\begin{center}
 		
-		\vspace*{-3cm}
+		\vspace*{-2cm}
 	
 		\begin{figure}[H]
 			\center
-			\includegraphics[scale = 1.1, trim = {0 2.5cm 0 2cm}, clip]{polimi}
+			\includegraphics[scale = 1, trim = {0 2.5cm 0 2cm}, clip]{polimi}
 		\end{figure}
 		
-		\vspace*{-0.3cm}
+		\vspace*{-0.4cm}
 		
-		\fontsize{15}{20}\selectfont{Politecnico di Milano} \\ 
-		\fontsize{15}{20}\selectfont{Dipartimento di Matematica "F. Brioschi"} \\
+		\fontsize{15}{20}\selectfont{\textsc{Politecnico di Milano}} \\ 
+		\fontsize{15}{20}\selectfont{\textsc{Dipartimento di Matematica "F. Brioschi"}} \\
 	
 		\vspace*{0.85cm}
 		
 		\begin{figure}[H]
 			\center
-			\includegraphics[scale = 1.1]{EPFL-Logo-CMJN} 
+			\includegraphics[scale = 1]{EPFL-Logo-CMJN} 
 		\end{figure}
 		
-		\vspace*{-0.1cm}
+		\vspace*{-0.2cm}
 	
-		\fontsize{15}{20}\selectfont{\'Ecole Polytechnique F\'ed\'erale de Lausanne} \\ 
-		\fontsize{15}{20}\selectfont{Chair of Computational Mathematics and Simulation Science} \\
+		\fontsize{15}{20}\selectfont{\textsc{\'Ecole Polytechnique F\'ed\'erale de Lausanne}} \\ 
+		\fontsize{15}{20}\selectfont{\textsc{Chair of Computational Mathematics and Simulation Science}} \\
 	
-		\vspace{1.2cm}
+		\vspace{1.5cm}
+		
+		\fontsize{26}{32}\selectfont{\textbf{Reduced order modeling of}} \\
+		\fontsize{26}{32}\selectfont{\textbf{nonlinear problems}} \\ 
+		\fontsize{26}{32}\selectfont{\textbf{using neural networks}} \\
+		
+		\vspace*{1.5cm}
 		
 		\fontsize{17}{22}\selectfont{Master of Science in} \\
 		\fontsize{17}{22}\selectfont{Computational Science and Engineering} \\
 		
-		\vspace*{1cm}
-	
-		\fontsize{25}{30}\selectfont{\textbf{Reduced order modeling of}} \\
-		\fontsize{25}{30}\selectfont{\textbf{nonlinear problems}} \\ 
-		\fontsize{25}{30}\selectfont{\textbf{using neural networks}} \\
-	
 		\vspace*{1.5cm}
-	
+		
 		\begin{minipage}{0.45\textwidth}
 			%\vspace*{-2.85cm}
 			\begin{center}
-				\fontsize{17}{22}\selectfont{\emph{Candidate}} \\
-				\fontsize{17}{22}\selectfont{Stefano Ubbiali} 
+				\fontsize{17}{22}\selectfont{\textbf{Candidate}:} \\
+				\fontsize{17}{22}\selectfont{Stefano Ubbiali} \\
+				\fontsize{17}{22}\selectfont{ID Number 836697}
 			\end{center}
 		\end{minipage}
 		\hfill
 		\begin{minipage}{0.45\textwidth}
 			\begin{center}
-				\fontsize{17}{22}\selectfont{\emph{Supervisors}} \\
+				\fontsize{17}{22}\selectfont{\textbf{Supervisors}:} \\
 				\fontsize{17}{22}\selectfont{Prof. Jan S. Hesthaven} \\
 				\fontsize{17}{22}\selectfont{Prof. Matteo Zunino} \\
 				%\vspace*{0.5cm}
@@ -312,9 +313,9 @@
 			\end{center}
 		\end{minipage}
 		
-		\vspace*{2cm}
+		\vspace*{2.5cm}
 		
-		\fontsize{17}{22}\selectfont{A.Y. 2016 - 2017} 		
+		\fontsize{17}{22}\selectfont{Academic Year 2016 - 2017} 		
 	\end{center}
 		
 	\thispagestyle{empty}
@@ -332,7 +333,7 @@
 	
 		Let us start this dissertation by introducing the key components of an artificial neural network and discussing the way it can be configured for a specific application. Please note that this chapter is not meant to provide a comprehensive overview on neural networks, rather to investigate some aspects and concepts functional to the following chapters. For further reading, we refer the reader to, e.g., \cite{Hag14, Hay05, Kri}, from which we retrieved many of the informations provided in this chapter.
 		
-		Throughout this work we confine the attention to the most-spread neural network paradigm - the \emph{feedforward} neural network, presented in Section \ref{section:Network topologies} - employing the well-known \emph{backpropagation of error} as learning rule, derived in Section \ref{section:Training a multilayer feedforard neural network}. Actually, in the numerical experiments we carried out and whose results will be discussed in Chapter \ref{}, we mainly refer to a variant of backpropagation - the Levenberg-Marquardt algorithm.
+		Throughout this work we confine the attention to the most-spread neural network paradigm - the \emph{feedforward} neural network, presented in Section \ref{section:Network topologies} - employing the well-known \emph{backpropagation of error} as learning rule, derived in Section \ref{section:Training a multilayer feedforard neural network}. Actually, in the numerical experiments we carried out and whose results will be discussed in Chapter \ref{chapter:Numerical results}, we mainly refer to a variant of backpropagation - the Levenberg-Marquardt algorithm.
 		
 		Before moving to the description of technical neural networks, let us provide a brief excursus on their biological counterparts. The goal is to highlight the basic features of the human nervous system, focusing on the working principles of neurons and the way informations are processed, thus to extract the key concepts which should be taken over into a mathematical, simplified representation.
 		
@@ -507,7 +508,7 @@
 		\end{enumerate}
 		Therefore, in many practical applications there is no reason to employ MLPs with more than two hidden layers. Considering again the binary classifier discussed above, one can represent any convex polygon by adding one hidden layer, and any arbitrary set by adding two hidden layers; further increasing the number of hidden neurons would not improve the representation capability of the network. However, we should point out that \ref{cybenko-first-rule} and \ref{cybenko-second-rule} do not give any practical advice on both the number of hidden neurons and the number of samples required to teach the network.
 		
-		An instance of a three-layer (i.e., two hidden layer plus the output layer) feedforward network is offered in Figure \ref{}. In this case, we have $M_I = 3$ input neurons (denoted with the letter $i$), $H_1 = H_2 = 6$ hidden neurons (letter $h$), and $M_O = 4$ output neurons (letter $o$). In particular, we point out that it represents an instance of a \emph{completely linked} perceptron, since each neuron is directly connected with all neurons in the following layer.
+		An instance of a three-layer (i.e., two hidden layer plus the output layer) feedforward network is offered in Figure \ref{fig:neural-network}. In this case, we have $M_I = 3$ input neurons (denoted with the letter $i$), $H_1 = H_2 = 6$ hidden neurons (letter $h$), and $M_O = 4$ output neurons (letter $o$). In particular, we point out that it represents an instance of a \emph{completely linked} perceptron, since each neuron is directly connected with all neurons in the following layer.
 		
 		Finally, let us just mention that, although we have previously stated that in a feedforward neural network a synapses can only connect pairs of neurons in contiguous layers, recent years have seen the development of different variants. For instance, \emph{shortcut connections} skip one or more layers, while \emph{lateral connections} takes place between neurons within the same layer. However, throughout this work we shall be faithful to the original definition of the perceptron.
 				
@@ -517,7 +518,7 @@
 		
 		\vspace*{0.3cm}
 		
-		As mentioned in the introductory chapter, in this work we refer to neural networks for the approximation of the unknown map $\boldsymbol{\phi}$ between the parameters $\boldsymbol{\mu}$ of a parametrized partial differential equation, and the coefficients $\boldsymbol{\alpha}$ of the corresponding reduced basis solution. To accomplish this task, we rely on a collection of samples $\big\lbrace \boldsymbol{\mu}_i, \boldsymbol{\alpha}_i \big\rbrace_{i = 1}^{N_{tr}}$ generated through a high-fidelity model. Although a detailed explanation will be provided later in Chapter \ref{}, what is worth notice here is that we are concerned with a \emph{continuous function approximation} problem. Then, motivated by what previously said in the section, a multi-layer feedforward neural network turns out as the most suitable network architecture for our purposes. 
+		As mentioned in the introductory chapter, in this work we refer to neural networks for the approximation of the unknown map $\boldsymbol{\phi}$ between the parameters $\boldsymbol{\mu}$ of a parametrized partial differential equation, and the coefficients $\boldsymbol{\alpha}$ of the corresponding reduced basis solution. To accomplish this task, we rely on a collection of samples $\big\lbrace \boldsymbol{\mu}_i, \boldsymbol{\alpha}_i \big\rbrace_{i = 1}^{N_{tr}}$ generated through a high-fidelity model. Although a detailed explanation will be provided later in Chapter \ref{chapter:Reduced Basis method for nonlinear partial differential equations}, what is worth notice here is that we are concerned with a \emph{continuous function approximation} problem. Then, motivated by what previously said in the section, a multi-layer feedforward neural network turns out as the most suitable network architecture for our purposes. 
 		
 		We are now left to investigate the way the weights of a perceptron can be \emph{trained} to meet our purposes.
 		
@@ -776,7 +777,7 @@
 		
 		Although intuitive and very promising, backpropagation of error suffers of all those drawbacks that are peculiar to gradient-based techniques. For instance, we may get stuck in a local minimum, whose level is possibly far from the global minimum of the error surface $E$. Furthermore, since the step size dictated by the gradient method is given by the norm of the gradient itself, minima close to steepest gradients are likely to be missed due to a large step size. This motivates the introduction in \eqref{eq:antigradient} of the learning rate $\eta \in (0,1]$, acting as a reducing factor and thus enabling a keener control on the descent. As suggested by Kriesel \cite{Kri}, in many applications reasonable values for $\eta$ lies in the range $[0.01,0.9]$. In particular, a time-dependent learning rate usually enables a more effective and more efficient training procedure. At the beginning of the process, when the network is far from the application goal, one often needs to span a large extent of the error surface, thus to identify a region of interest. Then, the learning rate should be large, i.e., close to $1$, thus to speed up the exploration. However, as we approach the optimal configuration, we may want to progressively reduce the learning rate, then the step size, to fine-tune the weights of the neural network. 
 		
-		Nevertheless, selecting an appropriate value for $\eta$ is still more an art than a science. Furthermore, for sigmoidal activations functions as the ones shown in Figure \ref{}, the derivative is close to zero far from the origin. This results in the fact that it becomes very difficult to move neurons away from the limits of the activation, which could extremely extend the learning time \cite{Kri}. Hence, different alternatives to backpropagation have been proposed in literature, either by modifying the original algorithm (as, e.g., the resilient backpropagation \cite{RB93} or the quickpropagation \cite{Fah88}), or pursuing a different numerical approach to the optimization problem. The latter class of algorithms includes the Levenberg-Marquardt algorithm, which we shall extensively use in our numerical tests.
+		Nevertheless, selecting an appropriate value for $\eta$ is still more an art than a science. Furthermore, for sigmoidal activations functions as the ones shown in Figure \ref{fig:activation-functions}, the derivative is close to zero far from the origin. This results in the fact that it becomes very difficult to move neurons away from the limits of the activation, which could extremely extend the learning time \cite{Kri}. Hence, different alternatives to backpropagation have been proposed in literature, either by modifying the original algorithm (as, e.g., the resilient backpropagation \cite{RB93} or the quickpropagation \cite{Fah88}), or pursuing a different numerical approach to the optimization problem. The latter class of algorithms includes the Levenberg-Marquardt algorithm, which we shall extensively use in our numerical tests.
 				
 		\subsubsection{Levenberg-Marquardt algorithm}
 		\label{section:Levenberg-Marquardt algorithm}
@@ -890,7 +891,7 @@
 		\end{subnumcases}
 		where $\delta_{jh}^K$ is the Kronecker delta. The steps to be performed at each iteration of the Levenberg-Marquardt algorithm are summarized in Algorithm \ref{alg:levenberg-marquardt}.
 		
-		Let us finally remark that a trial and error approach is still required to find satisfactory values for $\mu$ and $\beta$; as proposed in \cite{Mar63}, a good starting point may be $\mu = 0.01$, with $\beta = 10$. Moreover, the dimension of the system \eqref{eq:levenberg-marquardt} increases nonlinearly with the number of neurons in the network, making the Levenberg-Marquardt algorithm poorly efficient for large networks \cite{Hag94}. However, it is more efficient than backpropagation for networks with a few hundreads of connections, besides producing much more accurate results. We shall gain further insights into this topic in Chapter \ref{}.
+		Let us finally remark that a trial and error approach is still required to find satisfactory values for $\mu$ and $\beta$; as proposed in \cite{Mar63}, a good starting point may be $\mu = 0.01$, with $\beta = 10$. Moreover, the dimension of the system \eqref{eq:levenberg-marquardt} increases nonlinearly with the number of neurons in the network, making the Levenberg-Marquardt algorithm poorly efficient for large networks \cite{Hag94}. However, it is more efficient than backpropagation for networks with a few hundreads of connections, besides producing much more accurate results. We shall gain further insights into this topic in Chapter \ref{chapter:Numerical results}.
 		
 		\begin{algorithm}[H]
 			\begin{algorithmic}[1]
@@ -914,7 +915,7 @@
 			\end{algorithmic}
 			
 			\caption{An iteration of the Levenberg-Marquardt training algorithm.}
-			\label{alg:levenberg-marquart}
+			\label{alg:levenberg-marquardt}
 		\end{algorithm}
 						
 	\subsection{Practical considerations on the design of artificial neural networks}
@@ -934,7 +935,7 @@
 		\end{equation*}
 		Here, $L$ is a functional increasing with the components of $\mathbf{w}$, thus penalizing large values for the weights, and so preventing the network from heavily relying on individual data points \cite{Mat16}. The positive coefficient $\lambda$ tunes the level of regularization introduced in the model: for $\lambda = 0$, we recover the original model, while for $\lambda \gg 1$ we sacrifice the performance on the training dataset for the sake of a more flexible system. As typical in neural networks, a suitable value for $\lambda$ has to be found empirically. 
 		
-		In our numerical experiments, overfitting is prevented upon resorting to \emph{cross-validation} combined with an \emph{early stopping} technique \cite{Koh95}. Data are split in three subsets: \emph{training}, \emph{validation}, and \emph{testing} data sets, denoted respectively by $P_{tr}$, $P_{va}$ and $P_{te}$. The former consists of data which are actually used to train the network. Specifically, in the Levenberg-Marquardt algorithm these data are used to build up the linear system \eqref{eq:levenberg-marquardt} yielding the weights and biases update $\Delta \mathbf{w}$. Whereas, validation samples are used to monitor the error performed by the model \emph{during} the training, but are not involved in the training itself. Finally, the testing data set is used to assess the performance of the system once the learning phase is over, and it is thus useful to compare different models, e.g., neural networks with different number of layers and/or neurons per layer \cite{Mat16}. For further details on the way such subsets have been generated for our test cases, we refer the reader to Chapter \ref{}.
+		In our numerical experiments, overfitting is prevented upon resorting to \emph{cross-validation} combined with an \emph{early stopping} technique \cite{Koh95}. Data are split in three subsets: \emph{training}, \emph{validation}, and \emph{testing} data sets, denoted respectively by $P_{tr}$, $P_{va}$ and $P_{te}$. The former consists of data which are actually used to train the network. Specifically, in the Levenberg-Marquardt algorithm these data are used to build up the linear system \eqref{eq:levenberg-marquardt} yielding the weights and biases update $\Delta \mathbf{w}$. Whereas, validation samples are used to monitor the error performed by the model \emph{during} the training, but are not involved in the training itself. Finally, the testing data set is used to assess the performance of the system once the learning phase is over, and it is thus useful to compare different models, e.g., neural networks with different number of layers and/or neurons per layer \cite{Mat16}. For further details on the way such subsets have been generated for our test cases, we refer the reader to the upcoming chapters.
 		
 		At the beginning of the learning stage, the error on both the training and validation data set typically decreases. However, while the error yielded by the training samples should keep lowering as time advances (provided a well-chosen minimization technique), at a certain point the validation error may start increasing, meaning that the network is likely to overfit the data. Therefore, we \emph{early stop} the procedure whenever the validation error keeps rising up for $K_{ea}$ consecutive iterations. The optimal configuration $\mathbf{w}_{opt}$ is then that one yielding the minimum of the validation (and not the training) error curve.
 		
@@ -943,7 +944,7 @@
 			\item moving from a (relative) small amount of neurons, progressively augment the size of the network until the error on the test data set starts increasing;
 			\item consider a sufficiently large number of neurons, then possibly adopt a \emph{pruning} strategy (e.g., the Optimal Brain Surgeon technique proposed by Hassibi \& Stork \cite{OBS}) to iteratively remove the \emph{less relevant} connection, erasing a neuron whenever it gets isolated from the rest of the network.
 		\end{enumerate}
-		As we shall explain in Chapter \ref{}, in this work we resort to the first approach for the sake of implementation-wise convenience. In particular, we first consider perceptrons with a single hidden layer, and we then add another computing layer whenever necessary\footnote{Recall that for perceptrons equipped with differential activation functions, two hidden layers are sufficient to approximate \emph{any} function.}
+		As we shall see in Section \ref{section:A POD-based RB method using neural networks}, in this work we resort to the first approach for the sake of implementation-wise convenience. In particular, we first consider perceptrons with a single hidden layer, and we then add another computing layer whenever necessary\footnote{Recall that for perceptrons equipped with differential activation functions, two hidden layers are sufficient to approximate \emph{any} function.}
 		
 		Lastly, let us point out that the final network configuration resulting from any learning strategy is affected by the initial values assigned to the synaptic and bias weights. As a good practice, the weights should be initialized with random values averaging zero. In this respect, a random uniform sampling over $[-0.5,0.5]$ or a standard Gaussian distribution may be adequate choices. Then, to limit the dependence of the results on the initial configuration $\mathbf{w}_0$, we train each network topology several times, say $K_{mr}$, employing different $\mathbf{w}_0^k$, $k = 1, \, \ldots \, , K_{mr}$, finally keeping the configuration yielding the minimum error on the test data set. This approach is usually referred to as \emph{multiple-restarting}. The definitive training procedure used in this project, based on the Levenberg-Marquardt algorithm and keeping into consideration all the observations made in this section, is given in Algorithm \ref{alg:offline-learning-complete}.
 			
@@ -1079,7 +1080,7 @@
 		For the sake of numerical efficiency, the whole reduced basis procedure can be decomposed into an \emph{offline} (parameter-independent) and \emph{online} (parameter-dependent) stage \cite{Pru02}. In the former, the basis functions $\big\lbrace \psi_i \big\rbrace_{i = 1}^L$ are carefully chosen relying on a set of high-fidelity solutions - called \emph{snapshots} - to the parameter-dependent PDE, generated through the large-scale model \eqref{eq:nonlinear-system-full}. In this thesis, we refer to the well-known Proper Orthogonal Decomposition (POD) algorithm for the generation of the reduced basis, see Section \ref{section:Proper Orthogonal Decomposition}. However, independently of the specific method in use, it worths notice that any reduced order strategy should cooperate with the underpinning full-order model to generate reliable results \cite{HSR16}. On the other hand, this implies that the complexity of the offline phase depends on the dimension $M$ of the original discrete model. \\
 		Once a proper reduced space has been identified, reduced solutions for new instances of the parameter input are determined online by solving the system \eqref{eq:nonlinear-system-reduced}. In case of a linear PDE with an affine dependence on the parameters, one can easily decouple the online step from the full-order numerical scheme, so that the cost of any online query is uniquely related to the dimension $L$ of the reduced space $V_{\texttt{rb}}$ \cite{QMN15}. Whereas, for differential problems showing a non-affine parametric dependence, as the ones considered in this work, one needs some further machinery to guarantee a significant computational saving with respect to the underlying full-order scheme. In this respect, one may recover an affine approximation of the differential operator \cite{MN16}; to this aim, the discrete empirical interpolation method (DEIM) (see, e.g., \cite{Bar04}) and its matrix version (MDEIM) (see, e.g., \cite{NMA15}) represent the state-of-the-art nowadays. Although their established effectiveness, we draw the attention to the fact that these techniques unavoidably introduce a new source of inaccuracy in the model, and as a result one may need to retain a larger number of basis functions to guarantee a given degree of precision.
 		
-		In the last decade, the development of a priori and a posteriori error estimators for RB methods have received an increasing attention. Indeed, such estimators, bounding the error between the reduced solution $u_L$ and the underlying exact solution $u$, play an important role in the \emph{certification} of a reduced order method, thus enabling the user to trust the output provided by the method itself \cite{HSR16}. Nevertheless, estimates available in literature mainly address linear affine problems, then simpler than those tackled in this work. Only recently there have been attempts to extend existing stability and convergence theories to nonlinear, non-affine problems, e.g., the Navier-Stokes equations \cite{QMN15}, relying on advanced functional tools. In particular, the numerical stability at the reduced level may not naturally follow from the stability of the underlying high-fidelity scheme, thus representing a challenge for any RB technique applied to nonlinear problems \cite{Bal14}; for the Navier-Stokes equations, further details on this point are provided in Section \ref{}. Moreover, a complete error analysis should also account for possible numerical instabilities introduced by the nonlinear solver, e.g., the Newton's method, which is applied to the reduced system \eqref{eq:nonlinear-system-reduced}. Indeed, iterative methods may provide a quite slow convergence to the root. As we shall further investigate in Section \ref{section:A POD-based RB method using neural networks}, this could be ascribed to the dense nature of the Jacobian of the system.
+		In the last decade, the development of a priori and a posteriori error estimators for RB methods have received an increasing attention. Indeed, such estimators, bounding the error between the reduced solution $u_L$ and the underlying exact solution $u$, play an important role in the \emph{certification} of a reduced order method, thus enabling the user to trust the output provided by the method itself \cite{HSR16}. Nevertheless, estimates available in literature mainly address linear affine problems, then simpler than those tackled in this work. Only recently there have been attempts to extend existing stability and convergence theories to nonlinear, non-affine problems, e.g., the Navier-Stokes equations \cite{QMN15}, relying on advanced functional tools. In particular, the numerical stability at the reduced level may not naturally follow from the stability of the underlying high-fidelity scheme, thus representing a challenge for any RB technique applied to nonlinear problems \cite{Bal14}; for the Navier-Stokes equations, further details on this point are provided in Section \ref{section:Application to the steady Navier-Stokes equations}. Moreover, a complete error analysis should also account for possible numerical instabilities introduced by the nonlinear solver, e.g., the Newton's method, which is applied to the reduced system \eqref{eq:nonlinear-system-reduced}. Indeed, iterative methods may provide a quite slow convergence to the root. As we shall further investigate in Section \ref{section:A POD-based RB method using neural networks}, this could be ascribed to the dense nature of the Jacobian of the system.
 		
 		\iffalse
 		As a matter of fact, the computed reduced solution $\mathbf{u}_L$, obtained by projecting the full-order system \eqref{eq:nonlinear-system-full} onto $\text{Col}(\mathbb{V})$, mat differ from the projection onto $\text{Col}(\mathbb{V})$ of the high-fidelity solution $\mathbf{u}_h$, i.e., the following may \emph{a priori} hold:
@@ -1145,7 +1146,7 @@
 		\end{equation}
 		Note that the definition of $\wt{g}$ relies on the duality pairing $\langle \cdot, \, \cdot \rangle_{\wt{V}',\wt{V}}$ between $\wt{V}$ and $\wt{V}'$. Hence, from the nonlinearity of $\wt{G}$ follows the nonlinearity of $\wt{g}$ with respect to its first argument.
 		
-		Within the wide range of PDEs which suit the formulations \eqref{eq:pde-differential-form} and \eqref{eq:pde-variational-form}, in this work we focus on two relevant examples - the nonlinear Poisson equation and the stationary Navier-Stokes equations - which will serve as convenient test cases in Chapter \ref{}.
+		Within the wide range of PDEs which suit the formulations \eqref{eq:pde-differential-form} and \eqref{eq:pde-variational-form}, in this work we focus on two relevant examples - the nonlinear Poisson equation and the stationary Navier-Stokes equations - which will serve as convenient test cases in Chapter \ref{chapter:Numerical results}.
 		
 	\vspace*{0.3cm}
 		
@@ -2536,7 +2537,7 @@
 							
 		Although intuitive, as resulting from a straightforward projection procedure, a finer analysis may reveal a few drawbacks and open questions for the standard POD-Galerkin reduced basis technique, particularly for nonlinear differential problems featuring a nonaffine dependence on the parameters. In those cases, we have already discussed in Section \ref{section:Implementation} about the incapability of the method to completely decouple the online stage from the underlying high-fidelity, expensive discrete model, thus preventing a remarkable speed up with respect to standard discretization methods. Albeit one can (at least partially) overcome this issue upon resorting to suitable interpolation techniques as DEIM or MDEIM, we should point out that the implementation of such techniques could be cumbersome. Moreover, any interpolation procedure unavoidably introduces a further level of approximation. As a matter of fact, typically one needs to generate a larger number of snapshots in the offline stage and then retain a larger number of POD modes to guarantee the same accuracy provided by the standard POD-Galerkin method \cite{Bar04}.
 		
-		However, non-optimal features of a projection-based RB method are not confined to mere implementative aspects. In this respect, recall that, at the algebraic level, we seek an approximated solution of the form 
+		Furthermore, recall that, at the algebraic level, we seek an approximated solution of the form 
 		\begin{equation*}
 			\mathbf{u}_L = \mathbb{V} ~ \mathbf{u}_{\texttt{rb}} \, ,
 		\end{equation*}
@@ -2548,19 +2549,56 @@
 		\begin{equation*}
 			V_{\texttt{rb}} \ni v_{\texttt{rb}} = \sum_{j = 1}^L v_{\texttt{rb}}^{(j)} ~ \psi_j = \sum_{j = 1}^L v_{\texttt{rb}}^{(j)} \sum_{i = 1}^M \mathbb{V}_{i,j} ~ \phi_i = \sum_{i = 1}^M \big( \mathbb{V} ~ \mathbf{v}_{\texttt{rb}} \big)_i \phi_i \hspace*{0.3cm} \leftrightarrow \hspace*{0.3cm} \mathbb{V} ~ \mathbf{v}_{\texttt{rb}} \in \text{Col}(\mathbb{V}) \, .
 		\end{equation*} 
-		In particular, this implies that the projection of any $v_h \in V_h$ onto $V_{\texttt{rb}}$ in the discrete scalar product $(\cdot,\cdot)_h$ (see Equation \eqref{eq:discrete-scalar-product}) algebraically corresponds to the projection of $\mathbf{v}_h$ onto $\text{Col}(\mathbb{V})$ in the Euclidean scalar product, that is
+		In particular, this implies that the projection of any $v_h \in V_h$ onto $V_{\texttt{rb}}$ in the discrete scalar product $(\cdot,\cdot)_h$ (see Equation \eqref{eq:discrete-scalar-product}) algebraically corresponds to the projection of $\mathbf{v}_h$ onto $\text{Col}(\mathbb{V})$ in the Euclidean scalar product, given by
 		\begin{equation*}
 			\mathbb{P} ~ \mathbf{v}_h \hspace*{0.5cm} \text{with} \hspace*{0.5cm} \mathbb{P} = \mathbb{V} \mathbb{V}^T \in \mathbb{R}^{M \times M} \, .
 		\end{equation*}
-		Noting that $\mathbb{P} ~ \mathbf{v}_h$ is the element of $\text{Col}(\mathbb{V})$ closest to $\mathbf{v}_h$ in the Euclidean norm, one could reasonably expect that the solution to the reduced system coincides with the projection of the (unknown) high-fidelity solution $\mathbf{u}_h$ onto $\text{Col}(\mathbb{V})$, i.e., 
+		Noting that $\mathbb{P} ~ \mathbf{v}_h$ is the element of $\text{Col}(\mathbb{V})$ closest to $\mathbf{v}_h$ in the Euclidean norm, i.e.,
 		\begin{equation*}
-			\mathbf{u}_L = \mathbb{P} ~ \mathbf{u}_h = \mathbb{V} \mathbb{V}^T \mathbf{u}_h \, ,
+			\norm{\mathbf{u}_h - \mathbb{P} \mathbf{u}_h}_{\mathbb{R}^M} = \inf_{\mathbf{w}_h \in \text{Col}(\mathbb{V})} \norm{\mathbf{u}_h - \mathbf{w}_h}_{\mathbb{R}^M} \, ,
 		\end{equation*}
-		or equivalently
+		one could reasonably expect that the solution to the reduced system approaches or even coincides with the projection of the (unknown) high-fidelity solution $\mathbf{u}_h$ onto $\text{Col}(\mathbb{V})$, i.e., 
+		\begin{subequations}
+			\label{eq:good-rb-solution}
+			\begin{align}
+				& \mathbf{u}_L \approx \mathbb{P} ~ \mathbf{u}_h = \mathbb{V} \mathbb{V}^T \mathbf{u}_h \, , \\
+				\intertext{or equivalently}
+				& \mathbf{u}_{\texttt{rb}} \approx \mathbb{V}^T \mathbf{u}_h \, .
+			\end{align}
+		\end{subequations}
+		However, the iterative solver, e.g., the Newton's method, applied to the reduced system \eqref{eq:rb-nonlinear-system} may provide a slow convergence to the root of the system, so that the computed solutions do not meet the optimality conditions \eqref{eq:good-rb-solution}. To get a sense of this, let us briefly consider the following boundary value problem for the nonlinear two-dimensional Poisson equation:
+		\begin{equation}
+			\label{eq:nonlinear-poisson-example}
+			\begin{cases}
+				& - \wt{\nabla} \cdot \big( (1 + \wt{u}(\bg{\mu})) \wt{\nabla} \wt{u}(\bg{\mu}) \big) = \wt{s}(\wt{x}, \, \wt{y}) \hspace*{0.6cm} \text{in $\wt{\Omega}(\boldsymbol{\mu})$} \, , \\
+				& \wt{u}(\bg{\mu}) = \wt{\sigma}_y \sin(\wt{\sigma}_x) \cos(\wt{\sigma}_y) \hspace*{2.55cm} \text{on $\partial \wt{\Omega}(\boldsymbol{\mu})$} \, .
+			\end{cases}
+		\end{equation}
+		where $\wt{\Omega}(\boldsymbol{\mu})$\footnote{Observe that here only geometrical parameters are involved, i.e., $\bg{\mu} \equiv \bg{\mu}_g$.} is the quadrilateral domain shown in Figure \ref{fig:nonlinear-poisson-example-domain}, with $\bg{\mu} = (\mu_1, \, \mu_2) \in \big[ \nicefrac{\pi}{4}, \, \nicefrac{3 \pi}{4} \big] \times \big[ 0, \, \nicefrac{\pi}{2} \big]$, and the source term $\wt{s}$ has been chosen so that the exact solution to the problem is given by $\wt{u}_{ex} = \wt{y} \sin(\wt{x}) \cos(\wt{y})$. Assume the POD modes have been constructed relying on $N = 100$ parameter samples picked via the Latin Hypercube Sampling (LHS) \cite{Imam08}, with the correspondent snapshots computed over a triangular mesh consisting of $1921$ vertices. On the left of Figure \ref{fig:nonlinear-poisson-example}, we compare the decay with $L$ (i.e., the dimension of the reduced basis) for the relative errors between the high-fidelity solution and either its projection onto $V_{\texttt{rb}}$ (red) or the Galerkin-POD RB approximation (blue). Given $\bg{\mu} \in \mathcal{P}$, the errors are respectively defined as
 		\begin{equation*}
-			\mathbf{u}_{\texttt{rb}} = \mathbb{V}^T \mathbf{u}_h \, .
+			\varepsilon_{\mathbb{V}}^{}(L, \, \bg{\mu}) = \dfrac{\norm{\mathbf{u}_h(\bg{\mu}) - \mathbb{V} \mathbb{V}^T \mathbf{u}_h(\bg{\mu})}}{\norm{\mathbf{u}_h(\bg{\mu})}} \hspace*{0.5cm} \text{and} \hspace*{0.5cm} \varepsilon_{\texttt{PODG}}^{}(L, \, \bg{\mu}) = \dfrac{\norm{\mathbf{u}_h(\bg{\mu}) - \mathbf{u}_L(\bg{\mu})}}{\norm{\mathbf{u}_L(\bg{\mu})}} \, .
 		\end{equation*}
-		However, there may exist problems, even linear, for which the above equalities do not hold, i.e., for which the RB solution does not represent the best approximation we can construct within $V_{\texttt{rb}}$ (or equivalently $\text{Col}(\mathbb{V})$). To get a sense of this, let us briefly consider the following boundary value problem for the linear two-dimensional Poisson equation:
+		In particular, the plot reports the average values $\bar{\varepsilon}_{\mathbb{V}}^{}(L)$ and $\bar{\varepsilon}_{\texttt{PODG}}^{}(L)$ of $\varepsilon_{\mathbb{V}}(L, \, \bg{\mu})$ and $\varepsilon_{\texttt{PODG}}(L, \, \bg{\mu})$, respectively, evaluated over a test parameter set $\Xi_{te} \subset \mathcal{P}$ consisting of $N_{te} = 50$ samples, with $\Xi_{te} \cap \Xi_N = \emptyset$. We observe that although generally the Galerkin-POD scheme shows an exponential convergence to the high-fidelity solution, attaining a relative error of $0.1 \%$ for $L = 50$, for $L > 25$ it may yield an error which differs up to one order of magnitude from the lower-bound provided by the projection error. Since this latter decreases monotonically, the cause has to be sought in the Newton's method. In addition, even when the solver successfully converges to the solution, resorting to a reduced-order strategy only seldomly enables a remarkable computational saving with respect to the finite element method, as shown by the plot on the right of Figure \ref{fig:nonlinear-poisson-example}, reporting the online run times on each test sample for both the full-order and the reduced-order scheme\footnote{In this respect, we mention that all the results presented throughout this thesis have been obtained on a Lenovo laptop equipped with a CPU Intel Core i7 @ 2.50 GHz.}. As already pointed out before, this has to be ascribed to the nonaffine parametric dependence featured by the problem. 
+		
+		\begin{figure}[t]
+			\center
+			\includegraphics[scale = 0.55]{domain_square}
+			
+			\caption{The parametrized computational domain (solid line) for the Poisson problem \eqref{eq:nonlinear-poisson-example}.}
+			\label{fig:nonlinear-poisson-example-domain}
+		\end{figure}
+		
+		\begin{figure}[t]
+			\center
+			\vspace*{-0.4cm}
+			\subfloat{\includegraphics[scale = 0.42, trim = {1.5cm 9cm 1cm 3.75cm}, clip]{poisson2d_2_error_vs_rank_partial}}
+			\subfloat{\includegraphics[scale = 0.40, trim = {1.5cm 8.25cm 1cm 3.75cm}, clip]{poisson2d_2_time_partial}}
+						
+			\caption{Left: average relative error between the FE solution for the problem \eqref{eq:nonlinear-poisson-example} and either its projection onto the reduced space (red) or the POD-Galerkin RB solution (blue); the errors have been evaluated on a test parameter set $\Xi_{te} \subset \mathcal{P}$ consisting of $N_{te} = 50$ randomly picked values. Right: comparison between the online run times for the FE (full-order) scheme and the POD-Galerkin (reduced-order) method on $\Xi_{te}$.}
+			\label{fig:nonlinear-poisson-example}
+		\end{figure}
+						
+		\iffalse
 		\begin{equation}
 			\label{eq:linear-poisson}
 			\begin{cases}
@@ -2568,7 +2606,7 @@
 				& \wt{u}(\bg{\mu}) = \sin(\wt{\sigma}_x) \cos(\wt{\sigma}_y) \hspace*{2.55cm} \text{on $\partial \wt{\Omega}(\boldsymbol{\mu})$} \, .
 			\end{cases}
 		\end{equation}
-		where $\wt{\Omega}(\boldsymbol{\mu})$ is the quadrilateral domain shown on the left in Figure \ref{fig:linear-poisson}, with $\bg{\mu} = (\mu_1, \, \mu_2) \in \big[ \nicefrac{\pi}{4}, \, \nicefrac{3 \pi}{4} \big] \times \big[ 0, \, \nicefrac{\pi}{2} \big]$. This test case will be extensively treated in Section \ref{}; here, we are just interested in analyzing the errors $\norm{\mathbf{u}_h - \mathbb{V} \mathbb{V}^T \mathbf{u}_h}_{\mathbb{R}^M}$ and $\norm{\mathbf{u}_h - \mathbf{u}_L}_{\mathbb{R}^M}$, normalized by $\norm{\mathbf{u}_h}_{\mathbb{R}^M}$\footnote{For ease of notation, in the following we omit the subscript $\mathbb{R}^M$ to denote the Euclidean norm on $\mathbb{R}^M$ whenever clear from the contest.}, for different values of $L$. To this end, consider the right plot of Figure \ref{fig:linear-poisson}, reporting the average values of the aforementioned errors evaluated on a test dataset $\Xi_{te} \in \mathcal{P}$ consisting of $N_{te} = 200$ randomly picked samples. The POD basis has been constructed based on $N = 100$ snapshots, with the parameter set $\Xi_N$ generated through the Latin Hypercube Sampling \cite{Imam08}. Note that in this case, the reduced \emph{linear} system reads:
+		This test case will be extensively treated in Section \ref{}; here, we are just interested in analyzing the errors $\norm{\mathbf{u}_h - \mathbb{V} \mathbb{V}^T \mathbf{u}_h}_{\mathbb{R}^M}$ and $\norm{\mathbf{u}_h - \mathbf{u}_L}_{\mathbb{R}^M}$, normalized by $\norm{\mathbf{u}_h}_{\mathbb{R}^M}$\footnote{For ease of notation, in the following we omit the subscript $\mathbb{R}^M$ to denote the Euclidean norm on $\mathbb{R}^M$ whenever clear from the contest.}, for different values of $L$. To this end, consider the right plot of Figure \ref{fig:linear-poisson}, reporting the average values of the aforementioned errors evaluated on a test dataset $\Xi_{te} \in \mathcal{P}$ consisting of $N_{te} = 200$ randomly picked samples. The POD basis has been constructed based on $N = 100$ snapshots, with the parameter set $\Xi_N$ generated through the Latin Hypercube Sampling \cite{Imam08}. Note that in this case, the reduced \emph{linear} system reads:
 		\begin{equation*}
 			\mathbb{V}^T \mathbb{A}(\bg{\mu}) \mathbb{V} = \mathbb{V}^T \mathbf{b}(\bg{\mu}) \, ,
 		\end{equation*}
@@ -2580,55 +2618,16 @@
 			\end{aligned}
 		\end{equation*}
 		where $u_g(x, \, y) = \sin(x)\cos(y)$ is the lifting vector and $\wt{u}_g(\bg{x}; \, \bg{\mu}) = \big( u_g \circ \bg{\Phi}(\bg{\mu}) \big) (\bg{x})$. Although featuring an exponential decay, the error yielded by the POD-Galerkin method decreases more slowly than the projection error does, and they may differ significantly. For instance, with $L = 50$ basis functions the two errors differ by two orders of magnitude.
+		\fi
 		
-		\begin{figure}[t]
-			\center
-			\begin{minipage}{0.4\textwidth}
-				\center
-				\includegraphics[scale = 0.7]{domain_square}
-			\end{minipage}
-			\hfill
-			\begin{minipage}{0.55\textwidth}
-				\center
-				\includegraphics[scale = 0.48, trim = {2.5cm 12cm 1cm 3.5cm}, clip]{poisson2d_1_error_vs_rank}
-			\end{minipage}
-			
-			\caption{Left: computational domain $\wt{\Omega} = \wt{\Omega}(\bg{\mu})$ (solid line) for the linear Poisson problem \eqref{eq:linear-poisson}. Right: average relative error committed by approximating the FE solution either through its projection onto the reduced space (red) or the POD-Galerkin RB solution (blue); the errors have been evaluated on a test parameter set $\Xi_{te} \subset \mathcal{P}$ consisting of $N_{te} = 200$ randomly picked values.}
-			\label{fig:linear-poisson}
-		\end{figure}
-			
-		Clearly, one can not expect a nicer scenario in the nonlinear case. Although it really depends on the type of nonlinearity featured by the PDE and the transformation map $\bg{\Phi}(\bg{\mu})$, nonlinear solvers (e.g., the Newton's method) may converge dramatically slowly, or even fail to converge, providing a solution $\mathbf{u}_{\texttt{rb}}$ which is completely off with respect to $\mathbb{V}^T \mathbf{u}_h$ (i.e., our target). This could be ascribed to the fullness of the reduced Jacobian $\mathbb{J}_{\texttt{rb}}(\mathbf{w}_{\texttt{rb}}; \, \bg{\mu}) = \mathbb{V}^T \mathbb{J}_h(\mathbb{V} ~ \mathbf{w}_{\texttt{rb}}; \, \bg{\mu}) \mathbb{V}$, as opposed to the sparsity of $\mathbb{J}_h(\cdot; \bg{\mu})$, resulting from the local nature of the FE basis functions. In turn, the fullness of $\mathbb{J}_{\texttt{rb}}$, following from the fullness of $\mathbb{V}$, leads to a craggy surface, thus obstructing the convergence of the solver. In this respect, consider the following nonlinear Poisson problem:
-		\begin{equation}
-			\label{eq:nonlinear-poisson}
-			\begin{cases}
-				& - \wt{\nabla} \cdot \big( \exp \big(\wt{u}(\bg{\mu}) \big) \wt{\nabla} \wt{u}(\bg{\mu}) \big) = \wt{f} \hspace*{0.8cm} \text{in $\wt{\Omega}(\boldsymbol{\mu})$} \, , \\
-				& \wt{u}(\bg{\mu}) = \wt{\sigma}_y \sin(\pi \wt{\sigma}_x) \cos(\pi \wt{\sigma}_y) \hspace*{0.6cm} \text{on $\partial \wt{\Omega}(\boldsymbol{\mu})$} \, ,
-			\end{cases}
-		\end{equation}
-		where $\wt{f}$ is chosen so that the analytical solution is given by $\wt{u}(\bg{x}) = \wt{y} \sin(\pi \wt{x}) \cos(\pi \wt{y})$, and the domain is given by the stenosis geometry depictured in the left plot of Figure \ref{fig:nonlinear-poisson}, with $\bg{\mu} = (\mu_1, \, \mu_2, \, \mu_3) \in [-0.5,0.5] \times [-0.5,0.5] \times [1,5]$. As before, the plot on the right in Figure \ref{fig:nonlinear-poisson} we compare the average relative error (in the norm induced by the discrete scalar product $(\cdot,\cdot)_h$) between the FE solution and either its projection onto the reduced space (red line), or the POD-Galerkin approximation (blue line). While up to $L = 20$ both errors show an exponential decay, for greater amounts of POD modes the nonlinear solver applied to the reduced system becomes unstable, leading to an RB error which increases with $L$. On the other hand, note that the discrepancy between $u_h$ and its projection onto $V_{\texttt{rb}}$ decreases monotonically within the tested range for $L$, thus proving the effectiveness of the POD basis functions in catching the principal dynamics characterizing the elements of the (discrete) solution manifold $\mathcal{M}_h$. 
-		
-		\begin{figure}[t]
-			\center
-			\begin{minipage}{0.4\textwidth}
-				\center
-				\includegraphics[scale = 0.7, trim = {0.5cm 0.5cm 0 1cm}, clip]{domain_stenosis}
-			\end{minipage}
-			\hfill
-			\begin{minipage}{0.55\textwidth}
-				\center
-				\includegraphics[scale = 0.48, trim = {2.5cm 12cm 1cm 3.5cm}, clip]{poisson2d_4_error_vs_rank}
-			\end{minipage}
-			
-			\caption{Left: computational domain $\wt{\Omega} = \wt{\Omega}(\bg{\mu})$ (solid line) for the nonlinear Poisson problem \eqref{eq:linear-poisson}, with $H = 2$. Right: average relative error committed by approximating the FE solution either through its projection onto the reduced space (red) or the POD-Galerkin RB solution (blue). The errors have been evaluated on a test parameter set $\Xi_{te} \subset \mathcal{P}$ consisting of $N_{te} = 200$ randomly picked values.}
-			\label{fig:nonlinear-poisson}
-		\end{figure}
-				
+		\vspace*{0.15cm}
+									
 		The scenario portrayed so far motivates the research for an alternative approach to tackle any online query within the reduced basis framework, hopefully skipping the assembly and resolution of the reduced system. To this end, we have noted above that the element of $V_{\texttt{rb}}$ closest to the high-fidelity solution $u_h$ in the discrete norm $\norm{\cdot}_h = \sqrt{(\cdot,\cdot)_h}$ can be expressed as
 		\begin{equation}
 			\label{eq:high-fidelity-projected}
-			u^{\perp}_h(\bg{x}; \, \bg{\mu}) = \sum_{j = 1}^M \big( \mathbb{V} \mathbb{V}^T \mathbf{u}_h(\bg{\mu}) \big)_j \phi_j(\bg{x}) = \sum_{i = 1}^L \big( \mathbb{V}^T \mathbf{u}_h(\bg{\mu}) \big)_i ~ \psi_i(\bg{x}) \, .
+			u^{\mathbb{V}}_h(\bg{x}; \, \bg{\mu}) = \sum_{j = 1}^M \big( \mathbb{V} \mathbb{V}^T \mathbf{u}_h(\bg{\mu}) \big)_j \phi_j(\bg{x}) = \sum_{i = 1}^L \big( \mathbb{V}^T \mathbf{u}_h(\bg{\mu}) \big)_i ~ \psi_i(\bg{x}) \, .
 		\end{equation} 
-		Motivated by last equality, once a reduced basis has been constructed (e.g., via the POD method), we aim at approximating the function
+		Motivated by last equality, once a reduced basis has been constructed (e.g., via POD of the snapshot matrix), we aim at approximating the function
 		\begin{equation}
 			\label{eq:map-to-approximate}
 			\begin{aligned}
@@ -2636,24 +2635,77 @@
 				\bg{\mu} ~ & \mapsto ~ \mathbb{V}^T \mathbf{u}_h(\bg{\mu}) \, ,
 			\end{aligned}
 		\end{equation}
-		mapping each input vector parameter $\bg{\mu} \in \mathcal{P}$ to the coefficients $\mathbb{V}^T \mathbf{u}_h(\bg{\mu})$ of the expansion of $u^{\mathbb{V}}_h$ in the reduced basis $\big\lbrace \psi_i \big\rbrace_{i = 1}^L$. Then, given a new parameter instance $\bg{\mu}$, the associated RB solution is simply given by the evaluation of the approximation $\hat{\bg{\pi}}$ of $\bg{\pi}$, i.e.
+		mapping each input vector parameter $\bg{\mu} \in \mathcal{P}$ to the coefficients $\mathbb{V}^T \mathbf{u}_h(\bg{\mu})$ for the expansion of $u^{\mathbb{V}}_h$ in the reduced basis $\big\lbrace \psi_i \big\rbrace_{i = 1}^L$. Then, given a new parameter instance $\bg{\mu}$, the associated RB solution is simply given by the evaluation in $\bg{\mu}$ of the approximation $\hat{\bg{\pi}}$ of $\bg{\pi}$, i.e.
 		\begin{equation}
-			\mathbf{u}_{\texttt{rb}} = \hat{\bg{\pi}}(\bg{\mu}) \, ,
+			\mathbf{u}_{\texttt{rb}}(\bg{\mu}) = \hat{\bg{\pi}}(\bg{\mu}) \, ,
 		\end{equation}
 		and, consequently,
 		\begin{equation}
-			\mathbf{u}_L = \mathbb{V} ~ \hat{\bg{\pi}}(\bg{\mu}) \, .
+			\mathbf{u}_L(\bg{\mu}) = \mathbb{V} ~ \hat{\bg{\pi}}(\bg{\mu}) \, .
 		\end{equation}
-		It worths point out that, provided that the construction of $\hat{\bg{\pi}}$ is entirely carried out within the offline stage, this approach enables a complete decoupling between the online step and the underlying full-order model, thus ensuring a (potential) dramatic speed up. Moreover, now the accuracy of the resulting reduced solution uniquely relies on the quality of the reduced basis and the effectiveness of the approximation $\hat{\bg{\pi}}$ of the map $\bg{\pi}$; we shall appreciate the consequence of this fact in the next section.
+		It worths point out that, provided that the construction of $\hat{\bg{\pi}}$ is entirely carried out within the offline stage, this approach enables a complete decoupling between the online step and the underlying full-order model, thus ensuring a (potential) dramatic speed up. Moreover, now the accuracy of the resulting reduced solution uniquely relies on the quality of the reduced basis and the effectiveness of the approximation $\hat{\bg{\pi}}$ of the map $\bg{\pi}$; we shall appreciate the consequence of these facts in the next section.
 		
-		In the literature, different approaches for the \emph{interpolation} of \eqref{eq:map-to-approximate} have been developed, e.g., exploiting some geometrical considerations on the solution manifold $\mathcal{M}$ \cite{Ams10}, or employing radial basis functions \cite{Chen17}. Whereas, in this work we resort to neural networks, in particular multilayer perceptrons, for the \emph{nonlinear regression} of the map $\bg{\pi}$, leading to the POD-NN RB method. As described in Chapter \ref{chapter:Introduction to neural networks}, any neural network is tailored on the particular application at hand by means of a preliminary \emph{training} phase. Here, we are concerned with a function regression task, thus we straightforwardly adopt a \emph{supervised learning} paradigm, exposing the perceptron to a collection of (known) input-output pairs
+		In the literature, different approaches for the \emph{interpolation} of \eqref{eq:map-to-approximate} have been developed, e.g., exploiting some geometrical considerations concerning the solution manifold $\mathcal{M}$ \cite{Ams10}, or employing radial basis functions \cite{Chen17}. Whereas, in this work we resort to neural networks, in particular multilayer perceptrons, for the \emph{nonlinear regression} of the map $\bg{\pi}$, leading to the POD-NN RB method. As described in Chapter \ref{chapter:Introduction to neural networks}, any neural network is tailored on the particular application at hand by means of a preliminary \emph{training} phase. Here, we are concerned with a function regression task, thus we straightforwardly adopt a \emph{supervised learning} paradigm, training the perceptron via exposition to a collection of (known) input-output pairs
 		\begin{equation*}
 			P_{tr} = \big\lbrace \big( \bg{\mu}^{(i)}, \, \mathbb{V}^T \mathbf{u}_h \big( \bg{\mu}^{(i)} \big) \big) \big\rbrace_{i = 1}^{N_{tr}} \, .
 		\end{equation*} 
-		According to the notation and nomenclature introduced in the previous chapter, for $i = 1, \, \ldots \, , N_{tr}$, $\mathbf{p}_i = \bg{\mu}^{(i)} \in \mathbb{R}^P$ represents the \emph{input pattern} and $\mathbf{t}_i =  \mathbb{V}^T \mathbf{u}_h \big( \bg{\mu}^{(i)} \big) \in \mathbb{R}^L$ the associated \emph{teaching input}; together, they constitute a \emph{training pattern}. In this respect, note that the teaching inputs $\mathbb{V}^T \mathbf{u}_h \big( \bg{\mu}^{(i)} \big)$, $i = 1, \, \ldots \, , N_{tr}$, are generated through the full-order solver. On the one hand, this ensures the reliability of the teaching patterns, given the assumed high-fidelity of the method (conversely to the reduced solver). On the other hand, this also highly suggests to incorporate the learning phase of the preceptron within the offline step of the POD-NN RB method, as described in Algorithm \ref{alg:pod-nn}. In doing so, we exploit the natural decoupling between the training and the evaluation of neural networks, thus fulfilling the necessary requirement to enable great online efficiency; we refer the reader to the following chapter for a numerical validation of this assertion. 
+		According to the notation and nomenclature introduced in the previous chapter, for $i = 1, \, \ldots \, , N_{tr}$, $\mathbf{p}_i = \bg{\mu}^{(i)} \in \mathbb{R}^P$ represents the \emph{input pattern} and $\mathbf{t}_i =  \mathbb{V}^T \mathbf{u}_h \big( \bg{\mu}^{(i)} \big) \in \mathbb{R}^L$ the associated \emph{teaching input}; together, they constitute a \emph{training pattern}. In this respect, note that the teaching inputs $\mathbb{V}^T \mathbf{u}_h \big( \bg{\mu}^{(i)} \big)$, $i = 1, \, \ldots \, , N_{tr}$, are generated through the FE solver. On the one hand, this ensures the reliability of the teaching patterns, given the assumed high-fidelity of the FE scheme (conversely to the reduced solver, as already appreciated before). On the other hand, this also highly suggests to incorporate the learning phase of the perceptron within the offline step of the POD-NN RB method, as described in Algorithm \ref{alg:pod-nn}. In doing so, we exploit the natural decoupling between the training and the evaluation of neural networks, thus fulfilling the necessary requirement to enable great online efficiency; we refer the reader to the following chapter for a numerical validation of this assertion. 
 		
-		However, let us point out that the design of an effective learning procedure may require a larger amount of snapshots than the generation of the reduced space. Moreover, we have extensively discussed about the time-consuming yet unavoidable \emph{trial}-\emph{and}-\emph{error} approach which one should pursue in the research for an optimal network topology. While the Cybenko's theorems (see \ref{cybenko-first-rule} and \ref{cybenko-second-rule} in Section \ref{section:Network topologies}) allow us to confine ourselves to perceptrons with no more than two hidden layers, no similar a priori and general results are available for the number of neurons per layer. Therefore, the speed up enabled by the employment of a neural network-based approach to tackle the \emph{online} queries comes at the cost of an increased \emph{offline} phase. 
+		However, let us point out that the design of an effective learning procedure may require a larger amount of snapshots than the generation of the reduced space does. Moreover, we have extensively discussed in Chapter \ref{chapter:Introduction to neural networks} about the time-consuming yet unavoidable \emph{trial}-\emph{and}-\emph{error} approach which one should pursue in the research for an optimal network topology. To this end, we propose an automatic procedure, resumed in Algorithm \ref{alg:podnn-training}.
 		
+		While the Cybenko's theorems (see \ref{cybenko-first-rule} and \ref{cybenko-second-rule} in Section \ref{section:Network topologies}) let us confine ourselves to perceptrons with no more than two hidden layers, no similar a priori and general results are available for the number $H$ of neurons per layer (to ease the work, we uniquely consider networks with the same number of neurons in both the first and the second hidden layer). Hence, given an initial amount $N_{tr}$ of training samples (say $N_{tr} = 100$), we train the network for increasing values of $H$, stopping when overfitting of training data occurs (due to an excessive number of neurons with respect to the number of training patterns). In case the best configuration, i.e., the one yielding the smallest error on a test data set, does not meet a desired level of accuracy, we generate a new set of snapshots, which will enlarge the current training set, and we then proceed to re-train the networks. At this point, it worths to point out two remarks. 
+		\begin{enumerate}[label=(\roman*)]
+			\vspace*{-0.1cm}
+			\item We can now limit ourselves to network configurations including a number of neurons non-smaller than the current optimal network. Indeed, the error (on the test data set) yielded by a neural network is reasonably decreasing in the number of patterns it is exposed to during the learning phase, and the larger the number of neurons, the faster the decay.
+			\vspace*{-0.1cm}
+			\item In order to maximize the additional quantity of information available for the learning, we should ensure that the new training inputs, i.e., parameter values, do not overlap with the ones already present in the training parameter set. To this aim, we pursue an euristhic approach, employing, at each iteration, the latin hypercube sampling, which has proved to provide a good compromise between randomness and even covarage of the parameter domain; an example is offered in Figure \ref{fig:lhs} for $\mathcal{P} \subset \mathbb{R}^2$.
+		\end{enumerate} 
+		The procedure is then iterated until a satisfactory degree of accuracy and generalization is attained, or the maximum number of training patterns is reached. Therefore, the speed up enabled by the pursuit of a neural network-based approach to tackle any \emph{online} query comes at the cost of an extended \emph{offline} phase.
+		
+		\begin{algorithm}[t]	
+			\begin{algorithmic}[1]
+				\Function{$\left( \mathcal{N}^{opt}, \, \mathcal{V}^{opt}, \, \mathbf{w}^{opt} \right) = $ \\ \hspace*{0.5cm} PODNN\_training}{$\, \mathbb{V}$, $\varepsilon$, $N_{tr}^{max}$, $H^{max}$, $N_{te}$, $d$, $K_{ms}$, $\delta$, $T$, $K_{ea}$}
+					\vspace*{0.2cm}
+					\State set $\Delta N = 100$, ~ $H_0 = 5$, ~ $\Delta H = 5$, ~ $N_{va} = \lceil 0.3 N_{tr}^{max} \rceil$ \Comment{Adjustable parameters}
+					\State randomly drawn validation and test samples $\Xi_{va} = \big\lbrace \bg{\mu}_{va}^{(i)} \big\rbrace_{i = 1}^{N_{va}}$ and $\Xi_{te} = \big\lbrace \bg{\mu}_{te}^{(i)} \big\rbrace_{i = 1}^{N_{te}}$
+					\State compute $\big\lbrace \mathbf{u}_h \big( \bg{\mu}_{va}^{(i)} \big) \big\rbrace_{i = 1}^{N_{va}}$ and $\big\lbrace \mathbf{u}_h \big( \bg{\mu}_{te}^{(i)} \big) \big\rbrace_{i = 1}^{N_{te}}$
+					\State set $P_{va} = \big\lbrace \big( \bg{\mu}_{va}^{(i)}, \, \mathbb{V}^T \mathbf{u}_h \big( \bg{\mu}_{va}^{(i)} \big) \big) \big\rbrace_{i = 1}^{N_{va}}$ and $P_{te} = \big\lbrace \big( \bg{\mu}_{te}^{(i)}, \, \mathbb{V}^T \mathbf{u}_h \big( \bg{\mu}_{te}^{(i)} \big) \big) \big\rbrace_{i = 1}^{N_{te}}$
+					\State evaluate projection error $E_{\texttt{POD}} = \nicefrac{1}{N_{te}} \sum_{i = 1}^{N_{te}} \norm{\mathbf{u}_h \big( \bg{\mu}_{te}^{(i)} \big) - \mathbb{V} \, \mathbb{V}^T \mathbf{u}_h \big( \bg{\mu}_{te}^{(i)} \big)}$
+					\State $P_{tr} = \emptyset$, $N_{tr} = 0$, $H^{opt} = H_0$
+					\DoWhile
+						\State $N_{tr} \leftarrow N_{tr} + \Delta N$
+						\State generate training samples $\Xi_{tr} = \big\lbrace \bg{\mu}_{tr}^{(i)} \big\rbrace_{i = 1}^{N_{tr}}$ via Latin Hypercube Sampling (LHS)
+						\State compute snapshots $\big\lbrace \mathbf{u}_h \big( \bg{\mu}_{tr}^{(i)} \big) \big\rbrace_{i = 1}^{N_{tr}}$
+						\State extend training data set: $P_{tr} \leftarrow P_{tr} \cup \big\lbrace \big( \bg{\mu}_{tr}^{(i)}, \, \mathbb{V}^T \mathbf{u}_h \big( \bg{\mu}_{tr}^{(i)} \big) \big) \big\rbrace_{i = 1}^{N_{tr}}$
+						\State $E_{\texttt{NN}}^{opt} = \infty$, $H = H^{opt}$
+						\While{$H \leq H^{max}$ and $E_{te} < E_{te}^{old}$}
+							\State design a three-layers perceptron $\big( \mathcal{N}, \, \mathcal{V} \big)$ with $H$ neurons per hidden layer
+							\State $\big[ \mathbf{w}, \, E_{\texttt{NN}} \big] = $ \Call{Training}{$\left( \mathcal{N}, \, \mathcal{V} \right)$, $P_{tr}$, $P_{va}$, $P_{te}$, $d$, $K_{ms}$, $\delta$, $T$, $K_{ea}$}
+							\If{$E_{\texttt{NN}} < E_{\texttt{NN}}^{opt}$}
+								\State $E_{\texttt{NN}}^{opt} = E_{\texttt{NN}}$, ~ $\mathcal{N}^{opt} = \mathcal{N}$, ~ $\mathcal{V}^{opt} = \mathcal{V}$, ~ $\mathbf{w}^{opt} = \mathbf{w}$, ~ $H^{opt} = H$
+								\State $H \leftarrow H + \Delta H$
+							\Else \Comment{Too many neurons: the network overfits training data}
+								\State \textbf{break}
+							\EndIf
+						\EndWhile
+					\EndDoWhile{$N_{tr} \leq N_{tr}^{max}$ and $\abs{E_{\texttt{POD}} - E_{\texttt{NN}}^{opt}} > \varepsilon$}
+				\EndFunction
+				
+			\end{algorithmic}
+			
+			\caption{Selection of an optimal network configuration.}
+			\label{alg:podnn-training}
+		\end{algorithm}
+						
+		\begin{figure}[H]
+			\center
+			\subfloat{\includegraphics[scale = 0.475, trim = {1cm 12cm 2.5cm 3.5cm}, clip]{lhs_sample}}
+			\subfloat{\includegraphics[scale = 0.55, trim = {8cm 13.4cm 1cm 8cm}, clip]{lhs_sample_legend}}
+			
+			\caption{Three point sets randomly generate through the latin hypercube sampling. Observe the good coverage provided by the union of the sets, with only a few overlapping points.}
+			\label{fig:lhs}
+		\end{figure}
+								
 		As described in Section \ref{section:Levenberg-Marquardt algorithm}, in our numerical tests we resort to the Levenberg-Marquardt algorithm to properly adjust the weights of the perceptron during the learning phase, relying on the Mean Squared Error (MSE) \eqref{eq:mse} as performance function. To motivate this choice, let 
 		\begin{equation*}
 			\mathbf{u}_{\texttt{rb}}^{\texttt{NN}}(\bg{\mu}) \in \mathbb{R}^L
@@ -2669,7 +2721,7 @@
 				MSE \big( \mathbf{u}_{\texttt{rb}}^{\texttt{NN}}, \, \mathbb{V}^T \mathbf{u}_h \big) & \propto \norm{\mathbf{u}_{\texttt{rb}}^{\texttt{NN}} - \mathbb{V}^T \mathbf{u}_h}^2_{\mathbb{R}^L} = \big( \mathbf{u}_{\texttt{rb}}^{\texttt{NN}} - \mathbb{V}^T \mathbf{u}_h \big)^T \big( \mathbf{u}_{\texttt{rb}}^{\texttt{NN}} - \mathbb{V}^T \mathbf{u}_h \big) \\
 				& = \big( \mathbf{u}_{\texttt{rb}}^{\texttt{NN}} - \mathbb{V}^T \mathbf{u}_h \big)^T \underbrace{\mathbb{V}^T \mathbb{V}}_{\mathbb{I}_L \in \mathbb{R}^{L \times L}} \big( \mathbf{u}_{\texttt{rb}}^{\texttt{NN}} - \mathbb{V}^T \mathbf{u}_h \big) \\
 				& = \big( \mathbb{V} ~ \mathbf{u}_{\texttt{rb}}^{\texttt{NN}} - \mathbb{V} ~ \mathbb{V}^T \mathbf{u}_h \big)^T \big( \mathbb{V} ~ \mathbf{u}_{\texttt{rb}}^{\texttt{NN}} - \mathbb{V} ~ \mathbb{V}^T \mathbf{u}_h \big) \\
-				& = \norm{\mathbf{u}_L^{\texttt{NN}} - \mathbb{V} ~ \mathbb{V}^T \mathbf{u}_h}^2_{\mathbb{R}^M} = \norm{u_L^{\texttt{NN}} - u_h^{\perp}}^2_h \, ,
+				& = \norm{\mathbf{u}_L^{\texttt{NN}} - \mathbb{V} ~ \mathbb{V}^T \mathbf{u}_h}^2_{\mathbb{R}^M} = \norm{u_L^{\texttt{NN}} - u_h^{\mathbb{V}}}^2_h \, ,
 			\end{aligned}
 		\end{equation} 
 		where
@@ -2708,32 +2760,32 @@
 		
 		\algrenewcommand\textproc{\textsc}
 		
-		While we shall numerically prove the actual effectiveness and efficiency of the POD-NN method in Chapter \ref{}, in the following concluding section we aim at further investigating the accuracy which the proposed reduced basis strategy could provide. To this end, we develop a simplified \emph{a priori} error analysis. Yet, no rigorous proof is provided; rather, the goal is to give a sense of the potentiality of the method.
+		While we shall numerically prove the actual effectiveness and efficiency of the POD-NN method in the upcoming chapter, in the following concluding section we aim at further investigating the accuracy which the proposed reduced basis strategy could provide. To this end, we develop a simplified \emph{a priori} error analysis. Yet, no rigorous proof is provided; rather, the goal is to give some insights on the potentiality of the method.
 		
 	\subsection{An a priori error analysis}
 	\label{section:An a priori error analysis}
 	
-		For the sake of convenience, we directly consider the variational problem \eqref{eq:pde-weak-reference} stated over the reference domain $\Omega$. As usual, let $u(\bg{\mu}) \in V \subseteq H^1(\Omega)$ be the exact weak solution, $u_h(\bg{\mu}) \in V_h$ the high-fidelity discrete solution (obtained, e.g., through the finite element method) with $u_h^{\perp}(\bg{\mu}) \in V_{\texttt{rb}}$ its projection onto $V_{\texttt{rb}}$, and $u_L^{\texttt{NN}}(\bg{\mu}) \in V_{\texttt{rb}}$ the reduced solution provided by the POD-NN method, defined in Equation \eqref{eq:pod-nn-solution}. Omitting the dependence on the parameter $\bg{\mu}$, a straightforward application of the triangular inequality yields the following upper bound for the $L^2(\Omega)$-norm of the error committed by POD-NN RB method:
+		For the sake of convenience, we directly consider the variational problem \eqref{eq:pde-weak-reference} stated over the reference domain $\Omega$. As usual, let $u(\bg{\mu}) \in V \subseteq H^1(\Omega)$ be the exact weak solution, $u_h(\bg{\mu}) \in V_h$ the high-fidelity discrete solution (obtained, e.g., through the finite element method) with $u_h^{\mathbb{V}}(\bg{\mu}) \in V_{\texttt{rb}}$ its projection onto $V_{\texttt{rb}}$, and $u_L^{\texttt{NN}}(\bg{\mu}) \in V_{\texttt{rb}}$ the reduced solution provided by the POD-NN method, defined in Equation \eqref{eq:pod-nn-solution}. Omitting the dependence on the parameter $\bg{\mu}$, a straightforward application of the triangular inequality yields the following upper bound for the $L^2(\Omega)$-norm of the error committed by POD-NN RB method:
 		\begin{equation}
 			\label{eq:error-analysis-1}
-			\norm{u - u_L^{\texttt{NN}}}_{L^2(\Omega)} \leq \norm{u - u_h}_{L^2(\Omega)} + \norm{u_h - u_h^{\perp}}_{L^2(\Omega)} + \norm{u_h^{\perp} - u_L^{\texttt{NN}}}_{L^2(\Omega)} \, .
+			\norm{u - u_L^{\texttt{NN}}}_{L^2(\Omega)} \leq \norm{u - u_h}_{L^2(\Omega)} + \norm{u_h - u_h^{\mathbb{V}}}_{L^2(\Omega)} + \norm{u_h^{\mathbb{V}} - u_L^{\texttt{NN}}}_{L^2(\Omega)} \, .
 		\end{equation}
 		Let us analyze the three terms appearing on the right-hand side of \eqref{eq:error-analysis-1}. The former quantifies the discrepancy between the exact solution $u$ and the discrete approximation $u_h$ provided by the full-order solver. Throughout the chapter, we have assumed that $u_h$ can be driven as close as desired to $u$ in the $V$-norm; for instance, the FE solution can be improved either by refining the underlying mesh $\Omega_h$, or increasing the order of the interpolating polynomials, or both. Therefore:
 		\begin{equation}
 			\label{eq:error-analysis-2}
 			\norm{u - u_h}_{L^2(\Omega)} \leq \norm{u - u_h}_V \leq \delta_{\texttt{HF}} \, ,
 		\end{equation} 
-		with $\delta_{\texttt{HF}} > 0$ a given tolerance. Then, the term $\norm{u_h - u_h^{\perp}}_{L^2(\Omega)}$ measures the distance between the tructh solution and the reduced space $V_{\texttt{rb}}$. From the definitions \eqref{eq:galerkin-solution} and \eqref{eq:high-fidelity-projected}, it follows that:
+		with $\delta_{\texttt{HF}} > 0$ a given tolerance. Then, the term $\norm{u_h - u_h^{\mathbb{V}}}_{L^2(\Omega)}$ measures the distance between the tructh solution and the reduced space $V_{\texttt{rb}}$. From the definitions \eqref{eq:galerkin-solution} and \eqref{eq:high-fidelity-projected}, it follows that:
 		\begin{equation*}
 			\begin{aligned}
-				\norm{u_h - u_h^{\perp}}_{L^2(\Omega)}^2 & = \int_{\Omega} \abs{u_h - u_h^{\perp}}^2 \, d\Omega = \int_{\Omega} \abs{\sum_{i = 1}^M \big( \mathbf{u}_h \big)_i \phi_i - \sum_{i = 1}^M \big( \mathbb{V} \mathbb{V}^T \mathbf{u}_h \big)_i \phi_i}^2 \, d\Omega \\
+				\norm{u_h - u_h^{\mathbb{V}}}_{L^2(\Omega)}^2 & = \int_{\Omega} \abs{u_h - u_h^{\mathbb{V}}}^2 \, d\Omega = \int_{\Omega} \abs{\sum_{i = 1}^M \big( \mathbf{u}_h \big)_i \phi_i - \sum_{i = 1}^M \big( \mathbb{V} \mathbb{V}^T \mathbf{u}_h \big)_i \phi_i}^2 \, d\Omega \\
 				& = \sum_{i = 1}^M \sum_{j = 1}^M \big( \mathbf{u}_h - \mathbb{V} \mathbb{V}^T \mathbf{u}_h \big)_i \big( \mathbf{u}_h - \mathbb{V} \mathbb{V}^T \mathbf{u}_h \big)_j \underbrace{\int_{\Omega} \phi_i \, \phi_j \, d\Omega}_{\mathbb{M}_{i,j}} \\
 				& = \big( \mathbf{u}_h - \mathbb{V} \mathbb{V}^T \mathbf{u}_h \big)^T \mathbb{M} \big( \mathbf{u}_h - \mathbb{V} \mathbb{V}^T \mathbf{u}_h \big) \, .
 			\end{aligned}
 		\end{equation*}
 		where $\mathbb{M} \in \mathbb{R}^{M \times M}$ denotes the mass matrix. Exploiting the symmetry and positive definiteness of $\mathbb{M}$ (following from the symmetry and positiveness of the canonical scalar product $(\cdot,\cdot)_{L^2(\Omega)}$ of $L^2(\Omega)$), we further get:
 		\begin{equation}
-			\norm{u_h - u_h^{\perp}}_{L^2(\Omega)}^2 = \norm{\mathbb{M}^{1/2} \big( \mathbf{u}_h - \mathbb{V} \mathbb{V}^T \mathbf{u}_h \big)}^2_{\mathbb{R}^M} \leq \norm{\mathbb{M}}_2 \norm{\mathbf{u}_h - \mathbb{V} \mathbb{V}^T \mathbf{u}_h}_{\mathbb{R}^M}^2 \, ,
+			\norm{u_h - u_h^{\mathbb{V}}}_{L^2(\Omega)}^2 = \norm{\mathbb{M}^{1/2} \big( \mathbf{u}_h - \mathbb{V} \mathbb{V}^T \mathbf{u}_h \big)}^2_{\mathbb{R}^M} \leq \norm{\mathbb{M}}_2 \norm{\mathbf{u}_h - \mathbb{V} \mathbb{V}^T \mathbf{u}_h}_{\mathbb{R}^M}^2 \, ,
 		\end{equation}
 		with $\norm{\cdot}_2$ the matrix $2$-norm. Suppose that all the parameters affecting the full-order solver (e.g., the grid size) are fixed, so that the mass matrix $\mathbb{M}$ keeps unchanged as the size $L$ of the reduced basis vary. Then, the error behaviour is entirely controlled by the term
 		\begin{equation*}
@@ -2746,13 +2798,13 @@
 		with $R$ the rank of $\mathbb{S}$ and $\big\lbrace \sigma_j \big\rbrace_{j = 1}^R$ its singular values. The above estimate can be generalized without any further hypothesis and upon small modifications to all the other elements in the snapshot manifold $\mathcal{M}_{\Xi_N}$. Whereas, to be extendible to the entire discrete solution manifold $\mathcal{M}_h$, we have to assume that $\mathcal{M}_h$ is a low-dimensional subspace of $V_h$, so that the ensemble of snapshots is actually representative of the entire $\mathcal{M}_h$. Then, further assuming a rapid (i.e., exponential) decay of the singular values with the order, we have
 		\begin{equation}
 			\label{eq:error-analysis-3}
-			\norm{u_h - u_h^{\perp}}_{L^2(\Omega)}^2 \approx \beta e^{-\alpha \, L} \, .
+			\norm{u_h - u_h^{\mathbb{V}}}_{L^2(\Omega)}^2 \approx \beta e^{-\alpha \, L} \, .
 		\end{equation}
-		The last term involved in \eqref{eq:error-analysis-1} regards the distance between $u_h^{\perp}$ and $u_L^{\texttt{NN}}$, i.e. the POD-NN solution. Similar to what done for the previous term, recalling the definition \eqref{eq:pod-nn-solution} for $u_L^{\texttt{NN}}$ we derive:
+		The last term involved in \eqref{eq:error-analysis-1} regards the distance between $u_h^{\mathbb{V}}$ and $u_L^{\texttt{NN}}$, i.e. the POD-NN solution. Similar to what done for the previous term, recalling the definition \eqref{eq:pod-nn-solution} for $u_L^{\texttt{NN}}$ we derive:
 		\begin{equation}
 			\label{eq:error-analysis-4}
 			\begin{aligned}
-				\norm{u_h^{\perp} - u_L^{\texttt{NN}}}_{L^2(\Omega)} & = \int_{\Omega} \abs{u_h^{\perp} - u_L^{\texttt{NN}}}^2 \, d\Omega = \int_{\Omega} \abs{\sum_{i = 1}^M \big( \mathbb{V} \mathbb{V}^T \mathbf{u}_h \big)_i \phi_i - \sum_{i = 1}^M \big( \mathbb{V} \mathbf{u}_{\texttt{rb}}^{\texttt{NN}} \big)_i \phi_i}^2 \, d\Omega \\
+				\norm{u_h^{\mathbb{V}} - u_L^{\texttt{NN}}}_{L^2(\Omega)} & = \int_{\Omega} \abs{u_h^{\mathbb{V}} - u_L^{\texttt{NN}}}^2 \, d\Omega = \int_{\Omega} \abs{\sum_{i = 1}^M \big( \mathbb{V} \mathbb{V}^T \mathbf{u}_h \big)_i \phi_i - \sum_{i = 1}^M \big( \mathbb{V} \mathbf{u}_{\texttt{rb}}^{\texttt{NN}} \big)_i \phi_i}^2 \, d\Omega \\
 				& = \sum_{i = 1}^M \sum_{j = 1}^M \big( \mathbb{V} \mathbb{V}^T \mathbf{u}_h - \mathbb{V} \mathbf{u}_{\texttt{rb}}^{\texttt{NN}} \big)_i \big( \mathbb{V} \mathbb{V}^T \mathbf{u}_h - \mathbb{V} \mathbf{u}_{\texttt{rb}}^{\texttt{NN}} \big)_j \underbrace{\int_{\Omega} \phi_i \, \phi_j \, d\Omega}_{\mathbb{M}_{i,j}} \\
 				& = \big( \mathbb{V} \mathbb{V}^T \mathbf{u}_h - \mathbb{V} \mathbf{u}_{\texttt{rb}}^{\texttt{NN}} \big)^T \mathbb{M} \big( \mathbb{V} \mathbb{V}^T \mathbf{u}_h - \mathbb{V} \mathbf{u}_{\texttt{rb}}^{\texttt{NN}} \big) \\
 				& = \norm{\mathbb{M}^{1/2} \mathbb{V} \big( \mathbb{V}^T \mathbf{u}_h - \mathbf{u}_{\texttt{rb}}^{\texttt{NN}} \big)}_{\mathbb{R}^M}^2 \\
@@ -2777,59 +2829,477 @@
 		\end{equation}
 		with $\alpha$, $\beta$ and $\gamma$ positive constants, independent of both the solution and the size of the reduced basis, and $\delta_{\texttt{HF}}$ and $\delta_{\texttt{NN}}$ given tolerances. In other terms, the accuracy ensured by the POD-NN reduced basis method entirely relies on the accuracy of the underlying full-order solver, the quality of the reduced basis, and the accuracy of the approximation of the map \eqref{eq:map-to-approximate}.
 				
-		\begin{algorithm}[H]	
-			\begin{algorithmic}[1]
-				\Function{$\left( \mathcal{N}^{opt}, \, \mathcal{V}^{opt}, \, \mathbf{w}^{opt} \right) = $ \\ \hspace*{0.5cm} PODNN\_training}{$\, \mathbb{V}$, $\varepsilon$, $N_{tr}^{max}$, $H^{max}$, $N_{te}$, $d$, $K_{ms}$, $\delta$, $T$, $K_{ea}$}
-					\vspace*{0.2cm}
-					\State set $\Delta N = 100$, ~ $H_0 = 5$, ~ $\Delta H = 5$, ~ $N_{va} = \lceil 0.3 N_{tr}^{max} \rceil$
-					\State randomly drawn validation and test samples $\Xi_{va} = \big\lbrace \bg{\mu}_{va}^{(i)} \big\rbrace_{i = 1}^{N_{va}}$ and $\Xi_{te} = \big\lbrace \bg{\mu}_{te}^{(i)} \big\rbrace_{i = 1}^{N_{te}}$
-					\State compute $\big\lbrace \mathbf{u}_h \big( \bg{\mu}_{va}^{(i)} \big) \big\rbrace_{i = 1}^{N_{va}}$ and $\big\lbrace \mathbf{u}_h \big( \bg{\mu}_{te}^{(i)} \big) \big\rbrace_{i = 1}^{N_{te}}$
-					\State set $P_{va} = \big\lbrace \big( \bg{\mu}_{va}^{(i)}, \, \mathbb{V}^T \mathbf{u}_h \big( \bg{\mu}_{va}^{(i)} \big) \big) \big\rbrace_{i = 1}^{N_{va}}$ and $P_{te} = \big\lbrace \big( \bg{\mu}_{te}^{(i)}, \, \mathbb{V}^T \mathbf{u}_h \big( \bg{\mu}_{te}^{(i)} \big) \big) \big\rbrace_{i = 1}^{N_{te}}$
-					\State evaluate projection error $E_{\texttt{POD}} = \nicefrac{1}{N_{te}} \sum_{i = 1}^{N_{te}} \norm{\mathbf{u}_h \big( \bg{\mu}_{te}^{(i)} \big) - \mathbb{V} \, \mathbb{V}^T \mathbf{u}_h \big( \bg{\mu}_{te}^{(i)} \big)}$
-					\State $P_{tr} = \emptyset$, $N_{tr} = 0$
-					\DoWhile
-						\State $N_{tr} \leftarrow N_{tr} + \Delta N$
-						\State generate training samples $\Xi_{tr} = \big\lbrace \bg{\mu}_{tr}^{(i)} \big\rbrace_{i = 1}^{N_{tr}}$ via Latin Hypercube Sampling (LHS)
-						\State compute snapshots $\big\lbrace \mathbf{u}_h \big( \bg{\mu}_{tr}^{(i)} \big) \big\rbrace_{i = 1}^{N_{tr}}$
-						\State extend training data set: $P_{tr} \leftarrow P_{tr} \cup \big\lbrace \big( \bg{\mu}_{tr}^{(i)}, \, \mathbb{V}^T \mathbf{u}_h \big( \bg{\mu}_{tr}^{(i)} \big) \big) \big\rbrace_{i = 1}^{N_{tr}}$
-						\State $E_{\texttt{NN}}^{opt} = \infty$, $H = H_0$
-						\While{$H \leq H^{max}$ and $E_{te} < E_{te}^{old}$}
-							\State design a three-layers perceptron $\big( \mathcal{N}, \, \mathcal{V} \big)$ with $H$ neurons per hidden layer
-							\State $\big[ \mathbf{w}, \, E_{\texttt{NN}} \big] = $ \Call{Training}{$\left( \mathcal{N}, \, \mathcal{V} \right)$, $P_{tr}$, $P_{va}$, $P_{te}$, $d$, $K_{ms}$, $\delta$, $T$, $K_{ea}$}
-							\If{$E_{\texttt{NN}} < E_{\texttt{NN}}^{opt}$}
-								\State $E_{\texttt{NN}}^{opt} = E_{\texttt{NN}}$, ~ $\mathcal{N}^{opt} = \mathcal{N}$, ~ $\mathcal{V}^{opt} = \mathcal{V}$, ~ $\mathbf{w}^{opt} = \mathbf{w}$
-								\State $H \leftarrow H + \Delta H$
-							\Else \Comment{Too many neurons: the network overfits training data}
-								\State \textbf{break}
-							\EndIf
-						\EndWhile
-					\EndDoWhile{$N_{tr} \leq N_{tr}^{max}$ and $\abs{E_{\texttt{POD}} - E_{\texttt{NN}}^{opt}} > \varepsilon$}
-				\EndFunction
-				
-			\end{algorithmic}
-			
-			\caption{Selection of an optimal network configuration.}
-			\label{alg:podnn-training}
-		\end{algorithm}
+	
 		
 	\chapter{Numerical results}
 	\label{chapter:Numerical results}
 	
-		In this chapter, we present different numerical results obtained via the POD-Galerkin (POD-G) and the POD-NN reduced basis (RB) methods applied to parametrized boundary value problems for the (nonlinear) Poisson equation and the incompressible steady Navier-Stokes equations. The problems which shall be treated involve from $1$ up to $3$ parameters, either physical or geometrical. For the Poisson equation, we consider both linear and nonlinear problems, stated on either one- or two-dimensional domains. In the 1D case, we deal uniquely with physical parameters, addressing the diffusion coefficient, the source term or the boundary conditions; whereas, in two spatial dimensions we allow the parameters only to affect the shape of the domain, not the state equation. The latter also holds for the test cases concerning the Navier-Stokes equations. Particularly, we shall tackle the well-known lid-driven cavity problem for different values of the Reynolds number. The application of both the POD-G and the POD-NN techniques to differential problems featuring both physical and geometrical parameters is left as future work.
+		In this chapter, we present different numerical results obtained via the POD-G and the POD-NN reduced basis (RB) methods applied to parametrized full-Dirichlet boundary value problems (BVPs) for the (nonlinear) Poisson equation and the incompressible steady Navier-Stokes equations. The problems which shall be treated involve from $1$ up to $3$ parameters, either physical or geometrical. For the Poisson equation, we consider both linear and nonlinear problems, stated on either one- or two-dimensional domains. In the monodimensional case, we deal uniquely with physical parameters, addressing the diffusion coefficient, the source term or the boundary conditions; whereas, in two spatial dimensions we let the parameters only affect the shape of the domain, not the state equation. This latter remark also holds for the test cases concerning the Navier-Stokes equations. Particularly, we shall tackle the well-known lid-driven cavity problem for different values of the Reynolds number. The application of both the POD-G and the POD-NN techniques to differential problems featuring both physical and geometrical parameters, as well as natural or periodic boundary conditions, is left as future work.
 		
-		For each test case, we basically pursue the same methodology. We first make use of the finite element method to generate a sufficiently large amount of high-fidelity snapshots, upon which we construct a POD reduced basis. A convergence analysis on the number of POD modes employed is then performed. To this end, we introduce a test parameter set $\Xi_{te} \subset \mathcal{P}$, consisting of $N_{te}$ randomly picked parameter values, with $50 \leq N_{te} \leq 200$. Then, the following errors are evaluated over $\Xi_{te}$ in the discrete norm $\norm{\cdot}_h = \sqrt{(\cdot,\cdot)}$ (see Equation \eqref{eq:discrete-scalar-product}):
+		The two RB methodologies considered in this work are compared both in terms of accuracy and performance provided at the online stage. To this end, let $\mathbf{u}_L(\bg{\mu})$ and $\mathbf{u}_L^{\texttt{NN}}(\bg{\mu})$ be respectively the (algebraic) POD-G and POD-NN solutions of reduced order $L$ to the general $\bg{\mu}$-dependent problem $\eqref{eq:pde-weak-reference}$. Furthermore, let $\norm{\cdot}$ be the canonical (Euclidean) norm on $\mathbb{R}^M$. Once the offline phases for both the POD-G and the POD-NN method have been carried out, given a new parameter value $\bg{\mu} \in \mathcal{P}$ (not involved either in the generation of the POD basis or in the detection of an optimal neural network) the following \emph{relative} errors with respect to the high-fidelity (finite element) solution $\mathbf{u}_h(\bg{\mu})$ are analyzed:
 		\begin{enumerate}[label=(\alph*)]
-			\item the POD-G relative error with respect to the high-fidelity solution, i.e.,
+			\item the POD-G relative error, that is
 			\begin{equation}
-				\dfrac{\norm{\mathbf{u}_h - \mathbf{u}_L}}{\norm{\mathbf{u}_h}} = \dfrac{\norm{\mathbf{u}_h - \mathbb{V} \, \mathbf{u}_{\texttt{rb}}}}{\norm{\mathbf{u}_h}} \, ;
+				\label{eq:podg-error}
+				\varepsilon_{\texttt{PODG}}^{}(L, \bg{\mu}) = \dfrac{\norm{\mathbf{u}_h(\bg{\mu}) - \mathbf{u}_L(\bg{\mu})}}{\norm{\mathbf{u}_h(\bg{\mu})}} = \dfrac{\norm{\mathbf{u}_h(\bg{\mu}) - \mathbb{V} \, \mathbf{u}_{\texttt{rb}}(\bg{\mu})}}{\norm{\mathbf{u}_h(\bg{\mu})}} \, ;
 			\end{equation} 
-			\item the projection relative error, i.e., the error committed by approximating the high fidelity solution $u_h$ with its projection onto the reduced space $V_{\texttt{rb}}$, namely
+			\item the POD-NN relative error, that is
 			\begin{equation}
-				\dfrac{\norm{\mathbf{u}_h - \mathbf{u}^{\perp}}}{\norm{\mathbf{u}_h}} = \dfrac{\norm{\mathbf{u}_h - \mathbb{V} \mathbb{V}^T \mathbf{u}_h}}{\norm{\mathbf{u}_h}} \, .
+				\label{eq:podnn-error}
+				\varepsilon_{\texttt{PODNN}}^{}(L, \bg{\mu}) = \dfrac{\norm{\mathbf{u}_h(\bg{\mu}) - \mathbf{u}_L^{\texttt{NN}}(\bg{\mu})}}{\norm{\mathbf{u}_h(\bg{\mu})}} = \dfrac{\norm{\mathbf{u}_h(\bg{\mu}) - \mathbb{V} \, \mathbf{u}_{\texttt{rb}}^{\texttt{NN}}(\bg{\mu})}}{\norm{\mathbf{u}_h(\bg{\mu})}} \, ;
+			\end{equation} 
+			\item the projection relative error, i.e., the error committed by approximating the high fidelity solution with its projection (in the discrete scalar product $(\cdot,\cdot)_h$, see Equation \eqref{eq:discrete-scalar-product}) onto the reduced space $V_{\texttt{rb}}$, namely
+			\begin{equation}
+				\label{eq:projection-error}
+				\varepsilon_{\mathbb{V}}^{}(L, \bg{\mu}) = \dfrac{\norm{\mathbf{u}_h(\bg{\mu}) - \mathbf{u}^{\mathbb{V}}(\bg{\mu})}}{\norm{\mathbf{u}_h(\bg{\mu})}} = \dfrac{\norm{\mathbf{u}_h(\bg{\mu}) - \mathbb{V} \mathbb{V}^T \mathbf{u}_h(\bg{\mu})}}{\norm{\mathbf{u}_h(\bg{\mu})}} \, ;
 			\end{equation}
+			recall that \eqref{eq:projection-error} provides a lower-bound for both \eqref{eq:podg-error} and \eqref{eq:podnn-error}. 
 		\end{enumerate}
-		Once a 
+		The above errors are then evaluated on a test parameter set $\Xi_{te} \subset \mathcal{P}$ consisting of $N_{te}$ randomly picked samples. Upon choosing a sufficiently large number of test values, statistics for $\varepsilon_{\texttt{PODG}}^{}(L, \cdot)$, $\varepsilon_{\texttt{PODNN}}^{}(L, \cdot)$ and $\varepsilon_{\mathbb{V}}^{}(L, \cdot)$ on $\Xi_{te}$ can be reasonably assumed independent of the particular choice for $\Xi_{te}$, thus making any subsequent error analysis reliable. In particular, in our numerical studies we let $N_{te}$ ranging from $50$ up to $200$, and we then consider the average, respectively denoted by
+		\begin{equation*}
+			\text{$\bar{\varepsilon}_{\texttt{PODG}}^{} = \bar{\varepsilon}_{\texttt{PODG}}^{}(L)$, \hspace*{0.2cm} $\bar{\varepsilon}_{\texttt{PODNN}}^{} = \bar{\varepsilon}_{\texttt{PODNN}}^{}(L)$ \hspace*{0.2cm} and \hspace*{0.2cm} $\bar{\varepsilon}_{\mathbb{V}}^{} = \bar{\varepsilon}_{\mathbb{V}}^{}(L)$ \,}
+		\end{equation*} 
+		and occasionally the maximum, respectively indicated as
+		\begin{equation*}
+		 	\text{$\varepsilon_{\texttt{PODG}}^{max} = \varepsilon_{\texttt{PODG}}^{max}(L)$, \hspace*{0.2cm} $\varepsilon_{\texttt{PODNN}}^{max} = \varepsilon_{\texttt{PODNN}}^{max}(L)$ \hspace*{0.2cm} and \hspace*{0.2cm} $\varepsilon_{\mathbb{V}}^{max} = \varepsilon_{\mathbb{V}}^{max}(L)$,} 
+		\end{equation*}
+		of the errors over the test data set.
 		
+		Before diving into the analysis of the results, let us give some details on the training phase for neural networks. While the training samples $\Xi_{tr} \subset \mathcal{P}$ are generated via successive latin hypercube samplings (as described in Algorithm \ref{alg:podnn-training}), the validation inputs $\Xi_{va} \subset \mathcal{P}$ are randomly picked through a Monte Carlo sampling, as done for $\Xi_{te}$. The ratio between the dimension of $\Xi_{va}$ and $\Xi_{tr}$ is set to $0.3$. The training is then performed resorting to the multiple restarts approach to prevent the results to depend on the way the weights are (randomly) initialized (see Section \ref{section:Practical considerations on the design of artificial neural networks}). Typically, $K_{ms} = 5$ restarts for each network topology are performed. To ease the research for an optimal network configuration and exploiting the Cybenko's results (see \ref{cybenko-first-rule} and \ref{cybenko-second-rule} in Section \ref{section:Network topologies}), we limit ourselves to two- and three-layers neural networks; in the latter case, we consider the same number of neurons for both hidden layers. For each topology, the hyperbolic tangent (see Figure \ref{fig:activation-functions}, on the right) is used as activation function for the hidden (computing) neurons.  
+		
+		A last relevant remark concerns the choice of the number of POD modes $L$ to be retained in the model. To this end, in a production framework one could employ, e.g., the relative information content criterium \eqref{eq:relative-information-content}. Here, for the sake of analysis, we pursue a different approach, evaluating \eqref{eq:podg-error}, \eqref{eq:podnn-error} and \eqref{eq:projection-error} (averaged over $\Xi_{te}$) for some (and often all) $L \leq L_{max}$ (say $L_{max} = 50$). In this respect, we point out that within the POD-NN framework, once a neural network has been (properly) trained for the approximation of the map \eqref{eq:map-to-approximate} for a given $L$, then the approximations of the very same map for any $\bar{L} < L$ comes freely - simply retain the first $\bar{L}$ components of the network output vector. Therefore, no additional training is required. Indeed, decorating the matrix $\mathbb{V}$ with a superscript denoting the dimension of the represented basis, one has
+		\begin{equation*}
+			\mathbb{V}^{l+1} = \big[ \underbrace{\bg{\psi}_1 \, \big| \, \ldots \, \big| \, \bg{\psi}_l}_{\mathbb{V}^l} \, \big| \, \bg{\psi}_{l+1} \big] = \big[ \mathbb{V}^l \, \big| \, \bg{\psi}_{l+1} \big] \hspace*{0.3cm} \text{for any $l < M$} \, .
+		\end{equation*}
+		Conversely, we have already appreciated in Section \ref{section:A POD-based RB method using neural networks} how the convergence provided by the Newton's method may depend on the size $L$ of the reduced basis. Therefore, for a fair comparison with the POD-NN method we shall explicitly assemble and solve the reduced system for any $\bg{\mu} \in \Xi_{te}$ and any tested value of $L$.
+		
+				
+		\iffalse
+		an important inclusion property featured by reduced bases generated via proper orthogonal decomposition of a snapshot matrix $\mathbb{S} \in \mathbb{R}^{M \times N}$. Let $1 \leq l < M$, $\big\lbrace \psi_1, \, \ldots \, , \psi_l \big\rbrace$ be the first $l$ POD FE basis functions (i.e., the FE functions whose nodal values are respectively given by the first $l$ left singular vectors of $\mathbb{S}$) and $V_{\texttt{rb}}^l$ the associated POD reduced space. Then:
+		\begin{equation}
+			V_{\texttt{rb}}^{l+1} = V_{\texttt{rb}}^l \oplus \big\lbrace \psi_{l+1} \big\rbrace \hspace*{0.3cm} \text{for $1 \leq l < M$} \, .
+		\end{equation}
+		At the algebraic level, this corresponds to noting that
+		\begin{equation}
+			\mathbb{V}_{l+1} = \left[ \mathbb{V}_l ~ \bg{\psi}_{l+1} \right] \hspace*{0.3cm} \text{for $1 \leq l < M$} \, ,
+		\end{equation}
+		with $\bg{\psi}_{i}$ be the $i$-th left singular vector of $\mathbb{S}$, and $\mathbb{V}_l = \big[ \bg{\psi}_1 \, \big| \, \ldots \, \big| \, \bg{\psi}_l \big]$. Now, recall that within the POD-NN framework, given $\bg{\mu} \in \mathcal{P}$ we aim at approximating $\mathbb{V}_{l+1}^T \mathbf{u}_h(\bg{\mu})$ via multilaye Hence, given a high-fidelity snapshots $\mathbf{u}_h(\bg{\mu})$, the coefficients of its $h$-projection onto $V_{\texttt{rb}}^{l+1}$ are given by:
+		\begin{equation*}
+			\mathbb{V}_{l+1}^T \mathbf{u}_h(\bg{\mu}) = 
+			\begin{bmatrix}
+			\hspace*{-0.15cm}
+			\begin{array}{c}
+				\mathbb{V}_{l}^T \\[0.1cm]
+				\bg{\psi}_{l+1}^T
+			\end{array} 
+			\hspace*{-0.15cm}
+			\end{bmatrix} 
+			\mathbf{u}_h(\bg{\mu}) =
+			\begin{bmatrix}
+			\hspace*{-0.15cm}
+			\begin{array}{c}
+				\mathbb{V}_{l}^T \mathbf{u}_h(\bg{\mu}) \\[0.1cm]
+				\bg{\psi}_{l+1}^T \mathbf{u}_h(\bg{\mu})
+			\end{array} 
+			\hspace*{-0.15cm}
+			\end{bmatrix} \, .
+		\end{equation*}
+		This recursive relation implies that once a neural network has been (suitably) trained to approximate 
+		\fi
+		
+	\section{One-dimensional Poisson equation}
+	\label{section:One-dimensional Poisson equation (results)}
+	
+		As a preliminar step before tackling more probing problems in two spatial dimensions, in this section we consider BVPs for the one-dimensional Poisson equation. Three test cases are examined - the first linear, the others nonlinear - involving an increasing number of parameters. 
+		
+	\vspace*{0.3cm}
+	
+	\subsection{Linear test case}
+	\label{section:poisson1d-1}
+	
+		We first consider the following linear Poisson equation on $\Omega = (-1,1)$:
+		\begin{equation}
+			\label{eq:poisson1d-1}
+			- u(\mu)'' = \dfrac{1}{\sqrt{2 \pi \sigma^2}} \exp \left( -\dfrac{\mu}{2 \sigma^2} \right) \, ,
+		\end{equation}
+		with $\sigma = 0.2$ (fixed) and $\mu \in [-1,1]$. Here, the quote denotes a single derivative with respect to the spatial variable. The equation is completed with homogeneous Dirichlet boundary conditions. In order to derive a POD-Galerkin reduced basis model for \eqref{eq:poisson1d-1}, we first generate a collection of linear finite elements discretizations $\big\lbrace \mathbf{u}_h \big( \mu^{(1)} \big), \, \ldots \, , \mathbf{u}_h \big( \mu^{(N)} \big) \big\rbrace$ over a (physical) uniform grid with $100$ points. Here, the latin hypercube sampling is not usable, since the parameter domain $\mathcal{P} \equiv [-1,1]$ is monodimensional, hence we displace the training samples $\big\lbrace \mu^{(1)}, \, \ldots \, , \mu^{(N)} \big\rbrace$ uniformly over $\mathcal{P}$. In the left plot of Figure \ref{fig:poisson1d-1-fig1}, we analyze the relative error between FEM and the resulting Galerkin-POD method, averaged over an ensemble $\Xi_{te}$ of $N_{te} = 100$ parameter values. Independently of the number of snapshots used to generate the POD basis, we can appreciate an exponential decay of the error with the number $L$ of POD modes retained by the model, coherently with the behaviour exhibited by the singular values. The effectiveness of the RB approximation is confirmed by the other plot of Figure \ref{fig:poisson1d-1-fig1}, showing the FE (solid line) and the POD-G (circles) solutions for three values of $\mu$, with $N = 50$ and $L = 10$.
+		
+		\begin{figure}[H]
+			\center
+			\subfloat{\includegraphics[scale = 0.4, trim = {1cm 8.5cm 1.5cm 3.6cm}, clip]{poisson1d_1_error_vs_rank}}
+			\subfloat{\includegraphics[scale = 0.41, trim = {1cm 9cm 1.5cm 3.5cm}, clip]{poisson1d_1_fe_vs_podg}}
+			
+			\caption{Left: error analysis for the POD-G RB method applied to Equation \eqref{eq:poisson1d-1}; the results refer to a POD basis constructed based on $N = 25$, $50$, $100$ snapshots; for $N = 100$, the singular values of the correspondent snapshot matrix are shown as well. Right: FE and POD-G solutions for three parameter values.}
+			\label{fig:poisson1d-1-fig1}
+		\end{figure}
+						
+		\begin{figure}[t!]
+			\center
+			\subfloat{\includegraphics[scale = 0.42, trim = {1cm 12cm 1.5cm 3.5cm}, clip]{poisson1d_1_hopt}}
+			\subfloat{\includegraphics[scale = 0.42, trim = {1cm 12cm 1.5cm 3.5cm}, clip]{poisson1d_1_eopt}}
+			
+			\caption{In respect to the approximation of the map \eqref{eq:map-to-approximate} for the Poisson problem \eqref{eq:poisson1d-1} via neural networks, comparison between three supervised algorithms - Levenberg-Marquardt (blue), Scaled Conjugate Gradient (orange), BFGS Quasi-Newton (yellow) - in terms of the optimal configuration detected (\emph{right}) and the associated test error (\emph{right}) for different amounts of training samples.}
+			\label{fig:poisson1d-1-fig2}
+		
+			\center
+			\subfloat{\includegraphics[scale = 0.42, trim = {1cm 9cm 1.5cm 3.5cm}, clip]{poisson1d_1_nn_convergence}}
+			\subfloat{\includegraphics[scale = 0.42, trim = {1cm 9cm 1.5cm 3.5cm}, clip]{poisson1d_1_fe_vs_podnn}}
+			
+			\caption{Left: relative error yielded by the POD-NN RB method applied to Equation \eqref{eq:poisson1d-1}; the convergence to the projection error for $L = 10$ (solid line) is analyzed in terms of both the number of neurons included in the neural network and the dimension of the training set. Right: FE and POD-NN solutions for three parameter values.}
+			\label{fig:poisson1d-1-fig3}
+		\end{figure}
+		
+		Moving to the analysis of the POD-NN method, we first seek to motivate the employment throughout this work of the Levenberg-Marquardt learning algorithm (see Section \ref{section:Levenberg-Marquardt algorithm}). To this end, we compare it against two other well-known and widely used supervised training routines - the Scaled Conjugate Gradient \cite{Mol93} and the BFGS Quasi-Newton method \cite{GMW81} - on the regression of the map $\bg{\pi} = \bg{\pi}(\bg{\mu}) ~ : ~ \bg{\mu} \mapsto \mathbb{V}^T \mathbf{u}_h(\bg{\mu})$ (see also Equation \eqref{eq:map-to-approximate}), with $L = 10$ POD modes, i.e., $\mathbb{V} \in \mathbb{R}^{M \times 10}$. In this simple linear case, we can limit ourselves to networks with a single hidden layer. Then, for a given number $N_{tr}$ of training samples, for each algorithm Figure \ref{fig:poisson1d-1-fig2} tracks the number of hidden neurons required to yield the minimum error on $\Xi_{te}$ (\emph{left}) and the optimal error itself (\emph{right}). We can observe that for any tested value of $N_{tr}$ the Levenberg-Marquardt algorithm (blue line) leads to much more accurate approximations using fewer neurons, that is, it turns out to be not only effective but even efficient. A confirmation of this is given by the plot on the left in Figure \ref{fig:poisson1d-1-fig3}, showing the decay of the POD-NN error as the number of employed patterns and neurons increases. Here, the lower-bound given by the projection error is actually attained via, e.g., a network with $H = 15$ hidden neurons, exposed to $N_{tr} = 40$ training samples. The solutions obtained by means of such a network are provided on the right plot of Figure \ref{fig:poisson1d-1-fig3}; note the substantial overlap with the correspondent FE solutions. 
+				
+	\subsection{Nonlinear test case, two parameters}
+	\label{section:poisson1d-2}
+	
+		\begin{figure}[b!]
+			\center
+			\includegraphics[scale = 0.43, trim = {1cm 10.5cm 1.5cm 3.5cm}, clip]{poisson1d_2_error_vs_rank}
+			
+			\caption{Error analysis for the POD-Galerkin RB method applied to the problem \eqref{eq:poisson1d-2}. The lower-bound provided by the projection error \eqref{eq:projection-error} is reported as reference.}
+			\label{fig:poisson1d-2-fig1}
+		\end{figure}
+	
+		The first nonlinear problem we consider reads:
+		\begin{equation}
+			\label{eq:poisson1d-2}
+			\begin{cases}
+				& - \left( \big( 1 + u(\bg{\mu}) \big) ~ u(\bg{\mu})' \right)' = s(x; \, \bg{\mu}) \hspace*{0.3cm} \text{in $\Omega = [-\pi, \, \pi]$} \, , \\
+				& u(\bg{\mu}) \big|_{x = -\pi} = \mu_2 \sin(2 - \mu_1 \, \pi) \, , \hspace*{0.3cm} u(\bg{\mu}) \big|_{x = \pi} = \mu_2 \sin(2 + \mu_1 \, \pi)  \, ,
+			\end{cases}
+		\end{equation}
+		where $\bg{\mu} = \big( \mu_1, \, \mu_2 \big) \in \mathcal{P} = [1, \, 3] \times [1, \, 3]$ and the source term $s(x; \, \bg{\mu})$ is chosen so that $u_{ex}(x; \, \bg{\mu}) = \mu_2 \sin(2 + \mu_1 \, x)$ represents the exact solution to the problem for any $\bg{\mu} \in \mathcal{P}$. Here, a POD-Galerkin RB model built upon $N = 50$ samples (randomly picked via LHS) turns out to be highly effective. Indeed, as reported by Figure \ref{fig:poisson1d-2-fig1}, the yielded relative error, averaged over $N_{te} = 100$ samples, rapidly decades as the amount $L$ of retained POD basis functions increases, attaining an error of $10^{-7}$ already for $L = 15$. Hence, the design of an effective neural network, which can at least approach the accuracy provided by the algebraic ROM, is really challenging. The results concerning the research of an optimal three-layers network configuration via the methodology described in Algorithm \ref{alg:podnn-training} are provided on the left in Figure \ref{fig:poisson1d-2-fig2}. The steps pursued by the routine are represented through solid tracts; however, for the sake of completeness we also report the test error (understood as the minimum over multiple restarts) for any considered value for both the number of hidden neurons per layer ($H_1$ and $H_2$) and the dimension of the training set ($N_{tr}$). 
+		
+		\begin{figure}[H]
+			\center
+			\includegraphics[scale = 0.42, trim = {1cm 9cm 1.5cm 3.5cm}, clip]{poisson1d_2_nn_convergence}
+			\includegraphics[scale = 0.42, trim = {1cm 9cm 1.5cm 3.5cm}, clip]{poisson1d_2_fe_vs_podnn}
+			
+			\caption{Left: error analysis for the POD-NN RB method (dotted lines) applied to problem \eqref{eq:poisson1d-2}. The solid solid sections refer to the steps carried out by the routine \ref{alg:podnn-training}; the error yielded by the POD-G method using $L = 8$ or $L = 15$ basis functions are reported as reference. Right: comparison between FE and POD-NN solutions for three input vectors.}
+			\label{fig:poisson1d-2-fig2}
+		\end{figure}
+		
+		Let us first point out that the basic assumption which Algorithm \ref{alg:podnn-training} relies on is here fulfilled: as the number of available samples increase, the amount of neurons which allows to attain the minimum of the error increases as well, while the minimum itself decreases. However, although the networks have been trained to approximate the function \eqref{eq:map-to-approximate} with $L = 15$ POD modes, we can not guarantee the same precision provided by the POD-G method retaining the same quantity of basis functions. Indeed, we get the same level of accuracy offered by POD-G with only $L = 8$ basis vectors. To get some insights on this, consider the regression plots in Figure \ref{fig:poisson1d-2-fig3}, comparing, for a network with $H_1 = H_2 = 25$ hidden neurons, some of the components of the network output with the correspondent targets on $\Xi_{te}$. While the first and seventh components (\emph{top}) are interpolated almost exactly, problems start arising for the eighth (\emph{bottom left}) and mainly for the nineth (\emph{bottom right}) entries. This suggests that the Levenberg-Marquardt algorithm is sufficiently \emph{smart} to detect that the average magnitude of the components of the target vectors decreases with the ordinality of the components themselves\footnote{This observation follows from the fact that the energy retained by each POD mode $\bg{\psi}_i$ is monotonically decreasing in $i$.}, and so that particular effort should be put in a proper regression of the first components. Indeed, although the prediction for the nineth entry of any test vector $\mathbb{V}^T \mathbf{u}_h(\bg{\mu})$ is completely off in most of the cases, the average magnitude of these components is small - around $10^{-4}$. As a result, the global solution provided by the network turns out to be really close to the correspondent FE discretization, as shown in Figure \ref{fig:poisson1d-2-fig2} (\emph{right}).
+		
+		\clearpage
+				
+		\begin{figure}[t!]
+			\center
+			\subfloat{\includegraphics[scale = 0.4, trim = {1cm 9cm 1cm 3.5cm}, clip]{poisson1d_2_regression_1}}
+			\subfloat{\includegraphics[scale = 0.4, trim = {1cm 9cm 1cm 3.5cm}, clip]{poisson1d_2_regression_7}} \\
+			\vspace*{-1cm}
+			\subfloat{\includegraphics[scale = 0.4, trim = {1cm 9cm 1cm 1cm}, clip]{poisson1d_2_regression_8}}
+			\subfloat{\includegraphics[scale = 0.4, trim = {1cm 9cm 1cm 1cm}, clip]{poisson1d_2_regression_9}}
+			
+			\caption{From left to right, top to bottom: regression plots for the first, seventh, eighth and nine scalar components of the outputs provided on $\Xi_{te}$ by a network with $H_1 = H_2 = 25$ neurons per hidden layer, trained to approximate the map \eqref{eq:map-to-approximate} for problem \eqref{eq:poisson1d-2}.}
+			\label{fig:poisson1d-2-fig3}
+		\end{figure}
+			
+	\subsection{Nonlinear test case, three parameters}
+	\label{section:poisson1d-3}
+	
+		The last problem we consider for the nonlinear Poisson equation features an exponential nonlinearity (in the diffusion coefficient) and involves three parameters:
+		\begin{equation}
+			\label{eq:poisson1d-3}
+			\begin{cases}
+				& - \big( \exp(u(\bg{\mu})) ~ u(\bg{\mu})' \big)' = s(x; \, \bg{\mu}) \hspace*{0.3cm} \text{in $\Omega = \big( -\nicefrac{\pi}{2}, \, \nicefrac{\pi}{2} \big)$} \, , \\
+				& u(\bg{\mu}) \big|_{x = -\nicefrac{\pi}{2}} = \mu_2 \left( 2 + \sin\big( - \nicefrac{(\mu_1 \, \pi)}{2} \big) \right) \exp \big( - \nicefrac{(\mu_3 \, \pi)}{2} \big) \, , \\
+				& u(\bg{\mu}) \big|_{x = \nicefrac{\pi}{2}} = \mu_2 \left( 2 + \sin\big( \nicefrac{(\mu_1 \, \pi)}{2} \big) \right) \exp \big( \nicefrac{(\mu_3 \, \pi)}{2} \big) \, ,
+			\end{cases}
+		\end{equation}
+		with $\bg{\mu} = \big(\mu_1, \, \mu_2, \, \mu_3 \big) \in \mathcal{P} = \big[ 1, \, 3 \big] \times \big[ 1, \, 3 \big] \times \big[ -0.5, \, 0.5 \big]$ and $s(\cdot; \bg{\mu})$ such that $u_{ex}(x; \, \bg{\mu}) = \mu_2 \big( 2 + \sin(\mu_1 \, x) \big) \, \exp \big( \mu_3 \, x \big)$ is the exact solution to the problem for any $\bg{\mu} \in \mathcal{P}$. Figure \ref{fig:poisson1d-3-fig1} represents the first $10$ POD modes, yielded via singular value decomposition of an ensemble of $N = 100$ (linear) FE snapshots computed over a uniform grid consisting of $100$ nodes. Their inclusion within the standard POD-Galerkin RB framework enables an average relative error of about $10^{-5}$ on a test set $\Xi_{te}$ of $N_{te} = 100$ randomly chosen samples. This is whitnessed by Figure \ref{fig:poisson1d-3-fig2}, offering a convergence analysis with respect to the number of basis functions retained in the model (\emph{left}). The results for the POD-NN method, employing three-layers neural networks with a varying number of neurons and learning patterns, are provided as well, together with a comparison with the FE solutions for some parameter values (\emph{right}). Note that, with only a few modes are considered (say $L \leq 6)$, the proposed reduced basis scheme leads to a significant reduction of the error with respect to the POD-RB technique. Moreover, as we expand the training set, we get more accurate predictions for a larger number of POD coefficients, provided that we allow the size of the network to increase. 
+		
+		\begin{figure}[t]
+			\center
+			\subfloat[$\psi_1$]{\includegraphics[scale = 0.185, trim = {2.75cm 12cm 1.5cm 4cm}, clip]{poisson1d_3_basis1}}
+			\subfloat[$\psi_2$]{\includegraphics[scale = 0.185, trim = {3.25cm 12cm 1.5cm 4cm}, clip]{poisson1d_3_basis2}}
+			\subfloat[$\psi_3$]{\includegraphics[scale = 0.185, trim = {2.75cm 12cm 1.5cm 4cm}, clip]{poisson1d_3_basis3}}
+			\subfloat[$\psi_4$]{\includegraphics[scale = 0.185, trim = {2.75cm 12cm 1.5cm 4cm}, clip]{poisson1d_3_basis4}}
+			\subfloat[$\psi_5$]{\includegraphics[scale = 0.185, trim = {2.75cm 12cm 1.5cm 4cm}, clip]{poisson1d_3_basis5}} \\
+			\subfloat[$\psi_6$]{\includegraphics[scale = 0.185, trim = {2.75cm 12cm 1.5cm 1cm}, clip]{poisson1d_3_basis6}}
+			\subfloat[$\psi_7$]{\includegraphics[scale = 0.185, trim = {2.75cm 12cm 1.5cm 1cm}, clip]{poisson1d_3_basis7}}
+			\subfloat[$\psi_8$]{\includegraphics[scale = 0.185, trim = {2.75cm 12cm 1.5cm 1cm}, clip]{poisson1d_3_basis8}}
+			\subfloat[$\psi_9$]{\includegraphics[scale = 0.185, trim = {2.75cm 12cm 1.5cm 1cm}, clip]{poisson1d_3_basis9}}
+			\subfloat[$\psi_{10}$]{\includegraphics[scale = 0.185, trim = {2.75cm 12cm 1.5cm 1cm}, clip]{poisson1d_3_basis10}}
+			
+			\caption{The first $10$ POD basis functions for the (nonlinear) Poisson problem \eqref{eq:poisson1d-3}.}
+			\label{fig:poisson1d-3-fig1}
+		\end{figure}
+		
+		\vspace*{-0.5cm}
+		
+		\begin{figure}[H]
+			\center
+			\includegraphics[scale = 0.42, trim = {1cm 9cm 1cm 2cm}, clip]{poisson1d_3_error_vs_rank}
+			\includegraphics[scale = 0.42, trim = {1.5cm 9cm 1.5cm 2cm}, clip]{poisson1d_3_fe_vs_podnn}
+			
+			\caption{Convergence analysis for the POD-G and POD-NN methods applied to the problem \eqref{eq:poisson1d-3} (\emph{left}) and comparison between the FE and the POD-NN solutions for three parameter values (\emph{right}). These latter results have been obtained via a neural network with $H_1 = H_2 = 35$ units per hidden layer, and considering $L = 10$ POD modes.}
+			\label{fig:poisson1d-3-fig2}
+		\end{figure}
+		
+		Concerning the results shown in the left plot of Figure \ref{fig:poisson1d-3-fig2}, we should point out an important remark, which shall be valid throughout the chapter. The results shown in Figure \ref{fig:poisson1d-3-fig2} refer to neural networks trained via exposition to the set of coefficients $\big\lbrace \big( u_h(\bg{\mu}), \, \psi_i \big)_h \big\rbrace_{i = 1}^{\scriptscriptstyle{\bar{L}}} \equiv \big\lbrace \big( \mathbf{u}_h(\bg{\mu}), \, \bg{\psi}_i \big)_{\mathbb{R}^M} \big\rbrace_{i = 1}^{\scriptscriptstyle{\bar{L}}}$ per learning sample $\bg{\mu} \in \Xi_{tr}$, with $\bar{L} = 10$. Therefore, each network is equipped with $\bar{L} = 10$ output neurons - one for each coefficient. Once the training has been successfully completed, given a new input $\bg{\mu} \in \mathcal{P}$, the correspondent POD-NN RB solution of order $\bar{L}$ is obtained as:
+		\begin{equation}
+			\label{eq:podnn-solution-full}
+			\mathbf{u}_{\bar{L}}^{\texttt{NN}}(\bg{\mu}) = \sum_{i = 1}^{\bar{L}} \big( \mathbf{u}_{\bar{L}}^{\texttt{NN}} \big)_i \bg{\psi}_i \, ,
+		\end{equation} 
+		where $\big( \mathbf{u}_{\bar{L}}^{\texttt{NN}} \big)_i$ denotes the network response observed at the $i$-th output neuron, $i = 1, \, \ldots \, , \bar{L}$. Although $\mathbf{u}_{\bar{L}}^{\texttt{NN}}(\bg{\mu})$ represents the best prediction for $\mathbf{u}_h(\bg{\mu})$ provided by the network, we can as well construct lower-ordered approximations $\mathbf{u}_L^{\texttt{NN}}(\bg{\mu})$, with $L < \bar{L}$ - simply retain the first $L$ terms in the summation \eqref{eq:podnn-solution-full}. The claim is that such an $L$-order RB solution is basically as accurate as the one we could obtain by exposing the network to exactly $L$ POD coefficients per training sample. In other terms, employing a larger amount of modes during the training than in the subsequent online queries, so somehow offering the network a broader overview on the problem, do not enable a sensible improvement in the performace. A confirmation of this is given by Figure \ref{fig:poisson1d-3-fig3}, reporting the average relative POD-NN error $\bar{\varepsilon}_{\texttt{NN}}^{}(L)$, for $1 \leq L \leq 10$ yielded by networks equipped with either $20$ or $35$ units per hidden layer, and exposed, within the learning step, to $N_{tr} = 300$ samples and either $L$ or $\bar{L}$ associated POD coefficients.
+		
+		\begin{figure}[H]
+			\center
+			\includegraphics[scale = 0.40, trim = {1cm 9cm 1cm 3cm}, clip]{poisson1d_3_nn_test}
+			\includegraphics[scale = 0.42, trim = {2cm 11.25cm 1cm 3cm}, clip]{poisson1d_3_nn_test_legend}
+			
+			\caption{Sensitivity analysis for the POD-NN method applied to the problem \eqref{eq:poisson1d-3} with respect to the number of POD coefficients (per sample) used during the training; to prevent overfitting, $N_{tr} = 300$ learning patterns have been used.}
+			\label{fig:poisson1d-3-fig3}
+		\end{figure}
+					
+	\section{Two-dimensional Poisson equation}
+	\label{section:Two-dimensional Poisson equation (results)}
+	
+		As disclosed in the introductory part, the two-dimensional differential problems we deal with in this chapter uniquely involve a geometrical parametrization, that is, $\bg{\mu} \equiv \bg{\mu}_g$. In particular, in this section we address the numerical discretization via RB methods of three BVPs concerning the Poisson equation, either linear or nonlinear. Each problem will be stated over one of the two domains $\wt{\Omega}(\bg{\mu})$ depictured in Figures \ref{fig:quadrilateral-domain} and \ref{fig:stenosis-domain}. The former consists of a parallelogram, possibly rotated around the origin, and it is characterized by two parameters: one of the internal angles, $\mu_1 \in \big[ \nicefrac{\pi}{4}, \, \nicefrac{3 \pi}{4} \big]$, and the rotation angle itself, $\mu_2 \in \big[ 0, \, \nicefrac{\pi}{2} \big]$. Whereas, the latter represents a stenosis geometry, parametrized in the depths $\mu_1$ and $\mu_2$ of the bottom and top restrictions (or inflations), respectively, and the length $\mu_3$ of the vessel; the parameter domain is given by $\mathcal{P} = [-0.5,0.5] \times [-0.5,0.5] \times [1,5]$. For both geometries, the boundary parametrizations are reported alongside their visualization.
+		
+		As discussed in Section \ref{section:From the original to the reference domain}, in order to generate snapshots which can then be combined, the problems have to be re-formulated and solved on a reference, i.e., parameter-independent, configuration $\Omega$, discretized through a triangular mesh $\Omega_h$ via $M$ internal vertices. Here, $\Omega$ is given by the unit square shown in Figure \ref{fig:bc-square}, while the volumetric transformation $\bg{\Phi} ~ : ~ \Omega \times \mathcal{P} \rightarrow \wt{\Omega}$ used to transpose the PDE from the physical to the fixed domain is provided by the boundary displacement-dependent transfinite map \eqref{eq:bddtm}, built from the parametrizations of the edges of $\wt{\Omega}(\bg{\mu})$ (see Section \ref{section:The boundary displacement-dependent transfinite map} for further details).
+		
+		\begin{figure}[b!]
+			\begin{minipage}{0.4\textwidth}
+				\center
+				\includegraphics[scale = 0.7]{domain_square_ext}
+			\end{minipage}
+			\hfill
+			\begin{minipage}{0.5\textwidth}
+				$\mathbb{Q}(\mu_2) =
+				\begin{bmatrix}
+				\hspace*{-0.15cm}
+				\begin{array}{cc}
+					\cos(\mu_2) & -\sin(\mu_2) \\[0.1cm]
+					\sin(\mu_2) & \cos(\mu_2)
+				\end{array} 
+				\hspace*{-0.15cm}
+				\end{bmatrix}
+				$ \\[0.3cm]
+				$\wt{\bg{v}}_1 = \wt{\bg{v}}_1(\mu_1) = \big[ \pi \sin(\mu_1), \, \pi \cos(\mu_1) \big]^T$ \\[0.3cm]
+				$\wt{\bg{v}}_2 = \wt{\bg{v}}_2(\mu_1) \equiv \big[ 0, \, 0 \big]^T$ \\[0.3cm]
+				$\wt{\bg{v}}_3 = \wt{\bg{v}}_3(\mu_1) \equiv \big[ 0, \, 2 \pi \big]^T$ \\[0.3cm]
+				$\wt{\bg{v}}_4 = \wt{\bg{v}}_4(\mu_1) = \big[ \pi \sin(\mu_1), \, \pi \big( 2 + \cos(\mu_1) \big) \big]^T$ \\[0.3cm]
+				$\wt{\bg{\Psi}}_i(t; \, \bg{\mu}) = \mathbb{Q}(\mu_2) \left[ t \wt{\bg{v}}_i + (1-t) \wt{\bg{v}}_{i+1} \right]$ \\
+				\hspace*{0.5cm} for $1 \leq i \leq 4$, with $\wt{\bg{v}}_5 \equiv \wt{\bg{v}}_1$
+			\end{minipage}
+			
+			\vspace*{0.3cm}
+			
+			\caption{The quadrilateral domain used in the simulations (\emph{left}, solid line) and the parametrizations of its sides (\emph{right}).}
+			\label{fig:quadrilateral-domain}
+		
+			\begin{minipage}{0.4\textwidth}
+				\center
+				\includegraphics[scale = 0.7]{domain_stenosis}
+			\end{minipage}
+			\hfill
+			\begin{minipage}{0.5\textwidth}
+				$\wt{\bg{\Psi}}_1(t; \, \bg{\mu}) = \big[ \mu_3 \, (1-t), \, \mu_1 \cos\left( 2 \pi t - \dfrac{\pi}{2} \right) + \mu_1 \big]^T$ \\[0.3cm]
+				$\wt{\bg{\Psi}}_2(t; \, \bg{\mu}) \equiv \big[ 0, \, H \, t \big]^T$ \\[0.3cm]
+				$\wt{\bg{\Psi}}_3(t; \, \bg{\mu}) = \big[ \mu_3 \, t, \, H - \mu_2 \cos\left( 2 \pi t - \dfrac{\pi}{2} \right) - \mu_2 \big]^T$ \\[0.3cm]
+				$\wt{\bg{\Psi}}_4(t; \, \bg{\mu}) = \big[ 0, \, H (1 - t) \big]^T$
+			\end{minipage}
+			
+			\vspace*{-0.3cm}
+			
+			\caption{The stenosis geometry employed in the simulations (\emph{left}) and the parametrizations of its sides (\emph{right}).}
+			\label{fig:stenosis-domain}
+		\end{figure}
+		
+	\subsection{Linear test case}
+	\label{section:poisson2d-1}
+	
+		Let $\wt{\Omega} = \wt{\Omega}(\bg{\mu})$ be the stenosis geometry shown in Figure \ref{fig:stenosis-domain}, with $\bg{\mu} = \big( \mu_1, \, \mu_2, \, \mu_3 \big) \in \mathcal{P} = \big[-0.5, \, 0.5\big] \times \big[-0.5, \, 0.5\big] \times \big[1 , \, 5\big]$. Then consider the following linear Poisson problem for $\wt{u} = \wt{u}(\bg{\mu})$:
+		\begin{equation}
+			\label{eq:poisson2d-1}
+			\begin{cases}
+				& - \wt{\Delta} \wt{u}(\bg{\mu}) = s(\wt{x}, \, \wt{y}) = 2 \sin(\wt{x}) \cos(\wt{y}) \hspace*{0.3cm} \text{in $\wt{\Omega}(\bg{\mu})$} \, , \\
+				& \wt{u}(\bg{\mu}) = \sin(\wt{\sigma}_x) \cos(\wt{\sigma}_y) \hspace*{0.6cm} \text{on $\partial \wt{\Omega}(\bg{\mu})$} \, .
+			\end{cases}
+		\end{equation}
+		Once the problem \eqref{eq:poisson2d-1} has been re-stated over the reference domain $\Omega$ by means of the map \eqref{eq:my-bddtm} and the change of variables formulae reported in Section \ref{section:Change of variables formulae}, the discretization via finite elements yields the linear system
+		\begin{equation}
+			\label{eq:poisson2d-1-fe-system}
+			\mathbb{A}(\bg{\mu}) \, \mathbf{u}_h(\bg{\mu}) = \mathbf{s}(\bg{\mu})
+		\end{equation}
+		in the nodal evaluations $\mathbf{u}_h(\bg{\mu}) \in \mathbb{R}^M$ of the high-fidelity solution $u_h(\bg{\mu})$, where the matrix $\mathbb{A}(\bg{\mu}) \in \mathbb{R}^{M \times M}$ and the vector $\mathbf{s}(\bg{\mu}) \in \mathbb{R}^M$ are defined as
+		\begin{equation*}
+			\begin{aligned}
+				& \mathbb{A}(\bg{\mu})_{i,j} = \sum_{K \in \Omega_h} a_K(\phi_j, \, \phi_i) = \int_K \mathbb{J}_{\bg{\Phi}}^{-T}(\bg{\mu}) \nabla \phi_j \cdot \mathbb{J}_{\bg{\Phi}}^{-T}(\bg{\mu}) \nabla \phi_i ~ \big| \mathbb{J}_{\bg{\Phi}}(\bg{\mu}) \big| \, d\,K & \text{for $i$, $j = 1, \, \ldots \, , M$} \, , \\
+				& \mathbf{s}(\bg{\mu})_i = \sum_{K \in \Omega_h} \int_K \big( \wt{s} \circ \bg{\Phi} \big) \, \phi_i ~ \big| \mathbb{J}_{\bg{\Phi}}(\bg{\mu}) \big| \, d\,K - \sum_{K \in \Omega_h} a_K(l_h(\bg{\mu}), \, \phi_i) & \text{for $i = 1, \, \ldots \, , M$}.
+			\end{aligned}
+		\end{equation*}
+		Here, we recall that $K$ denotes a generic triangular element of the computational mesh $\Omega_h$, $\big\lbrace \phi_i \big\rbrace_{i = 1}^M$ is the canonical (Lagrangian) FE basis for $V_h = X_h^1 \cap H_0^1(\Omega)$, $\mathbb{J}_{\bg{\Phi}} ~ : ~ \Omega \times \mathcal{P} \rightarrow \mathbb{R}^{2 \times 2}$ represents the Jacobian (with respect to the spatial coordinates) of $\bg{\Phi}(\cdot; \bg{\mu})$, and $l_h(\bg{\mu}) \in X_h^1$ is the (discrete) lifting function. Therefore, letting $\mathbb{V} \in \mathbb{R}^{M \times L}$ represent a POD basis of rank $L$, for a given $\bg{\mu} \in \mathcal{P}$ the Galerkin projection procedure leads to the reduced system
+		\begin{equation}
+			\label{eq:poisson2d-1-podg-system}
+			\mathbb{A}_L(\bg{\mu}) \, \mathbf{u}_{\texttt{rb}}(\bg{\mu}) = \mathbf{s}_L(\bg{\mu})
+		\end{equation}
+		in the RB coefficients $\mathbf{u}_{\texttt{rb}}(\bg{\mu}) \in \mathbb{R}^L$, where
+		\begin{equation}
+			\label{eq:poisson2d-1-podg-matrices}
+			\mathbb{A}_L(\bg{\mu}) = \mathbb{V}^T \mathbb{A}(\bg{\mu}) \mathbb{V} \in \mathbb{R}^{L \times L} \hspace*{0.5cm} \text{and} \hspace*{0.5cm} \mathbf{s}_L(\bg{\mu}) = \mathbb{V}^T \mathbf{s}(\bg{\mu}) \in \mathbb{R}^L \, .
+		\end{equation}
+		Hence, the assembly of the reduced-order matrices $\mathbb{A}_L(\bg{\mu})$ and $\mathbf{s}_L(\bg{\mu})$ entails their full-order counterpart $\mathbb{A}(\bg{\mu})$ and $\mathbf{s}(\bg{\mu})$, respectively. However, the (expensive) construction of these latter terms has to be entirely carried out at the online stage, due to the non-affine dependence of the map $\bg{\Phi}(\cdot; \bg{\mu})$ on $\bg{\mu}$, induced by the parametrizations $\bg{\Psi}_i(\cdot; \bg{\mu})$, $i = 1, \, 2, \, 3, \, 4$, characterizing the boundaries of the original domain $\wt{\Omega}(\bg{\mu})$ (see Figure \ref{fig:stenosis-domain}). This clearly frustrates the advantage offered by the POD-Galerkin scheme of resorting to the resolution of a reduced system. In this respect, let us consider Figure \ref{fig:poisson2d-1-fig1}, reporting the online run times for the FE, POD-G and POD-NN methods applied to \eqref{eq:poisson2d-1} for $N_{te} = 100$ randomly picked values of $\bg{\mu}$. The times have been measured on a laptop equipped with an Intel Core i7-6498DU @ 2.50 GHz processor. Both the RB models include $L = 15$ basis functions, constructed via proper orthogonal decomposition of an ensemble of $N = 100$ snapshots, computed over a triangular grid with $M = 16961$ internal vertices. Although the Galerkin projection leads to a reduction in the system size of a factor $10^3$, no computational saving is attained for any test sample. Conversely, the POD-NN method enables an average online speed up of about $400$. This comes at the cost of an extended offline phase. Indeed, the automatic routine \ref{alg:podnn-training}, performed to find an optimal combination of the number of training samples and the amount of hidden neurons to use, takes around $2$ hours, as opposed to the few minutes required to build $N = 100$ FE snapshots (through the resolution of the system \eqref{eq:poisson2d-1-fe-system}) and compute their singular value decomposition. However, coupling POD with a neural network with $H_1 = H_2 = 35$ computing units per hidden layer and whose weights are adjusted relying upon $N_{tr} = 200$ training patterns $\big\lbrace \bg{\mu}^{(i)}, \, \mathbb{V}^T \mathbf{u}_h \big( \bg{\mu}^{(i)} \big) \big\rbrace_{i = 1}^{N_{tr}}$, with $\mathbb{V} \in \mathbb{R}^{M \times 15}$, yields (actually slightly) more accurate results than the POD-G method does, as can be inferred from Figure \ref{fig:poisson2d-1-fig2} (\emph{right}). In particular, the POD-NN error $\bar{\varepsilon}_{\texttt{PODNN}}^{}(L)$ matches the projection error $\bar{\varepsilon}_{\mathbb{V}}^{}(L)$ for any $L \leq 15$; a convergence analysis for $L = 15$ is given in the plot on the left.
+		
+		\begin{figure}[H]
+			\center
+			\includegraphics[scale = 0.4, trim = {1.5cm 11cm 1.5cm 3.75cm}, clip]{poisson2d_1_time}
+			
+			\caption{Online run times for the FE, POD-G and POD-NN methods applied to the problem \eqref{eq:poisson2d-1}, for $N_{te} = 100$ randomly generated parameter values. }
+			\label{fig:poisson2d-1-fig1}
+		\end{figure}
+		
+		\begin{figure}[H]
+			\center
+			\includegraphics[scale = 0.43, trim = {1.5cm 9cm 1.5cm 3.5cm}, clip]{poisson2d_1_nn_convergence}
+			\hfill
+			\includegraphics[scale = 0.43, trim = {1.5cm 9cm 1.5cm 3.5cm}, clip]{poisson2d_1_error_vs_rank}
+			
+			\caption{On the right, error analysis for the POD-G (blue dashed line) and the POD-NN (dotted lines) methods applied to the problem \eqref{eq:poisson2d-1}. For the latter, a convergence analysis with respect to the number of training samples and hidden neurons used is provided on the left. The solid tracts denote the steps actually pursued by the automatic training routine \ref{alg:podnn-training}. All the results refer to neural networks exposed to $L = 15$ POD coefficients per learning sample.}
+			\label{fig:poisson2d-1-fig2}
+		\end{figure}
+		
+	\subsection{Nonlinear test case, two parameters}
+	\label{section:poisson2d-2}
+	
+		Let us address the upcoming BVP for a semilinear Poisson equation, stated over the parametrized quadrilateral domain $\wt{\Omega}(\bg{\mu})$ depictured in Figure \ref{fig:quadrilateral-domain}: 
+		\begin{equation}
+			\label{eq:poisson2d-2}
+			\begin{cases}
+				& - \wt{\nabla} \cdot \big( (1 + \wt{u}(\bg{\mu})^2) ~ \wt{\nabla} \wt{u}(\bg{\mu}) \big) = \wt{s}(\wt{x}, \, \wt{y}) \hspace*{0.4cm} \text{in $\wt{\Omega}(\bg{\mu})$} \, , \\
+				& \wt{u}(\bg{\mu}) = \wt{\sigma}_x \sin(\wt{\sigma}_x) \cos(\wt{\sigma}_y) \hspace*{1.65cm} \text{on $\partial \wt{\Omega}(\bg{\mu})$} \, .
+			\end{cases}
+		\end{equation}
+		Here, the source term $\wt{s} = \wt{s}(\wt{x}, \, \wt{y})$ has been chosen so that for any $\bg{\mu} \in \mathcal{P} = \big[ \nicefrac{\pi}{4}, \, \nicefrac{3 \pi}{4} \big] \times \big[ 0, \, \nicefrac{\pi}{2} \big]$ the exact solution to the problem is given by $\wt{u}_{ex}(\wt{x}, \, \wt{y}) = \wt{y} \sin(\wt{x}) \cos(\wt{y})$. We have already referred to this problem in Section \ref{section:A POD-based RB method using neural networks}, as it lays bare the major weak points of the standard POD-Galerkin framework. In fact, as whitnessed by Figure \ref{fig:nonlinear-poisson-example}, the Newton's method applied to the (nonlinear) reduced system \eqref{eq:rb-nonlinear-system} might fail to converge here when the number of modes included in the model is sufficiently large, say greater than $25$. In this regard, Figure \ref{fig:poisson2d-2-fig1} compares the truth (\emph{left}), POD-G (\emph{center}) and POD-NN (\emph{right}) solutions to the problem \eqref{eq:poisson2d-2} for $\bg{\mu} = (0.835, \, 0.034)$. The FE discretization has been built over a mesh consisting of $M = 1921$ nodes, whereas the RB solutions have been constructed combining $L = 33$ POD basis functions. While the POD-NN procedure, employing $H_1 = H_2 = 35$ hidden neurons and $N_{tr} = 300$ learning patterns, provides a (qualitatively) good approximation, the discrepancy between the FE and POD-G solutions is evident. Indeed, the selected paremeter value coincides with the highest peak of the dotted curve in the left plot of Figure \ref{fig:poisson2d-2-fig2}, which reports the POD-G error \eqref{eq:podg-error} and the POD-NN error \eqref{eq:podnn-error} for $N_{te} = 50$ randomly picked samples not involved either in the generation of the reduced basis, nor in the networks training. Generally, resorting to neural networks not only yields more precise responses, but also drastically reduces the time required to tackle any online query, as shown by the graph on the right in Figure \ref{fig:poisson2d-2-fig2}.
+		
+		Lastly, consider Figure \ref{fig:poisson2d-2-fig3}, offering a convergence analysis for the POD-NN RB scheme with respect to either the number $N_{tr}$ of samples used to train the network (\emph{left}) or the number $H_1 = H_2$ of internal neurons the network is endowed with (\emph{right}). For the latter plot, the results have been obtained by means of $N_{tr} = 300$ training patterns - not to incur in overfitting. Let us remark that, conversely to the POD-Galerkin procedure, for any fixed $N_{tr}$ and $H_i$, $i = 1$, $2$, the error yielded by the proposed method is monotonically decreasing in the number $L$ of retained basis functions, approaching or even attaining the projection error for each tested value of $L$, provided an oculate choice for $N_{tr}$ and $H_i$, $i = 1$, $2$. 
+		
+		\vspace*{-0.3cm}
+		
+		\begin{figure}[H]
+			\center
+			\includegraphics[scale = 0.29, trim = {8.5cm 0 9cm 0}, clip]{poisson2d_2_fem_solution}
+			\includegraphics[scale = 0.29, trim = {8.5cm 0 9cm 0}, clip]{poisson2d_2_podg_solution}
+			\includegraphics[scale = 0.29, trim = {8.5cm 0 9cm 0}, clip]{poisson2d_2_podnn_solution}
+		
+			\caption{Finite element (\emph{left}), POD-G (\emph{center}) and POD-NN (\emph{right}) solution to the semilinear Poisson problem \eqref{eq:poisson2d-2} re-stated over the reference domain, with $\bg{\mu} = (0.835, \, 0.034)$.}
+			\label{fig:poisson2d-2-fig1}
+		\end{figure}
+		
+		\begin{figure}[H]
+			\center
+			\includegraphics[scale = 0.42, trim = {1.5cm 9cm 1.5cm 3.5cm}, clip]{poisson2d_2_pointwise_error}
+			\hfill
+			\includegraphics[scale = 0.4, trim = {1.5cm 8.25cm 1.5cm 3.5cm}, clip]{poisson2d_2_time}
+			
+			\caption{Online relative errors (\emph{left}) and run times (\emph{right}) for the POD-G and the POD-NN methods applied to problem \eqref{eq:poisson2d-2} for $N_{te} = 50$ randomly picked parameter values.}
+			\label{fig:poisson2d-2-fig2}
+		\end{figure}
+		
+		\begin{figure}[H]
+			\center
+			\includegraphics[scale = 0.43, trim = {1.5cm 9cm 1.5cm 3.5cm}, clip]{poisson2d_2_error_vs_rank}
+			\includegraphics[scale = 0.42, trim = {1.5cm 8.6cm 1.5cm 3.5cm}, clip]{poisson2d_2_nn_convergence}
+			
+			\caption{Convergence analysis for the POD-NN RB method applied to the BVP \eqref{eq:poisson2d-2}. The results have been obtained via three-layers (i.e., two hidden layers plus the output layer) neural networks with $H_1 = H_2 \in \big\lbrace 15, \, 20, \, 25, \, 30, \, 35 \big\rbrace$ neurons in each hidden layer, and trained with $N_{tr} \in \big\lbrace 100, \, 200, \, 300 \big\rbrace$ learning patterns. Each pattern consists of an input vector $\bg{\mu} \in \mathcal{P}$ and the first $L = 35$ POD coefficients $\big( \mathbf{u}_h(\bg{\mu}), \bg{\psi}_i \big)_{\mathbb{R}^M}$, $i = 1, \, \ldots \, , L$, as teaching inputs.}
+			\label{fig:poisson2d-2-fig3}
+		\end{figure}
+				
+	\subsection{Nonlinear test case, three parameters}
+	\label{section:poisson2d-3}
+	
+		For the last nonlinear test case concerning the Poisson equation, we consider again the stenosis geometry of Figure \ref{fig:stenosis-geometry}, with $\mu_1, \, \mu_2 \in [-0.5, \, 0.5]$ and $\mu_3 \in [1, \, 5]$. The differential problem we deal with in this section features an exponential nonlinearity, and reads:
+		\begin{equation}
+			\label{eq:poisson2d-3}
+			\begin{cases}
+				& - \wt{\nabla} \cdot \big( \exp(\wt{u}(\bg{\mu})) ~ \wt{\nabla} \wt{u}(\bg{\mu}) \big) = \wt{s}(\wt{x}, \, \wt{y}) \hspace*{0.45cm} \text{in $\wt{\Omega}(\bg{\mu})$} \, , \\
+				& \wt{u}(\bg{\mu}) = \wt{\sigma}_x \sin(\pi \, \wt{\sigma}_x) \cos(\pi \, \wt{\sigma}_y) \hspace*{1.0cm} \text{on $\partial \wt{\Omega}(\bg{\mu})$} \, .
+			\end{cases}
+		\end{equation}
+		with the source term $\wt{s} = \wt{s}(\wt{x}, \, \wt{y})$ properly chosen so that the exact solution to the problem is given by $\wt{u}_{ex}(\wt{x}, \, \wt{y}) = \wt{y} \sin(\pi \, \wt{x}) \cos(\pi \, \wt{y})$ for all $\bg{\mu} \in \mathcal{P}$.
+		
+		\begin{figure}[H]
+			\center
+			\includegraphics[scale = 0.43, trim = {1.5cm 9cm 1.5cm 3.5cm}, clip]{poisson2d_3_error_vs_rank}
+			\includegraphics[scale = 0.43, trim = {1.5cm 9cm 1.5cm 3.5cm}, clip]{poisson2d_3_nn_convergence}
+			
+			\caption{On the left, error analysis for the POD-G (blue dashed line) and the POD-NN (dotted lines) methods (\emph{left}) applied to the problem \eqref{eq:poisson2d-3}. For the latter, a convergence analysis with respect to the number of training samples and hidden neurons used is provided on the right. The solid tracts denote the steps actually pursued by the automatic training routine \ref{alg:podnn-training}. All the results refer to neural networks exposed to $L = 30$ POD coefficients per sample during the learning step.}
+			\label{}
+		\end{figure}
+		
+		\begin{figure}[H]
+			\center
+			\subfloat{\includegraphics[scale = 0.35, trim = {6cm 0 6cm 1cm}, clip]{poisson2d_3_fem_solution}}
+			\subfloat{\includegraphics[scale = 0.35, trim = {6cm 0 6cm 1cm}, clip]{poisson2d_3_error_projection}} \\
+			\subfloat{\includegraphics[scale = 0.35, trim = {6cm 0 6cm 1cm}, clip]{poisson2d_3_error_podg}}
+			\subfloat{\includegraphics[scale = 0.35, trim = {6cm 0 6cm 1cm}, clip]{poisson2d_3_error_podnn}}
+			
+			\caption{}
+			\label{}
+		\end{figure}		
+	
+	\iffalse	
+	\section{The lid-driven cavity problem for the steady uncompressible Navier-Stokes equations}
+	\label{section:The lid-driven cavity problem for the steady uncompressible Navier-Stokes equations}
+	
+		In this section we tackle the reduced-basis modeling for the well-known lid-driven cavity problem for the uncompressible Navier-Stokes equations. The parametrized domain employed in the simulations is presented in Figure \ref{fig:dc-domain}; the Dirichlet conditions enforced on the velocity field at the boundary of the domain are reported. The shape of the domain is addressed by three parameters - $\mu_1$, $\mu_2 \in \big[ \nicefrac{\pi}{6}, \, \nicefrac{5 \pi}{6} \big]$ and $\mu_3 \in \big[ \nicefrac{\pi}{6}, \, \nicefrac{5 \pi}{6} \big]$.  Denoting by $\rho = \rho(\bg{\mu})$ and $\nu = \nu(\bg{\mu})$ the density and the dynamic viscosity of the fluid, respectively, the Reynold's number $Re$ reads:
+		\begin{equation}
+			Re = \dfrac{\rho(\bg{\mu}) \max \big\lbrace \mu_1, \, \mu_2 \big\rbrace}{\nu(\bg{\mu})} \, .
+		\end{equation}
+		In our simulations, for any $\bg{\mu} \in \mathcal{P}$ we set $\rho(\bg{\mu}) \equiv 1$ and we adapt $\nu(\bg{\mu})$ so that the Reynold's number is either $Re = 200$ or $Re = 400$. We point out that these values for the Reynold's number have been carefully chosen so that the flow can be reasonably considered steady.
+		
+		Concerning the POD-NN method, for a given Reynold's number we now need to train two different neural networks - one for the velocity and one for the pressure field. In particular, we have discussed in Section \ref{section:Application to the steady Navier-Stokes equations} about the necessity to enrich the velocity reduced space by means of $L_{\bg{s}}$ well-chosen supremizer functions in order to fulfil the inf-sup condition \eqref{eq:inf-sup-ns-reduced} also at the reduced level; in our simulations, we set $L_{\bg{v}} = L_{\bg{s}} = L_p$. hence, since the supremizers simply serve to retain the stability of the Galerkin-POD method, one can disregard them within the POD-NN framework, and consider for any snapshot $\mathbf{u}_h(\bg{\mu})$ its projection onto the (non-enriched) velocity space $V_{\texttt{rb}}^{\bg{v}}$. 
+		
+		\begin{figure}[H]
+			\center
+			\includegraphics[scale = 0.75]{dc_domain}
+			\hspace*{1cm}
+			\includegraphics[scale = 0.75]{dc_domain_bc}
+			
+			\caption{Computational domain (\emph{left}) and enforced velocity at the boundaries (\emph{right}) for the lid-driven cavity problem for the uncompressible Navier-Stokes equations.}
+			\label{}
+		\end{figure}
+		
+		\begin{figure}[H]
+			\center
+			\includegraphics[scale = 0.44, trim = {2cm 9cm 1.5cm 3.5cm}, clip]{dc_200_vel_error_vs_rank}
+			\includegraphics[scale = 0.44, trim = {2cm 9cm 1.5cm 3.5cm}, clip]{dc_200_p_error_vs_rank}
+			
+			\caption{Convergence analysis for the velocity (\emph{left}) and the pressure (\emph{right}) field for the POD-G and POD-NN method applied to the lid-driven cavity problem with $Re = 200$.}
+			\label{}
+		\end{figure}
+		
+		\begin{figure}[H]
+			\center
+			\includegraphics[scale = 0.44, trim = {2cm 9cm 1.5cm 3.5cm}, clip]{dc_400_vel_error_vs_rank}
+			\includegraphics[scale = 0.44, trim = {2cm 9cm 1.5cm 3.5cm}, clip]{dc_400_p_error_vs_rank}
+			
+			\caption{Error analysis for the velocity (\emph{left}) and the pressure (\emph{right}) field for the POD-G and POD-NN method applied to the lid-driven cavity problem with $Re = 400$.}
+			\label{}
+		\end{figure}
+		
+		\begin{figure}[H]
+			\center
+			\includegraphics[scale = 0.43, trim = {1.5cm 9cm 1.5cm 3.5cm}, clip]{dc_200_vel_nn_convergence}
+			\includegraphics[scale = 0.43, trim = {1.5cm 9cm 1.5cm 3.5cm}, clip]{dc_400_vel_nn_convergence}
+			
+			\caption{Convergence analysis for the POD-NN method applied to the lid-driven cavity problem with $Re = 200$ (\emph{left}) and $Re = 400$ (\emph{right}). The results refer to neural networks trained to approximate the first $L = 35$ (for $Re = 200$) and $L = 40$ (for $Re = 400$) POD coefficients of the velocity field.}
+			\label{}
+		\end{figure}
+		
+		\begin{figure}[H]
+			\center
+			\includegraphics[scale = 0.43, trim = {1.5cm 9cm 1.5cm 3.5cm}, clip]{dc_200_time}
+			\includegraphics[scale = 0.43, trim = {1.5cm 9cm 1.5cm 3.5cm}, clip]{dc_400_time}
+			
+			\caption{Online run times for the POD-G and the POD-NN method applied to the lid-driven cavity problem with $Re = 200$ (\emph{left}) and $Re = 400$ (\emph{right}). The results refer to the following settings: $L_{\bg{v}} = 35$ and $H_1 = H_2 = 35$ for $Re = 200$, $L_{\bg{v}} = 40$ and $H_1 = H_2 = 40$ for $Re = 400$.}
+			\label{}
+		\end{figure}
+		\fi
 		
 	\begin{thebibliography}{50}
 	
@@ -2868,6 +3338,9 @@
 		
 		\bibitem{Fah88}
 		Fahlman, S. E. (1988). \emph{An empirical study of learning speed in back-propagation networks}. Technical Report CMU-CS-88-162, CMU.
+		
+		\bibitem{GMW81}
+		Gill, P. E., Murray, W., Wright, M. H. (1981). \emph{Practical optimization}. Academic Press.
 		
 		\bibitem{Hag94}
 		Hagan, M. T., Menhaj, M. B. (1994). \emph{Training feedforward networks with the Marquardt algorithm}. IEEE Transactions on Neural Networks, 5(6):989-993.
@@ -2928,6 +3401,9 @@
 		
 		\bibitem{MN16}
 		Manzoni, A., Negri, F. (2016). \emph{Automatic reduction of PDEs defined on domains with variable shape}. MATHICSE technical report, \'Ecole Polytechnique F\'ed\'erale de Lausanne.
+		
+		\bibitem{Mol93}
+		M\b{o}ller, M. D. (1993). \emph{A scaled conjugate gradient algorithm for fast supervised learning}. Neural Networks, 6:525-533.
 						
 		\bibitem{MR86}
 		McClelland, J. L., Rumelhart, D. E. (1986). \emph{Parallel Distributed Processing: Explorations in the Microstructure of Cognition}. Cambridge, UK: MIT Press.
