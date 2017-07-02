@@ -1,34 +1,42 @@
-\BOOKMARK [0][-]{chapter.1}{Introduction to neural networks}{}% 1
-\BOOKMARK [1][-]{section.1.1}{Biological motivation}{chapter.1}% 2
-\BOOKMARK [1][-]{section.1.2}{Artificial neural networks}{chapter.1}% 3
-\BOOKMARK [2][-]{subsection.1.2.1}{Neuronal model}{section.1.2}% 4
-\BOOKMARK [2][-]{subsection.1.2.2}{Network topologies: the feedforward neural network}{section.1.2}% 5
-\BOOKMARK [2][-]{subsection.1.2.3}{Training a multilayer feedforward neural network}{section.1.2}% 6
-\BOOKMARK [2][-]{subsection.1.2.4}{Practical considerations on the design of artificial neural networks}{section.1.2}% 7
-\BOOKMARK [0][-]{chapter.2}{Reduced basis methods for nonlinear partial differential equations}{}% 8
-\BOOKMARK [1][-]{section.2.1}{Parametrized nonlinear PDEs}{chapter.2}% 9
-\BOOKMARK [2][-]{subsection.2.1.1}{Nonlinear Poisson equation}{section.2.1}% 10
-\BOOKMARK [2][-]{subsection.2.1.2}{Steady Navier-Stokes equations}{section.2.1}% 11
-\BOOKMARK [1][-]{section.2.2}{From the original to the reference domain}{chapter.2}% 12
-\BOOKMARK [2][-]{subsection.2.2.1}{Change of variables formulae}{section.2.2}% 13
-\BOOKMARK [2][-]{subsection.2.2.2}{The problems of interest}{section.2.2}% 14
-\BOOKMARK [2][-]{subsection.2.2.3}{The boundary displacement-dependent transfinite map \(BDD TM\)}{section.2.2}% 15
-\BOOKMARK [1][-]{section.2.3}{Well-posedness of the test cases}{chapter.2}% 16
-\BOOKMARK [1][-]{section.2.4}{Finite element method}{chapter.2}% 17
-\BOOKMARK [2][-]{subsection.2.4.1}{Nonlinear Poisson equation}{section.2.4}% 18
-\BOOKMARK [2][-]{subsection.2.4.2}{Steady Navier-Stokes equations}{section.2.4}% 19
-\BOOKMARK [1][-]{section.2.5}{POD-Galerkin reduced basis method}{chapter.2}% 20
-\BOOKMARK [2][-]{subsection.2.5.1}{Proper Orthogonal Decomposition}{section.2.5}% 21
-\BOOKMARK [2][-]{subsection.2.5.2}{Implementation: details and issues}{section.2.5}% 22
-\BOOKMARK [2][-]{subsection.2.5.3}{Application to the steady Navier-Stokes equations}{section.2.5}% 23
-\BOOKMARK [1][-]{section.2.6}{A POD-based RB method using neural networks}{chapter.2}% 24
-\BOOKMARK [2][-]{subsection.2.6.1}{An a priori error analysis}{section.2.6}% 25
-\BOOKMARK [0][-]{chapter.3}{Numerical results}{}% 26
-\BOOKMARK [1][-]{section.3.1}{One-dimensional Poisson equation}{chapter.3}% 27
-\BOOKMARK [2][-]{subsection.3.1.1}{Linear test case}{section.3.1}% 28
-\BOOKMARK [2][-]{subsection.3.1.2}{Nonlinear test case, two parameters}{section.3.1}% 29
-\BOOKMARK [2][-]{subsection.3.1.3}{Nonlinear test case, three parameters}{section.3.1}% 30
-\BOOKMARK [1][-]{section.3.2}{Two-dimensional Poisson equation}{chapter.3}% 31
-\BOOKMARK [2][-]{subsection.3.2.1}{Linear test case}{section.3.2}% 32
-\BOOKMARK [2][-]{subsection.3.2.2}{Nonlinear test case, two parameters}{section.3.2}% 33
-\BOOKMARK [2][-]{subsection.3.2.3}{Nonlinear test case, three parameters}{section.3.2}% 34
+\BOOKMARK [0][-]{figure.caption.2}{Abstract}{}% 1
+\BOOKMARK [0][-]{figure.caption.2}{Sommario}{}% 2
+\BOOKMARK [0][-]{chapter*.3}{List of Figures}{}% 3
+\BOOKMARK [0][-]{chapter*.4}{List of Algorithms}{}% 4
+\BOOKMARK [0][-]{chapter*.6}{Introduction}{}% 5
+\BOOKMARK [0][-]{chapter.1}{Biological and artificial neural networks}{}% 6
+\BOOKMARK [1][-]{section.1.1}{Biological motivation}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.2}{Artificial neural networks}{chapter.1}% 8
+\BOOKMARK [2][-]{subsection.1.2.1}{Neuronal model}{section.1.2}% 9
+\BOOKMARK [2][-]{subsection.1.2.2}{Network topologies: the feedforward neural network}{section.1.2}% 10
+\BOOKMARK [2][-]{subsection.1.2.3}{Training a multi-layer feedforward neural network}{section.1.2}% 11
+\BOOKMARK [2][-]{subsection.1.2.4}{Practical considerations on the design of artificial neural networks}{section.1.2}% 12
+\BOOKMARK [0][-]{chapter.2}{Reduced basis methods for nonlinear partial differential equations}{}% 13
+\BOOKMARK [1][-]{section.2.1}{Parametrized nonlinear PDEs}{chapter.2}% 14
+\BOOKMARK [2][-]{subsection.2.1.1}{Nonlinear Poisson equation}{section.2.1}% 15
+\BOOKMARK [2][-]{subsection.2.1.2}{Steady Navier-Stokes equations}{section.2.1}% 16
+\BOOKMARK [1][-]{section.2.2}{From the original to the reference domain}{chapter.2}% 17
+\BOOKMARK [2][-]{subsection.2.2.1}{Change of variables formulae}{section.2.2}% 18
+\BOOKMARK [2][-]{subsection.2.2.2}{The problems of interest}{section.2.2}% 19
+\BOOKMARK [2][-]{subsection.2.2.3}{The boundary displacement-dependent transfinite map \(BDD TM\)}{section.2.2}% 20
+\BOOKMARK [1][-]{section.2.3}{Well-posedness of the test cases}{chapter.2}% 21
+\BOOKMARK [1][-]{section.2.4}{Finite element method}{chapter.2}% 22
+\BOOKMARK [2][-]{subsection.2.4.1}{Nonlinear Poisson equation}{section.2.4}% 23
+\BOOKMARK [2][-]{subsection.2.4.2}{Steady Navier-Stokes equations}{section.2.4}% 24
+\BOOKMARK [1][-]{section.2.5}{POD-Galerkin reduced basis method}{chapter.2}% 25
+\BOOKMARK [2][-]{subsection.2.5.1}{Proper Orthogonal Decomposition}{section.2.5}% 26
+\BOOKMARK [2][-]{subsection.2.5.2}{Implementation: details and issues}{section.2.5}% 27
+\BOOKMARK [2][-]{subsection.2.5.3}{Application to the steady Navier-Stokes equations}{section.2.5}% 28
+\BOOKMARK [1][-]{section.2.6}{A POD-based RB method using neural networks}{chapter.2}% 29
+\BOOKMARK [2][-]{subsection.2.6.1}{An a priori error analysis}{section.2.6}% 30
+\BOOKMARK [0][-]{chapter.3}{Numerical results}{}% 31
+\BOOKMARK [1][-]{section.3.1}{One-dimensional Poisson equation}{chapter.3}% 32
+\BOOKMARK [2][-]{subsection.3.1.1}{Linear test case}{section.3.1}% 33
+\BOOKMARK [2][-]{subsection.3.1.2}{Nonlinear test case, two parameters}{section.3.1}% 34
+\BOOKMARK [2][-]{subsection.3.1.3}{Nonlinear test case, three parameters}{section.3.1}% 35
+\BOOKMARK [1][-]{section.3.2}{Two-dimensional Poisson equation}{chapter.3}% 36
+\BOOKMARK [2][-]{subsection.3.2.1}{Linear test case}{section.3.2}% 37
+\BOOKMARK [2][-]{subsection.3.2.2}{Nonlinear test case, two parameters}{section.3.2}% 38
+\BOOKMARK [2][-]{subsection.3.2.3}{Nonlinear test case, three parameters}{section.3.2}% 39
+\BOOKMARK [1][-]{section.3.3}{The lid-driven cavity problem}{chapter.3}% 40
+\BOOKMARK [0][-]{chapter*.51}{Conclusion}{}% 41
+\BOOKMARK [0][-]{chapter*.52}{Acknowledgements / Ringraziamenti}{}% 42

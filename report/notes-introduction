@@ -1,0 +1,267 @@
+NOTES FOR INTRODUCTION
+
+AMSALLEM
+
+While CFD-based aeroelastic computations have
+accurately predicted the correct behavior of full aircraft in the subsonic, transonic
+and supersonic regimes, the associated high computational cost has prevented these
+methods to be integrated in routine analysis. This is even the case for flutter which
+can be treated as a linearized problem, and therefore is less extensive to solve than
+nonlinear problems
+
+routine analysis and flutter clearance involve parameter varia-
+tions and most if not all ROMs lack robustness with respect to parameter changes.
+ivTherefore, performing computations with ROMs calls for reconstructing a new ROM
+every time a new configuration is considered. However, such a reconstruction can be
+a computationally intensive process since the high-fidelity model is involved.
+
+ROMs and their corresponding reduced-order bases are
+quantities that typically belong to nonlinear, matrix manifolds. As such, classical in-
+terpolation methods fail, as they are not able to enforce the constraints characterizing
+those manifolds
+
+The proposed method enables test operation calls for
+new, “last minute” flight configurations and thus paves the way for on-line, routine
+usage of reduced-order modeling including during flight testing
+
+prime interest
+
+In order to tackle this CPU cost issue, Reduced-Order Modeling (ROM) methods
+have seen a growing interest in the aeroelasticity community since the end of the 90s.
+The high CPU burden associated with CFD-based techniques is indeed incurred by the
+large number of degrees of freedom (DOFs) resulting from the spatial discretization
+needed to accurately solve the underlying Partial Differential Equations (PDEs). As
+smaller number of degrees of freedom are involved, ROMs are however capable ofThis
+is obviously an important limitation on reduced-order modeling since, due to this
+non-robustness, a ROM can only be useful at the point it has been built at
+being operated in near real-time. For this reason, and because they can be sufficiently
+accurate, ROMs are often sought-after for many applications pertaining to design [3],
+design optimization [4], control [5] and dynamic data-driven systems [6, 7], among
+others
+
+Unfortunately, design optimization, control, data-driven systems and many other
+applications typically involve parameter changes, and most if not all ROM technolo-
+gies lack robustness with respect to parameter variations.
+
+physical or modeling parameter
+
+Reconstruct-
+ing a ROM is however in many cases a computationally intensive proposition as it
+requires generating solutions of the high-fidelity model, solving matrix equations or
+computing eigenmodes of the high-fidelity operator. All these methods involve the
+large-dimensional model and, as such, lead to expensive computations.
+
+by-pass the expensive price
+associated with the use of the high-fidelity model.
+
+The ability of fast generation of ROMs for new values of parameters is also of
+great interest to the design and optimization communities, where many-queries-based
+methods are computationally demanding. As such, the scope of this thesis is not
+limited to routine analysis.
+
+---------------------------------------------------------------------------------------
+
+BALLARIN
+
+Several applications in physics or engineering need an efficient solution of parametrized partial
+differential equations (PDEs); this necessitates the computation of the solution of (possibly
+nonlinear) PDEs for several different “scenarios”
+
+guarantee efficiency, accuracy and reliability also when using ROMs
+
+POD was born to provide efficient model order reduction in turbulent viscous flow computa-
+tions, with the aim of preserving the most important energetic flow features
+
+The aim of this work is to use the RB framework in its state of the art formulation for the sta-
+ble and accurate approximation of flows in a POD setting, in order to improve the performance
+of this latter.
+
+In the offline stage of the
+resulting strategy, several Navier-Stokes truth solutions are computed, and a POD is performed
+to extract a low dimensional representation of both velocity and pressure spaces
+
+an online Galerkin projection over this enriched space can be performed online, in order to get a
+reduced-order approximation of both velocity and pressure fields
+
+algebraic formalism
+
+The key requirement for an efficient ROM evaluation
+is the capability to decouple the construction stage of the reduced-order space (offline) from
+the parametric evaluation stage (online), thus featuring the so-called Offline/Online decompo-
+sition. To meet this goal, we require that matrices and vectors appearing in (9)-(10) fulfil the
+assumption of affine parametric dependence
+
+when dealing with
+more general nonaffine parametrizations, an approximate affine expansion is usually recovered
+by means of the so-called empirical interpolation method (EIM)
+
+ROMs for solving parametrized PDEs are usually based upon a suitable and stable combination of
+“snapshot” FE solutions, thus aiming at building reduced spaces V N ⊂ V h , Q N ⊂ Q h of global
+approximation functions, for velocity and pressure, respectively. At least two approaches in
+the construction stage of the reduced basis can be pursued: greedy algorithms and Proper
+Orthogonal Decomposition [1]. In this paper we consider this latter
+ 
+drop out
+
+--------------------------------------------------------------------------------------------------
+
+BUFFA
+
+The reduced basis method is a discretization approach for the approximation of the solutions of parameter
+dependent partial differential equations. Some solutions are assumed to be known (or at least very well approx-
+imated by a classical discretization method) for certain, well chosen, parameters from a preliminary (offline)
+step; these solutions constitute the basis of the reduced basis method. The solution for (a large number of) new
+parameters is then approximated as a linear combination of the elements of this basis. Most often, this approxi-
+mation is based on the variational equivalent formulation of the problem, the reduced basis approximation then
+being defined through a Galerkin process. In previous works [3, 4] exponential convergence with respect to the
+number N of basis functions is proved for a one-dimensional parameter case, and numerical experiments [7–9]
+illustrate the same behavior (or even faster) even in situations where the dimension of the parameter space P
+is larger. This is the case only when the elements of the basis – i.e. the parameters in the offline process –
+are sufficiently well chosen. The offline selection of these parameters is critical and various methods have been
+proposed for this purpose. These methods differ in their essence, in their efficiency both in the offline stage
+and in the online stage, and in whether they rely on random arguments or deterministic frameworks such as
+principal component analysis or greedy algorithms.
+
+There is no reason why a reduced
+basis approach should be a viable alternative to classical discretizations such as finite element, finite volume
+or spectral methods in the most general case where the solutions do not depend smoothly with respect to the
+parameter
+
+---------------------------------------------------------------------------------------------------
+
+EFTANG
+
+boundary conditions, material properties, geometrical factors or loads
+
+For many engineering purposes, one is interested in the evaluation of certain
+physical averages, or outputs of interest, defined as functionals of the solution
+to a partial differential equation (PDE) that describes the underlying physical
+problem.
+
+may not be possible within the short space of time available
+
+To find the optimal (in the “energy-norm” sense) linear combination, a standard Galerkin projection is used
+
+Hence, if the expense of precomputing “truth approximations” to the snapshots
+– to which a standard finite or spectral element method is employed – can be
+justified, the reduced basis method may, given any μ ∈ D, drastically speed up
+the evaluation of the corresponding output of interest, s(μ)
+
+---------------------------------------------------------------------------------------------------
+
+DEPARIS
+
+“output of interest” which is a functional of the field variable u e (μ)
+
+discrete projection methods like finite element or spectral methods is simply too costly
+in the many-query and real-time contexts often of interest in engineering. Low-order
+models — we consider here reduced basis approximations — are increasingly popular in the 
+engineering analysis, parameter estimation, design optimization, and control contexts.
+
+Our own effort is dedicated to
+
+---------------------------------------------------------------------------------------------------
+
+CHEN
+
+Even though the ability to computationally model complex phenomena continues to increase, it re-
+mains challenging to many types of problems in optimization, design, control etc due to the need for
+a high number of computations for various parameters. To address this problem, the development of
+reduced-order method(ROM) [1, 2, 3, 4, 5, 6] that enables the approximated solutions with an acceptable
+loss of accuracy has gained a substantial interest as a compromise to solving the full problems. In reduced
+order models, the full problem is expressed by projecting the full system to a problem of specific subspace
+with much smaller degree of freedoms(DOFs). When properly chosen, this reduced linear space can
+adequately represent the dynamics of the full system under parameter variation at substantially reduced
+cost. Examples of some of these recent developments include proper orthogonal decomposition(POD)
+[7, 8], Harmonic Balance approach(HB)[9], and Volterra theory[10, 11].
+
+Although
+Projection-based ROMs are effective, it brings much inconvenience to compute projection coefficients,
+especially for complex nonlinear problems. Certainly this is not what we expect. To address this concern,
+there is a recent interest in non-intrusive ROMs[14] which seeks to develop ROMs based solely on access
+to snapshots. In other words, governing equations only play the role of providing snapshots and has
+nothing to do with the projection process.
+
+Apart from the desire to develop ROMs of a non-intrusive nature, it is likewise important to ensure
+the accuracy of the reduced models by carefully selecting the snapshots. Due to the variation of possible
+solutions, it is not possible to determine the optimal candidates to generate snapshots. One approach is
+to use a random strategy such as Latin Hypercube sampling or minimum discrepancy sequences[22, 23],
+CVT[24], Monte Carlo methods[25], Sparse Grid[26] etc to generate snapshots and manipulate these to
+recover a suitable basis, e.g., by the use of a singular value decomposition(SVD). However, to guarantee the
+accuracy of the reduced model, an excessive number of snapshots may be required, leading to unacceptable
+computational cost
+
+greedy algorithm in which case
+the snapshots are adaptively determined by finding the location in the predetermined parameter space
+at which the error estimator in the reduced model is maximum, quantifying the quality of the ROM
+
+Based on an approach set forward in [21], we first develop the
+non-intrusive ROM which employs a two-level approach for the construction of the spatial and temporal
+basis functions and estimates the undetermined coefficients of the reduced model by using a radial basis
+approximation(RBF)
+
+------------------------------------------------------------------------------------------------------------
+
+HESTHAVEN
+
+Models expressed as parametrized partial differential equations are ubiquitous
+throughout engineering and the applied sciences as models for unsteady and steady
+heat and mass transfer, acoustics, solid and fluid mechanics, electromagnetics or
+problems of finance. In such models a number of input-parameters are used to char-
+acterize a particular problem and possible variations in its geometric configuration,
+physical properties, boundary conditions or source terms. The parametrized model
+implicitly connects these input parameters to outputs of interest of the model, e.g.,
+a maximum system temperature, an added mass coefficient, a crack stress intensity
+factor, an effective constitutive property, a waveguide transmission loss, a channel
+flowrate or a pressure drop, etc
+
+we focus on problems in which the solution
+is sought for a large number of different parameter values. Examples of typical
+applications of relevance are optimization, control, design, uncertainty quantification,
+real time query and others. It is not only the accuracy of the model that matters,
+but the computational efficiency of the model is likewise critical.
+
+As we shall see soon, it is not the goal of the reduced basis methods to replace the
+expensive computational model but rather to build upon it. Indeed, the accuracy of
+the reduced model will be measured directly against the precision of the expensive
+computational model. This direct comparison against the expensive model that allows
+us to verify the accuracy of the reduced model and, thus, certify the validity of the
+predicted output. In other words, the goal is to pursue an algorithmic collaboration
+rather than an algorithmic competition with the expensive direct solution method.
+
+The central idea of the reduced basis approach is the identification of a suitable
+problem-dependent basis to effectively represent parametrized solutions to partial
+differential equations.
+
+Substantial recent efforts have been devoted to the development of techniques
+to formulate a posteriori error estimation procedures and rigorous error bounds for
+outputs of interest [20]. These a posteriori error bounds subsequently allow for the
+certification of the output of the reduced basis model for any parameter value.
+
+However, the development of effective sampling strategies, in particular in the
+case of many parameters [21–24], can also be aided by the error estimators. These
+can play an important role in the development of efficient and effective sampling
+procedures by utilizing inexpensive error bounds to explore much larger subsets of
+the parameter domain in search of the most representative snapshots, and to determine
+when the basis is sufficiently rich.
+
+the POD approach, relying on the
+identification of the suitable reduced model by a singular value decomposition of a
+large number of snapshots, is often prohibitively expensive in the offline phase
+
+Recent work has focused on achieving a full decoupling of the finite element
+scheme and the reduced order model through an offline-online procedure. In this
+approach, the complexity of the offline stage depends on the complexity of the finite
+element approximation of the parametrized partial differential equation, while the
+complexity of the online stage depends solely on the complexity of the reduced
+order model. When combined with the a posteriori error estimation, the online stage
+guarantees the accuracy of the high-fidelity finite element approximation at the low
+cost of a reduced order model.
+
+Reduced basis methods can be effectively applied also to nonlinear problems
+[69–71], although this typically introduces both numerical and theoretical compli-
+cations, and many questions remain open. For classical problems with a quadratic
+nonlinearity, there has been substantial progress, e.g., Navier-Stokes/Boussinesq and
+Burgers’ equations in fluid mechanics [19, 21, 23, 72–75] and nonlinear elasticity
+in solid mechanics.
+
